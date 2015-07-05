@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.50",
+  "version": "1.2.51",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -140,6 +140,7 @@
       "url": "https://wwwmtvplay-a.akamaihd.net/",
       "domain": "http://localhost:8080",
       "assets": {
+        "build.html": true,
         "build.js": true,
         "build.css": true,
         "img": "*",
@@ -310,13 +311,16 @@
     }
   },
   "gaston": {
-    "browserify-transforms": [
-      {
-        "path": "vigour-js/util/inform-transform",
-        "options": {
-          "global": "false"
+    "browserify": {
+      "transforms": [
+        {
+          "path": "vigour-js/util/inform-transform",
+          "options": {
+            "global": "false"
+          }
         }
-      }
-    ]
+      ]
+    },
+    "less": {}
   }
 }
