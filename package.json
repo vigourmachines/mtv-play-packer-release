@@ -6,7 +6,7 @@
   "scripts": {
     "start": "gaston -d",
     "test": "test/test.js",
-    "release": "./node_modules/.bin/packer -r -c .package.json"
+    "release": "packer -r -c package.json,.package.json"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,6 @@
     "js"
   ],
   "dependencies": {
-    "vigour-packer-server": "git+ssh://git@github.com:vigour-io/vigour-packer-server.git",
     "zepto-browserify": "x",
     "monotonic-timestamp": "0.0.9",
     "vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#dev",
