@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.51",
+  "version": "1.2.34",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   "dependencies": {
     "zepto-browserify": "x",
     "monotonic-timestamp": "0.0.9",
-    "vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#dev",
+    "vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#mtv-play",
     "lodash": "3.2.0",
     "promise": "6.1.0"
   },
@@ -225,7 +225,7 @@
         "development": {
           "button": false
         },
-        "cloud": "http://178.162.206.183:10004",
+        "cloud": "http://54.171.153.51:80",
         "regionOverride": "DE",
         "player": {
           "debug": false,
