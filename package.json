@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.34",
+  "version": "1.2.56",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vigour-io/mtv-play",
-    "branch": "newvigour"
+    "url": "https://github.com/vigour-io/mtv-play"
   },
   "keywords": [
     "multiscreen",
@@ -22,11 +21,12 @@
     "js"
   ],
   "dependencies": {
-    "zepto-browserify": "x",
-    "monotonic-timestamp": "0.0.9",
-    "vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#mtv-play",
     "lodash": "3.2.0",
-    "promise": "6.1.0"
+    "monotonic-timestamp": "0.0.9",
+    "promise": "6.1.0",
+    "through2": "^2.0.0",
+    "vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay",
+    "zepto-browserify": "x"
   },
   "devDependencies": {
     "vigour-dev-tools": "git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master"
@@ -140,7 +140,6 @@
       "url": "https://wwwmtvplay-a.akamaihd.net/",
       "domain": "http://localhost:8080",
       "assets": {
-        "build.html": true,
         "build.js": true,
         "build.css": true,
         "img": "*",
@@ -188,7 +187,7 @@
         "development": {
           "button": false
         },
-        "cloud": "http://178.162.206.183:10001",
+        "cloud": "http://mtvtest.dev.vigour.io:80",
         "player": {
           "debug": false,
           "web": "http://player.mtvnn.com/html5player/staging/player.js",
@@ -205,16 +204,10 @@
         "regionOverride": "DE"
       },
       "youzi-dev": {
-        "player": {
-          "settings": {
-            "ads": {}
-          }
-        },
         "facebook": {
           "id": "720547754665171"
         },
-        "cloud": "http://178.162.206.183:10001",
-        "regionOverride": "DE"
+        "cloud": "ws://localhost:10001"
       },
       "demo": {
         "api": {
@@ -225,7 +218,7 @@
         "development": {
           "button": false
         },
-        "cloud": "http://54.171.153.51:80",
+        "cloud": "http://178.162.206.183:10004",
         "regionOverride": "DE",
         "player": {
           "debug": false,
@@ -269,6 +262,13 @@
         "regionOverride": "DE"
       },
       "dev": {
+        "mtvmobile": [
+          "de",
+          "ch",
+          "ro",
+          "nl"
+        ],
+        "cloud": "http://mtv-hub.dev.vigour.io:80",
         "facebook": {
           "id": "720547754665171"
         },
@@ -276,13 +276,6 @@
           "domain": "http://dev.packer.mtv.vigour.io"
         },
         "regionOverride": "DE"
-      },
-      "newvigour": {
-        "cloud": "http://52.8.40.195:80",
-        "regionOverride": "DE",
-        "facebook": {
-          "id": "720547754665171"
-        }
       },
       "production": {
         "api": {
@@ -306,21 +299,45 @@
               "viralSID": "production"
             }
           }
+        },
+        "chromecast": {
+          "id": "30C914C1"
         }
       }
     }
   },
   "gaston": {
+    "port": 8080,
+    "socket-port": 9000,
+    "no-auto-reload": false,
+    "no-package": false,
+    "bundle": "./",
+    "build": "./",
     "browserify": {
       "transforms": [
         {
-          "path": "vigour-js/util/inform-transform",
+          "path": "package-branch-config",
           "options": {
-            "global": "false"
+            "section": "vigour"
           }
         }
       ]
     },
-    "less": {}
+    "less": {
+      "options": {
+          "strictMath": false
+      }
+    },
+    "remote-logging": false,
+    "require-paths": {
+      "dtv": "src",
+      "shared": "src/components/shared",
+      "dtv-components": "src/components",
+      "dtv-active": "src/components/active",
+      "dtv-item": "src/components/active/content-item",
+      "dtv-channel": "src/components/active/content-item/channel",
+      "dtv-episode": "src/components/active/content-item/episode",
+      "dtv-movie": "src/components/active/content-item/movie"
+    }
   }
 }
