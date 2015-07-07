@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.56",
+  "version": "1.2.59",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -98,20 +98,23 @@
     "epg": "https://wwwmtvplay-a.akamaihd.net/xhr/index.html",
     "img": "https://imgmtvplay-a.akamaihd.net",
     "api": {
+      "type": "production",
+      "url": "https://utt.mtvnn.com/",
       "acceptHeader": "application/json",
-      "type": "staging",
-      "url": "http://utt-staging.mtvnn.com/",
       "key": "4e99c9381b74354fbae9f468497912f0"
     },
     "player": {
-      "debug": true,
-      "web": "http://origin-player.mtvnn.com/html5player/development/player.js",
+      "debug": false,
+      "web": "http://player.mtvnn.com/html5player/production/player.js",
       "settings": {
         "domain": "mtv",
         "tld": "de",
         "localization": {
           "language": "de",
           "country": "DE"
+        },
+        "ads": {
+          "viralSID": "production"
         },
         "controls": false,
         "blankVideo": "http://player.mtvnn.com/codebase/blank.m4v",
@@ -128,7 +131,7 @@
       }
     },
     "chromecast": {
-      "id": "131DED4D",
+      "id": "30C914C1",
       "web": "https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"
     },
     "facebook": {
@@ -138,7 +141,7 @@
     "packer": {
       "language": "https://wwwmtvplay-a.akamaihd.net/translations/",
       "url": "https://wwwmtvplay-a.akamaihd.net/",
-      "domain": "http://localhost:8080",
+      "domain": "http://mtvplay.tv",
       "assets": {
         "build.html": true,
         "build.js": true,
@@ -279,30 +282,11 @@
         "regionOverride": "DE"
       },
       "production": {
-        "api": {
-          "type": "production",
-          "url": "https://utt.mtvnn.com/"
-        },
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
         "omniture": "viaviamtvplay",
         "development": {
           "button": false
-        },
-        "packer": {
-          "domain": "http://mtvplay.tv"
-        },
-        "player": {
-          "debug": false,
-          "web": "http://player.mtvnn.com/html5player/production/player.js",
-          "settings": {
-            "ads": {
-              "viralSID": "production"
-            }
-          }
-        },
-        "chromecast": {
-          "id": "30C914C1"
         }
       }
     }
@@ -315,18 +299,16 @@
     "bundle": "./",
     "build": "./",
     "browserify": {
-      "transforms": [
-        {
-          "path": "package-branch-config",
-          "options": {
-            "section": "vigour"
-          }
+      "transforms": [{
+        "path": "package-branch-config",
+        "options": {
+          "section": "vigour"
         }
-      ]
+      }]
     },
     "less": {
       "options": {
-          "strictMath": false
+        "strictMath": false
       }
     },
     "remote-logging": false,
