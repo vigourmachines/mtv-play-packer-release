@@ -10,7 +10,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vigour-io/mtv-play"
+    "url": "https://github.com/vigour-io/mtv-play",
+    "branch":"sebastian"
   },
   "keywords": [
     "multiscreen",
