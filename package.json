@@ -145,7 +145,8 @@
         "build.css": true,
         "img": "*",
         "assets": "*",
-        "fonts.css": true
+        "fonts.css": true,
+        "fonts": "*"
       },
       "transforms": {
         "build.js": [
