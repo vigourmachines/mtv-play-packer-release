@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.60",
+  "version": "1.2.61",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -222,7 +222,7 @@
         "development": {
           "button": false
         },
-        "cloud": "http://54.171.153.51:80",
+        "cloud": "http://demohub.dev.vigour.io:80",
         "regionOverride": "DE",
         "player": {
           "debug": false,
@@ -325,18 +325,5 @@
       "dtv-episode": "src/components/active/content-item/episode",
       "dtv-movie": "src/components/active/content-item/movie"
     }
-  },
-  "gaston": {
-    "browserify": {
-      "transforms": [
-        {
-          "path": "vigour-js/util/inform-transform",
-          "options": {
-            "global": "false"
-          }
-        }
-      ]
-    },
-    "less": {}
   }
 }
