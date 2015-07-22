@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.61",
+  "version": "1.2.60",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -55,7 +55,7 @@
     "development": {
       "button": true
     },
-    "cloud": "http://178.162.206.183:10002",
+    "cloud": "http://mtv-hub.dev.vigour.io:80",
     "othercloud": "http://localhost:10001",
     "languages": [
       "en",
@@ -145,9 +145,7 @@
         "build.js": true,
         "build.css": true,
         "img": "*",
-        "assets": "*",
-        "fonts": "*",
-        "fonts.css": true
+        "assets": "*"
       },
       "transforms": {
         "build.js": [
@@ -207,12 +205,6 @@
         },
         "regionOverride": "DE"
       },
-      "youzi-dev": {
-        "facebook": {
-          "id": "720547754665171"
-        },
-        "cloud": "ws://localhost:10001"
-      },
       "demo": {
         "api": {
           "type": "production",
@@ -235,25 +227,6 @@
         },
         "packer": {
           "domain": "http://demo.packer.mtv.vigour.io"
-        }
-      },
-      "master": {
-        "development": {
-          "button": false
-        },
-        "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
-        "cloud": "production",
-        "player": {
-          "debug": false,
-          "web": "http://player.mtvnn.com/html5player/production/player.js",
-          "settings": {
-            "ads": {
-              "enabled": false
-            }
-          }
-        },
-        "packer": {
-          "domain": "http://master.packer.mtv.vigour.io"
         }
       },
       "jim": {
@@ -288,6 +261,23 @@
         "development": {
           "button": false
         }
+      },
+      "develop": {
+        "cloud": "http://mtv-hub.dev.vigour.io:80",
+        "facebook": {
+          "id": "720547754665171"
+        },
+        "packer": {
+          "domain": "http://dev.packer.mtv.vigour.io"
+        }
+      },
+      "master": {
+        "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
+        "cloud": "production",
+        "omniture": "viaviamtvplay",
+        "development": {
+          "button": false
+        }
       }
     }
   },
@@ -299,31 +289,19 @@
     "bundle": "./",
     "build": "./",
     "browserify": {
-      "transforms": [
-        {
-          "path": "package-branch-config",
-          "options": {
-            "section": "vigour"
-          }
+      "transforms": [{
+        "path": "package-branch-config",
+        "options": {
+          "section": "vigour"
         }
-      ]
+      }]
     },
     "less": {
-      "options": {
-        "strictMath": false
-      }
+      "options": {}
     },
-    "remote-logging": false,
+    "smaps": true,
     "source-maps": true,
-    "require-paths": {
-      "dtv": "src",
-      "shared": "src/components/shared",
-      "dtv-components": "src/components",
-      "dtv-active": "src/components/active",
-      "dtv-item": "src/components/active/content-item",
-      "dtv-channel": "src/components/active/content-item/channel",
-      "dtv-episode": "src/components/active/content-item/episode",
-      "dtv-movie": "src/components/active/content-item/movie"
-    }
+    "remote-logging": true,
+    "require-paths": {}
   }
 }
