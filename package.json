@@ -30,7 +30,8 @@
     "zepto-browserify": "x"
   },
   "devDependencies": {
-    "vigour-dev-tools": "git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master"
+    "vigour-dev-tools": "git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master",
+    "vigour-packer-server": "git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"
   },
   "author": "Jim de Beer",
   "license": "other",
@@ -146,8 +147,8 @@
         "build.css": true,
         "img": "*",
         "assets": "*",
-        "fonts": "*",
-        "fonts.css": true
+        "googleebecff275dd42f4a.html":true,
+        "google2c4a46fac7686373.html":true
       },
       "transforms": {
         "build.js": [
@@ -207,12 +208,6 @@
         },
         "regionOverride": "DE"
       },
-      "youzi-dev": {
-        "facebook": {
-          "id": "720547754665171"
-        },
-        "cloud": "ws://localhost:10001"
-      },
       "demo": {
         "api": {
           "type": "production",
@@ -237,34 +232,6 @@
           "domain": "http://demo.packer.mtv.vigour.io"
         }
       },
-      "master": {
-        "development": {
-          "button": false
-        },
-        "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
-        "cloud": "production",
-        "player": {
-          "debug": false,
-          "web": "http://player.mtvnn.com/html5player/production/player.js",
-          "settings": {
-            "ads": {
-              "enabled": false
-            }
-          }
-        },
-        "packer": {
-          "domain": "http://master.packer.mtv.vigour.io"
-        }
-      },
-      "jim": {
-        "cloud": "ws://localhost:10001"
-      },
-      "shawn-dev": {
-        "facebook": {
-          "id": "720547754665171"
-        },
-        "regionOverride": "DE"
-      },
       "dev": {
         "mtvmobile": [
           "de",
@@ -282,6 +249,14 @@
         "regionOverride": "DE"
       },
       "production": {
+        "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
+        "cloud": "production",
+        "omniture": "viaviamtvplay",
+        "development": {
+          "button": false
+        }
+      },
+      "master": {
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
         "omniture": "viaviamtvplay",
@@ -309,21 +284,11 @@
       ]
     },
     "less": {
-      "options": {
-        "strictMath": false
-      }
+      "options": {}
     },
+    "smaps": false,
+    "source-maps": false,
     "remote-logging": false,
-    "source-maps": true,
-    "require-paths": {
-      "dtv": "src",
-      "shared": "src/components/shared",
-      "dtv-components": "src/components",
-      "dtv-active": "src/components/active",
-      "dtv-item": "src/components/active/content-item",
-      "dtv-channel": "src/components/active/content-item/channel",
-      "dtv-episode": "src/components/active/content-item/episode",
-      "dtv-movie": "src/components/active/content-item/movie"
-    }
+    "require-paths": {}
   }
 }
