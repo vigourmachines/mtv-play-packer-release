@@ -146,6 +146,7 @@
         "build.js": true,
         "build.css": true,
         "fonts.css":true,
+        "fonts":"*",
         "img": "*",
         "assets": "*",
         "googleebecff275dd42f4a.html":true,
