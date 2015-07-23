@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.60",
+  "version": "1.2.61",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,8 @@
     "zepto-browserify": "x"
   },
   "devDependencies": {
-    "vigour-dev-tools": "git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master"
+    "vigour-dev-tools": "git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master",
+    "vigour-packer-server": "git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"
   },
   "author": "Jim de Beer",
   "license": "other",
@@ -145,7 +146,9 @@
         "build.js": true,
         "build.css": true,
         "img": "*",
-        "assets": "*"
+        "assets": "*",
+        "fonts": "*",
+        "fonts.css": true
       },
       "transforms": {
         "build.js": [
