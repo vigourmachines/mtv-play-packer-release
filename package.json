@@ -232,15 +232,6 @@
           "domain": "http://demo.packer.mtv.vigour.io"
         }
       },
-      "jim": {
-        "cloud": "ws://localhost:10001"
-      },
-      "shawn-dev": {
-        "facebook": {
-          "id": "720547754665171"
-        },
-        "regionOverride": "DE"
-      },
       "dev": {
         "mtvmobile": [
           "de",
