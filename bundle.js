@@ -31322,167 +31322,179 @@ if(cases.touch){
   }
 }
 },{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","../favourite":"/Users/youzi/dev/mtv-play/components/first/favourite/index.js","./list":"/Users/youzi/dev/mtv-play/components/first/show/list.js","./seasons":"/Users/youzi/dev/mtv-play/components/first/show/seasons.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/show/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/index.js","vigour-js/browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/util.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/components/first/shows/index.js":[function(require,module,exports){
-var Element = require('vigour-js/app/ui/element')
-  , Overview = require('../overview')
-  , cases = require('vigour-js/browser/cases')
-  , Icon = require('../../icon')
-  , display = require('vigour-js/browser/element/properties/collection/display')
-  , Player = require('../../player')
-  , app = require('vigour-js/app/')
+var Element = require('vigour-js/app/ui/element'),
+  Overview = require('../overview'),
+  cases = require('vigour-js/browser/cases'),
+  Icon = require('../../icon'),
+  display = require('vigour-js/browser/element/properties/collection/display'),
+  Player = require('../../player'),
+  app = require('vigour-js/app/')
 
-function favoTransform( v, cv ) {
-  var keys = cv && cv.keys
-    , block = v._parent._parent._val === 'block'
+function favoTransform(v, cv) {
+  var keys = cv && cv.keys,
+    block = v._parent._parent._val === 'block'
 
   return (keys && keys.length && block) ? 'block' : 'none'
 }
 
-var showItems = new Overview.Items(
-{ pageheader:
-  { text: 
-    { dictionary: 'text.nav.shows', touch:'a - z' 
+var showItems = new Overview.Items({
+  pageheader: {
+    text: {
+      dictionary: 'text.nav.shows',
+      touch: 'a - z'
     }
-  }
-, collection:
-  { data:'shows'
-  , filter:
-    { condition: { title:{ $contains:'' } } 
-    , sort:'title' 
-    }
-  , option:display
-  , element:new Overview.Item(
-    { 'events.click':function(){
-        this.checkParent('on.show',true).$userOrigin = this.data.from
+  },
+  collection: {
+    data: 'shows',
+    filter: {
+      condition: {
+        title: {
+          $contains: ''
+        }
+      },
+      sort: 'title'
+    },
+    option: display,
+    element: new Overview.Item({
+      'events.click': function() {
+        this.checkParent('on.show', true).$userOrigin = this.data.from
       }
     })
-  }
-, model:
-  { subscription: { $: { $:true } } 
+  },
+  model: {
+    subscription: {
+      $: {
+        $: true
+      }
+    }
   }
 })
 
-var favouriteItems = new Overview.Items(
-{ pageheader:
-  { 'text.dictionary': 'text.favorites'
-  }
-, collection:
-  { data:'favourites'
-  , option:display
-  , element:new Overview.Item(
-    { desktop:
-      { css:{addClass:'favo-item'}
-      , thumb:
-        { w:{sub:15,multiply:1/2}
-        , h:{self:'w',divide:4/3}
-        }
-      , info:false
-      }
-    , 'events.click':function(){
-        this.checkParent('on.show',true).$userOrigin = this.data.from
+var favouriteItems = new Overview.Items({
+  pageheader: {
+    'text.dictionary': 'text.favorites'
+  },
+  collection: {
+    data: 'favourites',
+    option: display,
+    element: new Overview.Item({
+      desktop: {
+        css: {
+          addClass: 'favo-item'
+        },
+        thumb: {
+          w: {
+            sub: 15,
+            multiply: 1 / 2
+          },
+          h: {
+            self: 'w',
+            divide: 4 / 3
+          }
+        },
+        info: false
+      },
+      'events.click': function() {
+        this.checkParent('on.show', true).$userOrigin = this.data.from
       }
     })
-  }
-, '!touch':
-  { display:
-    { val: 'block'
-    , transform:
-      { data:'favourites'
-      , transform: favoTransform
+  },
+  '!touch': {
+    display: {
+      val: 'block',
+      transform: {
+        data: 'favourites',
+        transform: favoTransform
       }
     }
-  }
-, touch:
-  { pageheader:
-    { display:
-      { val: 'block'
-      , transform:
-        { data:'favourites'
-        , transform: favoTransform
+  },
+  touch: {
+    pageheader: {
+      display: {
+        val: 'block',
+        transform: {
+          data: 'favourites',
+          transform: favoTransform
         }
       }
-    }
-  , message:new Icon(
-    { icon:'favoriteadd'
-    , 'text.dictionary': 'text.noFavos'
-    , display:
-      { data:'favourites' ,transform: function( v, cv) {
-           var keys = cv && cv.keys && cv.keys.length
-           return !keys ? 'block' : 'none'
+    },
+    message: new Icon({
+      icon: 'favoriteadd',
+      'text.dictionary': 'text.noFavos',
+      display: {
+        data: 'favourites',
+        transform: function(v, cv) {
+          var keys = cv && cv.keys && cv.keys.length
+          return !keys ? 'block' : 'none'
         }
       }
     })
   }
 })
 
-module.exports = new Overview(
-{ search:require('../../text/search')
-, on:
-  { $render:
-    { defer:function( update ){
+module.exports = new Overview({
+  search: require('../../text/search'),
+  on: {
+    $render: {
+      defer: function(update) {
         var caller = this._parent._caller
 
-        if( cases.desktop )
-        {
-          ( caller._parent = caller.parent ).addEvent(
-            'scroll'
-            , function(){
+        if (cases.desktop) {
+          (caller._parent = caller.parent).addEvent(
+            'scroll',
+            function() {
               // console.log('party no no')
-            }
-            ,'overviewScroll'
+            }, 'overviewScroll'
           )
-        }
-        else
-        {
-          window.requestAnimationFrame(function(){
-            if(caller._node)
-            { caller.node.scrollTop = exports.scrollTop || cases.touch && 1
+        } else {
+          window.requestAnimationFrame(function() {
+            if (caller._node) {
+              caller.node.scrollTop = exports.scrollTop || cases.touch && 1
               caller.events.scroll._val.call(caller, false)
             }
           })
         }
 
-        caller.set(
-        { on:
-          { connect:cases.$hasReceiver
+        caller.set({
+          on: {
+            connect: cases.$hasReceiver
           }
         })
 
         update()
       }
-    }
-  , $remove: cases.desktop
-    && { defer:function( update ){
-          var caller = this._parent._caller
-          caller._parent.removeEvent( false,'overviewScroll' )
-          update()
-        }
-      }
-  , connect:
-    { defer:function( update ){
+    },
+    $remove: cases.desktop && {
+      defer: function(update) {
         var caller = this._parent._caller
-        caller.events.scroll._val.call( caller, false )
+        caller._parent.removeEvent(false, 'overviewScroll')
+        update()
+      }
+    },
+    connect: {
+      defer: function(update) {
+        var caller = this._parent._caller
+        caller.events.scroll._val.call(caller, false)
         update()
       }
     }
-  }
-, favos:favouriteItems
-, items:showItems
-, events:
-  { scroll:function(e){ // << accoutnt for search etc!!
+  },
+  favos: favouriteItems,
+  items: showItems,
+  events: {
+    scroll: function(e) { // << accoutnt for search etc!!
       var scrollTop = this.node.scrollTop
-      if(e !== false) exports.scrollTop = scrollTop
-      if(!cases.$hasReceiver.val) return
-      if(this && this.items)
-      {
-        var items = this.items.children
-          , length = items.length
+      if (e !== false) exports.scrollTop = scrollTop
+      if (!cases.$hasReceiver.val) return
+      if (this && this.items) {
+        var items = this.items.children,
+          length = items.length
 
-        if(this._k === void 0 || this._l !== length)
-        { //gen keys in correct order
+        if (this._k === void 0 || this._l !== length) { //gen keys in correct order
           var arr = []
           for (var i = items.length - 1; i >= 0; i--) {
             var data = items[i].data
-            if(data) arr.unshift(data._name)
+            if (data) arr.unshift(data._name)
           }
           this._k = arr
           this._h = this.node.offsetHeight
@@ -31491,43 +31503,43 @@ module.exports = new Overview(
           this._l = length
         }
 
-        var holdersize = this._h
-          , start = this._s
-          , totalsize = this._sh
-          , keys = this._k
+        var holdersize = this._h,
+          start = this._s,
+          totalsize = this._sh,
+          keys = this._k
 
-        if( start > scrollTop )
-        {
+        if (start > scrollTop) {
           holdersize -= start - scrollTop
         }
 
-        this.data.highlight.$userOrigin = getHighlight( holdersize, totalsize, scrollTop - start, keys )
+        this.data.highlight.$userOrigin = getHighlight(holdersize, totalsize, scrollTop - start, keys)
       }
     }
-  }
-, model:
-  { complete:function(){
-      this.model = {complete:null}
+  },
+  model: {
+    complete: function() {
+      this.model = {
+        complete: null
+      }
       this.node.scrollTop = exports.scrollTop || cases.touch && 1
       this.events.scroll._val.call(this, false)
+    }
   }
-}
 }).Class
 
-function getHighlight(holdersize, totalsize, scrollpos, datakeys){
-  var proportion = holdersize/totalsize
-    , position = scrollpos/totalsize
-    
-    , length = datakeys.length
-    , index = Math.round(length * position)
-    , end = index + Math.round(length * proportion)
+function getHighlight(holdersize, totalsize, scrollpos, datakeys) {
+  var proportion = holdersize / totalsize,
+    position = scrollpos / totalsize
 
-  if(index < 0){
+  , length = datakeys.length, index = Math.round(length * position), end = index + Math.round(length * proportion)
+
+  if (index < 0) {
     end += -index
     index = 0
   }
-  return datakeys.slice(index,end).join('.')
+  return datakeys.slice(index, end).join('.')
 }
+
 },{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../player":"/Users/youzi/dev/mtv-play/components/player/index.js","../../text/search":"/Users/youzi/dev/mtv-play/components/text/search.js","../overview":"/Users/youzi/dev/mtv-play/components/first/overview/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/element/properties/collection/display":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/collection/display.js"}],"/Users/youzi/dev/mtv-play/components/first/style.less":[function(require,module,exports){
 arguments[4]["/Users/youzi/dev/gaston/lib/browser/styles.less"][0].apply(exports,arguments)
 },{}],"/Users/youzi/dev/mtv-play/components/first/switcher/index.js":[function(require,module,exports){
@@ -36853,14 +36865,7 @@ module.exports = exports = new Page(
       , button:new Button(
         { 'text.dictionary':'intro.free.button'
         , 'events.click':function(){
-
-            // if( app.cases.hasMobile.val ) {
-            //   this.checkParent('on.popup', true).from = 'getStarted'
-            // } else {
-            //   this.checkParent('on.popup', true).from.previous = 'intro'
-              this.checkParent('on.popup', true).from = 'getStartedContinue'
-            // }
-            // this.checkParent('on.popup', true).from = 'getStarted'
+            this.checkParent('on.popup', true).from = 'getStartedContinue'
           }
         })
       }
