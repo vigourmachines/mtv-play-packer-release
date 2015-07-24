@@ -11813,9 +11813,6 @@ function setTime (val, force) {
 }
 
 function createPlayer(t, cb) {
-
-  void(0)
-
   if( typeof VIACOM === 'undefined' ){
     app.api.player.once('success',function(){
       exports.settings = app.api.player.settings
@@ -11828,8 +11825,6 @@ function createPlayer(t, cb) {
   t.addEvent( 'down', function( e ){
     if( !cases.$isPlayingAd.val ) e.preventDefault()
   })
-
-  void(0)
 
   if( t.data && t.data.media ) {
     if( t.data.media.from.videolang ) {
@@ -11862,8 +11857,6 @@ function createPlayer(t, cb) {
     exports.settings.ads.enabled = false
   }
 
-  void(0)
-
   t.jqHandle = new VIACOM.Mediaplayer(
     '.video'
     , exports.settings
@@ -11873,16 +11866,8 @@ function createPlayer(t, cb) {
     , app.api.player.debug
   )
 
-   // domLogger('playerCreated')
-
-  void(0)
-
   t.jqHandle.addEventListener('error', function( error ){
     void(0)
-  })
-
-  t.jqHandle.addEventListener('play', function( error ){
-    // console.error( 'play!!' )
   })
 
   t.jqHandle.addEventListener('ended', function( e ){
@@ -11901,20 +11886,6 @@ function createPlayer(t, cb) {
     cases.$isPlayingAd.val = false
   })
 
-  t.node.addEventListener('webkitendfullscreen', function (e) { 
-    // handle end full screen 
-    void(0)
-  });
-
-  // t.jqHandle.addEventListener('contentPlayback:started', function( e ){
-  //   var video = t.jqHandle.proxy.player && t.jqHandle.proxy.player.video
-  //   if( video ) 
-  //   {
-  //     t.video = video
-  //     t.setEvents()
-  //   }
-  // })
-
   var video = t.jqHandle.proxy.player && t.jqHandle.proxy.player.video
   if( video )
   {
@@ -11923,7 +11894,6 @@ function createPlayer(t, cb) {
     if( _ios ) 
     {
       video.addEventListener('webkitendfullscreen', function() {
-        void(0)
         window.requestAnimationFrame(function() { document.body.scrollTop = 0 })
         t.pause()
         app.playing.from.val = false
@@ -11970,7 +11940,10 @@ function initVideo( _this, src ){
       }
     , function( obj ) {
         _this._ready = true
-        app.playing.from.val = true
+        app.playing.from.val = _this.node.playing !== void 0
+        ? _this.node.playing
+        : true
+        // app.playing.from.val = true
         if(_this._correctTime !== void 0)
         { setTime.call(_this, Math.abs(_this._correctTime), true )
         }
