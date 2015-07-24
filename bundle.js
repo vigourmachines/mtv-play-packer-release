@@ -11940,7 +11940,7 @@ function initVideo( _this, src ){
       }
     , function( obj ) {
         _this._ready = true
-        app.playing.from.val = !cases.phoneBrowser
+        app.playing.from.val = !( cases.phoneBrowser && _this.playing )
         if(_this._correctTime !== void 0)
         { setTime.call(_this, Math.abs(_this._correctTime), true )
         }
