@@ -11940,8 +11940,7 @@ function initVideo( _this, src ){
       }
     , function( obj ) {
         _this._ready = true
-        // app.playing.from.val = true
-        app.playing.from.val = _this.node.playing !== void 0 ? _this.node.playing : true
+        app.playing.from.val = !cases.phoneBrowser
         if(_this._correctTime !== void 0)
         { setTime.call(_this, Math.abs(_this._correctTime), true )
         }
