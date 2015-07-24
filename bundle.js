@@ -35152,8 +35152,10 @@ function createPlayer(t, cb) {
     if( _ios ) 
     {
       video.addEventListener('webkitendfullscreen', function() {
+        console.error('exit fullscreen!')
         window.requestAnimationFrame(function() { document.body.scrollTop = 0 })
         t.pause()
+        app.isPlaying.from.val = false
       }, false)
     }
 
