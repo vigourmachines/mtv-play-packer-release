@@ -11926,7 +11926,7 @@ function createPlayer(t, cb) {
         void(0)
         window.requestAnimationFrame(function() { document.body.scrollTop = 0 })
         t.pause()
-        app.isPlaying.from.val = false
+        app.playing.from.val = false
       }, false)
     }
 
