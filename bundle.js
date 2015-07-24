@@ -11047,6 +11047,10 @@ function onRender( update ){
   {
     player.$focus()
   }
+  else if( cases.phoneBrowser )
+  {
+    player.initVideo( player.video, player.video.src.val )
+  }
 
   update()
 }
@@ -11940,10 +11944,7 @@ function initVideo( _this, src ){
       }
     , function( obj ) {
         _this._ready = true
-        app.playing.from.val = _this.node.playing !== void 0
-        ? _this.node.playing
-        : true
-        // app.playing.from.val = true
+        app.playing.from.val = true
         if(_this._correctTime !== void 0)
         { setTime.call(_this, Math.abs(_this._correctTime), true )
         }
@@ -11951,6 +11952,8 @@ function initVideo( _this, src ){
     )
   }
 }
+
+exports.initVideo = initVideo
 
 exports.play = function( val ) {
   var _this = this
