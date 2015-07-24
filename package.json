@@ -142,6 +142,9 @@
       "url": "https://wwwmtvplay-a.akamaihd.net/",
       "domain": "http://mtvplay.tv",
       "assets": {
+        "index.html":true,
+        "bundle.js":true,
+        "bundle.css":true,
         "build.html": true,
         "build.js": true,
         "build.css": true,
@@ -262,7 +265,8 @@
           "id": "720547754665171"
         },
         "packer": {
-          "domain": "http://dev.packer.mtv.vigour.io"
+          "domain": "http://mtv-develop.vigour.io",
+          "web": "index.html"
         }
       },
       "master": {
