@@ -11047,10 +11047,6 @@ function onRender( update ){
   {
     player.$focus()
   }
-  else if( cases.phoneBrowser )
-  {
-    player.initVideo( player.video, player.video.src.val )
-  }
 
   update()
 }
@@ -11953,8 +11949,6 @@ function initVideo( _this, src ){
   }
 }
 
-exports.initVideo = initVideo
-
 exports.play = function( val ) {
   var _this = this
     , src
@@ -12021,6 +12015,11 @@ exports.src = function( val ) {
       this.jqHandle.destroy()
       this.jqHandle = null
       this._ready = null
+    }else if( cases.phoneBrowser && this.rendered ){
+      var _this = this
+      createPlayer(_this, function(){
+        initVideo( _this, src )
+      } )
     }
   }
 }
