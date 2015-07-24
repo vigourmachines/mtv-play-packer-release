@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.61",
+  "version": "1.2.62",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -265,8 +265,7 @@
           "id": "720547754665171"
         },
         "packer": {
-          "domain": "http://mtv-develop.vigour.io",
-          "web": "index.html"
+          "domain": "http://mtv-develop.vigour.io"
         }
       },
       "master": {
