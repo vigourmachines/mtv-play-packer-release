@@ -145,6 +145,7 @@
         "build.js": true,
         "build.css": true,
         "img": "*",
+        "google2c4a46fac7686373.html": true,
         "assets": "*"
       },
       "transforms": {
