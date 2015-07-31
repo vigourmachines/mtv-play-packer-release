@@ -275,6 +275,115 @@ body {
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+/* /Users/youzi/dev/mtv-play/components/first/style.less */
+.first-state {
+  height: 100%;
+  width: 100%;
+}
+.first-state > div {
+  position: absolute;
+}
+.first-state > .section {
+  background-color: #f9f9f9;
+}
+.first-state > .section > .linkback {
+  font-family: OpenSansBold;
+  width: 100%;
+  background-color: #ffeb00;
+  line-height: 30px;
+  display: table;
+  color: #5d4078;
+  font-size: 14px;
+  -webkit-transition: -webkit-transform 0.1s ease-out;
+  -moz-transition: -moz-transform 0.1s ease-out;
+  -ms-transition: -ms-transform 0.1s ease-out;
+  -o-transition: -o-transform 0.1s ease-out;
+  transition: transform 0.1s ease-out;
+}
+.first-state > .section > .linkback > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+.first-state > .section > .linkback .title {
+  text-align: center;
+  padding-left: 52px;
+}
+.first-state > .section > .linkback .ui-icon {
+  width: 52px;
+}
+.first-state > .section > .linkback:hover,
+.first-state > .section > .linkback:focus {
+  background-color: #3a1a58;
+  color: #ffffff;
+}
+.first-state > .section > .switcher {
+  -webkit-transition: -webkit-transform 0.1s ease-out;
+  -moz-transition: -moz-transform 0.1s ease-out;
+  -ms-transition: -ms-transform 0.1s ease-out;
+  -o-transition: -o-transform 0.1s ease-out;
+  transition: transform 0.1s ease-out;
+}
+.pageheader {
+  text-transform: uppercase;
+  font-family: OpenSansBoldItalic;
+}
+.desktop .pageheader {
+  white-space: nowrap;
+  padding-bottom: 15px;
+  font-family: OpenSansBold;
+  font-size: 32px;
+  text-transform: capitalize;
+}
+.touch .pageheader {
+  padding: 15px 0 5px;
+  border-bottom: 1px solid #dbcedb;
+}
+.first-state > .overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  -webkit-transition: opacity 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out;
+  -ms-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+.first-state .loader {
+  left: 50%;
+  top: 50%;
+  margin-top: -47px;
+  margin-left: -47px;
+  position: absolute;
+}
+.first-state .cancel {
+  text-align: center;
+  left: 0;
+  right: 0;
+  bottom: 15px;
+}
+.first-state .cancel .btn {
+  cursor: pointer;
+  margin-top: 15px;
+  font-family: OpenSansBold;
+  border: none;
+  height: 44px;
+  width: 200px;
+  line-height: 44px;
+  list-style: none outside none;
+  font-size: inherit;
+  text-align: center;
+  text-transform: capitalize;
+  display: inline-block;
+  color: #ffeb00;
+  background-color: #3a1a58;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  font-size: 16px;
+}
 /* /Users/youzi/dev/mtv-play/components/second/style.less */
 .second-state {
   height: 100%;
@@ -1508,6 +1617,406 @@ x:-o-prefocus,
 .not-ios .popup-window .switcher > *::-webkit-scrollbar {
   display: none;
 }
+/* /Users/youzi/dev/mtv-play/components/first/menu/style.less */
+.cast .loader {
+  margin-left: -10px;
+  margin-top: -12px;
+}
+.cast .hasReceiver {
+  color: #ffeb00 !important;
+  opacity: 1 !important;
+}
+.first-menu .linkback {
+  cursor: pointer;
+  text-transform: lowercase;
+  line-height: 40px;
+  background-color: #ffeb00;
+  color: #5d4078;
+  font-size: 14px;
+}
+.first-menu .linkback .arrow {
+  margin: 0 5px;
+  font-size: 32px;
+}
+.first-menu .linkback > div {
+  display: inline-block;
+  vertical-align: middle;
+}
+.first-menu .linkback:hover,
+.first-menu .linkback:focus {
+  background-color: #3a1a58;
+  color: #ffffff;
+}
+.first-menu {
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.first-menu .cast {
+  position: relative;
+}
+.first-menu .number {
+  font-size: 12px;
+  font-family: OpenSansBold;
+  margin-left: 2px;
+}
+.menu-item {
+  display: table;
+  width: 100%;
+  height: 52px;
+  cursor: pointer;
+}
+.menu-item > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+.menu-item > .ui-icon {
+  width: 24px;
+}
+.first-sidemenu {
+  height: 100%;
+  font-size: 12px;
+}
+.not-tv .first-sidemenu > .items {
+  background-color: #ee255c;
+}
+.not-tv .first-sidemenu > .items .menu-item {
+  transition: color 0.2s ease-out;
+}
+.not-tv .first-sidemenu {
+  font-family: OpenSansBold;
+  background-color: #d71f52;
+  width: 200px;
+}
+.tv .first-sidemenu {
+  background-color: #ee255c;
+  width: 20%;
+}
+.tv .first-sidemenu .items {
+  margin-top: 80px;
+}
+.tv .first-sidemenu.unfocus {
+  background-color: #3a1a58;
+}
+.tv .first-sidemenu.unfocus .items .menu-item {
+  color: #ac99b9;
+}
+.tv .first-sidemenu.unfocus .items .menu-item.current {
+  color: #f9f9f9;
+}
+.first-sidemenu > .logo {
+  background-color: #ee255c;
+  font-size: 50px;
+  height: 90px;
+  line-height: 100px;
+}
+.first-sidemenu > .items {
+  padding-bottom: 30px;
+}
+.first-sidemenu > .items .menu-item {
+  color: #f8a7bd;
+}
+.first-sidemenu > .items .menu-item:hover {
+  color: #f9f9f9;
+}
+.first-sidemenu > .items .current {
+  color: #f9f9f9;
+}
+.first-sidemenu > .items .ui-icon {
+  padding: 15px 15px 15px 20px;
+}
+.first-sidemenu .bottom {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+}
+.first-sidemenu .number {
+  margin-top: -1px;
+}
+.first-sidemenu .bottom .button {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 10px;
+  text-align: center;
+  font-family: OpenSansBoldItalic;
+  font-size: 14px;
+  transition: color 0.2s ease-out;
+  cursor: pointer;
+}
+.first-sidemenu .bottom .button:hover {
+  background-color: #231331;
+}
+.first-sidemenu .bottom .login {
+  background-color: #ffeb00;
+  color: #3a1a58;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  transition: color 0.2s ease-out;
+}
+.first-sidemenu .bottom .login:hover {
+  background-color: #fdcd2f;
+}
+.first-sidemenu .bottom .register {
+  background-color: #3a1a58;
+}
+.first-sidemenu .bottom .upgrade {
+  background-color: #ffeb00;
+  color: #3a1a58;
+}
+.first-sidemenu .bottom .profile {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+  margin: 15px 0px;
+  border-radius: 17px;
+  background-color: #ee255c;
+  display: inline-block;
+}
+.first-sidemenu .bottom .profile .img {
+  height: 34px;
+  background-size: cover;
+}
+.first-sidemenu .bottom .ui-icon {
+  line-height: 34px;
+}
+.first-sidemenu .bottom .cast {
+  float: right;
+  padding: 15px 0px;
+  width: 34px;
+  height: 34px;
+}
+.first-sidemenu .bottom .cast .ui-icon {
+  font-size: 30px;
+}
+.first-sidemenu > .terms {
+  padding: 20px;
+  color: #fbe3ea;
+  font-family: OpenSansRegular;
+  text-transform: capitalize;
+}
+.first-sidemenu > .terms .term {
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.tablet .first-sidemenu {
+  border-right: 1px solid #d71f52;
+  box-sizing: border-box;
+}
+.first-topbar {
+  position: relative;
+  font-family: OpenSansBoldItalic;
+  background-color: #ee255c;
+  width: 100%;
+}
+.first-topbar .number {
+  margin-top: -1px;
+}
+.first-topbar > .holder {
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.first-topbar > .holder > div {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.first-topbar .title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.first-topbar .lefticon {
+  width: 27px;
+  padding-left: 15px;
+  padding-right: 8px;
+}
+.first-topbar > .holder > div.caret {
+  width: 24px;
+  color: #aa1740;
+}
+.first-topbar .righticon {
+  width: 52px;
+}
+.first-topbar.toplevel.logo .title {
+  font-size: 28px;
+  font-family: mtvPlayIcons;
+}
+.touch .first-topbar > .holder > div.caret {
+  display: none;
+}
+.touch .first-topbar.toplevel > .holder > div.caret {
+  display: table-cell;
+}
+.touch .first-topbar.toplevel .lefticon {
+  padding-right: 0;
+}
+.touch .first-topbar.toplevel .title {
+  padding-right: 13px;
+}
+.desktop .first-topbar .lefticon {
+  padding-right: 0;
+}
+.desktop .first-topbar .title {
+  padding-right: 13px;
+}
+.first-topmenu {
+  font-family: OpenSansBoldItalic;
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+  -moz-transition: -moz-transform 0.2s ease-out;
+  -ms-transition: -ms-transform 0.2s ease-out;
+  -o-transition: -o-transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+  width: 100%;
+}
+.first-topmenu .items {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  color: #f8a7bd;
+  padding: 0 15px;
+  background-color: #d71f52;
+}
+.first-topmenu .menu-item {
+  border-bottom: 1px solid #ee255c;
+}
+.first-topmenu .items .menu-item:last-child {
+  border-bottom: none;
+}
+.first-topmenu .menu-item > .title {
+  text-align: center;
+  padding: 15px 38px 15px 15px;
+}
+.first-topmenu .account {
+  background-color: #5d4078;
+  color: #fbe3ea;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  overflow: hidden;
+  border-bottom: 1px solid #231331;
+}
+.first-topmenu .account > div {
+  text-align: center;
+  width: 50%;
+}
+.first-topmenu .account > .left.isUpgraded {
+  padding-right: 25px;
+}
+.first-topmenu .picture {
+  float: left;
+  background-color: #ee255c;
+  border-radius: 12px;
+  margin-left: 15px;
+  margin-right: -15px;
+  height: 24px;
+  width: 24px;
+  overflow: hidden;
+}
+.first-topmenu .picture .img {
+  height: 24px;
+  background-size: cover;
+}
+.first-topmenu .register {
+  border-left: 1px solid #231331;
+}
+.first-topmenu .upgrade {
+  background-color: #ffeb00;
+  color: #3a1a58;
+}
+.first-topmenu .top {
+  width: 100%;
+  position: absolute;
+}
+.first-topmenu .bottom {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-size: cover;
+  background-image: url('https://imgmtvplay-a.akamaihd.net/image/640/360/?url=http://f.cl.ly/items/2v0r1J0c0Z2i323J0z0k/final.jpg');
+}
+.first-topmenu .bottom > .terms {
+  margin-bottom: 20px;
+  color: #f9f9f9;
+  font-family: OpenSansRegular;
+  text-transform: capitalize;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.first-topmenu .bottom > .terms .term {
+  padding-right: 15px;
+  padding-left: 15px;
+  display: inline-block;
+  font-size: 10px;
+}
+.first-topmenu .bottom > .terms .version {
+  width: 100%;
+}
+.tablet .first-sidemenu > .terms .term {
+  margin-bottom: 0;
+  padding: 8px 0;
+}
+/* /Users/youzi/dev/mtv-play/components/first/switcher/style.less */
+.first-switcher {
+  width: 100%;
+  position: relative;
+}
+.first-switcher .first-loader {
+  height: 100%;
+  width: 100%;
+  display: table;
+  text-align: center;
+}
+.first-switcher .first-loader .loadicon {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 64px;
+  color: #dbcedb;
+}
+.touch .first-switcher > div {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background-color: #f8eff8;
+  -webkit-transition: opacity 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out;
+  -ms-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+.windows.touch .first-switcher > div {
+  -ms-transition: opacity 0.2s ease-out 0.1s, -ms-transform 0.2s ease-out;
+  transition: opacity 0.2s ease-out 0.1s, transform 0.2s ease-out;
+}
+.desktop .first-switcher .first-loader {
+  margin: 0 !important;
+}
+.desktop .first-switcher > div {
+  margin: 30px auto 90px auto;
+  max-width: 1385px;
+  min-width: 1060px;
+  border-left: 50px solid #fafafa;
+  border-right: 50px solid #fafafa;
+}
+.touch .first-switcher {
+  background-color: #f8eff8;
+}
+.tv .first-switcher {
+  background-color: #231331;
+  overflow: hidden;
+}
 /* /Users/youzi/dev/mtv-play/components/first/notification/style.less */
 .first-notification {
   position: absolute;
@@ -1594,55 +2103,6 @@ x:-o-prefocus,
 .desktop .first-notification .ui-item .righticon > span {
   margin-right: 15px;
   padding-right: 15px;
-}
-/* /Users/youzi/dev/mtv-play/components/first/switcher/style.less */
-.first-switcher {
-  width: 100%;
-  position: relative;
-}
-.first-switcher .first-loader {
-  height: 100%;
-  width: 100%;
-  display: table;
-  text-align: center;
-}
-.first-switcher .first-loader .loadicon {
-  display: table-cell;
-  vertical-align: middle;
-  font-size: 64px;
-  color: #dbcedb;
-}
-.touch .first-switcher > div {
-  position: absolute;
-  width: 100%;
-  min-height: 100%;
-  background-color: #f8eff8;
-  -webkit-transition: opacity 0.2s ease-out;
-  -moz-transition: opacity 0.2s ease-out;
-  -ms-transition: opacity 0.2s ease-out;
-  -o-transition: opacity 0.2s ease-out;
-  transition: opacity 0.2s ease-out;
-}
-.windows.touch .first-switcher > div {
-  -ms-transition: opacity 0.2s ease-out 0.1s, -ms-transform 0.2s ease-out;
-  transition: opacity 0.2s ease-out 0.1s, transform 0.2s ease-out;
-}
-.desktop .first-switcher .first-loader {
-  margin: 0 !important;
-}
-.desktop .first-switcher > div {
-  margin: 30px auto 90px auto;
-  max-width: 1385px;
-  min-width: 1060px;
-  border-left: 50px solid #fafafa;
-  border-right: 50px solid #fafafa;
-}
-.touch .first-switcher {
-  background-color: #f8eff8;
-}
-.tv .first-switcher {
-  background-color: #231331;
-  overflow: hidden;
 }
 /* /Users/youzi/dev/mtv-play/components/first/miniplayer/style.less */
 .mini-player {
@@ -2199,6 +2659,167 @@ x:-o-prefocus,
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
+}
+/* /Users/youzi/dev/mtv-play/components/first/seasons/style.less */
+.first-seasons {
+  vertical-align: top;
+}
+.first-seasons .thumb {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  overflow: hidden;
+  background-color: #f2f2f2;
+}
+.first-seasons .percentage {
+  background-color: rgba(23, 23, 23, 0.8);
+  line-height: 75px;
+  color: #ffffff;
+  font-size: 36px;
+  font-family: OpenSansBold;
+  text-align: center;
+}
+.first-seasons .bar {
+  background-color: #ee255c;
+  height: 5px;
+  margin-top: -5px;
+}
+.first-seasons > div {
+  position: relative;
+}
+.first-seasons.seasons-only .list {
+  border-top: 1px solid #dddddd;
+}
+.first-seasons > div > .title {
+  font-size: 22px;
+  padding: 15px 15px;
+}
+.first-seasons .dropdown {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-transition: height 0.2s ease-out;
+  -moz-transition: height 0.2s ease-out;
+  -ms-transition: height 0.2s ease-out;
+  -o-transition: height 0.2s ease-out;
+  transition: height 0.2s ease-out;
+  position: absolute;
+  display: inline-block;
+  text-transform: uppercase;
+  font-family: OpenSansBold;
+  background-color: #d71f52;
+  color: #ffffff;
+  top: 15px;
+  right: 15px;
+  overflow: hidden;
+  line-height: 30px;
+  cursor: hand;
+  cursor: pointer;
+}
+.first-seasons .dropdown > div {
+  padding: 0 7px;
+  color: #fbe3ea;
+}
+.first-seasons .dropdown > div:hover {
+  color: #ffffff;
+}
+.first-seasons .dropdown .current {
+  background-color: #ee255c;
+  color: #ffffff;
+}
+.first-seasons .dropdown .current .caret {
+  display: inline-block;
+  vertical-align: middle;
+  width: 18px;
+}
+.first-seasons .dropdown.inactive .current {
+  background-color: #ac99b9;
+}
+.first-seasons .dropdown.inactive .current .caret {
+  display: none;
+}
+.first-seasons .border {
+  border-bottom: 1px solid #f0f0f0;
+  margin: 0 15px;
+}
+.first-seasons .list > div {
+  font-size: 14px;
+  cursor: pointer;
+}
+.first-seasons .list > div:last-child {
+  margin-bottom: 80px;
+}
+.first-seasons .holder {
+  display: table;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: -1px;
+}
+.first-seasons .holder > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+.first-seasons .righticon {
+  text-align: right;
+}
+.first-seasons .extrasHeader {
+  font-size: 22px !important;
+  padding: 15px 15px;
+  font-family: OpenSansBold;
+  border-bottom: 1px solid #dddddd;
+}
+.not-phone .first-seasons .list .current {
+  background-color: #3a1a58;
+  color: #ffffff;
+}
+.not-phone .first-seasons .list .current .border {
+  border-bottom: 1px solid #3a1a58;
+}
+.tablet .first-seasons {
+  min-width: 400px;
+}
+.tablet .first-seasons.seasons-only .list {
+  border-top: 1px solid #dbcedb;
+}
+.tablet .first-seasons .border {
+  border-bottom: 1px solid #dbcedb;
+  margin: 0 15px;
+}
+.tablet .first-seasons > div > .title {
+  display: inline-block;
+  white-space: nowrap;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 28px;
+  vertical-align: middle;
+}
+.tablet .first-seasons > div > .favourite {
+  color: #ac99b9;
+}
+.desktop .first-seasons {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  background-color: #ffffff;
+  min-width: 400px;
+}
+.desktop .first-seasons .list > div > div {
+  font-size: 14px;
+  cursor: pointer;
+}
+.desktop .first-seasons .list > div > div:last-child {
+  margin-bottom: 0px;
+}
+.not-phone .first-seasons .list > div > div:last-child .border {
+  border-bottom: 0;
+}
+.not-phone .first-seasons {
+  border-spacing: 15px;
+  vertical-align: top;
+  display: table-cell;
 }
 /* /Users/youzi/dev/mtv-play/components/player/controls/style.less */
 .player-controls {
@@ -3922,6 +4543,165 @@ input:invalid {
 .desktop .first-discover .scroller > div {
   padding: 0 15px 30px 0;
 }
+/* /Users/youzi/dev/mtv-play/components/first/show/style.less */
+.slow .show .switcher {
+  -webkit-transition: -webkit-transform 0.25s ease-out;
+  -moz-transition: -moz-transform 0.25s ease-out;
+  -ms-transition: -ms-transform 0.25s ease-out;
+  -o-transition: -o-transform 0.25s ease-out;
+  transition: transform 0.25s ease-out;
+}
+.slow .show .switcher .seasons {
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -ms-transition: -ms-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+.slow.phone .show .switcher .list {
+  background-color: #f8eff8;
+}
+.slow.android .show .scroller {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+}
+.phone .show .ui-item {
+  border-spacing: 0px 7px;
+}
+.phone .show .switcher {
+  background-color: #f8eff8;
+}
+.phone .show .list:first-child {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  padding-left: 15px;
+}
+.phone .show .list:first-child .ui-item {
+  padding-left: 0;
+}
+.touch .show .seasons {
+  margin-top: -48px;
+  height: 48px;
+  line-height: 44px;
+  color: #ac99b9;
+}
+.touch .show .items > div {
+  width: 33.33333333%;
+  display: inline-block;
+}
+.touch .show .items > :first-child {
+  padding-left: 15px;
+}
+.touch .show .focus {
+  color: #3a1a58;
+}
+.touch .show .list .ui-item {
+  padding-left: 15px;
+}
+.show {
+  color: #3a1a58;
+  overflow: hidden;
+}
+.show .cover {
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  -webkit-transition: opacity 0.4s ease-out;
+  -moz-transition: opacity 0.4s ease-out;
+  -ms-transition: opacity 0.4s ease-out;
+  -o-transition: opacity 0.4s ease-out;
+  transition: opacity 0.4s ease-out;
+}
+.show .info {
+  color: #ffffff;
+  height: 100%;
+  width: 100%;
+  table-layout: fixed;
+  display: table;
+  text-align: center;
+  font-size: 13px;
+  background-color: rgba(23, 23, 23, 0.8);
+}
+.show .box {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 15px 5px 15px;
+}
+.show .star {
+  display: inline-block;
+  width: 48px;
+  line-height: 48px;
+  font-size: 48px;
+}
+.show .favorited {
+  color: #ffeb00;
+}
+.show .switcher {
+  overflow: hidden;
+}
+.show .scroller {
+  padding-bottom: 80px;
+}
+.show .line {
+  margin-top: 48px;
+  border-bottom: 1px solid #dbcedb;
+}
+.show .highlight {
+  -webkit-transition: -webkit-transform 0.32s ease-out;
+  -moz-transition: -moz-transform 0.32s ease-out;
+  -ms-transition: -ms-transform 0.32s ease-out;
+  -o-transition: -o-transform 0.32s ease-out;
+  transition: transform 0.32s ease-out;
+  margin-top: 1px;
+  width: 33.33333333%;
+  height: 3px;
+  background-color: #ee255c;
+  border-radius: 20px;
+}
+.show .list {
+  width: 100%;
+}
+.show .ui-item {
+  border-bottom: 1px solid #dbcedb;
+  cursor: pointer;
+}
+.show .ui-item:last-child {
+  border-bottom: none;
+}
+.show .roll {
+  white-space: nowrap;
+}
+.show .seasons {
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-family: OpenSansBoldItalic;
+}
+.show .list {
+  vertical-align: top;
+  display: inline-block;
+}
+.show .txt {
+  padding-left: 15px;
+}
+.show .ui-img {
+  background-size: cover;
+}
+.show .bar {
+  background-color: #ee255c;
+  height: 5px;
+  margin-top: -5px;
+}
+.show .extrasHeader {
+  text-transform: uppercase;
+  font-family: OpenSansBoldItalic;
+  padding: 10px 15px 5px;
+  border-bottom: 1px solid #dbcedb;
+}
 /* /Users/youzi/dev/mtv-play/components/player/seekbar/style.less */
 .ui-seekbar {
   white-space: nowrap;
@@ -4106,772 +4886,4 @@ input:invalid {
   font-size: 48px;
   line-height: 32px;
   margin-bottom: 10px;
-}
-/* /Users/youzi/dev/mtv-play/components/first/seasons/style.less */
-.first-seasons {
-  vertical-align: top;
-}
-.first-seasons .thumb {
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  overflow: hidden;
-  background-color: #f2f2f2;
-}
-.first-seasons .percentage {
-  background-color: rgba(23, 23, 23, 0.8);
-  line-height: 75px;
-  color: #ffffff;
-  font-size: 36px;
-  font-family: OpenSansBold;
-  text-align: center;
-}
-.first-seasons .bar {
-  background-color: #ee255c;
-  height: 5px;
-  margin-top: -5px;
-}
-.first-seasons > div {
-  position: relative;
-}
-.first-seasons.seasons-only .list {
-  border-top: 1px solid #dddddd;
-}
-.first-seasons > div > .title {
-  font-size: 22px;
-  padding: 15px 15px;
-}
-.first-seasons .dropdown {
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  -webkit-transition: height 0.2s ease-out;
-  -moz-transition: height 0.2s ease-out;
-  -ms-transition: height 0.2s ease-out;
-  -o-transition: height 0.2s ease-out;
-  transition: height 0.2s ease-out;
-  position: absolute;
-  display: inline-block;
-  text-transform: uppercase;
-  font-family: OpenSansBold;
-  background-color: #d71f52;
-  color: #ffffff;
-  top: 15px;
-  right: 15px;
-  overflow: hidden;
-  line-height: 30px;
-  cursor: hand;
-  cursor: pointer;
-}
-.first-seasons .dropdown > div {
-  padding: 0 7px;
-  color: #fbe3ea;
-}
-.first-seasons .dropdown > div:hover {
-  color: #ffffff;
-}
-.first-seasons .dropdown .current {
-  background-color: #ee255c;
-  color: #ffffff;
-}
-.first-seasons .dropdown .current .caret {
-  display: inline-block;
-  vertical-align: middle;
-  width: 18px;
-}
-.first-seasons .dropdown.inactive .current {
-  background-color: #ac99b9;
-}
-.first-seasons .dropdown.inactive .current .caret {
-  display: none;
-}
-.first-seasons .border {
-  border-bottom: 1px solid #f0f0f0;
-  margin: 0 15px;
-}
-.first-seasons .list > div {
-  font-size: 14px;
-  cursor: pointer;
-}
-.first-seasons .list > div:last-child {
-  margin-bottom: 80px;
-}
-.first-seasons .holder {
-  display: table;
-  width: 100%;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-bottom: -1px;
-}
-.first-seasons .holder > div {
-  display: table-cell;
-  vertical-align: middle;
-}
-.first-seasons .righticon {
-  text-align: right;
-}
-.not-phone .first-seasons .list .current {
-  background-color: #3a1a58;
-  color: #ffffff;
-}
-.not-phone .first-seasons .list .current .border {
-  border-bottom: 1px solid #3a1a58;
-}
-.tablet .first-seasons {
-  min-width: 400px;
-}
-.tablet .first-seasons.seasons-only .list {
-  border-top: 1px solid #dbcedb;
-}
-.tablet .first-seasons .border {
-  border-bottom: 1px solid #dbcedb;
-  margin: 0 15px;
-}
-.tablet .first-seasons > div > .title {
-  display: inline-block;
-  white-space: nowrap;
-  max-width: 200px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  height: 28px;
-  vertical-align: middle;
-}
-.tablet .first-seasons > div > .favourite {
-  color: #ac99b9;
-}
-.desktop .first-seasons {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  border: 1px solid #dddddd;
-  background-color: #ffffff;
-  min-width: 400px;
-}
-.desktop .first-seasons .list > div {
-  font-size: 14px;
-  cursor: pointer;
-}
-.desktop .first-seasons .list > div:last-child {
-  margin-bottom: 0px;
-}
-.desktop .first-seasons .list > div:last-child .border {
-  border-bottom: 0;
-}
-.not-phone .first-seasons {
-  border-spacing: 15px;
-  vertical-align: top;
-  display: table-cell;
-}
-/* /Users/youzi/dev/mtv-play/components/first/show/style.less */
-.slow .show .switcher {
-  -webkit-transition: -webkit-transform 0.25s ease-out;
-  -moz-transition: -moz-transform 0.25s ease-out;
-  -ms-transition: -ms-transform 0.25s ease-out;
-  -o-transition: -o-transform 0.25s ease-out;
-  transition: transform 0.25s ease-out;
-}
-.slow .show .switcher .seasons {
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  -moz-transition: -moz-transform 0.3s ease-out;
-  -ms-transition: -ms-transform 0.3s ease-out;
-  -o-transition: -o-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-}
-.slow.phone .show .switcher .list {
-  background-color: #f8eff8;
-}
-.slow.android .show .scroller {
-  -webkit-backface-visibility: hidden;
-  -webkit-perspective: 1000;
-}
-.phone .show .ui-item {
-  border-spacing: 0px 7px;
-}
-.phone .show .switcher {
-  background-color: #f8eff8;
-}
-.phone .show .list:first-child {
-  -webkit-box-sizing: border-box;
-  /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;
-  /* Firefox, other Gecko */
-  box-sizing: border-box;
-  /* Opera/IE 8+ */
-  padding-left: 15px;
-}
-.phone .show .list:first-child .ui-item {
-  padding-left: 0;
-}
-.touch .show .seasons {
-  margin-top: -48px;
-  height: 48px;
-  line-height: 44px;
-  color: #ac99b9;
-}
-.touch .show .items > div {
-  width: 33.33333333%;
-  display: inline-block;
-}
-.touch .show .items > :first-child {
-  padding-left: 15px;
-}
-.touch .show .focus {
-  color: #3a1a58;
-}
-.touch .show .list .ui-item {
-  padding-left: 15px;
-}
-.show {
-  color: #3a1a58;
-  overflow: hidden;
-}
-.show .cover {
-  position: relative;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  -webkit-transition: opacity 0.4s ease-out;
-  -moz-transition: opacity 0.4s ease-out;
-  -ms-transition: opacity 0.4s ease-out;
-  -o-transition: opacity 0.4s ease-out;
-  transition: opacity 0.4s ease-out;
-}
-.show .info {
-  color: #ffffff;
-  height: 100%;
-  width: 100%;
-  table-layout: fixed;
-  display: table;
-  text-align: center;
-  font-size: 13px;
-  background-color: rgba(23, 23, 23, 0.8);
-}
-.show .box {
-  display: table-cell;
-  vertical-align: middle;
-  padding: 0 15px 5px 15px;
-}
-.show .star {
-  display: inline-block;
-  width: 48px;
-  line-height: 48px;
-  font-size: 48px;
-}
-.show .favorited {
-  color: #ffeb00;
-}
-.show .switcher {
-  overflow: hidden;
-}
-.show .scroller {
-  padding-bottom: 80px;
-}
-.show .line {
-  margin-top: 48px;
-  border-bottom: 1px solid #dbcedb;
-}
-.show .highlight {
-  -webkit-transition: -webkit-transform 0.32s ease-out;
-  -moz-transition: -moz-transform 0.32s ease-out;
-  -ms-transition: -ms-transform 0.32s ease-out;
-  -o-transition: -o-transform 0.32s ease-out;
-  transition: transform 0.32s ease-out;
-  margin-top: 1px;
-  width: 33.33333333%;
-  height: 3px;
-  background-color: #ee255c;
-  border-radius: 20px;
-}
-.show .list {
-  width: 100%;
-}
-.show .ui-item {
-  border-bottom: 1px solid #dbcedb;
-  cursor: pointer;
-}
-.show .ui-item:last-child {
-  border-bottom: none;
-}
-.show .roll {
-  white-space: nowrap;
-}
-.show .seasons {
-  white-space: nowrap;
-  text-transform: uppercase;
-  font-family: OpenSansBoldItalic;
-}
-.show .list {
-  vertical-align: top;
-  display: inline-block;
-}
-.show .txt {
-  padding-left: 15px;
-}
-.show .ui-img {
-  background-size: cover;
-}
-.show .bar {
-  background-color: #ee255c;
-  height: 5px;
-  margin-top: -5px;
-}
-/* /Users/youzi/dev/mtv-play/components/first/style.less */
-.first-state {
-  height: 100%;
-  width: 100%;
-}
-.first-state > div {
-  position: absolute;
-}
-.first-state > .section {
-  background-color: #f9f9f9;
-}
-.first-state > .section > .linkback {
-  font-family: OpenSansBold;
-  width: 100%;
-  background-color: #ffeb00;
-  line-height: 30px;
-  display: table;
-  color: #5d4078;
-  font-size: 14px;
-  -webkit-transition: -webkit-transform 0.1s ease-out;
-  -moz-transition: -moz-transform 0.1s ease-out;
-  -ms-transition: -ms-transform 0.1s ease-out;
-  -o-transition: -o-transform 0.1s ease-out;
-  transition: transform 0.1s ease-out;
-}
-.first-state > .section > .linkback > div {
-  display: table-cell;
-  vertical-align: middle;
-}
-.first-state > .section > .linkback .title {
-  text-align: center;
-  padding-left: 52px;
-}
-.first-state > .section > .linkback .ui-icon {
-  width: 52px;
-}
-.first-state > .section > .linkback:hover,
-.first-state > .section > .linkback:focus {
-  background-color: #3a1a58;
-  color: #ffffff;
-}
-.first-state > .section > .switcher {
-  -webkit-transition: -webkit-transform 0.1s ease-out;
-  -moz-transition: -moz-transform 0.1s ease-out;
-  -ms-transition: -ms-transform 0.1s ease-out;
-  -o-transition: -o-transform 0.1s ease-out;
-  transition: transform 0.1s ease-out;
-}
-.pageheader {
-  text-transform: uppercase;
-  font-family: OpenSansBoldItalic;
-}
-.desktop .pageheader {
-  white-space: nowrap;
-  padding-bottom: 15px;
-  font-family: OpenSansBold;
-  font-size: 32px;
-  text-transform: capitalize;
-}
-.touch .pageheader {
-  padding: 15px 0 5px;
-  border-bottom: 1px solid #dbcedb;
-}
-.first-state > .overlay {
-  background-color: rgba(0, 0, 0, 0.4);
-  width: 100%;
-  height: 100%;
-  top: 0px;
-  left: 0px;
-  position: absolute;
-  -webkit-transition: opacity 0.2s ease-out;
-  -moz-transition: opacity 0.2s ease-out;
-  -ms-transition: opacity 0.2s ease-out;
-  -o-transition: opacity 0.2s ease-out;
-  transition: opacity 0.2s ease-out;
-}
-.first-state .loader {
-  left: 50%;
-  top: 50%;
-  margin-top: -47px;
-  margin-left: -47px;
-  position: absolute;
-}
-.first-state .cancel {
-  text-align: center;
-  left: 0;
-  right: 0;
-  bottom: 15px;
-}
-.first-state .cancel .btn {
-  cursor: pointer;
-  margin-top: 15px;
-  font-family: OpenSansBold;
-  border: none;
-  height: 44px;
-  width: 200px;
-  line-height: 44px;
-  list-style: none outside none;
-  font-size: inherit;
-  text-align: center;
-  text-transform: capitalize;
-  display: inline-block;
-  color: #ffeb00;
-  background-color: #3a1a58;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  font-size: 16px;
-}
-/* /Users/youzi/dev/mtv-play/components/first/menu/style.less */
-.cast .loader {
-  margin-left: -10px;
-  margin-top: -12px;
-}
-.cast .hasReceiver {
-  color: #ffeb00 !important;
-  opacity: 1 !important;
-}
-.first-menu .linkback {
-  cursor: pointer;
-  text-transform: lowercase;
-  line-height: 40px;
-  background-color: #ffeb00;
-  color: #5d4078;
-  font-size: 14px;
-}
-.first-menu .linkback .arrow {
-  margin: 0 5px;
-  font-size: 32px;
-}
-.first-menu .linkback > div {
-  display: inline-block;
-  vertical-align: middle;
-}
-.first-menu .linkback:hover,
-.first-menu .linkback:focus {
-  background-color: #3a1a58;
-  color: #ffffff;
-}
-.first-menu {
-  color: #ffffff;
-  text-transform: uppercase;
-}
-.first-menu .cast {
-  position: relative;
-}
-.first-menu .number {
-  font-size: 12px;
-  font-family: OpenSansBold;
-  margin-left: 2px;
-}
-.menu-item {
-  display: table;
-  width: 100%;
-  height: 52px;
-  cursor: pointer;
-}
-.menu-item > div {
-  display: table-cell;
-  vertical-align: middle;
-}
-.menu-item > .ui-icon {
-  width: 24px;
-}
-.first-sidemenu {
-  height: 100%;
-  font-size: 12px;
-}
-.not-tv .first-sidemenu > .items {
-  background-color: #ee255c;
-}
-.not-tv .first-sidemenu > .items .menu-item {
-  transition: color 0.2s ease-out;
-}
-.not-tv .first-sidemenu {
-  font-family: OpenSansBold;
-  background-color: #d71f52;
-  width: 200px;
-}
-.tv .first-sidemenu {
-  background-color: #ee255c;
-  width: 20%;
-}
-.tv .first-sidemenu .items {
-  margin-top: 80px;
-}
-.tv .first-sidemenu.unfocus {
-  background-color: #3a1a58;
-}
-.tv .first-sidemenu.unfocus .items .menu-item {
-  color: #ac99b9;
-}
-.tv .first-sidemenu.unfocus .items .menu-item.current {
-  color: #f9f9f9;
-}
-.first-sidemenu > .logo {
-  background-color: #ee255c;
-  font-size: 50px;
-  height: 90px;
-  line-height: 100px;
-}
-.first-sidemenu > .items {
-  padding-bottom: 30px;
-}
-.first-sidemenu > .items .menu-item {
-  color: #f8a7bd;
-}
-.first-sidemenu > .items .menu-item:hover {
-  color: #f9f9f9;
-}
-.first-sidemenu > .items .current {
-  color: #f9f9f9;
-}
-.first-sidemenu > .items .ui-icon {
-  padding: 15px 15px 15px 20px;
-}
-.first-sidemenu .bottom {
-  position: absolute;
-  bottom: 0;
-  left: 20px;
-  right: 20px;
-}
-.first-sidemenu .number {
-  margin-top: -1px;
-}
-.first-sidemenu .bottom .button {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  padding: 10px;
-  text-align: center;
-  font-family: OpenSansBoldItalic;
-  font-size: 14px;
-  transition: color 0.2s ease-out;
-  cursor: pointer;
-}
-.first-sidemenu .bottom .button:hover {
-  background-color: #231331;
-}
-.first-sidemenu .bottom .login {
-  background-color: #ffeb00;
-  color: #3a1a58;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  position: absolute;
-  right: 0;
-  left: 0;
-  transition: color 0.2s ease-out;
-}
-.first-sidemenu .bottom .login:hover {
-  background-color: #fdcd2f;
-}
-.first-sidemenu .bottom .register {
-  background-color: #3a1a58;
-}
-.first-sidemenu .bottom .upgrade {
-  background-color: #ffeb00;
-  color: #3a1a58;
-}
-.first-sidemenu .bottom .profile {
-  width: 34px;
-  height: 34px;
-  overflow: hidden;
-  margin: 15px 0px;
-  border-radius: 17px;
-  background-color: #ee255c;
-  display: inline-block;
-}
-.first-sidemenu .bottom .profile .img {
-  height: 34px;
-  background-size: cover;
-}
-.first-sidemenu .bottom .ui-icon {
-  line-height: 34px;
-}
-.first-sidemenu .bottom .cast {
-  float: right;
-  padding: 15px 0px;
-  width: 34px;
-  height: 34px;
-}
-.first-sidemenu .bottom .cast .ui-icon {
-  font-size: 30px;
-}
-.first-sidemenu > .terms {
-  padding: 20px;
-  color: #fbe3ea;
-  font-family: OpenSansRegular;
-  text-transform: capitalize;
-}
-.first-sidemenu > .terms .term {
-  margin-bottom: 5px;
-  cursor: pointer;
-}
-.tablet .first-sidemenu {
-  border-right: 1px solid #d71f52;
-  box-sizing: border-box;
-}
-.first-topbar {
-  position: relative;
-  font-family: OpenSansBoldItalic;
-  background-color: #ee255c;
-  width: 100%;
-}
-.first-topbar .number {
-  margin-top: -1px;
-}
-.first-topbar > .holder {
-  position: absolute;
-  bottom: 0;
-  height: 40px;
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-}
-.first-topbar > .holder > div {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-}
-.first-topbar .title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.first-topbar .lefticon {
-  width: 27px;
-  padding-left: 15px;
-  padding-right: 8px;
-}
-.first-topbar > .holder > div.caret {
-  width: 24px;
-  color: #aa1740;
-}
-.first-topbar .righticon {
-  width: 52px;
-}
-.first-topbar.toplevel.logo .title {
-  font-size: 28px;
-  font-family: mtvPlayIcons;
-}
-.touch .first-topbar > .holder > div.caret {
-  display: none;
-}
-.touch .first-topbar.toplevel > .holder > div.caret {
-  display: table-cell;
-}
-.touch .first-topbar.toplevel .lefticon {
-  padding-right: 0;
-}
-.touch .first-topbar.toplevel .title {
-  padding-right: 13px;
-}
-.desktop .first-topbar .lefticon {
-  padding-right: 0;
-}
-.desktop .first-topbar .title {
-  padding-right: 13px;
-}
-.first-topmenu {
-  font-family: OpenSansBoldItalic;
-  overflow: hidden;
-  -webkit-transition: -webkit-transform 0.2s ease-out;
-  -moz-transition: -moz-transform 0.2s ease-out;
-  -ms-transition: -ms-transform 0.2s ease-out;
-  -o-transition: -o-transform 0.2s ease-out;
-  transition: transform 0.2s ease-out;
-  width: 100%;
-}
-.first-topmenu .items {
-  -webkit-box-sizing: border-box;
-  /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;
-  /* Firefox, other Gecko */
-  box-sizing: border-box;
-  /* Opera/IE 8+ */
-  color: #f8a7bd;
-  padding: 0 15px;
-  background-color: #d71f52;
-}
-.first-topmenu .menu-item {
-  border-bottom: 1px solid #ee255c;
-}
-.first-topmenu .items .menu-item:last-child {
-  border-bottom: none;
-}
-.first-topmenu .menu-item > .title {
-  text-align: center;
-  padding: 15px 38px 15px 15px;
-}
-.first-topmenu .account {
-  background-color: #5d4078;
-  color: #fbe3ea;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  overflow: hidden;
-  border-bottom: 1px solid #231331;
-}
-.first-topmenu .account > div {
-  text-align: center;
-  width: 50%;
-}
-.first-topmenu .account > .left.isUpgraded {
-  padding-right: 25px;
-}
-.first-topmenu .picture {
-  float: left;
-  background-color: #ee255c;
-  border-radius: 12px;
-  margin-left: 15px;
-  margin-right: -15px;
-  height: 24px;
-  width: 24px;
-  overflow: hidden;
-}
-.first-topmenu .picture .img {
-  height: 24px;
-  background-size: cover;
-}
-.first-topmenu .register {
-  border-left: 1px solid #231331;
-}
-.first-topmenu .upgrade {
-  background-color: #ffeb00;
-  color: #3a1a58;
-}
-.first-topmenu .top {
-  width: 100%;
-  position: absolute;
-}
-.first-topmenu .bottom {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  background-size: cover;
-  background-image: url('https://imgmtvplay-a.akamaihd.net/image/640/360/?url=http://f.cl.ly/items/2v0r1J0c0Z2i323J0z0k/final.jpg');
-}
-.first-topmenu .bottom > .terms {
-  margin-bottom: 20px;
-  color: #f9f9f9;
-  font-family: OpenSansRegular;
-  text-transform: capitalize;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-}
-.first-topmenu .bottom > .terms .term {
-  padding-right: 15px;
-  padding-left: 15px;
-  display: inline-block;
-  font-size: 10px;
-}
-.first-topmenu .bottom > .terms .version {
-  width: 100%;
-}
-.tablet .first-sidemenu > .terms .term {
-  margin-bottom: 0;
-  padding: 8px 0;
 }
