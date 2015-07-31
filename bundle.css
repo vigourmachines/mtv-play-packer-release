@@ -2685,161 +2685,6 @@ x:-o-prefocus,
 .desktop .ui-icon.favorited {
   color: #fdcd2f !important;
 }
-/* /Users/youzi/dev/mtv-play/components/first/seasons/style.less */
-.first-seasons {
-  vertical-align: top;
-}
-.first-seasons .thumb {
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  overflow: hidden;
-  background-color: #f2f2f2;
-}
-.first-seasons .percentage {
-  background-color: rgba(23, 23, 23, 0.8);
-  line-height: 75px;
-  color: #ffffff;
-  font-size: 36px;
-  font-family: OpenSansBold;
-  text-align: center;
-}
-.first-seasons .bar {
-  background-color: #ee255c;
-  height: 5px;
-  margin-top: -5px;
-}
-.first-seasons > div {
-  position: relative;
-}
-.first-seasons.seasons-only .list {
-  border-top: 1px solid #dddddd;
-}
-.first-seasons > div > .title {
-  font-size: 22px;
-  padding: 15px 15px;
-}
-.first-seasons .dropdown {
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  -webkit-transition: height 0.2s ease-out;
-  -moz-transition: height 0.2s ease-out;
-  -ms-transition: height 0.2s ease-out;
-  -o-transition: height 0.2s ease-out;
-  transition: height 0.2s ease-out;
-  position: absolute;
-  display: inline-block;
-  text-transform: uppercase;
-  font-family: OpenSansBold;
-  background-color: #d71f52;
-  color: #ffffff;
-  top: 15px;
-  right: 15px;
-  overflow: hidden;
-  line-height: 30px;
-  cursor: hand;
-  cursor: pointer;
-}
-.first-seasons .dropdown > div {
-  padding: 0 7px;
-  color: #fbe3ea;
-}
-.first-seasons .dropdown > div:hover {
-  color: #ffffff;
-}
-.first-seasons .dropdown .current {
-  background-color: #ee255c;
-  color: #ffffff;
-}
-.first-seasons .dropdown .current .caret {
-  display: inline-block;
-  vertical-align: middle;
-  width: 18px;
-}
-.first-seasons .dropdown.inactive .current {
-  background-color: #ac99b9;
-}
-.first-seasons .dropdown.inactive .current .caret {
-  display: none;
-}
-.first-seasons .border {
-  border-bottom: 1px solid #f0f0f0;
-  margin: 0 15px;
-}
-.first-seasons .list > div {
-  font-size: 14px;
-  cursor: pointer;
-}
-.first-seasons .list > div:last-child {
-  margin-bottom: 80px;
-}
-.first-seasons .holder {
-  display: table;
-  width: 100%;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-bottom: -1px;
-}
-.first-seasons .holder > div {
-  display: table-cell;
-  vertical-align: middle;
-}
-.first-seasons .righticon {
-  text-align: right;
-}
-.not-phone .first-seasons .list .current {
-  background-color: #3a1a58;
-  color: #ffffff;
-}
-.not-phone .first-seasons .list .current .border {
-  border-bottom: 1px solid #3a1a58;
-}
-.tablet .first-seasons {
-  min-width: 400px;
-}
-.tablet .first-seasons.seasons-only .list {
-  border-top: 1px solid #dbcedb;
-}
-.tablet .first-seasons .border {
-  border-bottom: 1px solid #dbcedb;
-  margin: 0 15px;
-}
-.tablet .first-seasons > div > .title {
-  display: inline-block;
-  white-space: nowrap;
-  max-width: 200px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  height: 28px;
-  vertical-align: middle;
-}
-.tablet .first-seasons > div > .favourite {
-  color: #ac99b9;
-}
-.desktop .first-seasons {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  border: 1px solid #dddddd;
-  background-color: #ffffff;
-  min-width: 400px;
-}
-.desktop .first-seasons .list > div {
-  font-size: 14px;
-  cursor: pointer;
-}
-.desktop .first-seasons .list > div:last-child {
-  margin-bottom: 0px;
-}
-.desktop .first-seasons .list > div:last-child .border {
-  border-bottom: 0;
-}
-.not-phone .first-seasons {
-  border-spacing: 15px;
-  vertical-align: top;
-  display: table-cell;
-}
 /* /Users/youzi/dev/mtv-play/components/first/epg/style.less */
 .first-epg .list > div:first-child .border {
   margin: 0;
@@ -4479,159 +4324,6 @@ input:invalid {
 .desktop .first-discover .scroller > div {
   padding: 0 15px 30px 0;
 }
-/* /Users/youzi/dev/mtv-play/components/first/show/style.less */
-.slow .show .switcher {
-  -webkit-transition: -webkit-transform 0.25s ease-out;
-  -moz-transition: -moz-transform 0.25s ease-out;
-  -ms-transition: -ms-transform 0.25s ease-out;
-  -o-transition: -o-transform 0.25s ease-out;
-  transition: transform 0.25s ease-out;
-}
-.slow .show .switcher .seasons {
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  -moz-transition: -moz-transform 0.3s ease-out;
-  -ms-transition: -ms-transform 0.3s ease-out;
-  -o-transition: -o-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-}
-.slow.phone .show .switcher .list {
-  background-color: #f8eff8;
-}
-.slow.android .show .scroller {
-  -webkit-backface-visibility: hidden;
-  -webkit-perspective: 1000;
-}
-.phone .show .ui-item {
-  border-spacing: 0px 7px;
-}
-.phone .show .switcher {
-  background-color: #f8eff8;
-}
-.phone .show .list:first-child {
-  -webkit-box-sizing: border-box;
-  /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;
-  /* Firefox, other Gecko */
-  box-sizing: border-box;
-  /* Opera/IE 8+ */
-  padding-left: 15px;
-}
-.phone .show .list:first-child .ui-item {
-  padding-left: 0;
-}
-.touch .show .seasons {
-  margin-top: -48px;
-  height: 48px;
-  line-height: 44px;
-  color: #ac99b9;
-}
-.touch .show .items > div {
-  width: 33.33333333%;
-  display: inline-block;
-}
-.touch .show .items > :first-child {
-  padding-left: 15px;
-}
-.touch .show .focus {
-  color: #3a1a58;
-}
-.touch .show .list .ui-item {
-  padding-left: 15px;
-}
-.show {
-  color: #3a1a58;
-  overflow: hidden;
-}
-.show .cover {
-  position: relative;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  -webkit-transition: opacity 0.4s ease-out;
-  -moz-transition: opacity 0.4s ease-out;
-  -ms-transition: opacity 0.4s ease-out;
-  -o-transition: opacity 0.4s ease-out;
-  transition: opacity 0.4s ease-out;
-}
-.show .info {
-  color: #ffffff;
-  height: 100%;
-  width: 100%;
-  table-layout: fixed;
-  display: table;
-  text-align: center;
-  font-size: 13px;
-  background-color: rgba(23, 23, 23, 0.8);
-}
-.show .box {
-  display: table-cell;
-  vertical-align: middle;
-  padding: 0 15px 5px 15px;
-}
-.show .star {
-  display: inline-block;
-  width: 48px;
-  line-height: 48px;
-  font-size: 48px;
-}
-.show .favorited {
-  color: #ffeb00;
-}
-.show .switcher {
-  overflow: hidden;
-}
-.show .scroller {
-  padding-bottom: 80px;
-}
-.show .line {
-  margin-top: 48px;
-  border-bottom: 1px solid #dbcedb;
-}
-.show .highlight {
-  -webkit-transition: -webkit-transform 0.32s ease-out;
-  -moz-transition: -moz-transform 0.32s ease-out;
-  -ms-transition: -ms-transform 0.32s ease-out;
-  -o-transition: -o-transform 0.32s ease-out;
-  transition: transform 0.32s ease-out;
-  margin-top: 1px;
-  width: 33.33333333%;
-  height: 3px;
-  background-color: #ee255c;
-  border-radius: 20px;
-}
-.show .list {
-  width: 100%;
-}
-.show .ui-item {
-  border-bottom: 1px solid #dbcedb;
-  cursor: pointer;
-}
-.show .ui-item:last-child {
-  border-bottom: none;
-}
-.show .roll {
-  white-space: nowrap;
-}
-.show .seasons {
-  white-space: nowrap;
-  text-transform: uppercase;
-  font-family: OpenSansBoldItalic;
-}
-.show .list {
-  vertical-align: top;
-  display: inline-block;
-}
-.show .txt {
-  padding-left: 15px;
-}
-.show .ui-img {
-  background-size: cover;
-}
-.show .bar {
-  background-color: #ee255c;
-  height: 5px;
-  margin-top: -5px;
-}
 /* /Users/youzi/dev/mtv-play/components/player/seekbar/style.less */
 .ui-seekbar {
   white-space: nowrap;
@@ -4816,4 +4508,312 @@ input:invalid {
   font-size: 48px;
   line-height: 32px;
   margin-bottom: 10px;
+}
+/* /Users/youzi/dev/mtv-play/components/first/show/style.less */
+.slow .show .switcher {
+  -webkit-transition: -webkit-transform 0.25s ease-out;
+  -moz-transition: -moz-transform 0.25s ease-out;
+  -ms-transition: -ms-transform 0.25s ease-out;
+  -o-transition: -o-transform 0.25s ease-out;
+  transition: transform 0.25s ease-out;
+}
+.slow .show .switcher .seasons {
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -ms-transition: -ms-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+.slow.phone .show .switcher .list {
+  background-color: #f8eff8;
+}
+.slow.android .show .scroller {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+}
+.phone .show .ui-item {
+  border-spacing: 0px 7px;
+}
+.phone .show .switcher {
+  background-color: #f8eff8;
+}
+.phone .show .list:first-child {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  padding-left: 15px;
+}
+.phone .show .list:first-child .ui-item {
+  padding-left: 0;
+}
+.touch .show .seasons {
+  margin-top: -48px;
+  height: 48px;
+  line-height: 44px;
+  color: #ac99b9;
+}
+.touch .show .items > div {
+  width: 33.33333333%;
+  display: inline-block;
+}
+.touch .show .items > :first-child {
+  padding-left: 15px;
+}
+.touch .show .focus {
+  color: #3a1a58;
+}
+.touch .show .list .ui-item {
+  padding-left: 15px;
+}
+.show {
+  color: #3a1a58;
+  overflow: hidden;
+}
+.show .cover {
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  -webkit-transition: opacity 0.4s ease-out;
+  -moz-transition: opacity 0.4s ease-out;
+  -ms-transition: opacity 0.4s ease-out;
+  -o-transition: opacity 0.4s ease-out;
+  transition: opacity 0.4s ease-out;
+}
+.show .info {
+  color: #ffffff;
+  height: 100%;
+  width: 100%;
+  table-layout: fixed;
+  display: table;
+  text-align: center;
+  font-size: 13px;
+  background-color: rgba(23, 23, 23, 0.8);
+}
+.show .box {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 15px 5px 15px;
+}
+.show .star {
+  display: inline-block;
+  width: 48px;
+  line-height: 48px;
+  font-size: 48px;
+}
+.show .favorited {
+  color: #ffeb00;
+}
+.show .switcher {
+  overflow: hidden;
+}
+.show .scroller {
+  padding-bottom: 80px;
+}
+.show .line {
+  margin-top: 48px;
+  border-bottom: 1px solid #dbcedb;
+}
+.show .highlight {
+  -webkit-transition: -webkit-transform 0.32s ease-out;
+  -moz-transition: -moz-transform 0.32s ease-out;
+  -ms-transition: -ms-transform 0.32s ease-out;
+  -o-transition: -o-transform 0.32s ease-out;
+  transition: transform 0.32s ease-out;
+  margin-top: 1px;
+  width: 33.33333333%;
+  height: 3px;
+  background-color: #ee255c;
+  border-radius: 20px;
+}
+.show .list {
+  width: 100%;
+}
+.show .ui-item {
+  border-bottom: 1px solid #dbcedb;
+  cursor: pointer;
+}
+.show .ui-item:last-child {
+  border-bottom: none;
+}
+.show .roll {
+  white-space: nowrap;
+}
+.show .seasons {
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-family: OpenSansBoldItalic;
+}
+.show .list {
+  vertical-align: top;
+  display: inline-block;
+}
+.show .txt {
+  padding-left: 15px;
+}
+.show .ui-img {
+  background-size: cover;
+}
+.show .bar {
+  background-color: #ee255c;
+  height: 5px;
+  margin-top: -5px;
+}
+/* /Users/youzi/dev/mtv-play/components/first/seasons/style.less */
+.first-seasons {
+  vertical-align: top;
+}
+.first-seasons .thumb {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  overflow: hidden;
+  background-color: #f2f2f2;
+}
+.first-seasons .percentage {
+  background-color: rgba(23, 23, 23, 0.8);
+  line-height: 75px;
+  color: #ffffff;
+  font-size: 36px;
+  font-family: OpenSansBold;
+  text-align: center;
+}
+.first-seasons .bar {
+  background-color: #ee255c;
+  height: 5px;
+  margin-top: -5px;
+}
+.first-seasons > div {
+  position: relative;
+}
+.first-seasons.seasons-only .list {
+  border-top: 1px solid #dddddd;
+}
+.first-seasons > div > .title {
+  font-size: 22px;
+  padding: 15px 15px;
+}
+.first-seasons .dropdown {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-transition: height 0.2s ease-out;
+  -moz-transition: height 0.2s ease-out;
+  -ms-transition: height 0.2s ease-out;
+  -o-transition: height 0.2s ease-out;
+  transition: height 0.2s ease-out;
+  position: absolute;
+  display: inline-block;
+  text-transform: uppercase;
+  font-family: OpenSansBold;
+  background-color: #d71f52;
+  color: #ffffff;
+  top: 15px;
+  right: 15px;
+  overflow: hidden;
+  line-height: 30px;
+  cursor: hand;
+  cursor: pointer;
+}
+.first-seasons .dropdown > div {
+  padding: 0 7px;
+  color: #fbe3ea;
+}
+.first-seasons .dropdown > div:hover {
+  color: #ffffff;
+}
+.first-seasons .dropdown .current {
+  background-color: #ee255c;
+  color: #ffffff;
+}
+.first-seasons .dropdown .current .caret {
+  display: inline-block;
+  vertical-align: middle;
+  width: 18px;
+}
+.first-seasons .dropdown.inactive .current {
+  background-color: #ac99b9;
+}
+.first-seasons .dropdown.inactive .current .caret {
+  display: none;
+}
+.first-seasons .border {
+  border-bottom: 1px solid #f0f0f0;
+  margin: 0 15px;
+}
+.first-seasons .list > div {
+  font-size: 14px;
+  cursor: pointer;
+}
+.first-seasons .list > div:last-child {
+  margin-bottom: 80px;
+}
+.first-seasons .holder {
+  display: table;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: -1px;
+}
+.first-seasons .holder > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+.first-seasons .righticon {
+  text-align: right;
+}
+.not-phone .first-seasons .list .current {
+  background-color: #3a1a58;
+  color: #ffffff;
+}
+.not-phone .first-seasons .list .current .border {
+  border-bottom: 1px solid #3a1a58;
+}
+.tablet .first-seasons {
+  min-width: 400px;
+}
+.tablet .first-seasons.seasons-only .list {
+  border-top: 1px solid #dbcedb;
+}
+.tablet .first-seasons .border {
+  border-bottom: 1px solid #dbcedb;
+  margin: 0 15px;
+}
+.tablet .first-seasons > div > .title {
+  display: inline-block;
+  white-space: nowrap;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 28px;
+  vertical-align: middle;
+}
+.tablet .first-seasons > div > .favourite {
+  color: #ac99b9;
+}
+.desktop .first-seasons {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  background-color: #ffffff;
+  min-width: 400px;
+}
+.desktop .first-seasons .list > div {
+  font-size: 14px;
+  cursor: pointer;
+}
+.desktop .first-seasons .list > div:last-child {
+  margin-bottom: 0px;
+}
+.desktop .first-seasons .list > div:last-child .border {
+  border-bottom: 0;
+}
+.not-phone .first-seasons {
+  border-spacing: 15px;
+  vertical-align: top;
+  display: table-cell;
 }
