@@ -151,7 +151,8 @@
         "img": "*",
         "assets": "*",
         "fonts": "*",
-        "fonts.css": true
+        "fonts.css": true,
+        "translations":"*"
       },
       "transforms": {
         "build.js": [
