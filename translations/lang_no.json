@@ -1,0 +1,427 @@
+{
+  "text": {
+    "all": null,
+    "error": null,
+    "cancel": null,
+    "about": null,
+    "available": null,
+    "done": null,
+    "email": null,
+    "every": null,
+    "imprint": null,
+    "learnMore": null,
+    "free": null,
+    "verifytaken": null,
+    "mtvMobile": null,
+    "min": null,
+    "visit": null,
+    "episode": null,
+    "episodes": null,
+    "success": null,
+    "oops": null,
+    "warning": null,
+    "purchase": {
+      "allPremiumFeatures": null,
+      "connectInfo": null,
+      "didYouKnow": null,
+      "freeWithMTV": null,
+      "goPremium": null,
+      "perMonth": null,
+      "perYear": null,
+      "getMore": null,
+      "buyMonth": null,
+      "buyYear": null,
+      "monthlyPass": {
+        "body": null,
+        "title": null
+      },
+      "singlePass": {
+        "body": null,
+        "title": null
+      },
+      "yearlyPass": {
+        "body": null,
+        "title": null
+      }
+    },
+    "hoorayMobileTitle": null,
+    "hoorayUpgradedText": null,
+    "upgrade": null,
+    "upgradedMessage": null,
+    "upgrading": null,
+    "upgradePremium": null,
+    "hoorayPremium": null,
+    "mobilePurchased": null,
+    "episodePurchased": null,
+    "premium": null,
+    "purchaseHistory": null,
+    "rental": null,
+    "enterYourNumber": null,
+    "verify": null,
+    "verifyMobile": null,
+    "verifying": null,
+    "verifyfail": null,
+    "verifysuccess": null,
+    "nav": {
+      "discover": null,
+      "allShows": null,
+      "channels": null,
+      "shows": null,
+      "television": null,
+      "settings": null
+    },
+    "privacy": null,
+    "profile": null,
+    "mtvPlay": null,
+    "onTv": null,
+    "needToRegister": null,
+    "easyRegister": null,
+    "new": null,
+    "newEpisodes": null,
+    "newPassword": null,
+    "newReleases": null,
+    "favoriteAdded": null,
+    "favoriteRemoved": null,
+    "favorites": null,
+    "noFavos": null,
+    "nowOnTv": null,
+    "now": null,
+    "pause": null,
+    "play": null,
+    "progress": null,
+    "pullBack": null,
+    "recommended": null,
+    "showsYouWatch": null,
+    "search": null,
+    "season": null,
+    "seasons": null,
+    "topShows": null,
+    "screenAvailable": null,
+    "devices": null,
+    "watchBigger": null,
+    "watchBig": null,
+    "noDevicesTitle": null,
+    "noDevices": null,
+    "playingOn": null,
+    "account": {
+      "signin": {
+        "title": null,
+        "facebook": null,
+        "twitter": null,
+        "email": null,
+        "wrong": null,
+        "success": null,
+        "facebookError": null
+      },
+      "logout": null,
+      "signup": {
+        "title": null,
+        "confirm": null,
+        "facebook": null,
+        "twitter": null,
+        "email": null,
+        "already": null
+      },
+      "invalid": {
+        "email": null,
+        "password": null,
+        "cellphone": null
+      },
+      "forgot": {
+        "title": null,
+        "wrong": null,
+        "success": null
+      },
+      "change": {
+        "email": null,
+        "password": null,
+        "success": null
+      },
+      "passwordReset": null,
+      "passwordResetError": null,
+      "purchaseError": null,
+      "verifyEmailError": null,
+      "verifyEmailSuccess": {
+        "subtitle": null,
+        "title": null
+      }
+    },
+    "enterName": null,
+    "password": null,
+    "noMatchPassword": null,
+    "noPassword": null,
+    "noRepeatPassword": null,
+    "chooseTelCode": null,
+    "settings": {
+      "languages": {
+        "title": null,
+        "subtitle": null
+      }
+    },
+    "name": null,
+    "phonenumber": null,
+    "repeatPassword": null,
+    "terms": null,
+    "termsOfService": null,
+    "shareFacebook": null,
+    "shareTwitter": null,
+    "shareEmail": null,
+    "share": null,
+    "shareEpisode": null,
+    "tellMe": null,
+    "countries": {
+      "be": {
+        "tel": null,
+        "title": null
+      },
+      "de": {
+        "tel": null,
+        "title": null
+      },
+      "nl": {
+        "tel": null,
+        "title": null
+      },
+      "pl": {
+        "tel": null,
+        "title": null
+      },
+      "ro": {
+        "tel": null,
+        "title": null
+      },
+      "ch": {
+        "tel": null,
+        "title": null
+      }
+    },
+    "language": null,
+    "languages": {
+      "nl": {
+        "title": null
+      },
+      "de": {
+        "title": null
+      },
+      "en": {
+        "title": null
+      },
+      "pl": {
+        "title": null
+      },
+      "it": {
+        "title": null
+      },
+      "fr": {
+        "title": null
+      },
+      "ro": {
+        "title": null
+      }
+    },
+    "connectWith": null,
+    "alreadyPurchased": null,
+    "workInProgress": null,
+    "workingOnIt": null,
+    "advertisement": null,
+    "age": null,
+    "backlink": null,
+    "buyPremium": null,
+    "cellphone": null,
+    "Connection": null,
+    "continue": null,
+    "countdown": null,
+    "desktopText": null,
+    "extras": null,
+    "gender": null,
+    "invalidEntry": null,
+    "legalContainer": null,
+    "lockedEpisode": null,
+    "lockedEpisodeDescription": null,
+    "login": {
+      "tvSubtitle": null,
+      "tvTitle": null
+    },
+    "mailHelp": {
+      "body": null,
+      "title": null
+    },
+    "mailShare": {
+      "body": null,
+      "title": null
+    },
+    "mobileUpgrade": null,
+    "mobileUpgradeInfo": null,
+    "newAccount": null,
+    "newPasswordConfirm": null,
+    "newsletterSubtitle": null,
+    "newsletterTitle": null,
+    "next": null,
+    "noDescription": null,
+    "noEPG": null,
+    "or": null,
+    "phoneUpgradeTitle": null,
+    "ppv": null,
+    "premiumUser": null,
+    "promotion": null,
+    "purchaseHistoryText": null,
+    "recieveMainScreen": null,
+    "recieveSecondScreen": null,
+    "register": {
+      "redirectSubtitle": null,
+      "redirectTeleport": null,
+      "redirectTitle": null
+    },
+    "returnTap": null,
+    "roadblock": null,
+    "rotateDevice": null,
+    "seconds": null,
+    "sender": {
+      "remotePlaybackSubtitle": null,
+      "remotePlaybackTitle": null
+    },
+    "signInTOS": null,
+    "specials": null,
+    "spotlight": null,
+    "swipeup": null,
+    "tabletText": null,
+    "thisDevice": null,
+    "trial": null,
+    "trialActive": null,
+    "tvLogin": null,
+    "unlockPrice": null,
+    "untitled": null,
+    "upgradeFromPhone": null,
+    "verifyEmail": {
+      "subtitle": null,
+      "title": null
+    },
+    "versionAvailable": null
+  },
+  "settings": {
+    "connectivity": null,
+    "connectivitySub": null,
+    "connectivityDescription": null,
+    "verifyMobile": null,
+    "verifyMobileSub": null,
+    "about": null,
+    "aboutSub": null,
+    "help": null,
+    "helpSub": null,
+    "feedback": null,
+    "feedbackSub": null,
+    "disableCellular": {
+      "subtitle": null,
+      "title": null
+    },
+    "disableNewsletter": {
+      "subtitle": null,
+      "title": null
+    },
+    "enableCellular": {
+      "subtitle": null,
+      "title": null
+    },
+    "enableNewsletter": {
+      "subtitle": null,
+      "title": null
+    },
+    "intro": null,
+    "introSub": null,
+    "newsletter": {
+      "body": null
+    }
+  },
+  "intro": {
+    "welcome": {
+      "title": null,
+      "body": null
+    },
+    "devices": {
+      "title": null,
+      "body": null
+    },
+    "connect": {
+      "title": null,
+      "body": null
+    },
+    "free": {
+      "body": null,
+      "button": null
+    },
+    "mobile": {
+      "body": null,
+      "button": null,
+      "title": null
+    },
+    "register": {
+      "body": null,
+      "title": null
+    }
+  },
+  "button": {
+    "exitfullscreen": null,
+    "skip": null
+  },
+  "cancel": null,
+  "connect": {
+    "active": null,
+    "lost": null,
+    "waiting": null
+  },
+  "install": null,
+  "modal": {
+    "connectedText": {
+      "body": null,
+      "misc": null,
+      "title": null
+    },
+    "videoUnavailable": {
+      "subtitle": null,
+      "title": null
+    },
+    "warning": {
+      "cellular": {
+        "subtitle": null,
+        "title": null
+      },
+      "invalid": null,
+      "unabletoverify": null
+    }
+  },
+  "notnow": null,
+  "ok": null,
+  "options": {
+    "age": {
+      "0": {
+        "text": null
+      },
+      "1": {
+        "text": null
+      },
+      "2": {
+        "text": null
+      }
+    },
+    "gender": {
+      "0": {
+        "text": null
+      },
+      "1": {
+        "text": null
+      },
+      "2": {
+        "text": null
+      }
+    }
+  },
+  "share": {
+    "failed": null,
+    "success": null
+  },
+  "singleEpisodePurchased": null,
+  "tex": {
+    "buyPremiumPhoneButton": null
+  },
+  "verifyemail": null
+}
