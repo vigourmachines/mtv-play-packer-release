@@ -7423,187 +7423,262 @@ arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
  */
-require('./style.less')
+require( './style.less' )
 
-var Element = require('vigour-js/app/ui/element')
-  , Icon = require('../../icon')
-  , Img = require('../../img')
-  , text = require('../../text')
-  , Favourite = require('../favourite')
-  , app = require('vigour-js/app/')
-  , cases = require('vigour-js/browser/cases')
-  , _dropDownEventId = 'dropDownEventId'
+var Element = require( 'vigour-js/app/ui/element' )
+var Icon = require( '../../icon' )
+var Img = require( '../../img' )
+var text = require( '../../text' )
+var Favourite = require( '../favourite' )
+var app = require( 'vigour-js/app/' )
+var cases = require( 'vigour-js/browser/cases' )
+var _dropDownEventId = 'dropDownEventId'
+var dictionary = require( 'vigour-js/app/dictionary' )
 
-//season switcher > takes showdata
-module.exports = new Element(
-{ on:
-  { media:
-    { defer:function( update,args ){
+var seasonsText = dictionary.get( 'text.seasons' )
+var episodeText = dictionary.get( 'text.episode' )
+var minText = dictionary.get( 'text.min' )
+var specialsText = dictionary.get( 'text.specials' )
+  // var seasonsText = dictionary.get( 'text.seasons' )
+  //season switcher > takes showdata
+
+var EpisodeList = new Element({
+  collection: {
+    data: 'season.episodes',
+    filter: true,
+    element: new Element( {
+      model: function( data ) {
+        var path = data._contentPath
+        if( path && !~path.indexOf( 'channels' ) ) {
+          this.holder.thumb.cover.data = app.user.usage.from.get( path )
+          this.model = false
+        }
+      },
+      holder: {
+        thumb: {
+          w: 100,
+          img: new Img( {
+            w: 100,
+            h: 100 * 3 / 4
+          } ),
+          cover: {
+            y: cases.desktop ? -100 * 3 / 4 : -5,
+            h: cases.desktop ? 100 * 3 / 4 : 5,
+            model: {
+              inherit: false
+            },
+            desktop: {
+              percentage: {
+                text: {
+                  data: 'time',
+                  transform: function( v, cv ) {
+                    var p = Math.floor( cv * 100 )
+                    return p ? Math.abs( p ) + '%' : ''
+                  }
+                }
+              }
+            },
+            bar: {
+              w: {
+                data: 'time',
+                transform: function( v, cv ) {
+                  return !isNaN( cv ) ? Math.abs( cv ) * 100 : 0
+                }
+              }
+            }
+          }
+        },
+        txt: {
+          title: new text.Title(),
+          subtitle: { //new text.Subtitle()
+            text: {
+              data: 'number',
+              transform: function( v, cv ) {
+                return cv > 9000 ? '' : episodeText.val + ' ' + cv + ' - '
+              },
+              add: {
+                data: 'duration',
+                transform: function( v, cv ) {
+                  return cv ? ~~( cv / 60 ) + ' ' + minText.val : ''
+                },
+                listen: dictionary
+              }
+            }
+          }
+        },
+        righticon: new Icon( {
+          on: {
+            data: 'id'
+          },
+          icon: {
+            data: 'access',
+            transform: function( val, cv ) {
+              var access = app.util.access( cv, this.data )
+              var icon = access === 'playAlt' ? cases.desktop ? 'empty' : 'arrowright' : access
+              return icon === 'lockedContent' ? 'lockedContentAlt' : icon
+            },
+            listen: [ app.user.role, app.user.purchases ]
+          }
+        } )
+      },
+      border: {},
+      'events.click': function() {
+        app.user.navigation.media.$userOrigin = this.data.from
+      }
+    } )
+  }
+}).Class
+
+module.exports = new Element( {
+  on: {
+    media: {
+      defer: function( update, args ) {
         var data = app.user.navigation.media.from.val
-
-        if( data )
-        {
-          var caller = this._parent._caller
-            , current = caller.list.find('data',data)
-          if( current && !current.css.val )
-          {
+        if( data ) {
+          var caller = this._parent._caller,
+            current = caller.list.find( 'data', data )
+          if( current && !current.css.val ) {
             if( caller.prev ) caller.prev.css = false
             current.css = 'current'
             caller.prev = current
           }
         }
-
         update()
       }
     }
-  }
-, title:
-  { text:
-    { val:{ dictionary:'text.episodes' }
-    , tablet:{ data:'show.title' }
-    }
-  }
-, tablet:
-  { favourite:new Favourite()
-  }
-, list:
-  { tablet:
-    { scrollbar:'y'
-    , h:
-      { val:app.h
-      , sub:
-        { val:99
-        , iosFull:119
-        }
+  },
+  title: {
+    text: {
+      val: {
+        dictionary: 'text.episodes'
+      },
+      tablet: {
+        data: 'show.title'
       }
     }
-  , collection:
-    { data:'season.episodes'
-    , filter:true
-    , element:new Element(
-      { model:function( data ){
-          var path = data._contentPath
-          if( path && !~path.indexOf('channels') )
-          {
-            this.holder.thumb.cover.data = app.user.usage.from.get(path)
-            this.model = false
-          }
+  },
+  tablet: {
+    favourite: new Favourite()
+  },
+  list: {
+    tablet: {
+      scrollbar: 'y',
+      h: {
+        val: app.h,
+        sub: {
+          val: 99,
+          iosFull: 119
         }
-      , holder:
-        { thumb:
-          { w:100
-          , img:new Img(
-            { w:100
-            , h:100*3/4
-            })
-          , cover:
-            { y:cases.desktop ? -100*3/4 : -5
-            , h:cases.desktop ? 100*3/4 : 5
-            , model:{inherit:false}
-            , desktop:
-              { percentage:{text:{data:'time',transform:function(v,cv){
-                  var p = Math.floor(cv * 100)
-                  return p ? Math.abs(p) + '%' : ''
-                }}}}
-            , bar:{w:{data:'time',transform:function(v,cv){
-              return !isNaN(cv) ? Math.abs(cv) * 100 : 0
-            }}}
-            }
-          }
-        , txt:
-          { title:new text.Title()
-          , subtitle:new text.Subtitle()
-          }
-        , righticon: new Icon(
-          { on:{data:'id'}
-          , icon: 
-            { data:'access'
-            , transform: function( val, cv ) {
-              var access = app.util.access( cv, this.data )
-                , icon = access === 'playAlt' ? cases.desktop ? 'empty' : 'arrowright' : access
-                  return icon === 'lockedContent' ? 'lockedContentAlt' : icon
-              }
-            , listen: [ app.user.role, app.user.purchases ]
-            }
-          })
-        }
-      , border:{}
-      , 'events.click':function(){
-          app.user.navigation.media.$userOrigin = this.data.from
-        }
-      })
-    }
-  , model:
-    { complete:function(data){
-        this.parent && this.parent.on.media._update()
       }
-    }
-  }
-, dropdown:
-  { h:30
-  , on:
-    { $remove:
-      { defer:function( update ){
+    },
+    eps:new EpisodeList({
+      model: {
+        complete: function( data ) {
+          this.parent && this.parent.parent.on.media._update()
+        }
+      }
+    }),
+    extrasHeader:{
+      display:{
+        data:'season.extras',
+        transform:function(v,cv){
+          return cv ? 'block' : 'none'
+        }
+      },
+      text:{
+        dictionary:'text.extras'
+      }
+    },
+    extras:new EpisodeList({
+      // display:{
+      //   data:'season.extras',
+      //   transform:function(v,cv){
+      //     return cv ? 'block' : 'none'
+      //   }
+      // },
+      collection:{
+        data: 'season.extras'
+      }
+    })
+  },
+  dropdown: {
+    h: 30,
+    on: {
+      $remove: {
+        defer: function( update ) {
           app.removeEvent( false, _dropDownEventId )
           update()
         }
       }
-    }
-  , current:
-    { text:
-      { dictionary: 'text.season'
-      , add: [ ' ', { data:'season.number' } ]
-      }
-    , caret:new Icon({icon:'dropdown'})
-    }
-  , collection:
-    { data:'show.seasons'
-    , filter:true
-    , element:new Element(
-      { text:
-        { dictionary: 'text.season'
-        , add: [ ' ', { data:'number'} ]
-        }
-      , 'events.click':function(){
+    },
+    current: {
+      text: {
+        data: 'season.number',
+        transform: function( v, cv ) {
+          return cv !== 9000 ? seasonsText.val + ' ' + cv : specialsText.val
+        },
+        listen: dictionary
+      },
+      caret: new Icon( {
+        icon: 'dropdown'
+      } )
+    },
+    collection: {
+      data: 'show.seasons',
+      filter: true,
+      element: new Element( {
+        text: {
+          data: 'number',
+          transform: function( v, cv ) {
+            return cv !== 9000 ? seasonsText.val + ' ' + cv : specialsText.val
+          },
+          listen: dictionary
+        },
+        'events.click': function() {
           var seasondata = this.data.from
           app.user.navigation.season.$userOrigin = seasondata
-          // if( !app.playing.val )
-          // {
-          //   this.checkParent('switcher.on.media',true).$userOrigin = seasondata.get('episodes.0')
-          // }
+            // if( !app.playing.val )
+            // {
+            //   this.checkParent('switcher.on.media',true).$userOrigin = seasondata.get('episodes.0')
+            // }
         }
-      })
-    }
-  , 'events.click':function(){
-      var length = this.children.length
-        , _this = this
-      if(this.h.val === 30 && length > 2) 
-      {
+      } )
+    },
+    'events.click': function() {
+      var length = this.children.length,
+        _this = this
+      if( this.h.val === 30 && length > 2 ) {
         this.h = length * 30 + 4
-        app.addEvent('click',function(){
+        app.addEvent( 'click', function() {
           if( _this.h ) _this.h = 30
           app.removeEvent( false, _dropDownEventId )
         }, _dropDownEventId )
-      }
-      else 
-      {
+      } else {
         this.h = 30
       }
+    },
+    'model.complete': function() {
+      if( this.children.length <= 2 ) {
+        this.css = {
+          addClass: 'inactive'
+        }
+      } else {
+        this.css = {
+          removeClass: 'inactive'
+        }
+      }
     }
-  , 'model.complete':function(){
-      if(this.children.length <= 2) this.css = {addClass:'inactive'}
-      else this.css = {removeClass:'inactive'}
-    }
-  }
-, model:function( data ){
-      // data.show && console.error('SHOW', data.show._path)
-      // data.season && console.error('SEASON', data.season._path,JSON.stringify(data.season.from.raw))
-      // data.media && console.error('MEDIA', data.media._path)
+  },
+  model: function( data ) {
+    // data.show && console.error('SHOW', data.show._path)
+    // data.season && console.error('SEASON', data.season._path,JSON.stringify(data.season.from.raw))
+    // data.media && console.error('MEDIA', data.media._path)
 
     if( data.media ) this.model = false
   }
-}).Class
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../../text":"/Users/shawn/Work/mtv-play/components/text/index.js","../favourite":"/Users/shawn/Work/mtv-play/components/first/favourite/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/seasons/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/first/seasons/style.less":[function(require,module,exports){
+} ).Class
+
+},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../../text":"/Users/shawn/Work/mtv-play/components/text/index.js","../favourite":"/Users/shawn/Work/mtv-play/components/first/favourite/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/seasons/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/first/seasons/style.less":[function(require,module,exports){
 arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
 },{}],"/Users/shawn/Work/mtv-play/components/first/show/cover.js":[function(require,module,exports){
 /*!
@@ -7895,116 +7970,136 @@ else
   module.exports = require('../watch')
 }
 },{"../../player":"/Users/shawn/Work/mtv-play/components/player/index.js","../favourite":"/Users/shawn/Work/mtv-play/components/first/favourite/index.js","../overview/item":"/Users/shawn/Work/mtv-play/components/first/overview/item.js","../watch":"/Users/shawn/Work/mtv-play/components/first/watch/index.js","./cover":"/Users/shawn/Work/mtv-play/components/first/show/cover.js","./list":"/Users/shawn/Work/mtv-play/components/first/show/list.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/show/style.less","./switcher":"/Users/shawn/Work/mtv-play/components/first/show/switcher.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/index.js"}],"/Users/shawn/Work/mtv-play/components/first/show/list.js":[function(require,module,exports){
-  // var appData = require('../../control/data')
-var cases = require('vigour-js/browser/cases')
-  , Element = require('vigour-js/app/ui/element')
-  , app = require('vigour-js/app/')
-  , Icon = require('../../icon')
-  , Img = require('../../img').Basic
-  , Item = require('../../item').Indicator
-  , dictionary = require('vigour-js/app/dictionary')
-  , Data = require('vigour-js/data')
+// var appData = require('../../control/data')
+var cases = require( 'vigour-js/browser/cases' )
+var Element = require( 'vigour-js/app/ui/element' )
+var app = require( 'vigour-js/app/' )
+var Icon = require( '../../icon' )
+var Img = require( '../../img' ).Basic
+var Item = require( '../../item' ).Indicator
+var dictionary = require( 'vigour-js/app/dictionary' )
+var Data = require( 'vigour-js/data' )
 
-var items = new Element(
-    { collection:
-      { data:'episodes'//season.episodes'
-      , filter:true
-      , element:new Item(
-        { model:function( data ){
-              var path = data._contentPath
-              if( path )
-              {
-                this.thumb.bar.w = app.user.usage.from.get(path.concat(['time']))
-                this.model = false
-              }
-            }
-        , thumb:
-          { img:new Img(
-            { w:70
-            , h:45
-            })
-          , bar:
-            { w:
-              { transform:function( v, cv ){
-                  if(!isNaN(cv)) return Math.abs(cv) * 70
-                  return 0
-                }
-              }
-            }
-          }
-        , txt:
-          { 'subtitle.text.data':
-            { val:function(data){
-                var str = ''
-                if(data.number) {
-                  str += dictionary.get('text.episode').val + ' ' + data.number.val 
-                }
-                if(data.duration) 
-                { 
-                  str += ' - '+ Math.round(data.duration.val/60)+ ' '+ dictionary.get('text.min').val
-                  return str
-                }
-              }
-            , listen:['number','duration']
-            }
-          }
-        , events:
-          { active:!cases.desktop && 'ui-item-clicked'
-          , click:function(){
-              if(!exports.block){
-                this.checkParent('on.media',true).$userOrigin = this.data.from
-              }
-            }
-          }
-        })
-      }
-    , model:
-      { complete:function(){
-          var list = this.parent
-          if(exports.state){
-            var path = this.data && this.data._cachedPath
-            if( path )
-            {
-              if(exports.state.path === path)
-              {
-                list._scrollTop = exports.state.scrollTop
-                list.node.scrollTop = exports.state.scrollTop || 1
-              }
-              exports.state = null
-            }
-          }
-          else if(cases.touch)
-          {
-            list.node.scrollTop = 1
-          }
-
+var EpisodeList = new Element({
+  collection: {
+    data: 'episodes',
+    filter: true,
+    element: new Item( {
+      model: function( data ) {
+        var path = data._contentPath
+        if( path ) {
+          this.thumb.bar.w = app.user.usage.from.get( path.concat( [ 'time' ] ) )
           this.model = false
-        } 
+        }
+      },
+      thumb: {
+        img: new Img( {
+          w: 70,
+          h: 45
+        } ),
+        bar: {
+          w: {
+            transform: function( v, cv ) {
+              if( !isNaN( cv ) ) return Math.abs( cv ) * 70
+              return 0
+            }
+          }
+        }
+      },
+      txt: {
+        'subtitle.text.data': {
+          val: function( data ) {
+            var str = ''
+            var nr
+            if( ( nr = data.number && data.number.val) && nr <= 9000 ) {
+              str += dictionary.get( 'text.episode' ).val + ' ' + nr
+            }
+            if( data.duration ) {
+              if(str){
+                str += ' - '
+              }
+              str += Math.round( data.duration.val / 60 ) + ' ' + dictionary.get( 'text.min' ).val
+              return str
+            }
+          },
+          listen: [ 'number', 'duration' ]
+        }
+      },
+      events: {
+        active: !cases.desktop && 'ui-item-clicked',
+        click: function() {
+          if( !exports.block ) {
+            this.checkParent( 'on.media', true ).$userOrigin = this.data.from
+          }
+        }
       }
-    })
+    } )
+  },
+  model: {
+    complete: function() {
+      var list = this.parent
+      if( exports.state ) {
+        var path = this.data && this.data._cachedPath
+        if( path ) {
+          if( exports.state.path === path ) {
+            list._scrollTop = exports.state.scrollTop
+            list.node.scrollTop = exports.state.scrollTop || 1
+          }
+          exports.state = null
+        }
+      } else if( cases.touch ) {
+        list.node.scrollTop = 1
+      }
 
-var list = new Element(
-{ css:'list'
-, scroller:items
-, on:
-  { $render:
-    { defer:function( update ){
+      this.model = false
+    }
+  }
+}).Class
+
+var items = new Element( {
+  eps:new EpisodeList(),
+  extrasHeader:{
+    display:{
+      data:'extras',
+      transform:function(v,cv){
+        return cv ? 'block' : 'none'
+      }
+    },
+    text:{
+      dictionary:'text.extras'
+    }
+  },
+  extras:new EpisodeList({
+    collection:{
+      data: 'extras'
+    }
+  })
+} )
+
+var list = new Element( {
+  css: 'list',
+  scroller: items,
+  on: {
+    $render: {
+      defer: function( update ) {
         var caller = this._parent._caller
         caller.node.scrollTop = caller._scrollTop || cases.touch && 1
         update()
       }
     }
-  }
-, h:
-  { val:app.h
-  , sub:
-    { val:89
-    , iosFull:109
+  },
+  h: {
+    val: app.h,
+    sub: {
+      val: 89,
+      iosFull: 109
     }
+  },
+  scrollbar: 'y',
+  model: {
+    inherit: false
   }
-, scrollbar:'y'
-, model:{inherit:false}
-})
+} )
 
 module.exports = exports = list.Class
 },{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../../item":"/Users/shawn/Work/mtv-play/components/item/index.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js"}],"/Users/shawn/Work/mtv-play/components/first/show/seasons.js":[function(require,module,exports){
@@ -8013,23 +8108,23 @@ var events = require( 'vigour-js/browser/events' )
 var Element = require( 'vigour-js/app/ui/element' )
 var Icon = require( '../../icon' )
 var app = require( 'vigour-js/app/' )
+var dictionary = require( 'vigour-js/app/dictionary' )
+var seasonsText = dictionary.get( 'text.seasons' )
+var specialsText = dictionary.get( 'text.specials' )
 
 var Season = new Element( {
   text: {
-    dictionary: 'text.season',
-    add: {
-      val: ' ',
-      add: {
-        data: 'number'
-      }
-    }
+    data: 'number',
+    transform: function( v, cv ) {
+      return cv !== 9000
+        ? seasonsText.val + ' ' + cv
+        : specialsText.val
+    },
+    listen: dictionary
   }
 } ).Class
 
 module.exports = new Element( {
-  desktop: {
-    'text.dictionary': 'text.episodes'
-  },
   items: {
     collection: {
       data: 'show.seasons',
@@ -8041,27 +8136,25 @@ module.exports = new Element( {
       } )
     }
   },
-  touch: {
+  x: {
+    translate: true,
+    parent: 'w',
+    multiply: 0,
+    '!slow': {
+      animation: {
+        time: Math.min( app.w.val / 14, 32 ),
+        easing: 'outCubic'
+      }
+    }
+  },
+  highlight: {
     x: {
-      translate: true,
-      parent: 'w',
-      multiply: 0,
-      '!slow': {
-        animation: {
-          time: Math.min( app.w.val / 14, 32 ),
-          easing: 'outCubic'
-        }
-      }
-    },
-    highlight: {
-      x: {
-        translate: true
-      }
+      translate: true
     }
   }
 } )
 
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/index.js"}],"/Users/shawn/Work/mtv-play/components/first/show/style.less":[function(require,module,exports){
+},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/index.js"}],"/Users/shawn/Work/mtv-play/components/first/show/style.less":[function(require,module,exports){
 arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
 },{}],"/Users/shawn/Work/mtv-play/components/first/show/switcher.js":[function(require,module,exports){
 /*!
@@ -16304,9 +16397,9 @@ exports.Title = new Element(
 }).Class
 
 var seasonText = dictionary.get( 'text.season' )
-  , seasonsText = dictionary.get( 'text.seasons' )
-  , episodeText = dictionary.get( 'text.episode' )
-  , episodesText  = dictionary.get( 'text.episodes' )
+var seasonsText = dictionary.get( 'text.seasons' )
+var episodeText = dictionary.get( 'text.episode' )
+var episodesText  = dictionary.get( 'text.episodes' )
 
 exports.Subtitle = new Element(
 { text:
@@ -52164,6 +52257,6 @@ app.set( // switcher between first/second/player
 app.initialised.val = true
 
 },{"../app":"/Users/shawn/Work/mtv-play/app/index.js","../components/switcher":"/Users/shawn/Work/mtv-play/components/switcher/index.js","vigour-js/app/ui/tv":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/tv/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"package.json":[function(require,module,exports){
-module.exports={"name":"mtv-play","version":"1.2.64","description":"mtv's multiscreen adventure","main":"index.js","scripts":{"start":"gaston -d","test":"test/test.js","release":"packer -r -c package.json,.package.json"},"repository":{"type":"git","url":"https://github.com/vigour-io/mtv-play","branch":"develop"},"keywords":["multiscreen","play","shows","smart","tv","js"],"dependencies":{"lodash":"3.2.0","monotonic-timestamp":"0.0.9","package-branch-config":"^1.2.2","promise":"6.1.0","through2":"^2.0.0","vigour-js":"git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay","zepto-browserify":"x"},"devDependencies":{"vigour-dev-tools":"git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master","vigour-packer-server":"git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"},"author":"Jim de Beer","license":"other","bugs":{"url":"https://github.com/vigour-io/mtv-play/issues"},"homepage":"https://github.com/vigour-io/mtv-play","vigour":{"ga":"UA-43955457-3","hashUrl":true,"defaultRegion":false,"regionOverride":false,"availableRegions":["DE","NL","CH","PL","RO","BE"],"geo":"https://wwwmtvplay-a.akamaihd.net/geo/","development":{"button":true},"cloud":"http://mtv-hub.dev.vigour.io:80","othercloud":"http://localhost:10001","languages":["en","de","nl","pl","ro","it","fr"],"mtvmobile":["de","ch","ro"],"roles":["free","premium","mtv","trial"],"countrycodes":{"de":49,"ch":41,"ro":40,"nl":31},"dictionary":"http://mtv-develop.vigour.io//translations/lang_$language.json","webtranslateit":{"files":{"de":374130,"en":374126,"nl":374128,"pl":374129,"ro":374131,"fr":404562,"it":404563},"token":"-rN-CdCWmgh4IDxFRT-MEg"},"epg":"https://wwwmtvplay-a.akamaihd.net/xhr/index.html","img":"https://imgmtvplay-a.akamaihd.net","api":{"type":"production","url":"https://utt.mtvnn.com/","acceptHeader":"application/json","key":"4e99c9381b74354fbae9f468497912f0"},"player":{"debug":false,"web":"http://player.mtvnn.com/html5player/production/player.js","settings":{"domain":"mtv","tld":"de","localization":{"language":"de","country":"DE"},"ads":{"enabled":true,"engine":"Freewheel","networkID":174975,"profileID":"174975:MTVNE_live_HTML5","viralSID":"mtvplaytv/test","defaultAssetID":41349526,"server":"http://2ab7f.v.fwmrm.net/ad/p/1"},"controls":false,"blankVideo":"http://player.mtvnn.com/codebase/blank.m4v","simulcastApiKey":"c153f28d950ae49a"}},"chromecast":{"id":"30C914C1","web":"https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"},"facebook":{"id":"720547754665171","web":"https://connect.facebook.net/de_DE/sdk.js"},"packer":{"language":"https://wwwmtvplay-a.akamaihd.net/translations/","url":"https://wwwmtvplay-a.akamaihd.net/","domain":"http://mtv-develop.vigour.io","assets":{"index.html":true,"bundle.js":true,"bundle.css":true,"build.html":true,"build.js":true,"build.css":true,"img":"*","assets":"*","fonts":"*","fonts.css":true,"translations":"*"},"transforms":{"build.js":["inform"],"bundle.css":["rebase"],"build.css":["rebase"]},"main":"build.js","web":"build.html","fbDefaults":{"title":"MTV Play","description":"Mtv's new app to view shows on all devices","image":"http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png"}},"store":{"ios":{"monthly":"$region_subscription_monthly","yearly":"$region_subscription_annual","single":"$region_single_purchase"},"android":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annually","single":"mtvplay_single_purchase"},"windows":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annual","single":"mtvplay_single_purchase"}}},"gaston":{"port":8080,"socket-port":9000,"no-auto-reload":false,"no-package":false,"bundle":"./","build":"./","browserify":{"transforms":[{"path":"package-branch-config","options":{"section":"vigour"}}]},"less":{"options":{}},"smaps":true,"source-maps":true,"remote-logging":true,"require-paths":{}},"sha":"1.2.64"}
+module.exports={"name":"mtv-play","version":"1.2.66","description":"mtv's multiscreen adventure","main":"index.js","scripts":{"start":"gaston -d","test":"test/test.js","release":"packer -r -c package.json,.package.json"},"repository":{"type":"git","url":"https://github.com/vigour-io/mtv-play","branch":"develop"},"keywords":["multiscreen","play","shows","smart","tv","js"],"dependencies":{"lodash":"3.2.0","monotonic-timestamp":"0.0.9","package-branch-config":"^1.2.2","promise":"6.1.0","through2":"^2.0.0","vigour-js":"git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay","zepto-browserify":"x"},"devDependencies":{"vigour-dev-tools":"git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master","vigour-packer-server":"git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"},"author":"Jim de Beer","license":"other","bugs":{"url":"https://github.com/vigour-io/mtv-play/issues"},"homepage":"https://github.com/vigour-io/mtv-play","vigour":{"ga":"UA-43955457-3","hashUrl":true,"defaultRegion":false,"regionOverride":false,"availableRegions":["DE","NL","CH","PL","RO","BE"],"geo":"https://wwwmtvplay-a.akamaihd.net/geo/","development":{"button":true},"cloud":"http://mtv-hub.dev.vigour.io:80","othercloud":"http://localhost:10001","languages":["en","de","nl","pl","ro","it","fr"],"mtvmobile":["de","ch","ro"],"roles":["free","premium","mtv","trial"],"countrycodes":{"de":49,"ch":41,"ro":40,"nl":31},"dictionary":"http://mtv-develop.vigour.io//translations/lang_$language.json","webtranslateit":{"files":{"de":374130,"en":374126,"nl":374128,"pl":374129,"ro":374131,"fr":404562,"it":404563},"token":"-rN-CdCWmgh4IDxFRT-MEg"},"epg":"https://wwwmtvplay-a.akamaihd.net/xhr/index.html","img":"https://imgmtvplay-a.akamaihd.net","api":{"type":"production","url":"https://utt.mtvnn.com/","acceptHeader":"application/json","key":"4e99c9381b74354fbae9f468497912f0"},"player":{"debug":false,"web":"http://player.mtvnn.com/html5player/production/player.js","settings":{"domain":"mtv","tld":"de","localization":{"language":"de","country":"DE"},"ads":{"enabled":true,"engine":"Freewheel","networkID":174975,"profileID":"174975:MTVNE_live_HTML5","viralSID":"mtvplaytv/test","defaultAssetID":41349526,"server":"http://2ab7f.v.fwmrm.net/ad/p/1"},"controls":false,"blankVideo":"http://player.mtvnn.com/codebase/blank.m4v","simulcastApiKey":"c153f28d950ae49a"}},"chromecast":{"id":"30C914C1","web":"https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"},"facebook":{"id":"720547754665171","web":"https://connect.facebook.net/de_DE/sdk.js"},"packer":{"language":"https://wwwmtvplay-a.akamaihd.net/translations/","url":"https://wwwmtvplay-a.akamaihd.net/","domain":"http://mtv-develop.vigour.io","assets":{"index.html":true,"bundle.js":true,"bundle.css":true,"build.html":true,"build.js":true,"build.css":true,"img":"*","assets":"*","fonts":"*","fonts.css":true,"translations":"*"},"transforms":{"build.js":["inform"],"bundle.css":["rebase"],"build.css":["rebase"]},"main":"build.js","web":"build.html","fbDefaults":{"title":"MTV Play","description":"Mtv's new app to view shows on all devices","image":"http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png"}},"store":{"ios":{"monthly":"$region_subscription_monthly","yearly":"$region_subscription_annual","single":"$region_single_purchase"},"android":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annually","single":"mtvplay_single_purchase"},"windows":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annual","single":"mtvplay_single_purchase"}}},"gaston":{"port":8080,"socket-port":9000,"no-auto-reload":false,"no-package":false,"bundle":"./","build":"./","browserify":{"transforms":[{"path":"package-branch-config","options":{"section":"vigour"}}]},"less":{"options":{}},"smaps":true,"source-maps":true,"remote-logging":true,"require-paths":{}},"sha":"1.2.66"}
 },{}]},{},["/Users/shawn/Work/mtv-play/index.js"])
 //# sourceMappingURL=bundle.js.map
