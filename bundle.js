@@ -1,6 +1,6 @@
-require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js":[function(require,module,exports){
+require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js":[function(require,module,exports){
 
-},{}],"/Users/shawn/Work/gaston/node_modules/browserify/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/gaston/node_modules/browserify/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -25,7 +25,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],"/Users/shawn/Work/gaston/node_modules/browserify/node_modules/os-browserify/browser.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/gaston/node_modules/browserify/node_modules/os-browserify/browser.js":[function(require,module,exports){
 exports.endianness = function () { return 'LE' };
 
 exports.hostname = function () {
@@ -72,7 +72,7 @@ exports.tmpdir = exports.tmpDir = function () {
 
 exports.EOL = '\n';
 
-},{}],"/Users/shawn/Work/gaston/node_modules/browserify/node_modules/process/browser.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/gaston/node_modules/browserify/node_modules/process/browser.js":[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -132,14 +132,14 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],"/Users/shawn/Work/gaston/node_modules/browserify/node_modules/util/support/isBufferBrowser.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/gaston/node_modules/browserify/node_modules/util/support/isBufferBrowser.js":[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],"/Users/shawn/Work/gaston/node_modules/browserify/node_modules/util/util.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/gaston/node_modules/browserify/node_modules/util/util.js":[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -730,7 +730,7 @@ function hasOwnProperty(obj, prop) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./support/isBuffer":"/Users/shawn/Work/gaston/node_modules/browserify/node_modules/util/support/isBufferBrowser.js","_process":"/Users/shawn/Work/gaston/node_modules/browserify/node_modules/process/browser.js","inherits":"/Users/shawn/Work/gaston/node_modules/browserify/node_modules/inherits/inherits_browser.js"}],"/Users/shawn/Work/mtv-play/api/email.js":[function(require,module,exports){
+},{"./support/isBuffer":"/Users/youzi/dev/gaston/node_modules/browserify/node_modules/util/support/isBufferBrowser.js","_process":"/Users/youzi/dev/gaston/node_modules/browserify/node_modules/process/browser.js","inherits":"/Users/youzi/dev/gaston/node_modules/browserify/node_modules/inherits/inherits_browser.js"}],"/Users/youzi/dev/mtv-play/api/email.js":[function(require,module,exports){
 var Value = require('vigour-js/value')
   , config = require('vigour-js/util/config')
   , cases = require('vigour-js/browser/cases')
@@ -828,7 +828,7 @@ module.exports = exports = new Value(
 })
 
 
-},{"vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/api/facebook/index.js":[function(require,module,exports){
+},{"vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/facebook/index.js":[function(require,module,exports){
 var Value = require('vigour-js/value')
   , config = require('vigour-js/util/config')
   , facebookApi
@@ -892,7 +892,7 @@ exports._name = 'facebook'
 //TODO: coding style for nested modules purely for smaller filesizes
 require('./login')
 require('./share')
-},{"./login":"/Users/shawn/Work/mtv-play/api/facebook/login.js","./share":"/Users/shawn/Work/mtv-play/api/facebook/share.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","vigour-js/value/flags/process":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/shawn/Work/mtv-play/api/facebook/login.js":[function(require,module,exports){
+},{"./login":"/Users/youzi/dev/mtv-play/api/facebook/login.js","./share":"/Users/youzi/dev/mtv-play/api/facebook/share.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","vigour-js/value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/api/facebook/login.js":[function(require,module,exports){
 var Value = require('vigour-js/value')
   , config = require('vigour-js/util/config')
   , util = require('vigour-js/util')
@@ -1033,7 +1033,7 @@ TODO:logout // login = false
     control.cloud.emit('logout',1)
   }
 */
-},{"./index.js":"/Users/shawn/Work/mtv-play/api/facebook/index.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/network/url":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/url.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/api/facebook/share.js":[function(require,module,exports){
+},{"./index.js":"/Users/youzi/dev/mtv-play/api/facebook/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/url.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/facebook/share.js":[function(require,module,exports){
 var Value = require('vigour-js/value')
   , config = require('vigour-js/util/config')
   , util = require('vigour-js/util')
@@ -1205,7 +1205,7 @@ if( !!window.cordova )
   })()
 }
 
-},{"./index.js":"/Users/shawn/Work/mtv-play/api/facebook/index.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/network/url":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/url.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/api/index.js":[function(require,module,exports){
+},{"./index.js":"/Users/youzi/dev/mtv-play/api/facebook/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/url.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/index.js":[function(require,module,exports){
 exports.login = require( './login' )
 exports.verify = require( './verify' )
 exports.register = require( './register' )
@@ -1220,7 +1220,7 @@ exports.receipt = require( './receipt' )
 exports.url = require( './url' )
 exports.player = require( './player' )
 exports.price = require( './purchase/pricing' )
-},{"./email":"/Users/shawn/Work/mtv-play/api/email.js","./facebook":"/Users/shawn/Work/mtv-play/api/facebook/index.js","./login":"/Users/shawn/Work/mtv-play/api/login.js","./mobile":"/Users/shawn/Work/mtv-play/api/mobile.js","./network":"/Users/shawn/Work/mtv-play/api/network.js","./password":"/Users/shawn/Work/mtv-play/api/password.js","./player":"/Users/shawn/Work/mtv-play/api/player.js","./purchase":"/Users/shawn/Work/mtv-play/api/purchase/index.js","./purchase/pricing":"/Users/shawn/Work/mtv-play/api/purchase/pricing.js","./receipt":"/Users/shawn/Work/mtv-play/api/receipt.js","./register":"/Users/shawn/Work/mtv-play/api/register.js","./url":"/Users/shawn/Work/mtv-play/api/url.js","./user":"/Users/shawn/Work/mtv-play/api/user.js","./verify":"/Users/shawn/Work/mtv-play/api/verify.js"}],"/Users/shawn/Work/mtv-play/api/login.js":[function(require,module,exports){
+},{"./email":"/Users/youzi/dev/mtv-play/api/email.js","./facebook":"/Users/youzi/dev/mtv-play/api/facebook/index.js","./login":"/Users/youzi/dev/mtv-play/api/login.js","./mobile":"/Users/youzi/dev/mtv-play/api/mobile.js","./network":"/Users/youzi/dev/mtv-play/api/network.js","./password":"/Users/youzi/dev/mtv-play/api/password.js","./player":"/Users/youzi/dev/mtv-play/api/player.js","./purchase":"/Users/youzi/dev/mtv-play/api/purchase/index.js","./purchase/pricing":"/Users/youzi/dev/mtv-play/api/purchase/pricing.js","./receipt":"/Users/youzi/dev/mtv-play/api/receipt.js","./register":"/Users/youzi/dev/mtv-play/api/register.js","./url":"/Users/youzi/dev/mtv-play/api/url.js","./user":"/Users/youzi/dev/mtv-play/api/user.js","./verify":"/Users/youzi/dev/mtv-play/api/verify.js"}],"/Users/youzi/dev/mtv-play/api/login.js":[function(require,module,exports){
 var config = require('vigour-js/util/config')
 	, Value = require('vigour-js/value') 
 	, util = require('./util')
@@ -1297,7 +1297,7 @@ module.exports = exports = new Value(
 exports._name = '_mtvlogin'
 
 
-},{"./util":"/Users/shawn/Work/mtv-play/api/util.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","vigour-js/value/flags/process":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/shawn/Work/mtv-play/api/mobile.js":[function(require,module,exports){
+},{"./util":"/Users/youzi/dev/mtv-play/api/util.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","vigour-js/value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/api/mobile.js":[function(require,module,exports){
 var config = require('vigour-js/util/config')
 	, Value = require('vigour-js/value') 
 	, util = require('./util')
@@ -1401,7 +1401,7 @@ module.exports = exports = new Value(
 })
 
 
-},{"./util":"/Users/shawn/Work/mtv-play/api/util.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/api/network.js":[function(require,module,exports){
+},{"./util":"/Users/youzi/dev/mtv-play/api/util.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/network.js":[function(require,module,exports){
 var Value = require('vigour-js/value') 
 
 module.exports = exports = new Value()
@@ -1422,7 +1422,7 @@ if(!!window.cordova)
   }, false)
   
 }
-},{"vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/api/password.js":[function(require,module,exports){
+},{"vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/password.js":[function(require,module,exports){
 var config = require('vigour-js/util/config')
 	, Value = require('vigour-js/value') //all process flags
 	, util = require('./util')
@@ -1501,7 +1501,7 @@ module.exports = exports = new Value(
 //control.resetToken 
 exports._name = 'password'
 
-},{"./util":"/Users/shawn/Work/mtv-play/api/util.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/api/player.js":[function(require,module,exports){
+},{"./util":"/Users/youzi/dev/mtv-play/api/util.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/player.js":[function(require,module,exports){
 var config = require('vigour-js/util/config'),
   Value = require('vigour-js/value'),
   playerApi
@@ -1543,7 +1543,7 @@ module.exports = exports = new Value({
   }
 })
 
-},{"vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","zepto-browserify":"/Users/shawn/Work/mtv-play/node_modules/zepto-browserify/zepto.js"}],"/Users/shawn/Work/mtv-play/api/purchase/index.js":[function(require,module,exports){
+},{"vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","zepto-browserify":"/Users/youzi/dev/mtv-play/node_modules/zepto-browserify/zepto.js"}],"/Users/youzi/dev/mtv-play/api/purchase/index.js":[function(require,module,exports){
 var config = require('vigour-js/util/config')
 	, Value = require('vigour-js/value') 
 	, util = require('../util')
@@ -1764,7 +1764,7 @@ module.exports = exports = new Value(
 
 exports._name = 'purchase'
 
-},{"../util":"/Users/shawn/Work/mtv-play/api/util.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/api/purchase/pricing.js":[function(require,module,exports){
+},{"../util":"/Users/youzi/dev/mtv-play/api/util.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/purchase/pricing.js":[function(require,module,exports){
 
 var cases = require('vigour-js/browser/cases')
   , app = require('vigour-js/app')
@@ -1883,7 +1883,7 @@ exports.yearly = new Value(
   }
 })
 
-},{"vigour-js/app":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/api/receipt.js":[function(require,module,exports){
+},{"vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/receipt.js":[function(require,module,exports){
 var config = require( 'vigour-js/util/config' )
 	, Value = require( 'vigour-js/value' ) 
 	, util = require( './util' )
@@ -2068,7 +2068,7 @@ if( cases.native ) {
   document.addEventListener('resume', finish, false)
   finish()
 }
-},{"./util":"/Users/shawn/Work/mtv-play/api/util.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/util/encode64.js":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/encode64.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/api/register.js":[function(require,module,exports){
+},{"./util":"/Users/youzi/dev/mtv-play/api/util.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/util/encode64.js":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/encode64.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/register.js":[function(require,module,exports){
 var config = require('vigour-js/util/config')
 	, Value = require('vigour-js/value') 
   , cases = require('vigour-js/browser/cases')
@@ -2142,7 +2142,7 @@ module.exports = exports = new Value(
 })
 
 exports._name = 'register'
-},{"./util":"/Users/shawn/Work/mtv-play/api/util.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/api/tracking/context.js":[function(require,module,exports){
+},{"./util":"/Users/youzi/dev/mtv-play/api/util.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/context.js":[function(require,module,exports){
 var map = require('./map')
   , ua = require('vigour-js/browser/ua')
   , config = require('vigour-js/util/config')
@@ -2235,7 +2235,7 @@ module.exports = function context( title, pageView, franchise ) {
   }
 
 }
-},{"./map":"/Users/shawn/Work/mtv-play/api/tracking/map.js","./omniture":"/Users/shawn/Work/mtv-play/api/tracking/omniture.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/shawn/Work/mtv-play/api/tracking/ga.js":[function(require,module,exports){
+},{"./map":"/Users/youzi/dev/mtv-play/api/tracking/map.js","./omniture":"/Users/youzi/dev/mtv-play/api/tracking/omniture.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/ga.js":[function(require,module,exports){
 var omniture = require('./omniture')
   , config = require('vigour-js/util/config')
   , pageName = require('./pagename')
@@ -2257,7 +2257,7 @@ var omniture = require('./omniture')
   ga('create', 'UA-43955457-3', 'none');
   
   module.exports = window.ga
-},{"./context":"/Users/shawn/Work/mtv-play/api/tracking/context.js","./omniture":"/Users/shawn/Work/mtv-play/api/tracking/omniture.js","./pagename":"/Users/shawn/Work/mtv-play/api/tracking/pagename.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/shawn/Work/mtv-play/api/tracking/index.js":[function(require,module,exports){
+},{"./context":"/Users/youzi/dev/mtv-play/api/tracking/context.js","./omniture":"/Users/youzi/dev/mtv-play/api/tracking/omniture.js","./pagename":"/Users/youzi/dev/mtv-play/api/tracking/pagename.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/index.js":[function(require,module,exports){
 var omniture = require('./omniture')
   , postpone = require('vigour-js/browser/events/util').postpone
   , ua = require('vigour-js/browser/ua')
@@ -2499,7 +2499,7 @@ exports.pageView = postpone(function( obj ) {
 
 
 
-},{"../../app/user":"/Users/shawn/Work/mtv-play/app/user.js","../facebook/share":"/Users/shawn/Work/mtv-play/api/facebook/share.js","./context":"/Users/shawn/Work/mtv-play/api/tracking/context.js","./ga":"/Users/shawn/Work/mtv-play/api/tracking/ga.js","./map":"/Users/shawn/Work/mtv-play/api/tracking/map.js","./omniture":"/Users/shawn/Work/mtv-play/api/tracking/omniture.js","./pagename":"/Users/shawn/Work/mtv-play/api/tracking/pagename.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/util.js","vigour-js/browser/network/ajax":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/ajax.js","vigour-js/browser/network/url":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/url.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/shawn/Work/mtv-play/api/tracking/lib/AppMeasurement.js":[function(require,module,exports){
+},{"../../app/user":"/Users/youzi/dev/mtv-play/app/user.js","../facebook/share":"/Users/youzi/dev/mtv-play/api/facebook/share.js","./context":"/Users/youzi/dev/mtv-play/api/tracking/context.js","./ga":"/Users/youzi/dev/mtv-play/api/tracking/ga.js","./map":"/Users/youzi/dev/mtv-play/api/tracking/map.js","./omniture":"/Users/youzi/dev/mtv-play/api/tracking/omniture.js","./pagename":"/Users/youzi/dev/mtv-play/api/tracking/pagename.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/util.js","vigour-js/browser/network/ajax":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/ajax.js","vigour-js/browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/url.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/lib/AppMeasurement.js":[function(require,module,exports){
 /*
  ============== DO NOT ALTER ANYTHING BELOW THIS LINE ! ===============
 
@@ -2569,7 +2569,7 @@ window.AppMeasurement = AppMeasurement;
 
 
 
-},{}],"/Users/shawn/Work/mtv-play/api/tracking/map.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/api/tracking/map.js":[function(require,module,exports){
 /*  0 = sprop, 1 = evar */
 exports.vars = 
   { branch:[13,13]
@@ -2676,7 +2676,7 @@ video finished: event5 -> event76
 
 */
 
-},{}],"/Users/shawn/Work/mtv-play/api/tracking/omniture.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/api/tracking/omniture.js":[function(require,module,exports){
 var omni = require('./lib/AppMeasurement.js')
   , map = require('./map')
   
@@ -2730,7 +2730,7 @@ module.exports = new AppMeasurement()
 //   }
 //   console.log('\n\n\n\n\n')
 // }
-},{"./lib/AppMeasurement.js":"/Users/shawn/Work/mtv-play/api/tracking/lib/AppMeasurement.js","./map":"/Users/shawn/Work/mtv-play/api/tracking/map.js"}],"/Users/shawn/Work/mtv-play/api/tracking/pagename.js":[function(require,module,exports){
+},{"./lib/AppMeasurement.js":"/Users/youzi/dev/mtv-play/api/tracking/lib/AppMeasurement.js","./map":"/Users/youzi/dev/mtv-play/api/tracking/map.js"}],"/Users/youzi/dev/mtv-play/api/tracking/pagename.js":[function(require,module,exports){
 var omniture = require('./omniture')
   , postpone = require('vigour-js/browser/events/util').postpone
   , ua = require('vigour-js/browser/ua')
@@ -2802,7 +2802,7 @@ module.exports = function pagename(current) {
   }
 
 }
-},{"./context":"/Users/shawn/Work/mtv-play/api/tracking/context.js","./map":"/Users/shawn/Work/mtv-play/api/tracking/map.js","./omniture":"/Users/shawn/Work/mtv-play/api/tracking/omniture.js","vigour-js/browser/events/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/util.js","vigour-js/browser/network/url":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/url.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/shawn/Work/mtv-play/api/url.js":[function(require,module,exports){
+},{"./context":"/Users/youzi/dev/mtv-play/api/tracking/context.js","./map":"/Users/youzi/dev/mtv-play/api/tracking/map.js","./omniture":"/Users/youzi/dev/mtv-play/api/tracking/omniture.js","vigour-js/browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/util.js","vigour-js/browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/url.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/url.js":[function(require,module,exports){
 var Value = require('vigour-js/value')
   , cases = require('vigour-js/browser/cases')
 
@@ -2851,7 +2851,7 @@ module.exports = exports = new Value(
 
 exports._name = '_urlApi'
 
-},{"vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/api/user.js":[function(require,module,exports){
+},{"vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/user.js":[function(require,module,exports){
 var config = require('vigour-js/util/config')
   , Value = require('vigour-js/value') //all process flags
   , util = require('./util')
@@ -2924,7 +2924,7 @@ exports.role.poll.on(function( val ) {
 
 exports._name = 'userApi'
 
-},{"./util":"/Users/shawn/Work/mtv-play/api/util.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","vigour-js/value/flags/process":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/shawn/Work/mtv-play/api/util.js":[function(require,module,exports){
+},{"./util":"/Users/youzi/dev/mtv-play/api/util.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","vigour-js/value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/api/util.js":[function(require,module,exports){
 var config = require('vigour-js/util/config')
 	, errors = { emailExists: 'Email has already been taken' 
 						 , invalid: 'Username or password is invalid'
@@ -2963,7 +2963,7 @@ exports.findError = function( data ){
 }
 
 
-},{"vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/shawn/Work/mtv-play/api/verify.js":[function(require,module,exports){
+},{"vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/verify.js":[function(require,module,exports){
 var config = require('vigour-js/util/config')
 	, Value = require('vigour-js/value') //all process flags
 	, util = require('./util')
@@ -3011,7 +3011,7 @@ exports._name = 'verify'
 //http://utt.mtvnn.com/api/v2/confirmations/error.json
 //mtvmobile
 //forgotpassword
-},{"./util":"/Users/shawn/Work/mtv-play/api/util.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/app/config.js":[function(require,module,exports){
+},{"./util":"/Users/youzi/dev/mtv-play/api/util.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/config.js":[function(require,module,exports){
 //TODO: unify config with package.json
 
 module.exports = exports = require( 'vigour-js/util/config' )
@@ -3100,7 +3100,7 @@ if( exports.player && exports.player.settings.ads.viralSID === 'production' )
    cloud - geo forced wel production
 */
 
-},{"vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/app/index.js":[function(require,module,exports){
+},{"vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/index.js":[function(require,module,exports){
 //TODO:not connnected to internet app thing
 //TODO:verander responseData naam
 var app = module.exports = require( 'vigour-js/app' )
@@ -3240,7 +3240,7 @@ require( './tracking' )
 /* ------------ app init ------------ */
 require( './init' )
 
-},{"../api":"/Users/shawn/Work/mtv-play/api/index.js","./config":"/Users/shawn/Work/mtv-play/app/config.js","./init":"/Users/shawn/Work/mtv-play/app/init.js","./intro":"/Users/shawn/Work/mtv-play/app/intro.js","./localisation":"/Users/shawn/Work/mtv-play/app/localisation.js","./login":"/Users/shawn/Work/mtv-play/app/login.js","./playback":"/Users/shawn/Work/mtv-play/app/playback.js","./popup":"/Users/shawn/Work/mtv-play/app/popup.js","./register":"/Users/shawn/Work/mtv-play/app/register.js","./share":"/Users/shawn/Work/mtv-play/app/share.js","./tracking":"/Users/shawn/Work/mtv-play/app/tracking.js","./upgrade":"/Users/shawn/Work/mtv-play/app/upgrade.js","./user":"/Users/shawn/Work/mtv-play/app/user.js","./util":"/Users/shawn/Work/mtv-play/app/util.js","vigour-js/app":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/content":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/content.js","vigour-js/app/user":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/index.js","vigour-js/browser/animation/frame":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/frame.js","vigour-js/browser/animation/raf":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/app/init.js":[function(require,module,exports){
+},{"../api":"/Users/youzi/dev/mtv-play/api/index.js","./config":"/Users/youzi/dev/mtv-play/app/config.js","./init":"/Users/youzi/dev/mtv-play/app/init.js","./intro":"/Users/youzi/dev/mtv-play/app/intro.js","./localisation":"/Users/youzi/dev/mtv-play/app/localisation.js","./login":"/Users/youzi/dev/mtv-play/app/login.js","./playback":"/Users/youzi/dev/mtv-play/app/playback.js","./popup":"/Users/youzi/dev/mtv-play/app/popup.js","./register":"/Users/youzi/dev/mtv-play/app/register.js","./share":"/Users/youzi/dev/mtv-play/app/share.js","./tracking":"/Users/youzi/dev/mtv-play/app/tracking.js","./upgrade":"/Users/youzi/dev/mtv-play/app/upgrade.js","./user":"/Users/youzi/dev/mtv-play/app/user.js","./util":"/Users/youzi/dev/mtv-play/app/util.js","vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/content":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/content.js","vigour-js/app/user":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/index.js","vigour-js/browser/animation/frame":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/frame.js","vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/init.js":[function(require,module,exports){
 var app = require('vigour-js/app')
   , user = app.user
   , cases = app.cases
@@ -3288,7 +3288,7 @@ app.region
 })
 
 
-},{"promise":"/Users/shawn/Work/mtv-play/node_modules/promise/index.js","vigour-js/app":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js"}],"/Users/shawn/Work/mtv-play/app/intro.js":[function(require,module,exports){
+},{"promise":"/Users/youzi/dev/mtv-play/node_modules/promise/index.js","vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js"}],"/Users/youzi/dev/mtv-play/app/intro.js":[function(require,module,exports){
 var app = module.exports = require( 'vigour-js/app' )
 var cases = app.cases
 
@@ -3306,7 +3306,7 @@ if( cases.native && !localStorage.getItem('haveSeenIntro') )
 
 
 
-},{"vigour-js/app":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js"}],"/Users/shawn/Work/mtv-play/app/localisation.js":[function(require,module,exports){
+},{"vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js"}],"/Users/youzi/dev/mtv-play/app/localisation.js":[function(require,module,exports){
 var app = require( 'vigour-js/app' )
 var config = app.config = require( './config' )
 var cases = app.cases
@@ -3362,7 +3362,7 @@ app.dictionary.val =
   }
 , val: app.language
 }
-},{"./config":"/Users/shawn/Work/mtv-play/app/config.js","vigour-js/app":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/app/login.js":[function(require,module,exports){
+},{"./config":"/Users/youzi/dev/mtv-play/app/config.js","vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/app/login.js":[function(require,module,exports){
   var config = require( './config' )
     , dictionary = require('vigour-js/app/dictionary')
     , app = require( 'vigour-js/app/' )
@@ -3464,7 +3464,7 @@ api.facebook.login
   .loading.on( app.loading )
 
 
-},{"../api":"/Users/shawn/Work/mtv-play/api/index.js","./config":"/Users/shawn/Work/mtv-play/app/config.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js"}],"/Users/shawn/Work/mtv-play/app/playback.js":[function(require,module,exports){
+},{"../api":"/Users/youzi/dev/mtv-play/api/index.js","./config":"/Users/youzi/dev/mtv-play/app/config.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js"}],"/Users/youzi/dev/mtv-play/app/playback.js":[function(require,module,exports){
 var app = require( 'vigour-js/app' )
 var config = app.config = require( './config' )
 var Value = require('vigour-js/value')
@@ -3600,7 +3600,7 @@ app.playing.val = {
     update()  
   }
 }
-},{"./config":"/Users/shawn/Work/mtv-play/app/config.js","vigour-js/app":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/app/popup.js":[function(require,module,exports){
+},{"./config":"/Users/youzi/dev/mtv-play/app/config.js","vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/popup.js":[function(require,module,exports){
 var app = require( 'vigour-js/app' )
 var cases = app.cases
 
@@ -3626,7 +3626,7 @@ app.popup.val = {
     update()
   }
 }
-},{"vigour-js/app":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js"}],"/Users/shawn/Work/mtv-play/app/register.js":[function(require,module,exports){
+},{"vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js"}],"/Users/youzi/dev/mtv-play/app/register.js":[function(require,module,exports){
   var config = require( './config' )
     , dictionary = require('vigour-js/app/dictionary')
     , app = require( 'vigour-js/app/' )
@@ -3792,7 +3792,7 @@ app.url.params
   //http://play.mtvutt.com/?reset=MFRceiLn5xtsLYtsCGjE
 
   //TODO: notifcations longer
-},{"../api":"/Users/shawn/Work/mtv-play/api/index.js","./config":"/Users/shawn/Work/mtv-play/app/config.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/app/share.js":[function(require,module,exports){
+},{"../api":"/Users/youzi/dev/mtv-play/api/index.js","./config":"/Users/youzi/dev/mtv-play/app/config.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/app/share.js":[function(require,module,exports){
   var config = require( './config' )
     , dictionary = require('vigour-js/app/dictionary')
     , app = require( 'vigour-js/app/' )
@@ -3887,7 +3887,7 @@ api.email.share.val =
 
 
 
-},{"../api":"/Users/shawn/Work/mtv-play/api/index.js","./config":"/Users/shawn/Work/mtv-play/app/config.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js"}],"/Users/shawn/Work/mtv-play/app/spotlight.js":[function(require,module,exports){
+},{"../api":"/Users/youzi/dev/mtv-play/api/index.js","./config":"/Users/youzi/dev/mtv-play/app/config.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js"}],"/Users/youzi/dev/mtv-play/app/spotlight.js":[function(require,module,exports){
 var config = require('vigour-js/util/config')
   , app = require('vigour-js/app/')
   , Value = require('vigour-js/value')
@@ -3984,7 +3984,7 @@ exports.val = user.role
 
 
 
-},{"vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/app/tracking.js":[function(require,module,exports){
+},{"vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/tracking.js":[function(require,module,exports){
 /*
   TODO: still missing events
   , enable3g:10 
@@ -4180,7 +4180,7 @@ app.playing.on( function( val ) {
 //popup 
 
 
-},{"../api":"/Users/shawn/Work/mtv-play/api/index.js","../api/tracking":"/Users/shawn/Work/mtv-play/api/tracking/index.js","./index":"/Users/shawn/Work/mtv-play/app/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/app/upgrade.js":[function(require,module,exports){
+},{"../api":"/Users/youzi/dev/mtv-play/api/index.js","../api/tracking":"/Users/youzi/dev/mtv-play/api/tracking/index.js","./index":"/Users/youzi/dev/mtv-play/app/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/upgrade.js":[function(require,module,exports){
   var config = require( './config' )
     , app = require( 'vigour-js/app/' )
     , user = app.user
@@ -4352,7 +4352,7 @@ api.receipt
   .loading.on( app.loading )
 
 
-},{"../api":"/Users/shawn/Work/mtv-play/api/index.js","./config":"/Users/shawn/Work/mtv-play/app/config.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/shawn/Work/mtv-play/app/user.js":[function(require,module,exports){
+},{"../api":"/Users/youzi/dev/mtv-play/api/index.js","./config":"/Users/youzi/dev/mtv-play/app/config.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/app/user.js":[function(require,module,exports){
 var app = require('vigour-js/app')
 
 var cases = app.cases
@@ -4489,7 +4489,7 @@ cases.$isReceiver.on(function() {
 })
 
 
-},{"./spotlight":"/Users/shawn/Work/mtv-play/app/spotlight.js","vigour-js/app":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/user/multiscreen":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/multiscreen/index.js","vigour-js/app/user/multiscreen/cast":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/multiscreen/cast/index.js","vigour-js/app/user/navigation":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/navigation.js","vigour-js/app/user/token":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/token.js","vigour-js/app/user/url":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/url.js","vigour-js/app/user/usage":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/usage.js","vigour-js/browser/animation/raf":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/network/url":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/url.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/app/util.js":[function(require,module,exports){
+},{"./spotlight":"/Users/youzi/dev/mtv-play/app/spotlight.js","vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/user/multiscreen":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/multiscreen/index.js","vigour-js/app/user/multiscreen/cast":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/multiscreen/cast/index.js","vigour-js/app/user/navigation":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/navigation.js","vigour-js/app/user/token":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/token.js","vigour-js/app/user/url":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/url.js","vigour-js/app/user/usage":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/usage.js","vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/url.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/util.js":[function(require,module,exports){
 var app = require('vigour-js/app/')
   , cases = require('vigour-js/browser/cases')
   , playIcon = cases.phone ? 'play' : 'playAlt'
@@ -4510,7 +4510,7 @@ exports.access = function( access, media ) {
   return accesAllowed ? playIcon : 'lockedContent'
 
 }
-},{"vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/button/index.js":[function(require,module,exports){
+},{"vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/button/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('vigour-js/app/ui/element')
@@ -4540,9 +4540,9 @@ switcher.extend({
 }) 
 
 exports.Switcher = switcher.Class
-},{"../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/button/style.less","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/components/button/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/epg_temp.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/button/style.less","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/components/button/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/epg_temp.js":[function(require,module,exports){
 var Data = require('vigour-js/data')
   , app = require('vigour-js/app/')
   , config = require('vigour-js/util/config')
@@ -4705,7 +4705,7 @@ exports.clockTime = function(v,minutes){
 function returnLink(i){
   return ['mtvData',app.region.val,app.language.val,'channels',i].join('.')
 }
-},{"vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/network/ajax":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/ajax.js","vigour-js/data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/shawn/Work/mtv-play/components/first/channels/index.js":[function(require,module,exports){
+},{"vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/network/ajax":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/ajax.js","vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/first/channels/index.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
   , Overview = require('../overview')
   , Icon = require('../../icon')
@@ -4755,7 +4755,7 @@ module.exports = new Overview(
 { items:channelItems
 // , touch:{h:{parent:'h'}} 
 }).Class
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../overview":"/Users/shawn/Work/mtv-play/components/first/overview/index.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/components/first/discover/carousel.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../overview":"/Users/youzi/dev/mtv-play/components/first/overview/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/first/discover/carousel.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('vigour-js/app/ui/element')
@@ -5044,7 +5044,7 @@ function setPos(roll,newPos){
 
   if(discoverdots && timer) autoRoll(roll)
 }
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../../text":"/Users/shawn/Work/mtv-play/components/text/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/discover/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/frame":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/frame.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/shawn/Work/mtv-play/components/first/discover/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/discover/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/frame":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/frame.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/first/discover/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('vigour-js/app/ui/element')
@@ -5094,7 +5094,7 @@ var base = new Element
 )
 
 module.exports = base.Class
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../item":"/Users/shawn/Work/mtv-play/components/item/index.js","./carousel":"/Users/shawn/Work/mtv-play/components/first/discover/carousel.js","./lists":"/Users/shawn/Work/mtv-play/components/first/discover/lists.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/discover/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/first/discover/lists.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","./carousel":"/Users/youzi/dev/mtv-play/components/first/discover/carousel.js","./lists":"/Users/youzi/dev/mtv-play/components/first/discover/lists.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/discover/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/discover/lists.js":[function(require,module,exports){
 var app = require('vigour-js/app/')
   , cases = require('vigour-js/browser/cases')
   , dictionary = require('vigour-js/app/dictionary')
@@ -5333,9 +5333,9 @@ function linkClick(){
     }
     // appData.current.from.val = link 
 }
-},{"../../epg_temp":"/Users/shawn/Work/mtv-play/components/epg_temp.js","../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../../item":"/Users/shawn/Work/mtv-play/components/item/index.js","../../text":"/Users/shawn/Work/mtv-play/components/text/index.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/first/discover/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/first/epg/index.js":[function(require,module,exports){
+},{"../../epg_temp":"/Users/youzi/dev/mtv-play/components/epg_temp.js","../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/discover/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/first/epg/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('vigour-js/app/ui/element')
@@ -5497,9 +5497,9 @@ exports.base.container.list.setSetting(
     if(this._interval) clearInterval(this._interval)
   }
 })
-},{"../../epg_temp":"/Users/shawn/Work/mtv-play/components/epg_temp.js","../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../item":"/Users/shawn/Work/mtv-play/components/item/index.js","../../player/seekbar":"/Users/shawn/Work/mtv-play/components/player/seekbar/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/epg/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/components/first/epg/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/first/favourite/index.js":[function(require,module,exports){
+},{"../../epg_temp":"/Users/youzi/dev/mtv-play/components/epg_temp.js","../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../../player/seekbar":"/Users/youzi/dev/mtv-play/components/player/seekbar/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/epg/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/components/first/epg/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/first/favourite/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Icon = require('../../icon')
@@ -5542,9 +5542,9 @@ module.exports = new Icon(
   }
 }
 ).Class
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/favourite/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/first/favourite/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/first/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/favourite/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/favourite/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/first/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -6077,7 +6077,7 @@ if( cases.tv ) {
 
 }
 
-},{"../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../loader":"/Users/shawn/Work/mtv-play/components/loader/index.js","../player":"/Users/shawn/Work/mtv-play/components/player/index.js","../popup":"/Users/shawn/Work/mtv-play/components/popup/index.js","./menu":"/Users/shawn/Work/mtv-play/components/first/menu/index.js","./miniplayer":"/Users/shawn/Work/mtv-play/components/first/miniplayer/index.js","./notification":"/Users/shawn/Work/mtv-play/components/first/notification/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/style.less","./switcher":"/Users/shawn/Work/mtv-play/components/first/switcher/index.js","./tv":"/Users/shawn/Work/mtv-play/components/first/tv/index.js","./watch":"/Users/shawn/Work/mtv-play/components/first/watch/index.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/util.js"}],"/Users/shawn/Work/mtv-play/components/first/menu/casticon.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../loader":"/Users/youzi/dev/mtv-play/components/loader/index.js","../player":"/Users/youzi/dev/mtv-play/components/player/index.js","../popup":"/Users/youzi/dev/mtv-play/components/popup/index.js","./menu":"/Users/youzi/dev/mtv-play/components/first/menu/index.js","./miniplayer":"/Users/youzi/dev/mtv-play/components/first/miniplayer/index.js","./notification":"/Users/youzi/dev/mtv-play/components/first/notification/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/style.less","./switcher":"/Users/youzi/dev/mtv-play/components/first/switcher/index.js","./tv":"/Users/youzi/dev/mtv-play/components/first/tv/index.js","./watch":"/Users/youzi/dev/mtv-play/components/first/watch/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/util.js"}],"/Users/youzi/dev/mtv-play/components/first/menu/casticon.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
   , Item = require('../../item')
   , Img = require('../../img')
@@ -6126,7 +6126,7 @@ module.exports = exports = new Element(
 }).Class
 
 
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../../item":"/Users/shawn/Work/mtv-play/components/item/index.js","../../loader":"/Users/shawn/Work/mtv-play/components/loader/index.js","../../text":"/Users/shawn/Work/mtv-play/components/text/index.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/components/first/menu/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../../loader":"/Users/youzi/dev/mtv-play/components/loader/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/first/menu/index.js":[function(require,module,exports){
 require( './style.less' )
 
 var Element = require( 'vigour-js/app/ui/element' ),
@@ -6734,9 +6734,9 @@ exports.Topmenu.base.define( {
 //   Things[i]
 // };
 
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../../item":"/Users/shawn/Work/mtv-play/components/item/index.js","../../text":"/Users/shawn/Work/mtv-play/components/text/index.js","./casticon":"/Users/shawn/Work/mtv-play/components/first/menu/casticon.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/menu/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/first/menu/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/first/miniplayer/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","./casticon":"/Users/youzi/dev/mtv-play/components/first/menu/casticon.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/menu/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/menu/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/first/miniplayer/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Icon = require('../../icon')
@@ -6933,9 +6933,9 @@ module.exports = new Element(
   }
 }).Class
 
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../../player/controls":"/Users/shawn/Work/mtv-play/components/player/controls/index.js","../../player/volume":"/Users/shawn/Work/mtv-play/components/player/volume/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/miniplayer/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/first/miniplayer/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/first/notification/config.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../player/controls":"/Users/youzi/dev/mtv-play/components/player/controls/index.js","../../player/volume":"/Users/youzi/dev/mtv-play/components/player/volume/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/miniplayer/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/miniplayer/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/first/notification/config.js":[function(require,module,exports){
 module.exports =  
 { //dit is een number (10.000 ms bepaald de time!)
   timeout:10000
@@ -7106,7 +7106,7 @@ module.exports =
   }
 }
 
-},{}],"/Users/shawn/Work/mtv-play/components/first/notification/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/components/first/notification/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Icon = require('../../icon')
@@ -7251,9 +7251,9 @@ module.exports = new Switcher(
   }
 }).Class
 
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../item":"/Users/shawn/Work/mtv-play/components/item/index.js","./config":"/Users/shawn/Work/mtv-play/components/first/notification/config.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/notification/style.less","vigour-js/app/ui/switcher":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/first/notification/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/first/overview/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","./config":"/Users/youzi/dev/mtv-play/components/first/notification/config.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/notification/style.less","vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/notification/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/first/overview/index.js":[function(require,module,exports){
 require('./style.less')
 
 var app = require('vigour-js/app/')
@@ -7288,7 +7288,7 @@ exports.Items = new Element(
 }).Class
 
 exports.Item = Item
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../../text/search":"/Users/shawn/Work/mtv-play/components/text/search.js","./item":"/Users/shawn/Work/mtv-play/components/first/overview/item.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/overview/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/element/properties/collection/display":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/collection/display.js","vigour-js/browser/events/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/util.js"}],"/Users/shawn/Work/mtv-play/components/first/overview/item.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../text/search":"/Users/youzi/dev/mtv-play/components/text/search.js","./item":"/Users/youzi/dev/mtv-play/components/first/overview/item.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/overview/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/element/properties/collection/display":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/collection/display.js","vigour-js/browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/util.js"}],"/Users/youzi/dev/mtv-play/components/first/overview/item.js":[function(require,module,exports){
 require('./style.less')
 
 var app = require('vigour-js/app/')
@@ -7416,9 +7416,9 @@ if(!cases.touch){
     }
   }).Class
 }
-},{"../../epg_temp":"/Users/shawn/Work/mtv-play/components/epg_temp.js","../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../../item":"/Users/shawn/Work/mtv-play/components/item/index.js","../../player/seekbar":"/Users/shawn/Work/mtv-play/components/player/seekbar/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/overview/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/first/overview/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/first/seasons/index.js":[function(require,module,exports){
+},{"../../epg_temp":"/Users/youzi/dev/mtv-play/components/epg_temp.js","../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../../player/seekbar":"/Users/youzi/dev/mtv-play/components/player/seekbar/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/overview/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/overview/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/first/seasons/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -7435,11 +7435,11 @@ var cases = require( 'vigour-js/browser/cases' )
 var _dropDownEventId = 'dropDownEventId'
 var dictionary = require( 'vigour-js/app/dictionary' )
 
-var seasonsText = dictionary.get( 'text.seasons' )
+var seasonText = dictionary.get( 'text.season' )
 var episodeText = dictionary.get( 'text.episode' )
 var minText = dictionary.get( 'text.min' )
 var specialsText = dictionary.get( 'text.specials' )
-  // var seasonsText = dictionary.get( 'text.seasons' )
+  // var seasonText = dictionary.get( 'text.seasons' )
   //season switcher > takes showdata
 
 var EpisodeList = new Element({
@@ -7615,7 +7615,7 @@ module.exports = new Element( {
       text: {
         data: 'season.number',
         transform: function( v, cv ) {
-          return cv !== 9000 ? seasonsText.val + ' ' + cv : specialsText.val
+          return cv !== 9000 ? seasonText.val + ' ' + cv : specialsText.val
         },
         listen: dictionary
       },
@@ -7630,7 +7630,7 @@ module.exports = new Element( {
         text: {
           data: 'number',
           transform: function( v, cv ) {
-            return cv !== 9000 ? seasonsText.val + ' ' + cv : specialsText.val
+            return cv !== 9000 ? seasonText.val + ' ' + cv : specialsText.val
           },
           listen: dictionary
         },
@@ -7678,9 +7678,9 @@ module.exports = new Element( {
   }
 } ).Class
 
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../../text":"/Users/shawn/Work/mtv-play/components/text/index.js","../favourite":"/Users/shawn/Work/mtv-play/components/first/favourite/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/seasons/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/first/seasons/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/first/show/cover.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","../favourite":"/Users/youzi/dev/mtv-play/components/first/favourite/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/seasons/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/seasons/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/first/show/cover.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -7745,7 +7745,7 @@ var cover = new Img(
 // }
 
 module.exports = exports = cover
-},{"../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../../text":"/Users/shawn/Work/mtv-play/components/text/index.js","../favourite":"/Users/shawn/Work/mtv-play/components/first/favourite/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/show/style.less","./switcher":"/Users/shawn/Work/mtv-play/components/first/show/switcher.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/first/show/index.js":[function(require,module,exports){
+},{"../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","../favourite":"/Users/youzi/dev/mtv-play/components/first/favourite/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/show/style.less","./switcher":"/Users/youzi/dev/mtv-play/components/first/show/switcher.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/show/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -7969,7 +7969,7 @@ else
 {
   module.exports = require('../watch')
 }
-},{"../../player":"/Users/shawn/Work/mtv-play/components/player/index.js","../favourite":"/Users/shawn/Work/mtv-play/components/first/favourite/index.js","../overview/item":"/Users/shawn/Work/mtv-play/components/first/overview/item.js","../watch":"/Users/shawn/Work/mtv-play/components/first/watch/index.js","./cover":"/Users/shawn/Work/mtv-play/components/first/show/cover.js","./list":"/Users/shawn/Work/mtv-play/components/first/show/list.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/show/style.less","./switcher":"/Users/shawn/Work/mtv-play/components/first/show/switcher.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/index.js"}],"/Users/shawn/Work/mtv-play/components/first/show/list.js":[function(require,module,exports){
+},{"../../player":"/Users/youzi/dev/mtv-play/components/player/index.js","../favourite":"/Users/youzi/dev/mtv-play/components/first/favourite/index.js","../overview/item":"/Users/youzi/dev/mtv-play/components/first/overview/item.js","../watch":"/Users/youzi/dev/mtv-play/components/first/watch/index.js","./cover":"/Users/youzi/dev/mtv-play/components/first/show/cover.js","./list":"/Users/youzi/dev/mtv-play/components/first/show/list.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/show/style.less","./switcher":"/Users/youzi/dev/mtv-play/components/first/show/switcher.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/index.js"}],"/Users/youzi/dev/mtv-play/components/first/show/list.js":[function(require,module,exports){
 // var appData = require('../../control/data')
 var cases = require( 'vigour-js/browser/cases' )
 var Element = require( 'vigour-js/app/ui/element' )
@@ -8102,14 +8102,14 @@ var list = new Element( {
 } )
 
 module.exports = exports = list.Class
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../../item":"/Users/shawn/Work/mtv-play/components/item/index.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js"}],"/Users/shawn/Work/mtv-play/components/first/show/seasons.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js"}],"/Users/youzi/dev/mtv-play/components/first/show/seasons.js":[function(require,module,exports){
 var cases = require( 'vigour-js/browser/cases' )
 var events = require( 'vigour-js/browser/events' )
 var Element = require( 'vigour-js/app/ui/element' )
 var Icon = require( '../../icon' )
 var app = require( 'vigour-js/app/' )
 var dictionary = require( 'vigour-js/app/dictionary' )
-var seasonsText = dictionary.get( 'text.seasons' )
+var seasonText = dictionary.get( 'text.season' )
 var specialsText = dictionary.get( 'text.specials' )
 
 var Season = new Element( {
@@ -8117,7 +8117,7 @@ var Season = new Element( {
     data: 'number',
     transform: function( v, cv ) {
       return cv !== 9000
-        ? seasonsText.val + ' ' + cv
+        ? seasonText.val + ' ' + cv
         : specialsText.val
     },
     listen: dictionary
@@ -8154,9 +8154,9 @@ module.exports = new Element( {
   }
 } )
 
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/index.js"}],"/Users/shawn/Work/mtv-play/components/first/show/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/first/show/switcher.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/index.js"}],"/Users/youzi/dev/mtv-play/components/first/show/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/first/show/switcher.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -8422,7 +8422,7 @@ if(cases.touch){
     }
   }
 }
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../../item":"/Users/shawn/Work/mtv-play/components/item/index.js","../../text":"/Users/shawn/Work/mtv-play/components/text/index.js","../favourite":"/Users/shawn/Work/mtv-play/components/first/favourite/index.js","./list":"/Users/shawn/Work/mtv-play/components/first/show/list.js","./seasons":"/Users/shawn/Work/mtv-play/components/first/show/seasons.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/show/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/index.js","vigour-js/browser/events/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/util.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/components/first/shows/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","../favourite":"/Users/youzi/dev/mtv-play/components/first/favourite/index.js","./list":"/Users/youzi/dev/mtv-play/components/first/show/list.js","./seasons":"/Users/youzi/dev/mtv-play/components/first/show/seasons.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/show/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/index.js","vigour-js/browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/util.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/components/first/shows/index.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element'),
   Overview = require('../overview'),
   cases = require('vigour-js/browser/cases'),
@@ -8641,9 +8641,9 @@ function getHighlight(holdersize, totalsize, scrollpos, datakeys) {
   return datakeys.slice(index, end).join('.')
 }
 
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../player":"/Users/shawn/Work/mtv-play/components/player/index.js","../../text/search":"/Users/shawn/Work/mtv-play/components/text/search.js","../overview":"/Users/shawn/Work/mtv-play/components/first/overview/index.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/element/properties/collection/display":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/collection/display.js"}],"/Users/shawn/Work/mtv-play/components/first/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/first/switcher/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../player":"/Users/youzi/dev/mtv-play/components/player/index.js","../../text/search":"/Users/youzi/dev/mtv-play/components/text/search.js","../overview":"/Users/youzi/dev/mtv-play/components/first/overview/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/element/properties/collection/display":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/collection/display.js"}],"/Users/youzi/dev/mtv-play/components/first/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/first/switcher/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -8769,7 +8769,7 @@ function backFallback() {
   this.on.page.$userOrigin = typeof this.on.page.val === 'string' ? this.on.page.val : 'discover'
 }
 
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","./media":"/Users/shawn/Work/mtv-play/components/first/switcher/media.js","./page":"/Users/shawn/Work/mtv-play/components/first/switcher/page.js","./show":"/Users/shawn/Work/mtv-play/components/first/switcher/show.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/switcher/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/switcher":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/app/ui/switcher/transitions":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/switcher/transitions.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/first/switcher/media.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./media":"/Users/youzi/dev/mtv-play/components/first/switcher/media.js","./page":"/Users/youzi/dev/mtv-play/components/first/switcher/page.js","./show":"/Users/youzi/dev/mtv-play/components/first/switcher/show.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/switcher/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/app/ui/switcher/transitions":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/switcher/transitions.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/switcher/media.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -8908,7 +8908,7 @@ exports.setStatus = function( switcher, mediadata ){
   switcher.previous = previous
   switcher.current = isEpisode ? 'episode' : 'channel'
 }
-},{"../watch":"/Users/shawn/Work/mtv-play/components/first/watch/index.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/first/switcher/page.js":[function(require,module,exports){
+},{"../watch":"/Users/youzi/dev/mtv-play/components/first/watch/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/switcher/page.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -8979,7 +8979,7 @@ module.exports = function( update ){ // discover / shows / channels
 
   update()
 }
-},{"../channels":"/Users/shawn/Work/mtv-play/components/first/channels/index.js","../discover":"/Users/shawn/Work/mtv-play/components/first/discover/index.js","../shows":"/Users/shawn/Work/mtv-play/components/first/shows/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/first/switcher/show.js":[function(require,module,exports){
+},{"../channels":"/Users/youzi/dev/mtv-play/components/first/channels/index.js","../discover":"/Users/youzi/dev/mtv-play/components/first/discover/index.js","../shows":"/Users/youzi/dev/mtv-play/components/first/shows/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/switcher/show.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -9078,9 +9078,9 @@ else
     update()
   }
 }
-},{"../show":"/Users/shawn/Work/mtv-play/components/first/show/index.js","./media":"/Users/shawn/Work/mtv-play/components/first/switcher/media.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/first/switcher/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/first/tv/grid.js":[function(require,module,exports){
+},{"../show":"/Users/youzi/dev/mtv-play/components/first/show/index.js","./media":"/Users/youzi/dev/mtv-play/components/first/switcher/media.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/switcher/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/first/tv/grid.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('vigour-js/app/ui/element')
@@ -9269,7 +9269,7 @@ var Grid = module.exports = exports = new Element(
 exports.Row = Row
 exports.Item = Item
 
-},{"../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/tv/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/components/first/tv/index.js":[function(require,module,exports){
+},{"../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/tv/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -9396,7 +9396,7 @@ module.exports = exports = new Switcher(
 function range(amount, val) {
   return Math.ceil(amount/val)*val
 }
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","./message":"/Users/shawn/Work/mtv-play/components/first/tv/message.js","./page":"/Users/shawn/Work/mtv-play/components/first/tv/page.js","./show":"/Users/shawn/Work/mtv-play/components/first/tv/show.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/switcher":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/app/ui/switcher/transitions":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/switcher/transitions.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/shawn/Work/mtv-play/components/first/tv/message.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./message":"/Users/youzi/dev/mtv-play/components/first/tv/message.js","./page":"/Users/youzi/dev/mtv-play/components/first/tv/page.js","./show":"/Users/youzi/dev/mtv-play/components/first/tv/show.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/app/ui/switcher/transitions":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/switcher/transitions.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/message.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -9412,7 +9412,7 @@ module.exports = new Element(
     }
   }
 }).Class
-},{"vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/components/first/tv/page.js":[function(require,module,exports){
+},{"vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/page.js":[function(require,module,exports){
 //page
 
 var Element = require( 'vigour-js/app/ui/element' )
@@ -9527,7 +9527,7 @@ module.exports = exports = function( update, args ) {
   update()
 
 }
-},{"./grid":"/Users/shawn/Work/mtv-play/components/first/tv/grid.js","./row/channel":"/Users/shawn/Work/mtv-play/components/first/tv/row/channel.js","./row/page":"/Users/shawn/Work/mtv-play/components/first/tv/row/page.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/data/selection":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/selection.js"}],"/Users/shawn/Work/mtv-play/components/first/tv/row/channel.js":[function(require,module,exports){
+},{"./grid":"/Users/youzi/dev/mtv-play/components/first/tv/grid.js","./row/channel":"/Users/youzi/dev/mtv-play/components/first/tv/row/channel.js","./row/page":"/Users/youzi/dev/mtv-play/components/first/tv/row/page.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/data/selection":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/selection.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/row/channel.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
   , app = require('vigour-js/app/')
   , dictionary = require('vigour-js/app/dictionary')
@@ -9694,7 +9694,7 @@ module.exports = exports = new elements.BasicRowView(
     }
   }
 }).Class
-},{"../../../epg_temp":"/Users/shawn/Work/mtv-play/components/epg_temp.js","../../../player/seekbar":"/Users/shawn/Work/mtv-play/components/player/seekbar/index.js","./elements":"/Users/shawn/Work/mtv-play/components/first/tv/row/elements.js","./item":"/Users/shawn/Work/mtv-play/components/first/tv/row/item.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js"}],"/Users/shawn/Work/mtv-play/components/first/tv/row/elements.js":[function(require,module,exports){
+},{"../../../epg_temp":"/Users/youzi/dev/mtv-play/components/epg_temp.js","../../../player/seekbar":"/Users/youzi/dev/mtv-play/components/player/seekbar/index.js","./elements":"/Users/youzi/dev/mtv-play/components/first/tv/row/elements.js","./item":"/Users/youzi/dev/mtv-play/components/first/tv/row/item.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/row/elements.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
   , app = require('vigour-js/app/')
   , dictionary = require('vigour-js/app/dictionary')
@@ -9822,7 +9822,7 @@ exports.RowView = new BasicRowView(
   }
 }).Class
 
-},{"vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/components/first/tv/row/item.js":[function(require,module,exports){
+},{"vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/row/item.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
   , Img = require('../../../img')
   , app = require('vigour-js/app/')
@@ -10039,7 +10039,7 @@ var Item = module.exports = new Img({
 }).Class
 
 
-},{"../../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js"}],"/Users/shawn/Work/mtv-play/components/first/tv/row/page.js":[function(require,module,exports){
+},{"../../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/row/page.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
   , Img = require('../../../img')
   , app = require('vigour-js/app/')
@@ -10144,7 +10144,7 @@ var pageRow = module.exports = exports = new elements.RowView(
     }
   }
 }).Class
-},{"../../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","./elements":"/Users/shawn/Work/mtv-play/components/first/tv/row/elements.js","./item":"/Users/shawn/Work/mtv-play/components/first/tv/row/item.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js"}],"/Users/shawn/Work/mtv-play/components/first/tv/row/show.js":[function(require,module,exports){
+},{"../../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","./elements":"/Users/youzi/dev/mtv-play/components/first/tv/row/elements.js","./item":"/Users/youzi/dev/mtv-play/components/first/tv/row/item.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/row/show.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
   , app = require('vigour-js/app/')
   , dictionary = require('vigour-js/app/dictionary')
@@ -10270,7 +10270,7 @@ var showRow = module.exports = exports = new elements.RowView(
     }
   }
 }).Class
-},{"./elements":"/Users/shawn/Work/mtv-play/components/first/tv/row/elements.js","./item":"/Users/shawn/Work/mtv-play/components/first/tv/row/item.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/raf":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js"}],"/Users/shawn/Work/mtv-play/components/first/tv/show.js":[function(require,module,exports){
+},{"./elements":"/Users/youzi/dev/mtv-play/components/first/tv/row/elements.js","./item":"/Users/youzi/dev/mtv-play/components/first/tv/row/item.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/show.js":[function(require,module,exports){
 //page
 
 var Element = require( 'vigour-js/app/ui/element' )
@@ -10318,9 +10318,9 @@ module.exports = function( update, args ) {
   }
 
 }
-},{"./row/show":"/Users/shawn/Work/mtv-play/components/first/tv/row/show.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/data/selection":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/selection.js"}],"/Users/shawn/Work/mtv-play/components/first/tv/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/first/watch/index.js":[function(require,module,exports){
+},{"./row/show":"/Users/youzi/dev/mtv-play/components/first/tv/row/show.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/data/selection":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/selection.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/first/watch/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('vigour-js/app/ui/element')
@@ -10638,9 +10638,9 @@ module.exports = new Element({
   }
 }).Class
 
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../player":"/Users/shawn/Work/mtv-play/components/player/index.js","../../text":"/Users/shawn/Work/mtv-play/components/text/index.js","../epg":"/Users/shawn/Work/mtv-play/components/first/epg/index.js","../favourite":"/Users/shawn/Work/mtv-play/components/first/favourite/index.js","../menu":"/Users/shawn/Work/mtv-play/components/first/menu/index.js","../seasons":"/Users/shawn/Work/mtv-play/components/first/seasons/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/first/watch/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/switcher":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/first/watch/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/icon/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../player":"/Users/youzi/dev/mtv-play/components/player/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","../epg":"/Users/youzi/dev/mtv-play/components/first/epg/index.js","../favourite":"/Users/youzi/dev/mtv-play/components/first/favourite/index.js","../menu":"/Users/youzi/dev/mtv-play/components/first/menu/index.js","../seasons":"/Users/youzi/dev/mtv-play/components/first/seasons/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/watch/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/watch/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/icon/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('vigour-js/app/ui/element')
@@ -10729,9 +10729,9 @@ icon.extend(
 module.exports = exports = icon.Class
 exports.map = map
 
-},{"./style.less":"/Users/shawn/Work/mtv-play/components/icon/style.less","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/icon/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/img/index.js":[function(require,module,exports){
+},{"./style.less":"/Users/youzi/dev/mtv-play/components/icon/style.less","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/icon/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/img/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('vigour-js/app/ui/element')
@@ -10940,9 +10940,9 @@ function range( width, height, val ){
   return { w:newWidth, h:newHeight }
 }
 
-},{"./style.less":"/Users/shawn/Work/mtv-play/components/img/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/frame":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/frame.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/shawn/Work/mtv-play/components/img/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/item/index.js":[function(require,module,exports){
+},{"./style.less":"/Users/youzi/dev/mtv-play/components/img/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/frame":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/frame.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/img/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/item/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('vigour-js/app/ui/element')
@@ -11071,9 +11071,9 @@ exports.TitleSubtitle = TitleSubtitle
 exports.Switcher = new exports.IconRightSub(
 { righticon:new Element({hold:new Switch()})
 }).Class
-},{"../button":"/Users/shawn/Work/mtv-play/components/button/index.js","../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../text":"/Users/shawn/Work/mtv-play/components/text/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/item/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/item/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/loader/index.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../text":"/Users/youzi/dev/mtv-play/components/text/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/item/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/item/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/loader/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Sprite = require('vigour-js/app/ui/sprite')
@@ -11109,9 +11109,9 @@ if( !cases.ios  && !cases.desktop ) {
 	, params:{ cols:1, rows:26 } // once:true }
 	}).Class
 }
-},{"./style.less":"/Users/shawn/Work/mtv-play/components/loader/style.less","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/sprite":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/sprite/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/loader/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/player/backdrop.js":[function(require,module,exports){
+},{"./style.less":"/Users/youzi/dev/mtv-play/components/loader/style.less","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/sprite":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/sprite/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/loader/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/player/backdrop.js":[function(require,module,exports){
 require('./style.less')
 
 var app = require('vigour-js/app')
@@ -11149,7 +11149,7 @@ module.exports = new Element(
     }
   }
 }).Class
-},{"../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../img":"/Users/shawn/Work/mtv-play/components/img/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/player/style.less","vigour-js/app":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/components/player/controls/index.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../img":"/Users/youzi/dev/mtv-play/components/img/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/player/style.less","vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/player/controls/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('vigour-js/app/ui/element')
@@ -11185,9 +11185,9 @@ module.exports = new Element(
     }
   }
 }).Class
-},{"../seekbar":"/Users/shawn/Work/mtv-play/components/player/seekbar/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/player/controls/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/element/video/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/video/util.js"}],"/Users/shawn/Work/mtv-play/components/player/controls/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/player/index.js":[function(require,module,exports){
+},{"../seekbar":"/Users/youzi/dev/mtv-play/components/player/seekbar/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/player/controls/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/element/video/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/video/util.js"}],"/Users/youzi/dev/mtv-play/components/player/controls/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/player/index.js":[function(require,module,exports){
 require('./style.less')
 
 var app = require('vigour-js/app/')
@@ -11637,7 +11637,7 @@ exports.Holder = new Element(
 }).Class
 
 
-},{"./backdrop":"/Users/shawn/Work/mtv-play/components/player/backdrop.js","./overlay":"/Users/shawn/Work/mtv-play/components/player/overlay/index.js","./phone-fullscreen":"/Users/shawn/Work/mtv-play/components/player/phone-fullscreen.js","./style.less":"/Users/shawn/Work/mtv-play/components/player/style.less","./video":"/Users/shawn/Work/mtv-play/components/player/video/index.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/raf":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/shawn/Work/mtv-play/components/player/overlay/index.js":[function(require,module,exports){
+},{"./backdrop":"/Users/youzi/dev/mtv-play/components/player/backdrop.js","./overlay":"/Users/youzi/dev/mtv-play/components/player/overlay/index.js","./phone-fullscreen":"/Users/youzi/dev/mtv-play/components/player/phone-fullscreen.js","./style.less":"/Users/youzi/dev/mtv-play/components/player/style.less","./video":"/Users/youzi/dev/mtv-play/components/player/video/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/player/overlay/index.js":[function(require,module,exports){
 var app = require('vigour-js/app/')
 var cases = window.cases = require('vigour-js/browser/cases')
 var Element = require('vigour-js/app/ui/element')
@@ -11950,7 +11950,7 @@ module.exports = new pointerElement(
 }).Class
 
 
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../controls":"/Users/shawn/Work/mtv-play/components/player/controls/index.js","../volume":"/Users/shawn/Work/mtv-play/components/player/volume/index.js","./play":"/Users/shawn/Work/mtv-play/components/player/overlay/play.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/player/overlay/play.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../controls":"/Users/youzi/dev/mtv-play/components/player/controls/index.js","../volume":"/Users/youzi/dev/mtv-play/components/player/volume/index.js","./play":"/Users/youzi/dev/mtv-play/components/player/overlay/play.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/player/overlay/play.js":[function(require,module,exports){
 var Icon = require('../../icon')
   , cases = require('vigour-js/browser/cases')
   , app = require('vigour-js/app/')
@@ -12007,7 +12007,7 @@ exports.base.define(
 , trial = user.role.val === 3
 
 */
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/player/phone-fullscreen.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/player/phone-fullscreen.js":[function(require,module,exports){
 var app = require('vigour-js/app/')
   , cases = require('vigour-js/browser/cases')
 
@@ -12090,7 +12090,7 @@ module.exports = exports = function(){
 exports.exit = function(){
   fullscreen.call( this, true )
 }
-},{"vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/player/players/html5.js":[function(require,module,exports){
+},{"vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/player/players/html5.js":[function(require,module,exports){
 var ua = require('vigour-js/browser/ua')
   , _winPhone = ua.platform === 'windows' && ua.device === 'phone'
   , _ios = ua.platform === 'ios'
@@ -12351,7 +12351,7 @@ exports.src = function( val ) {
     }
   }
 }
-},{"vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/element/video/html5":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/video/html5.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/shawn/Work/mtv-play/components/player/seekbar/index.js":[function(require,module,exports){
+},{"vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/element/video/html5":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/video/html5.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/components/player/seekbar/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('vigour-js/app/ui/element')
@@ -12430,11 +12430,11 @@ function setTime(e) {
     this._prevVal = val
   }
 }
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/player/seekbar/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/element/video/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/video/util.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/shawn/Work/mtv-play/components/player/seekbar/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/player/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/player/video/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/player/seekbar/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/element/video/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/video/util.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/components/player/seekbar/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/player/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/player/video/index.js":[function(require,module,exports){
 var app = require('vigour-js/app/')
   , cases = require('vigour-js/browser/cases')
   , Video = require('vigour-js/browser/element/video')
@@ -12563,7 +12563,7 @@ function getOverlay(){
 // function getLoader( overlay ){
 //   return overlay && ( this._playloader || ( this._playloader = overlay.controls.left || overlay.clickable.buttons.play ))
 // }
-},{"../players/html5":"/Users/shawn/Work/mtv-play/components/player/players/html5.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/element/video":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/video/index.js","vigour-js/browser/events/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/util.js"}],"/Users/shawn/Work/mtv-play/components/player/volume/index.js":[function(require,module,exports){
+},{"../players/html5":"/Users/youzi/dev/mtv-play/components/player/players/html5.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/element/video":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/video/index.js","vigour-js/browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/util.js"}],"/Users/youzi/dev/mtv-play/components/player/volume/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('vigour-js/app/ui/element')
@@ -12603,9 +12603,9 @@ function setVol(e){
 
   this.data.volume.from = nr > 1 ? 1 : nr < 0 ? 0 : nr
 }
-},{"./style.less":"/Users/shawn/Work/mtv-play/components/player/volume/style.less","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/components/player/volume/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/popup/article.js":[function(require,module,exports){
+},{"./style.less":"/Users/youzi/dev/mtv-play/components/player/volume/style.less","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/player/volume/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/popup/article.js":[function(require,module,exports){
 //anim up op phone
 // anders scale en fade
 var Element = require('vigour-js/app/ui/element')
@@ -12634,7 +12634,7 @@ module.exports = exports = new Page(
 
 
 
-},{"../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../item":"/Users/shawn/Work/mtv-play/components/item/index.js","./page":"/Users/shawn/Work/mtv-play/components/popup/page.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/components/popup/auth.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/auth.js":[function(require,module,exports){
 //anim up op phone
 // anders scale en fade
 var Element = require('vigour-js/app/ui/element')
@@ -13073,7 +13073,7 @@ exports.PasswordReset = new Input.Form(
   }
 }).Class
 
-},{"../button":"/Users/shawn/Work/mtv-play/components/button/index.js","../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../item":"/Users/shawn/Work/mtv-play/components/item/index.js","../text/input":"/Users/shawn/Work/mtv-play/components/text/input.js","./page":"/Users/shawn/Work/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/components/popup/buy.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../text/input":"/Users/youzi/dev/mtv-play/components/text/input.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/buy.js":[function(require,module,exports){
 //anim up op phone
 // anders scale en fade
 var Element = require('vigour-js/app/ui/element')
@@ -13127,7 +13127,7 @@ exports.Yearly = new exports(
     api.purchase.val = { subscription: 'yearly' }
   }
 }).Class
-},{"../button":"/Users/shawn/Work/mtv-play/components/button/index.js","vigour-js/app":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/components/popup/devices.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/devices.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
   , util = require('vigour-js/util')
   , Icon = require('../icon')
@@ -13284,7 +13284,7 @@ module.exports = exports = new Page(
   }
 }).Class
 
-},{"../button":"/Users/shawn/Work/mtv-play/components/button/index.js","../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../item":"/Users/shawn/Work/mtv-play/components/item/index.js","./page":"/Users/shawn/Work/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/raf":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/shawn/Work/mtv-play/components/popup/faq.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/faq.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
   , Icon = require('../icon')
   , Item = require('../item')
@@ -13316,7 +13316,7 @@ module.exports = new Page(
   }
 }).Class
 
-},{"../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../item":"/Users/shawn/Work/mtv-play/components/item/index.js","./page":"/Users/shawn/Work/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/components/popup/index.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/index.js":[function(require,module,exports){
 require( './style.less' )
 
 var Element = require( 'vigour-js/app/ui/element' )
@@ -13823,7 +13823,7 @@ exports.topbar.holder.righticon.extend({ fn:function(){ } })
 
 module.exports = exports.Class
 
-},{"../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","./article":"/Users/shawn/Work/mtv-play/components/popup/article.js","./auth":"/Users/shawn/Work/mtv-play/components/popup/auth.js","./buy":"/Users/shawn/Work/mtv-play/components/popup/buy.js","./devices":"/Users/shawn/Work/mtv-play/components/popup/devices.js","./faq":"/Users/shawn/Work/mtv-play/components/popup/faq.js","./intro":"/Users/shawn/Work/mtv-play/components/popup/intro.js","./languages":"/Users/shawn/Work/mtv-play/components/popup/languages.js","./mobile":"/Users/shawn/Work/mtv-play/components/popup/mobile.js","./newsletter":"/Users/shawn/Work/mtv-play/components/popup/newsletter.js","./page":"/Users/shawn/Work/mtv-play/components/popup/page.js","./profile":"/Users/shawn/Work/mtv-play/components/popup/profile.js","./roadblock":"/Users/shawn/Work/mtv-play/components/popup/roadblock.js","./settings":"/Users/shawn/Work/mtv-play/components/popup/settings.js","./share":"/Users/shawn/Work/mtv-play/components/popup/share.js","./style.less":"/Users/shawn/Work/mtv-play/components/popup/style.less","./upgrade":"/Users/shawn/Work/mtv-play/components/popup/upgrade.js","./wifi":"/Users/shawn/Work/mtv-play/components/popup/wifi.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/switcher":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/components/popup/intro.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./article":"/Users/youzi/dev/mtv-play/components/popup/article.js","./auth":"/Users/youzi/dev/mtv-play/components/popup/auth.js","./buy":"/Users/youzi/dev/mtv-play/components/popup/buy.js","./devices":"/Users/youzi/dev/mtv-play/components/popup/devices.js","./faq":"/Users/youzi/dev/mtv-play/components/popup/faq.js","./intro":"/Users/youzi/dev/mtv-play/components/popup/intro.js","./languages":"/Users/youzi/dev/mtv-play/components/popup/languages.js","./mobile":"/Users/youzi/dev/mtv-play/components/popup/mobile.js","./newsletter":"/Users/youzi/dev/mtv-play/components/popup/newsletter.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","./profile":"/Users/youzi/dev/mtv-play/components/popup/profile.js","./roadblock":"/Users/youzi/dev/mtv-play/components/popup/roadblock.js","./settings":"/Users/youzi/dev/mtv-play/components/popup/settings.js","./share":"/Users/youzi/dev/mtv-play/components/popup/share.js","./style.less":"/Users/youzi/dev/mtv-play/components/popup/style.less","./upgrade":"/Users/youzi/dev/mtv-play/components/popup/upgrade.js","./wifi":"/Users/youzi/dev/mtv-play/components/popup/wifi.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/intro.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
   , util = require('vigour-js/util')
   , Icon = require('../icon')
@@ -14069,7 +14069,7 @@ function setPos(roll,newPos){
     roll._pos = newPos
   }
 }
-},{"../button":"/Users/shawn/Work/mtv-play/components/button/index.js","../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../item":"/Users/shawn/Work/mtv-play/components/item/index.js","../text/input":"/Users/shawn/Work/mtv-play/components/text/input.js","./page":"/Users/shawn/Work/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/shawn/Work/mtv-play/components/popup/languages.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../text/input":"/Users/youzi/dev/mtv-play/components/text/input.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/languages.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
   , util = require('vigour-js/util')
   , Icon = require('../icon')
@@ -14143,7 +14143,7 @@ module.exports = new Page(
   }
 }).Class
 
-},{"../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../item":"/Users/shawn/Work/mtv-play/components/item/index.js","./page":"/Users/shawn/Work/mtv-play/components/popup/page.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/raf":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/shawn/Work/mtv-play/components/popup/mobile.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/mobile.js":[function(require,module,exports){
 //anim up op phone
 // anders scale en fade
 var Element = require('vigour-js/app/ui/element')
@@ -14282,7 +14282,7 @@ exports.CountryCodes = new Element(
 }).Class
 
 //hooray mobile
-},{"../button":"/Users/shawn/Work/mtv-play/components/button/index.js","../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../item":"/Users/shawn/Work/mtv-play/components/item/index.js","../text/input":"/Users/shawn/Work/mtv-play/components/text/input.js","./page":"/Users/shawn/Work/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/raf":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/shawn/Work/mtv-play/components/popup/newsletter.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../text/input":"/Users/youzi/dev/mtv-play/components/text/input.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/newsletter.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
   , Icon = require('../icon')
   , Item = require('../item')
@@ -14310,7 +14310,7 @@ module.exports = new Page({
 }).Class
 
 
-},{"../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../item":"/Users/shawn/Work/mtv-play/components/item/index.js","./page":"/Users/shawn/Work/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/components/popup/page.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/page.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
 
 //maybe add scroll, only when list is too large
@@ -14318,7 +14318,7 @@ module.exports = new Element({
   x:{translate:true}
 , scrollbar:'y'
 }).Class
-},{"vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/components/popup/profile.js":[function(require,module,exports){
+},{"vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/profile.js":[function(require,module,exports){
 //anim up op phone
 // anders scale en fade
 var Element = require('vigour-js/app/ui/element')
@@ -14440,7 +14440,7 @@ module.exports = exports = new Element(
 }).Class
 
 
-},{"../button":"/Users/shawn/Work/mtv-play/components/button/index.js","../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../item":"/Users/shawn/Work/mtv-play/components/item/index.js","./page":"/Users/shawn/Work/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/components/popup/roadblock.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/roadblock.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
   , app = require('vigour-js/app')
   , util = require('vigour-js/util')
@@ -14606,7 +14606,7 @@ exports.Media = new Page(
 }).Class
 
 
-},{"../button":"/Users/shawn/Work/mtv-play/components/button/index.js","../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../item":"/Users/shawn/Work/mtv-play/components/item/index.js","../text/input":"/Users/shawn/Work/mtv-play/components/text/input.js","./article":"/Users/shawn/Work/mtv-play/components/popup/article.js","./page":"/Users/shawn/Work/mtv-play/components/popup/page.js","vigour-js/app":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/shawn/Work/mtv-play/components/popup/settings.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../text/input":"/Users/youzi/dev/mtv-play/components/text/input.js","./article":"/Users/youzi/dev/mtv-play/components/popup/article.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/settings.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
   , util = require('vigour-js/util')
   , Icon = require('../icon')
@@ -14747,7 +14747,7 @@ module.exports = new Element(
 
 
 
-},{"../button":"/Users/shawn/Work/mtv-play/components/button/index.js","../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../item":"/Users/shawn/Work/mtv-play/components/item/index.js","../text/input":"/Users/shawn/Work/mtv-play/components/text/input.js","./page":"/Users/shawn/Work/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/raf":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/shawn/Work/mtv-play/components/popup/share.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../text/input":"/Users/youzi/dev/mtv-play/components/text/input.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/share.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
   , util = require('vigour-js/util')
   , Icon = require('../icon')
@@ -14788,9 +14788,9 @@ module.exports = exports = new Page(
   })
 }).Class
 
-},{"../button":"/Users/shawn/Work/mtv-play/components/button/index.js","../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../item":"/Users/shawn/Work/mtv-play/components/item/index.js","../text/input":"/Users/shawn/Work/mtv-play/components/text/input.js","./page":"/Users/shawn/Work/mtv-play/components/popup/page.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/shawn/Work/mtv-play/components/popup/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/popup/upgrade.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../text/input":"/Users/youzi/dev/mtv-play/components/text/input.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/popup/upgrade.js":[function(require,module,exports){
 //anim up op phone
 // anders scale en fade
 var Element = require('vigour-js/app/ui/element')
@@ -14859,7 +14859,7 @@ exports = module.exports = new Page(
 
 
 
-},{"../button":"/Users/shawn/Work/mtv-play/components/button/index.js","../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","./page":"/Users/shawn/Work/mtv-play/components/popup/page.js","vigour-js/app":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/components/popup/wifi.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/wifi.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
   , Icon = require('../icon')
   , Item = require('../item')
@@ -14885,7 +14885,7 @@ module.exports = new Page({
   // , add: [ new Icon({ name:'lefticon', icon:'wifi' }), 'txt' ]
   })
 }).Class
-},{"../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../item":"/Users/shawn/Work/mtv-play/components/item/index.js","./page":"/Users/shawn/Work/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/components/rotate-message/index.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/rotate-message/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('vigour-js/app/ui/element')
@@ -14898,9 +14898,9 @@ module.exports = new Element(
 	, message:{text:{dictionary:'text.rotateDevice'}}
 	}
 }).Class
-},{"../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/rotate-message/style.less","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/components/rotate-message/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/second/bar/index.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/rotate-message/style.less","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/rotate-message/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/second/bar/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('vigour-js/app/ui/element')
@@ -14929,9 +14929,9 @@ module.exports = new Element(
   }
 }).Class
 
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../text":"/Users/shawn/Work/mtv-play/components/text/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/second/bar/style.less","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/second/bar/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/second/channel/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/bar/style.less","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/second/bar/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/second/channel/index.js":[function(require,module,exports){
 require('./style.less')
 
 var app = require('vigour-js/app/')
@@ -15001,9 +15001,9 @@ module.exports = new Element(
 , information:information
 , cover:cover
 }).Class
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../grid":"/Users/shawn/Work/mtv-play/components/second/grid/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/second/channel/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/components/second/channel/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/second/channels/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../grid":"/Users/youzi/dev/mtv-play/components/second/grid/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/channel/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/second/channel/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/second/channels/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Grid = require('../grid')
@@ -15105,9 +15105,9 @@ Grid = new Grid(
 module.exports = Grid.Class
 
 
-},{"../../epg_temp":"/Users/shawn/Work/mtv-play/components/epg_temp.js","../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../../player/seekbar":"/Users/shawn/Work/mtv-play/components/player/seekbar/index.js","../grid":"/Users/shawn/Work/mtv-play/components/second/grid/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/second/channels/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/components/second/channels/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/second/discover/index.js":[function(require,module,exports){
+},{"../../epg_temp":"/Users/youzi/dev/mtv-play/components/epg_temp.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../player/seekbar":"/Users/youzi/dev/mtv-play/components/player/seekbar/index.js","../grid":"/Users/youzi/dev/mtv-play/components/second/grid/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/channels/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/second/channels/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/second/discover/index.js":[function(require,module,exports){
 require('./style.less')
 
 var app = require('vigour-js/app/')
@@ -15294,9 +15294,9 @@ module.exports = new discoverPage.Class(
     }
   })
 }).Class
-},{"../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../grid":"/Users/shawn/Work/mtv-play/components/second/grid/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/second/discover/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/second/discover/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/second/episode/index.js":[function(require,module,exports){
+},{"../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../grid":"/Users/youzi/dev/mtv-play/components/second/grid/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/discover/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/second/discover/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/second/episode/index.js":[function(require,module,exports){
 require('./style.less')
 
 var app = require('vigour-js/app/')
@@ -15404,9 +15404,9 @@ module.exports = new Element(
 , information:information
 , cover:cover
 }).Class
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../grid":"/Users/shawn/Work/mtv-play/components/second/grid/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/second/episode/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/components/second/episode/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/second/grid/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../grid":"/Users/youzi/dev/mtv-play/components/second/grid/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/episode/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/second/episode/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/second/grid/index.js":[function(require,module,exports){
 require('./style.less')
 
 var app = require('vigour-js/app/')
@@ -15448,9 +15448,9 @@ exports.Item = Item
 
 exports.rowHeight = new Value({ val:app.h, sub:80, divide:6 })
 exports.colWidth = new Value({ val:exports.rowHeight, divide:3/4 })
-},{"../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/second/grid/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/components/second/grid/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/second/index.js":[function(require,module,exports){
+},{"../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/grid/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/components/second/grid/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/second/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -15472,7 +15472,7 @@ module.exports = new Element(
 , '!phone.bar':new Bar()
 , 'phone.button.title.text.dictionary': 'text.returnTap'
 }).Class
-},{"./bar":"/Users/shawn/Work/mtv-play/components/second/bar/index.js","./screensaver":"/Users/shawn/Work/mtv-play/components/second/screensaver/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/second/style.less","./switcher":"/Users/shawn/Work/mtv-play/components/second/switcher/index.js","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/second/screensaver/index.js":[function(require,module,exports){
+},{"./bar":"/Users/youzi/dev/mtv-play/components/second/bar/index.js","./screensaver":"/Users/youzi/dev/mtv-play/components/second/screensaver/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/style.less","./switcher":"/Users/youzi/dev/mtv-play/components/second/switcher/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/second/screensaver/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -15610,9 +15610,9 @@ module.exports = exports = new Switcher(
     this.add(current)
   }
 }).Class
-},{"../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/second/screensaver/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/switcher":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/second/screensaver/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/second/show/index.js":[function(require,module,exports){
+},{"../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/screensaver/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/second/screensaver/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/second/show/index.js":[function(require,module,exports){
 require('./style.less')
 
 var app = require('vigour-js/app/')
@@ -15768,9 +15768,9 @@ module.exports = new Element(
     }
   }
 }).Class
-},{"../../img":"/Users/shawn/Work/mtv-play/components/img/index.js","../grid":"/Users/shawn/Work/mtv-play/components/second/grid/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/second/show/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/second/show/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/second/shows/index.js":[function(require,module,exports){
+},{"../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../grid":"/Users/youzi/dev/mtv-play/components/second/grid/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/show/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/second/show/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/second/shows/index.js":[function(require,module,exports){
 require('./style.less')
 
 var app = require('vigour-js/app/')
@@ -15943,11 +15943,11 @@ function m (first, last, grid){
     if(grid.y.val > 0) grid.y.val = 0
   }
 }
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../grid":"/Users/shawn/Work/mtv-play/components/second/grid/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/second/shows/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/element/properties/collection/display":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/collection/display.js"}],"/Users/shawn/Work/mtv-play/components/second/shows/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/second/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/second/switcher/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../grid":"/Users/youzi/dev/mtv-play/components/second/grid/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/shows/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/element/properties/collection/display":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/collection/display.js"}],"/Users/youzi/dev/mtv-play/components/second/shows/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/second/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/second/switcher/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -16154,9 +16154,9 @@ module.exports = exports = new Switcher(
   , loadicon:new Icon({icon:'logo'})
   })
 }).Class
-},{"../../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","../channel":"/Users/shawn/Work/mtv-play/components/second/channel/index.js","../channels":"/Users/shawn/Work/mtv-play/components/second/channels/index.js","../discover":"/Users/shawn/Work/mtv-play/components/second/discover/index.js","../episode":"/Users/shawn/Work/mtv-play/components/second/episode/index.js","../show":"/Users/shawn/Work/mtv-play/components/second/show/index.js","../shows":"/Users/shawn/Work/mtv-play/components/second/shows/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/second/switcher/style.less","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/switcher":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/second/switcher/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/switcher/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../channel":"/Users/youzi/dev/mtv-play/components/second/channel/index.js","../channels":"/Users/youzi/dev/mtv-play/components/second/channels/index.js","../discover":"/Users/youzi/dev/mtv-play/components/second/discover/index.js","../episode":"/Users/youzi/dev/mtv-play/components/second/episode/index.js","../show":"/Users/youzi/dev/mtv-play/components/second/show/index.js","../shows":"/Users/youzi/dev/mtv-play/components/second/shows/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/switcher/style.less","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/second/switcher/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/switcher/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -16381,9 +16381,9 @@ module.exports = exports = new Switcher
 
 
 // exports.player = require('../player/fullscreen')
-},{"../first":"/Users/shawn/Work/mtv-play/components/first/index.js","../player":"/Users/shawn/Work/mtv-play/components/player/index.js","../second":"/Users/shawn/Work/mtv-play/components/second/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/switcher/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/switcher":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/components/switcher/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/components/text/index.js":[function(require,module,exports){
+},{"../first":"/Users/youzi/dev/mtv-play/components/first/index.js","../player":"/Users/youzi/dev/mtv-play/components/player/index.js","../second":"/Users/youzi/dev/mtv-play/components/second/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/switcher/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/switcher/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/text/index.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
   , dictionary = require('vigour-js/app/dictionary')
 
@@ -16477,7 +16477,7 @@ exports.highlight = function(string){
     , str = firstletter !== 'i' ? firstletter.toUpperCase() + rest : firstletter + rest.charAt(0).toUpperCase() + rest.slice(1);
   return '<span class="text-highlight">' + str + '</span>'
 }
-},{"vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/components/text/input.js":[function(require,module,exports){
+},{"vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/text/input.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('vigour-js/app/ui/element')
@@ -16773,7 +16773,7 @@ function verify(e) {
     }
   }
 }
-},{"../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/text/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/index.js","vigour-js/browser/events/offset":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/offset.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/components/text/search.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/text/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/index.js","vigour-js/browser/events/offset":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/offset.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/components/text/search.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('vigour-js/app/ui/element')
@@ -16951,9 +16951,9 @@ function exit(form,clear){
   form._active = false
   app.blockResize = false
 }
-},{"../icon":"/Users/shawn/Work/mtv-play/components/icon/index.js","./style.less":"/Users/shawn/Work/mtv-play/components/text/style.less","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/index.js"}],"/Users/shawn/Work/mtv-play/components/text/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/config.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/text/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/index.js"}],"/Users/youzi/dev/mtv-play/components/text/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/config.js":[function(require,module,exports){
 window.name = 'mtvplay'
 
 // window.package = require('./package.json')
@@ -16975,7 +16975,7 @@ exports( function( result ) {
 }, false, window.package, true )
 
 
-},{"vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/util/config/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/ua.js"}],"/Users/shawn/Work/mtv-play/index.js":[function(require,module,exports){
+},{"vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/util/config/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/ua.js"}],"/Users/youzi/dev/mtv-play/index.js":[function(require,module,exports){
 window.package = require('package.json');
 //override for testing
 // window.__ua__ = { device:'tv' }
@@ -17036,61 +17036,14 @@ if( !remote )
   }
 
 }
-},{"./config":"/Users/shawn/Work/mtv-play/config.js","./platform/all.js":"/Users/shawn/Work/mtv-play/platform/all.js","./platform/cast.js":"/Users/shawn/Work/mtv-play/platform/cast.js","./platform/tv.js":"/Users/shawn/Work/mtv-play/platform/tv.js","package.json":"package.json","vigour-js/app/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util/debug":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/debug/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/monotonic-timestamp/index.js":[function(require,module,exports){
-// If `Date.now()` is invoked twice quickly, it's possible to get two
-// identical time stamps. To avoid generation duplications, subsequent
-// calls are manually ordered to force uniqueness.
-
-var _last = 0
-var _count = 1
-var adjusted = 0
-var _adjusted = 0
-
-module.exports =
-function timestamp() {
-  /**
-  Returns NOT an accurate representation of the current time.
-  Since js only measures time as ms, if you call `Date.now()`
-  twice quickly, it's possible to get two identical time stamps.
-  This function guarantees unique but maybe inaccurate results
-  on each call.
-  **/
-  //uncomment this wen
-  var time = Date.now()
-  //time = ~~ (time / 1000) 
-  //^^^uncomment when testing...
-
-  /**
-  If time returned is same as in last call, adjust it by
-  adding a number based on the counter. 
-  Counter is incremented so that next call get's adjusted properly.
-  Because floats have restricted precision, 
-  may need to step past some values...
-  **/
-  if (_last === time)  {
-    do {
-      adjusted = time + ((_count++) / (_count + 999))
-    } while (adjusted === _adjusted)
-    _adjusted = adjusted
-  }
-  // If last time was different reset timer back to `1`.
-  else {
-    _count = 1
-    adjusted = time
-  }
-  _adjusted = adjusted
-  _last = time
-  return adjusted
-}
-
-},{}],"/Users/shawn/Work/mtv-play/node_modules/promise/index.js":[function(require,module,exports){
+},{"./config":"/Users/youzi/dev/mtv-play/config.js","./platform/all.js":"/Users/youzi/dev/mtv-play/platform/all.js","./platform/cast.js":"/Users/youzi/dev/mtv-play/platform/cast.js","./platform/tv.js":"/Users/youzi/dev/mtv-play/platform/tv.js","package.json":"package.json","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util/debug":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/debug/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/promise/index.js":[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/core.js')
 require('./lib/done.js')
 require('./lib/es6-extensions.js')
 require('./lib/node-extensions.js')
-},{"./lib/core.js":"/Users/shawn/Work/mtv-play/node_modules/promise/lib/core.js","./lib/done.js":"/Users/shawn/Work/mtv-play/node_modules/promise/lib/done.js","./lib/es6-extensions.js":"/Users/shawn/Work/mtv-play/node_modules/promise/lib/es6-extensions.js","./lib/node-extensions.js":"/Users/shawn/Work/mtv-play/node_modules/promise/lib/node-extensions.js"}],"/Users/shawn/Work/mtv-play/node_modules/promise/lib/core.js":[function(require,module,exports){
+},{"./lib/core.js":"/Users/youzi/dev/mtv-play/node_modules/promise/lib/core.js","./lib/done.js":"/Users/youzi/dev/mtv-play/node_modules/promise/lib/done.js","./lib/es6-extensions.js":"/Users/youzi/dev/mtv-play/node_modules/promise/lib/es6-extensions.js","./lib/node-extensions.js":"/Users/youzi/dev/mtv-play/node_modules/promise/lib/node-extensions.js"}],"/Users/youzi/dev/mtv-play/node_modules/promise/lib/core.js":[function(require,module,exports){
 'use strict';
 
 var asap = require('asap')
@@ -17197,7 +17150,7 @@ function doResolve(fn, onFulfilled, onRejected) {
   }
 }
 
-},{"asap":"/Users/shawn/Work/mtv-play/node_modules/promise/node_modules/asap/asap.js"}],"/Users/shawn/Work/mtv-play/node_modules/promise/lib/done.js":[function(require,module,exports){
+},{"asap":"/Users/youzi/dev/mtv-play/node_modules/promise/node_modules/asap/asap.js"}],"/Users/youzi/dev/mtv-play/node_modules/promise/lib/done.js":[function(require,module,exports){
 'use strict';
 
 var Promise = require('./core.js')
@@ -17212,7 +17165,7 @@ Promise.prototype.done = function (onFulfilled, onRejected) {
     })
   })
 }
-},{"./core.js":"/Users/shawn/Work/mtv-play/node_modules/promise/lib/core.js","asap":"/Users/shawn/Work/mtv-play/node_modules/promise/node_modules/asap/asap.js"}],"/Users/shawn/Work/mtv-play/node_modules/promise/lib/es6-extensions.js":[function(require,module,exports){
+},{"./core.js":"/Users/youzi/dev/mtv-play/node_modules/promise/lib/core.js","asap":"/Users/youzi/dev/mtv-play/node_modules/promise/node_modules/asap/asap.js"}],"/Users/youzi/dev/mtv-play/node_modules/promise/lib/es6-extensions.js":[function(require,module,exports){
 'use strict';
 
 //This file contains the ES6 extensions to the core Promises/A+ API
@@ -17322,7 +17275,7 @@ Promise.prototype['catch'] = function (onRejected) {
   return this.then(null, onRejected);
 }
 
-},{"./core.js":"/Users/shawn/Work/mtv-play/node_modules/promise/lib/core.js","asap":"/Users/shawn/Work/mtv-play/node_modules/promise/node_modules/asap/asap.js"}],"/Users/shawn/Work/mtv-play/node_modules/promise/lib/node-extensions.js":[function(require,module,exports){
+},{"./core.js":"/Users/youzi/dev/mtv-play/node_modules/promise/lib/core.js","asap":"/Users/youzi/dev/mtv-play/node_modules/promise/node_modules/asap/asap.js"}],"/Users/youzi/dev/mtv-play/node_modules/promise/lib/node-extensions.js":[function(require,module,exports){
 'use strict';
 
 //This file contains then/promise specific extensions that are only useful for node.js interop
@@ -17387,7 +17340,7 @@ Promise.prototype.nodeify = function (callback, ctx) {
   })
 }
 
-},{"./core.js":"/Users/shawn/Work/mtv-play/node_modules/promise/lib/core.js","asap":"/Users/shawn/Work/mtv-play/node_modules/promise/node_modules/asap/asap.js"}],"/Users/shawn/Work/mtv-play/node_modules/promise/node_modules/asap/asap.js":[function(require,module,exports){
+},{"./core.js":"/Users/youzi/dev/mtv-play/node_modules/promise/lib/core.js","asap":"/Users/youzi/dev/mtv-play/node_modules/promise/node_modules/asap/asap.js"}],"/Users/youzi/dev/mtv-play/node_modules/promise/node_modules/asap/asap.js":[function(require,module,exports){
 (function (process){
 
 // Use the fastest possible means to execute a task in a future turn
@@ -17505,7 +17458,7 @@ module.exports = asap;
 
 }).call(this,require('_process'))
 
-},{"_process":"/Users/shawn/Work/gaston/node_modules/browserify/node_modules/process/browser.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/cloud.js":[function(require,module,exports){
+},{"_process":"/Users/youzi/dev/gaston/node_modules/browserify/node_modules/process/browser.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/cloud.js":[function(require,module,exports){
 var Cloud = require('vigour-js/browser/network/cloud')
     .inject(
       require('vigour-js/browser/network/cloud/datacloud'),
@@ -17666,7 +17619,7 @@ exports.extend = util.extend( require('./values'), function (base) {
 })
 
 
-},{"./values":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/values.js","vigour-js/browser/animation/raf":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/network/cloud":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/cloud/index.js","vigour-js/browser/network/cloud/authenticate":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/cloud/authenticate.js","vigour-js/browser/network/cloud/datacloud":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/cloud/datacloud.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","vigour-js/value/flags/process":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/content.js":[function(require,module,exports){
+},{"./values":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/values.js","vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/network/cloud":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/cloud/index.js","vigour-js/browser/network/cloud/authenticate":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/cloud/authenticate.js","vigour-js/browser/network/cloud/datacloud":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/cloud/datacloud.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","vigour-js/value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/content.js":[function(require,module,exports){
 var Value = require('../value')
   , CloudData = require( '../browser/network/cloud/data' )
   , util = require('../util')
@@ -17726,7 +17679,7 @@ exports.extend = util.extend(
   }
 )
 
-},{"../browser/network/cloud/data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/cloud/data.js","../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","./cloud":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/cloud.js","./values":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/values.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/dictionary/index.js":[function(require,module,exports){
+},{"../browser/network/cloud/data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/cloud/data.js","../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","./cloud":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/cloud.js","./values":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/values.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  */
@@ -17813,7 +17766,7 @@ app.dictionary.val =
 }
 
 */
-},{"../../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","../ui/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js":[function(require,module,exports){
+},{"../../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","../ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * 
@@ -17921,9 +17874,9 @@ for(;i >= 0;) defaultCase(arr[i--])
 
 
 
-},{"../browser/animation":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/index.js","../browser/animation/easing":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/easing.js","../browser/animation/raf":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/raf.js","../browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","../browser/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/index.js","../browser/events/advanced":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/advanced.js","../browser/events/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/util.js","../browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","./style.less":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/style.less"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/style.less":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js":[function(require,module,exports){
+},{"../browser/animation":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/index.js","../browser/animation/easing":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/easing.js","../browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js","../browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","../browser/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/index.js","../browser/events/advanced":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/advanced.js","../browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/util.js","../browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","./style.less":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/style.less"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -17948,7 +17901,7 @@ module.exports =
   )
 
 
-},{"../../../browser/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/index.js","../../../browser/element/properties":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/index.js","../../../browser/element/properties/collection":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/collection/index.js","../../../browser/element/properties/process":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/process.js","../../../browser/element/properties/scrollbar":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/scrollbar.js","../../../browser/events":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/index.js","../../../value/flags/parent":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/parent.js","../../../value/flags/process":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/process.js","../../../value/flags/self":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/self.js","../../../value/flags/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/util.js","../../../value/on":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/on.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/sprite/index.js":[function(require,module,exports){
+},{"../../../browser/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/index.js","../../../browser/element/properties":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/index.js","../../../browser/element/properties/collection":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/collection/index.js","../../../browser/element/properties/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/process.js","../../../browser/element/properties/scrollbar":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/scrollbar.js","../../../browser/events":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/index.js","../../../value/flags/parent":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/parent.js","../../../value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/process.js","../../../value/flags/self":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/self.js","../../../value/flags/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/util.js","../../../value/on":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/on.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/sprite/index.js":[function(require,module,exports){
 var Element = require('../element')
   , util = require('../../../browser/events/util') 
   , sprite = new Element({ 
@@ -18028,7 +17981,7 @@ module.exports = sprite.Class
 
 
 
-},{"../../../browser/events/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/util.js","../element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js":[function(require,module,exports){
+},{"../../../browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/util.js","../element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -18302,7 +18255,7 @@ switcher.extend
 )
 
 module.exports = new switcher.Class().Class
-},{"vigour-js/base":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/base/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/index.js","vigour-js/object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/switcher/transitions.js":[function(require,module,exports){
+},{"vigour-js/base":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/base/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/index.js","vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/switcher/transitions.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -18469,7 +18422,7 @@ function timer( _this, fn, time ){
     _this._swTimer = null
   }, time)
 }
-},{"vigour-js/app":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/tv/index.js":[function(require,module,exports){
+},{"vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/tv/index.js":[function(require,module,exports){
 // require('./style.less')
 
 var Element = require('../../../browser/element')
@@ -18670,7 +18623,7 @@ Element.base.set(
 })
 
 
-},{"../../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/index.js","../../../browser/animation":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/index.js","../../../browser/animation/raf":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/raf.js","../../../browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","../../../browser/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/index.js","../../../browser/events/advanced":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/advanced.js","../../../browser/network/url":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/url.js","../../../browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","../../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../../value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/id.js":[function(require,module,exports){
+},{"../../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","../../../browser/animation":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/index.js","../../../browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js","../../../browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","../../../browser/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/index.js","../../../browser/events/advanced":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/advanced.js","../../../browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/url.js","../../../browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","../../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../../value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/id.js":[function(require,module,exports){
 var util = require('../../util')
 
 require('../../value/flags/process')
@@ -18740,7 +18693,7 @@ exports.extend = util.extend
 
 })
 
-},{"../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../value/flags/process":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/index.js":[function(require,module,exports){
+},{"../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/index.js":[function(require,module,exports){
 require('../../value/flags/self')
 require('../../value/flags/process')
 require('../../value/flags/util')
@@ -18832,7 +18785,7 @@ exports.extend = util.extend(
     appuser.cloud = base.cloud
   }
 )
-},{"../../base":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/base/index.js","../../data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js","../../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","../../value/flags/process":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/process.js","../../value/flags/self":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/self.js","../../value/flags/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/util.js","../cloud":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/cloud.js","./id":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/id.js","./mockdata":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/mockdata.js","./origin":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/origin.js","./set":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/set.js","./type":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/type.js","monotonic-timestamp":"/Users/shawn/Work/mtv-play/node_modules/monotonic-timestamp/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/mockdata.js":[function(require,module,exports){
+},{"../../base":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/base/index.js","../../data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","../../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","../../value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/process.js","../../value/flags/self":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/self.js","../../value/flags/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/util.js","../cloud":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/cloud.js","./id":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/id.js","./mockdata":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/mockdata.js","./origin":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/origin.js","./set":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/set.js","./type":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/type.js","monotonic-timestamp":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/monotonic-timestamp/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/mockdata.js":[function(require,module,exports){
 var util = require('../../util')
   , Data = require('../../data')
 
@@ -18853,7 +18806,7 @@ util.define( exports,
 })
 
 
-},{"../../data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js","../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/multiscreen/cast/chrome/index.js":[function(require,module,exports){
+},{"../../data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/multiscreen/cast/chrome/index.js":[function(require,module,exports){
 // Q: how to read app config from vigour-js?
 
 var config = require('vigour-js/util/config').chromecast
@@ -19337,7 +19290,7 @@ function getEndpoint(obj){
 
 
 
-},{"vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","vigour-js/util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/multiscreen/cast/index.js":[function(require,module,exports){
+},{"vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/multiscreen/cast/index.js":[function(require,module,exports){
 /*
 * injectable 
 * adds and manages (through sub-modules)
@@ -19423,7 +19376,7 @@ function getEndpoint(obj){
   return obj
 }
 
-},{"./chrome":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/multiscreen/cast/chrome/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/multiscreen/index.js":[function(require,module,exports){
+},{"./chrome":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/multiscreen/cast/chrome/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/multiscreen/index.js":[function(require,module,exports){
 var util = require('vigour-js/util'),
   Value = require('vigour-js/value'),
   cases = require('vigour-js/browser/cases'),
@@ -20149,7 +20102,7 @@ function grabTV(user){
 //   )
 // }
 
-},{"../../content":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/content.js","vigour-js/browser/animation/raf":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/index.js","vigour-js/browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/data/selection":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/selection.js","vigour-js/object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","vigour-js/object/compound":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/compound.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","vigour-js/value/flags/process":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/process.js","vigour-js/value/length":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/length.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/navigation.js":[function(require,module,exports){
+},{"../../content":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/content.js","vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/index.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/data/selection":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/selection.js","vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","vigour-js/object/compound":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/compound.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","vigour-js/value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/process.js","vigour-js/value/length":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/length.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/navigation.js":[function(require,module,exports){
 var util = require('vigour-js/util')
   , vObject = require('vigour-js/object')
   , MockData = require('./mockdata')
@@ -20341,7 +20294,7 @@ exports.extend = util.extend
 
 })
 
-},{"../content":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/content.js","./mockdata":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/mockdata.js","vigour-js/object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/value/flags/process":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/origin.js":[function(require,module,exports){
+},{"../content":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/content.js","./mockdata":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/mockdata.js","vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/origin.js":[function(require,module,exports){
 //userOrigin
 var util = require('../../util')
   , MockData = require('./mockdata')
@@ -20421,7 +20374,7 @@ exports.extend = util.extend( function( vObject ) {
     }
   })
 })
-},{"../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","./mockdata":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/mockdata.js","monotonic-timestamp":"/Users/shawn/Work/mtv-play/node_modules/monotonic-timestamp/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/set.js":[function(require,module,exports){
+},{"../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","./mockdata":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/mockdata.js","monotonic-timestamp":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/monotonic-timestamp/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/set.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -20513,7 +20466,7 @@ function( base ) {
   })
 
 })
-},{"../../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/token.js":[function(require,module,exports){
+},{"../../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/token.js":[function(require,module,exports){
 var util = require('../../util')
   , Value = require('../../value')
   , cases = require('../../browser/cases')
@@ -20790,7 +20743,7 @@ exports.extend = util.extend
 
 
 
-},{"../../browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","../../value/flags/process":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/type.js":[function(require,module,exports){
+},{"../../browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","../../value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/type.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -20881,7 +20834,7 @@ module.exports = {
     return prop
   }
 }
-},{"../../base":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/base/index.js","../../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/url.js":[function(require,module,exports){
+},{"../../base":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/base/index.js","../../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/url.js":[function(require,module,exports){
 var util = require('vigour-js/util')
 
 require('vigour-js/value/flags/process')
@@ -21029,7 +20982,7 @@ exports.extend = util.extend
   })
 
 })
-},{"vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/value/flags/process":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/usage.js":[function(require,module,exports){
+},{"vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/usage.js":[function(require,module,exports){
 var util = require('vigour-js/util')
 
 var vObject = require('vigour-js/object')
@@ -21266,7 +21219,7 @@ function hasTransform( c, cv) {
   return 0
 }
   
-},{"../content":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/content.js","./mockdata":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/user/mockdata.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/data/selection":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/selection.js","vigour-js/object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/value/flags/process":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/values.js":[function(require,module,exports){
+},{"../content":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/content.js","./mockdata":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/mockdata.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/data/selection":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/selection.js","vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/values.js":[function(require,module,exports){
 var config = require('../util/config')
 var languages = config.languages
 var util = require('../util')
@@ -21422,7 +21375,7 @@ exports.extend = util.extend(function(app) {
 
 })
 
-},{"../browser/network/url":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/url.js","../browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","../value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","../value/flags/process":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/base/index.js":[function(require,module,exports){
+},{"../browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/url.js","../browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","../value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","../value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/base/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -21773,7 +21726,7 @@ util.define(base,
       return this._class;
     }
   });
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/index.js","../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../util/inject":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/inject.js","./settings":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/base/settings.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/base/settings.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../util/inject":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/inject.js","./settings":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/base/settings.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/base/settings.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -22027,7 +21980,7 @@ util.define(base,
  */
 exports.add(['new', 'remove'], base)
 
-},{"../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/base/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/easing.js":[function(require,module,exports){
+},{"../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/base/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/easing.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -22048,7 +22001,7 @@ exports.outBack = function(t, b, c, d, s) {
   var s = 1.70158;
   return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
 };
-},{"./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/frame.js":[function(require,module,exports){
+},{"./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/frame.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -22086,7 +22039,7 @@ util.define(frame,
 )
 
 module.exports = frame
-},{"../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/index.js":[function(require,module,exports){
+},{"../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -22321,7 +22274,7 @@ flags.animation = {
 
   }
 }
-},{"../../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../value/flags/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/util.js","../../value/operators":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/operators.js","../element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/index.js","../element/properties":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/index.js","./frame":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/frame.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/raf.js":[function(require,module,exports){
+},{"../../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../value/flags/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/util.js","../../value/operators":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/operators.js","../element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/index.js","../element/properties":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/index.js","./frame":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/frame.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -22380,7 +22333,7 @@ exports.repeat = function( fn, frames ){
 }
 
 //check ios 6 paul irish says stuff goes wrong there...
-},{"../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/base.js":[function(require,module,exports){
+},{"../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/base.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -22520,7 +22473,7 @@ setFlags.cases = methods.reader(function caseReaderBase(name, val, dynamic, inve
   }
   return true;
 });
-},{"../../base":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/base/index.js","../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/index.js","../element/set":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/set.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js":[function(require,module,exports){
+},{"../../base":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/base/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/index.js","../element/set":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/set.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -22785,7 +22738,7 @@ exports.methods.reader = function(fn, dynamic, _static) {
 
 require('./object');
 require('./base');
-},{"../../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","../../value/flags":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/index.js","../element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/index.js","./base":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/base.js","./object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/object.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/object.js":[function(require,module,exports){
+},{"../../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","../../value/flags":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/index.js","../element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/index.js","./base":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/base.js","./object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/object.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/object.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -22902,7 +22855,7 @@ var flags = require('../../value/flags'),
   };
 
 flags.dynamic.cases = methods.reader(false, dynamic, _static);
-},{"../../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../value/flags":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/index.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/css.js":[function(require,module,exports){
+},{"../../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../value/flags":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/css.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -22952,7 +22905,7 @@ module.exports = function(slctr, field) {
     return cache;
   }
 };
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -23387,7 +23340,7 @@ util.define(exports,
 exports.base.addSetting('parent')
 exports.base.addSetting('render')
 require('./set')
-},{"../../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/index.js","../../base":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/base/index.js","../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../value/base":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/base.js","./set":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/set.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/collection/display.js":[function(require,module,exports){
+},{"../../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/index.js","../../base":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/base/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../value/base":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/base.js","./set":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/set.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/collection/display.js":[function(require,module,exports){
 var collection = require('./util')
 
 exports.prepare = function(el) {
@@ -23415,7 +23368,7 @@ exports.fragment = function(a,b,exclude,i) {
   if(exclude) exclude[i]=null
 }
 
-},{"./util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/collection/util.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/collection/index.js":[function(require,module,exports){
+},{"./util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/collection/util.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/collection/index.js":[function(require,module,exports){
 
 var collection = require('./util')
   , util = require('../../../../util')
@@ -23576,7 +23529,7 @@ exports.extend = util.extend(
       }
     })
 })
-},{"../../../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/data.js","./util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/collection/util.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/collection/util.js":[function(require,module,exports){
+},{"../../../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/data.js","./util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/collection/util.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/collection/util.js":[function(require,module,exports){
 var element = require('../')
   , Data = require('../../../../data').inject(require('../../../../data/selection'))
   , util = require('../../../../util')
@@ -23734,7 +23687,7 @@ exports.filter = function (val,t) {
    
 //   // t.h = t.node.scrollHeight
 // }
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/index.js","../../../../data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js","../../../../data/selection":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/selection.js","../../../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/data.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/index.js","../../../../data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","../../../../data/selection":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/selection.js","../../../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/data.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -23785,7 +23738,7 @@ exports.extend = util.extend([ data, {
   }
 }])
 
-},{"../../../data/base":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/base.js","../../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../../value/flags":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/index.js":[function(require,module,exports){
+},{"../../../data/base":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/base.js","../../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../../value/flags":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -24207,7 +24160,7 @@ exports.extend = util.extend(function(base) {
     }
   });
 });
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/index.js","../../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../../util/hash":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/hash.js","../../../value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","../../animation/raf":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/raf.js","../../css":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/css.js","../../ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/process.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/index.js","../../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../../util/hash":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/hash.js","../../../value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","../../animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js","../../css":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/css.js","../../ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/process.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -24247,7 +24200,7 @@ exports.extend = util.extend(function(base) {
 
 //process wordt mischien meer een operator?
 //soort field eigenlijk
-},{"../../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/scrollbar.js":[function(require,module,exports){
+},{"../../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/scrollbar.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -24426,7 +24379,7 @@ if(cases.touch){
 exports.extend = extend(function(base) {
   base.extend({ scrollbar:fn })
 })  
-},{"../../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","../../events":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/index.js","../../ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/util.js":[function(require,module,exports){
+},{"../../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","../../events":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/index.js","../../ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/util.js":[function(require,module,exports){
 var ua = require('../../ua')
   , _prefix = '-'+ua.prefix.toLowerCase()
   , _transform = _prefix + '-transform'
@@ -24449,7 +24402,7 @@ exports.getMatrix = function(node) {
 //     i--
 //   }
 // }
-},{"../../ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/set.js":[function(require,module,exports){
+},{"../../ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/set.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -24600,7 +24553,7 @@ util.define(element,
     }
     return setObj
   })
-},{"../../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/video/html5.js":[function(require,module,exports){
+},{"../../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/video/html5.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -24823,7 +24776,7 @@ module.exports =
 }
 
 if (!video.player) video.player = module.exports
-},{"../../../browser/events/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/util.js","../../ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/video/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/video/index.js":[function(require,module,exports){
+},{"../../../browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/util.js","../../ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/video/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/video/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -25141,7 +25094,7 @@ base.extend(
   }
 })
 
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/index.js","../../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../events":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/index.js","../properties":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/video/util.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/index.js","../../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../events":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/index.js","../properties":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/video/util.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -25156,7 +25109,7 @@ exports.time = function(time, decimals) {
   ret += "" + secs;
   return ret || 0;
 };
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/advanced.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/advanced.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -25337,7 +25290,7 @@ function grab (e, method, val, nested) {
 events.drag = { val: { down: drag } }
 events.grab = { val: { down: grab } }
 events.active = { val: { down: active } }
-},{"../../value/operators":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/operators.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/basic.js":[function(require,module,exports){
+},{"../../value/operators":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/operators.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/basic.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -25651,7 +25604,7 @@ events.out = {
   },
   remove:_outRemove
 };
-},{"../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","../ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/index.js":[function(require,module,exports){
+},{"../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","../ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -25916,7 +25869,7 @@ util.define(element
 
 require('./basic')
 
-},{"../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","../element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/index.js","./basic":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/basic.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/offset.js":[function(require,module,exports){
+},{"../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","../element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/index.js","./basic":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/basic.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/offset.js":[function(require,module,exports){
 var matrix = require('../element/properties/util').getMatrix
   , vigour = require('../../')
   , css = require('../css')
@@ -25976,7 +25929,7 @@ function offset ( object, arr, prop, propL, matrixIndex ) {
 
 
 
-},{"../../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/index.js","../css":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/css.js","../element/properties/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/properties/util.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/util.js":[function(require,module,exports){
+},{"../../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/index.js","../css":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/css.js","../element/properties/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/properties/util.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/util.js":[function(require,module,exports){
 var raf = require('../animation/raf')
   , util = require('../../util')
 
@@ -26041,7 +25994,7 @@ exports.interval = function(fn, frames, bind) {
   }
 }
 
-},{"../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../animation/raf":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/raf.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/ajax.js":[function(require,module,exports){
+},{"../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/ajax.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -26333,7 +26286,7 @@ var enCode = ajax.encode = function(data, method, encode) {
   // console.log('encoded:', result)
   return result
 }
-},{"../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/cloud/authenticate.js":[function(require,module,exports){
+},{"../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/cloud/authenticate.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Marcus Besjes, marcus@vigour.io
@@ -26416,7 +26369,7 @@ function extend(Cloud) {
     }
   )
 }
-},{"../../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/cloud/data.js":[function(require,module,exports){
+},{"../../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/cloud/data.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Marcus Besjes, marcus@vigour.io
@@ -27184,7 +27137,7 @@ util.define
   }
 )
 
-},{"../../../data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js","../../../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../../../object/hashpath":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/hashpath.js","../../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/data/index.js","../data/element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/data/element.js","monotonic-timestamp":"/Users/shawn/Work/mtv-play/node_modules/monotonic-timestamp/index.js","vigour-js/object/flags":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/flags.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/cloud/datacloud.js":[function(require,module,exports){
+},{"../../../data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","../../../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../../../object/hashpath":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/hashpath.js","../../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/data/index.js","../data/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/data/element.js","monotonic-timestamp":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/monotonic-timestamp/index.js","vigour-js/object/flags":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/flags.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/cloud/datacloud.js":[function(require,module,exports){
 module.exports = DataCloud
 
 var timestamp = require('monotonic-timestamp'),
@@ -27754,7 +27707,7 @@ function removeIndex (arr, i) {
 //   return a[2] - b[2]
 // }
 
-},{"../../../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../../../util/hash":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/hash.js","../../../util/object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/object.js","./data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/cloud/data.js","monotonic-timestamp":"/Users/shawn/Work/mtv-play/node_modules/monotonic-timestamp/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/cloud/emitter.js":[function(require,module,exports){
+},{"../../../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../../../util/hash":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/hash.js","../../../util/object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/object.js","./data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/cloud/data.js","monotonic-timestamp":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/monotonic-timestamp/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/cloud/emitter.js":[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -27920,7 +27873,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/cloud/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/cloud/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Marcus Besjes, marcus@vigour.io
@@ -28253,7 +28206,7 @@ function fixUrl (url, params) {
   }
   return url + '?' + urlEncode(params, 'GET', 'uri')
 }
-},{"../../../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../../util/global":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/global.js","../../../util/id":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/id.js","../../../util/inject":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/inject.js","../../../value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","../ajax":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/ajax.js","./emitter":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/cloud/emitter.js","./socket.io.js":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/cloud/socket.io.js","socket.io-client":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/cloud/socket.io.js":[function(require,module,exports){
+},{"../../../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../../util/global":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/global.js","../../../util/id":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/id.js","../../../util/inject":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/inject.js","../../../value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","../ajax":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/ajax.js","./emitter":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/cloud/emitter.js","./socket.io.js":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/cloud/socket.io.js","socket.io-client":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/cloud/socket.io.js":[function(require,module,exports){
 (function (global){
 !function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.io=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 
@@ -34450,7 +34403,7 @@ function toArray(list, index) {
 });
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/data/element.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/data/element.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -34916,7 +34869,7 @@ util.define(element, 'getModel', function( val, from, ignorefield ) {
 
   return !util.empty( subscription ) ? subscription : null
 })
-},{"../../../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../../util/hash":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/hash.js","../../element":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/element/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/data/index.js":[function(require,module,exports){
+},{"../../../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../../util/hash":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/hash.js","../../element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/data/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -35037,7 +34990,7 @@ util.define(data,
 
 
 
-},{"../../../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/index.js","../../../data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js","../../../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../../value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/url.js":[function(require,module,exports){
+},{"../../../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/index.js","../../../data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","../../../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../../value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/url.js":[function(require,module,exports){
 var util = require('../../util')
   , Value = require('../../value')
   , config = require('../../util/config')
@@ -35223,7 +35176,7 @@ else
 //TODO: add popstate
 
 
-},{"../../browser/animation/raf":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/raf.js","../../browser/events/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/events/util.js","../../browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../util/config":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js","../../value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","../../value/flags/process":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js":[function(require,module,exports){
+},{"../../browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js","../../browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/util.js","../../browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","../../value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","../../value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js":[function(require,module,exports){
 /*
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -35398,7 +35351,7 @@ if( !util.isNode )
 //  return str.replace(this.prefix,'-'+this.prefix+'-').toLowerCase();
 // }
 
-},{"../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/base.js":[function(require,module,exports){
+},{"../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/base.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -35924,7 +35877,7 @@ exports.extend = util.extend( function(base, extensions, modelblacklist) {
     }
   })
 })
-},{"../base":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/base/index.js","../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../value/flags/data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/data.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/conditions.js":[function(require,module,exports){
+},{"../base":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/base/index.js","../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../value/flags/data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/data.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/conditions.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Marcus Besjes, marcus@vigour.io
@@ -36244,7 +36197,7 @@ function getField(thing, field){
   thing = getValue(thing)
   return thing ? getValue(thing[field]) : void 0
 }
-},{"./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js":[function(require,module,exports){
+},{"./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -36267,7 +36220,7 @@ util.define(exports, '_hook', function(val, obj) {
 });
 
 
-},{"vigour-js":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/index.js","vigour-js/object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/selection.js":[function(require,module,exports){
+},{"vigour-js":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/index.js","vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/selection.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Marcus Besjes, marcus@vigour.io
@@ -36830,9 +36783,9 @@ function putSort(path) {
   return obj
 }
 
-},{"../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../util/hash":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/hash.js","./conditions":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/conditions.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/index.js":[function(require,module,exports){
+},{"../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../util/hash":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/hash.js","./conditions":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/conditions.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/index.js":[function(require,module,exports){
 //V only used as a reference now...
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/colors/colors.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/colors/colors.js":[function(require,module,exports){
 /*
 colors.js
 
@@ -37176,11 +37129,11 @@ addProperty('zalgo', function () {
   return zalgo(this);
 });
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/index.js":[function(require,module,exports){
 
 module.exports =  require('./lib/');
 
-},{"./lib/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/index.js":[function(require,module,exports){
+},{"./lib/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/index.js":[function(require,module,exports){
 
 module.exports = require('./socket');
 
@@ -37192,7 +37145,7 @@ module.exports = require('./socket');
  */
 module.exports.parser = require('engine.io-parser');
 
-},{"./socket":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/socket.js","engine.io-parser":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/lib/browser.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/socket.js":[function(require,module,exports){
+},{"./socket":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/socket.js","engine.io-parser":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/lib/browser.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/socket.js":[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies.
@@ -37902,7 +37855,7 @@ Socket.prototype.filterUpgrades = function (upgrades) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./transport":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transport.js","./transports":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/index.js","component-emitter":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-emitter/index.js","debug":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/browser.js","engine.io-parser":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/lib/browser.js","indexof":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/indexof/index.js","parsejson":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/parsejson/index.js","parseqs":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/parseqs/index.js","parseuri":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/parseuri/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transport.js":[function(require,module,exports){
+},{"./transport":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transport.js","./transports":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/index.js","component-emitter":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-emitter/index.js","debug":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/browser.js","engine.io-parser":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/lib/browser.js","indexof":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/indexof/index.js","parsejson":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/parsejson/index.js","parseqs":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/parseqs/index.js","parseuri":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/parseuri/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transport.js":[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -38063,7 +38016,7 @@ Transport.prototype.onClose = function () {
   this.emit('close');
 };
 
-},{"component-emitter":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-emitter/index.js","engine.io-parser":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/lib/browser.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/index.js":[function(require,module,exports){
+},{"component-emitter":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-emitter/index.js","engine.io-parser":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/lib/browser.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/index.js":[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies
@@ -38121,7 +38074,7 @@ function polling(opts){
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./polling-jsonp":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/polling-jsonp.js","./polling-xhr":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/polling-xhr.js","./websocket":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/websocket.js","xmlhttprequest":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/xmlhttprequest.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/polling-jsonp.js":[function(require,module,exports){
+},{"./polling-jsonp":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/polling-jsonp.js","./polling-xhr":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/polling-xhr.js","./websocket":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/websocket.js","xmlhttprequest":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/xmlhttprequest.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/polling-jsonp.js":[function(require,module,exports){
 (function (global){
 
 /**
@@ -38359,7 +38312,7 @@ JSONPPolling.prototype.doWrite = function (data, fn) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./polling":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/polling.js","component-inherit":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-inherit/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/polling-xhr.js":[function(require,module,exports){
+},{"./polling":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/polling.js","component-inherit":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-inherit/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/polling-xhr.js":[function(require,module,exports){
 (function (global){
 /**
  * Module requirements.
@@ -38748,7 +38701,7 @@ function unloadHandler() {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./polling":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/polling.js","component-emitter":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-emitter/index.js","component-inherit":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-inherit/index.js","debug":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/browser.js","xmlhttprequest":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/xmlhttprequest.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/polling.js":[function(require,module,exports){
+},{"./polling":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/polling.js","component-emitter":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-emitter/index.js","component-inherit":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-inherit/index.js","debug":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/browser.js","xmlhttprequest":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/xmlhttprequest.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/polling.js":[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -38995,7 +38948,7 @@ Polling.prototype.uri = function(){
   return schema + '://' + this.hostname + port + this.path + query;
 };
 
-},{"../transport":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transport.js","component-inherit":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-inherit/index.js","debug":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/browser.js","engine.io-parser":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/lib/browser.js","parseqs":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/parseqs/index.js","xmlhttprequest":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/xmlhttprequest.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/websocket.js":[function(require,module,exports){
+},{"../transport":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transport.js","component-inherit":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-inherit/index.js","debug":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/browser.js","engine.io-parser":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/lib/browser.js","parseqs":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/parseqs/index.js","xmlhttprequest":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/xmlhttprequest.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transports/websocket.js":[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -39235,7 +39188,7 @@ WS.prototype.check = function(){
   return !!WebSocket && !('__initialize' in WebSocket && this.name === WS.prototype.name);
 };
 
-},{"../transport":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transport.js","component-inherit":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-inherit/index.js","debug":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/browser.js","engine.io-parser":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/lib/browser.js","parseqs":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/parseqs/index.js","ws":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/ws/lib/browser.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/xmlhttprequest.js":[function(require,module,exports){
+},{"../transport":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/transport.js","component-inherit":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-inherit/index.js","debug":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/browser.js","engine.io-parser":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/lib/browser.js","parseqs":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/parseqs/index.js","ws":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/ws/lib/browser.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/lib/xmlhttprequest.js":[function(require,module,exports){
 // browser shim for xmlhttprequest module
 var hasCORS = require('has-cors');
 
@@ -39273,9 +39226,9 @@ module.exports = function(opts) {
   }
 }
 
-},{"has-cors":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/has-cors/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-emitter/index.js":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/cloud/emitter.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-inherit/index.js":[function(require,module,exports){
+},{"has-cors":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/has-cors/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-emitter/index.js":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/cloud/emitter.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/component-inherit/index.js":[function(require,module,exports){
 
 module.exports = function(a, b){
   var fn = function(){};
@@ -39283,7 +39236,7 @@ module.exports = function(a, b){
   a.prototype = new fn;
   a.prototype.constructor = a;
 };
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/browser.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/browser.js":[function(require,module,exports){
 
 /**
  * This is the web browser implementation of `debug()`.
@@ -39432,7 +39385,7 @@ function load() {
 
 exports.enable(load());
 
-},{"./debug":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/debug.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/debug.js":[function(require,module,exports){
+},{"./debug":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/debug.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/debug.js":[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -39631,7 +39584,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/node_modules/ms/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/node_modules/ms/index.js":[function(require,module,exports){
+},{"ms":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/node_modules/ms/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/debug/node_modules/ms/index.js":[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -39744,7 +39697,7 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's';
 }
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/lib/browser.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/lib/browser.js":[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies.
@@ -40343,7 +40296,7 @@ exports.decodePayloadAsBinary = function (data, binaryType, callback) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./keys":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/lib/keys.js","after":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/after/index.js","arraybuffer.slice":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/arraybuffer.slice/index.js","base64-arraybuffer":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/base64-arraybuffer/lib/base64-arraybuffer.js","blob":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/blob/index.js","has-binary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/has-binary/index.js","utf8":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/utf8/utf8.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/lib/keys.js":[function(require,module,exports){
+},{"./keys":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/lib/keys.js","after":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/after/index.js","arraybuffer.slice":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/arraybuffer.slice/index.js","base64-arraybuffer":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/base64-arraybuffer/lib/base64-arraybuffer.js","blob":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/blob/index.js","has-binary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/has-binary/index.js","utf8":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/utf8/utf8.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/lib/keys.js":[function(require,module,exports){
 
 /**
  * Gets the keys for an object.
@@ -40364,7 +40317,7 @@ module.exports = Object.keys || function keys (obj){
   return arr;
 };
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/after/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/after/index.js":[function(require,module,exports){
 module.exports = after
 
 function after(count, callback, err_cb) {
@@ -40394,7 +40347,7 @@ function after(count, callback, err_cb) {
 
 function noop() {}
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/arraybuffer.slice/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/arraybuffer.slice/index.js":[function(require,module,exports){
 /**
  * An abstraction for slicing an arraybuffer even when
  * ArrayBuffer.prototype.slice is not supported
@@ -40425,7 +40378,7 @@ module.exports = function(arraybuffer, start, end) {
   return result.buffer;
 };
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/base64-arraybuffer/lib/base64-arraybuffer.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/base64-arraybuffer/lib/base64-arraybuffer.js":[function(require,module,exports){
 /*
  * base64-arraybuffer
  * https://github.com/niklasvh/base64-arraybuffer
@@ -40486,7 +40439,7 @@ module.exports = function(arraybuffer, start, end) {
   };
 })("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/blob/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/blob/index.js":[function(require,module,exports){
 (function (global){
 /**
  * Create a blob builder even when vendor prefixes exist
@@ -40540,7 +40493,7 @@ module.exports = (function() {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/has-binary/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/has-binary/index.js":[function(require,module,exports){
 (function (global){
 
 /*
@@ -40603,12 +40556,12 @@ function hasBinary(data) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"isarray":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/has-binary/node_modules/isarray/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/has-binary/node_modules/isarray/index.js":[function(require,module,exports){
+},{"isarray":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/has-binary/node_modules/isarray/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/has-binary/node_modules/isarray/index.js":[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/utf8/utf8.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/utf8/utf8.js":[function(require,module,exports){
 (function (global){
 /*! http://mths.be/utf8js v2.0.0 by @mathias */
 ;(function(root) {
@@ -40852,7 +40805,7 @@ module.exports = Array.isArray || function (arr) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/has-cors/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/has-cors/index.js":[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -40877,7 +40830,7 @@ try {
   module.exports = false;
 }
 
-},{"global":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/has-cors/node_modules/global/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/has-cors/node_modules/global/index.js":[function(require,module,exports){
+},{"global":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/has-cors/node_modules/global/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/has-cors/node_modules/global/index.js":[function(require,module,exports){
 
 /**
  * Returns `this`. Execute this without a "context" (i.e. without it being
@@ -40887,7 +40840,7 @@ try {
 
 module.exports = (function () { return this; })();
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/indexof/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/indexof/index.js":[function(require,module,exports){
 
 var indexOf = [].indexOf;
 
@@ -40898,7 +40851,7 @@ module.exports = function(arr, obj){
   }
   return -1;
 };
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/parsejson/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/parsejson/index.js":[function(require,module,exports){
 (function (global){
 /**
  * JSON parse.
@@ -40934,7 +40887,7 @@ module.exports = function parsejson(data) {
 };
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/parseqs/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/parseqs/index.js":[function(require,module,exports){
 /**
  * Compiles a querystring
  * Returns string representation of the object
@@ -40973,7 +40926,7 @@ exports.decode = function(qs){
   return qry;
 };
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/parseuri/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/parseuri/index.js":[function(require,module,exports){
 /**
  * Parses an URI
  *
@@ -41014,7 +40967,7 @@ module.exports = function parseuri(str) {
     return uri;
 };
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/ws/lib/browser.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/ws/lib/browser.js":[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -41059,11 +41012,58 @@ function ws(uri, protocols, opts) {
 
 if (WebSocket) ws.prototype = WebSocket.prototype;
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/monotonic-timestamp/index.js":[function(require,module,exports){
+// If `Date.now()` is invoked twice quickly, it's possible to get two
+// identical time stamps. To avoid generation duplications, subsequent
+// calls are manually ordered to force uniqueness.
+
+var _last = 0
+var _count = 1
+var adjusted = 0
+var _adjusted = 0
+
+module.exports =
+function timestamp() {
+  /**
+  Returns NOT an accurate representation of the current time.
+  Since js only measures time as ms, if you call `Date.now()`
+  twice quickly, it's possible to get two identical time stamps.
+  This function guarantees unique but maybe inaccurate results
+  on each call.
+  **/
+  //uncomment this wen
+  var time = Date.now()
+  //time = ~~ (time / 1000) 
+  //^^^uncomment when testing...
+
+  /**
+  If time returned is same as in last call, adjust it by
+  adding a number based on the counter. 
+  Counter is incremented so that next call get's adjusted properly.
+  Because floats have restricted precision, 
+  may need to step past some values...
+  **/
+  if (_last === time)  {
+    do {
+      adjusted = time + ((_count++) / (_count + 999))
+    } while (adjusted === _adjusted)
+    _adjusted = adjusted
+  }
+  // If last time was different reset timer back to `1`.
+  else {
+    _count = 1
+    adjusted = time
+  }
+  _adjusted = adjusted
+  _last = time
+  return adjusted
+}
+
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/index.js":[function(require,module,exports){
 
 module.exports = require('./lib/');
 
-},{"./lib/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/index.js":[function(require,module,exports){
+},{"./lib/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/index.js":[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -41152,7 +41152,7 @@ exports.connect = lookup;
 exports.Manager = require('./manager');
 exports.Socket = require('./socket');
 
-},{"./manager":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/manager.js","./socket":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/socket.js","./url":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/url.js","debug":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/debug/debug.js","socket.io-parser":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/manager.js":[function(require,module,exports){
+},{"./manager":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/manager.js","./socket":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/socket.js","./url":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/url.js","debug":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/debug/debug.js","socket.io-parser":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/manager.js":[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -41657,7 +41657,7 @@ Manager.prototype.onreconnect = function(){
   this.emitAll('reconnect', attempt);
 };
 
-},{"./on":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/on.js","./socket":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/socket.js","./url":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/url.js","backo2":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/backo2/index.js","component-bind":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/component-bind/index.js","component-emitter":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/component-emitter/index.js","debug":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/debug/debug.js","engine.io-client":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/index.js","indexof":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/indexof/index.js","object-component":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/object-component/index.js","socket.io-parser":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/on.js":[function(require,module,exports){
+},{"./on":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/on.js","./socket":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/socket.js","./url":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/url.js","backo2":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/backo2/index.js","component-bind":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/component-bind/index.js","component-emitter":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/component-emitter/index.js","debug":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/debug/debug.js","engine.io-client":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/index.js","indexof":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/indexof/index.js","object-component":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/object-component/index.js","socket.io-parser":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/on.js":[function(require,module,exports){
 
 /**
  * Module exports.
@@ -41683,7 +41683,7 @@ function on(obj, ev, fn) {
   };
 }
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/socket.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/socket.js":[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -42070,7 +42070,7 @@ Socket.prototype.disconnect = function(){
   return this;
 };
 
-},{"./on":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/on.js","component-bind":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/component-bind/index.js","component-emitter":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/component-emitter/index.js","debug":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/debug/debug.js","has-binary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/has-binary/index.js","socket.io-parser":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/index.js","to-array":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/to-array/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/url.js":[function(require,module,exports){
+},{"./on":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/on.js","component-bind":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/component-bind/index.js","component-emitter":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/component-emitter/index.js","debug":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/debug/debug.js","has-binary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/has-binary/index.js","socket.io-parser":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/index.js","to-array":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/to-array/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/lib/url.js":[function(require,module,exports){
 (function (global){
 
 /**
@@ -42148,7 +42148,7 @@ function url(uri, loc){
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"debug":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/debug/debug.js","parseuri":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/parseuri/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/backo2/index.js":[function(require,module,exports){
+},{"debug":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/debug/debug.js","parseuri":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/parseuri/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/backo2/index.js":[function(require,module,exports){
 
 /**
  * Expose `Backoff`.
@@ -42235,7 +42235,7 @@ Backoff.prototype.setJitter = function(jitter){
 };
 
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/component-bind/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/component-bind/index.js":[function(require,module,exports){
 /**
  * Slice reference.
  */
@@ -42260,9 +42260,9 @@ module.exports = function(obj, fn){
   }
 };
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/component-emitter/index.js":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/cloud/emitter.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/debug/debug.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/component-emitter/index.js":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/cloud/emitter.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/debug/debug.js":[function(require,module,exports){
 
 /**
  * Expose `debug()` as the module.
@@ -42401,7 +42401,7 @@ try {
   if (window.localStorage) debug.enable(localStorage.debug);
 } catch(e){}
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/has-binary/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/has-binary/index.js":[function(require,module,exports){
 (function (global){
 
 /*
@@ -42464,11 +42464,11 @@ function hasBinary(data) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"isarray":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/has-binary/node_modules/isarray/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/has-binary/node_modules/isarray/index.js":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/has-binary/node_modules/isarray/index.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/indexof/index.js":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/indexof/index.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/object-component/index.js":[function(require,module,exports){
+},{"isarray":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/has-binary/node_modules/isarray/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/has-binary/node_modules/isarray/index.js":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/has-binary/node_modules/isarray/index.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/indexof/index.js":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/indexof/index.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/object-component/index.js":[function(require,module,exports){
 
 /**
  * HOP ref.
@@ -42553,7 +42553,7 @@ exports.length = function(obj){
 exports.isEmpty = function(obj){
   return 0 == exports.length(obj);
 };
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/parseuri/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/parseuri/index.js":[function(require,module,exports){
 /**
  * Parses an URI
  *
@@ -42580,7 +42580,7 @@ module.exports = function parseuri(str) {
   return uri;
 };
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/binary.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/binary.js":[function(require,module,exports){
 (function (global){
 /*global Blob,File*/
 
@@ -42726,7 +42726,7 @@ exports.removeBlobs = function(data, callback) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./is-buffer":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/is-buffer.js","isarray":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/node_modules/isarray/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/index.js":[function(require,module,exports){
+},{"./is-buffer":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/is-buffer.js","isarray":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/node_modules/isarray/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/index.js":[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -43128,7 +43128,7 @@ function error(data){
   };
 }
 
-},{"./binary":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/binary.js","./is-buffer":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/is-buffer.js","component-emitter":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/component-emitter/index.js","debug":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/debug/debug.js","isarray":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/node_modules/isarray/index.js","json3":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/node_modules/json3/lib/json3.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/is-buffer.js":[function(require,module,exports){
+},{"./binary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/binary.js","./is-buffer":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/is-buffer.js","component-emitter":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/component-emitter/index.js","debug":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/debug/debug.js","isarray":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/node_modules/isarray/index.js","json3":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/node_modules/json3/lib/json3.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/is-buffer.js":[function(require,module,exports){
 (function (global){
 
 module.exports = isBuf;
@@ -43146,9 +43146,9 @@ function isBuf(obj) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/node_modules/isarray/index.js":[function(require,module,exports){
-arguments[4]["/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/has-binary/node_modules/isarray/index.js"][0].apply(exports,arguments)
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/node_modules/json3/lib/json3.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/node_modules/isarray/index.js":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/engine.io-client/node_modules/engine.io-parser/node_modules/has-binary/node_modules/isarray/index.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/socket.io-parser/node_modules/json3/lib/json3.js":[function(require,module,exports){
 /*! JSON v3.2.6 | http://bestiejs.github.io/json3 | Copyright 2012-2013, Kit Cambridge | http://kit.mit-license.org */
 ;(function (window) {
   // Convenience aliases.
@@ -44011,7 +44011,7 @@ arguments[4]["/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/eng
   }
 }(this));
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/to-array/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/socket.io-client/node_modules/to-array/index.js":[function(require,module,exports){
 module.exports = toArray
 
 function toArray(list, index) {
@@ -44026,7 +44026,7 @@ function toArray(list, index) {
     return array
 }
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/array.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/array.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -44149,7 +44149,7 @@ util.define(object,
   }
 )
 
-},{"../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/compound.js":[function(require,module,exports){
+},{"../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/compound.js":[function(require,module,exports){
 
 
 var VObject = require('vigour-js/object').inject(
@@ -44275,7 +44275,7 @@ SourceList.prototype.push = function pushSource(){
 
 
 
-},{"vigour-js/object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/id":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/id.js","vigour-js/value/length":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/length.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/flags.js":[function(require,module,exports){
+},{"vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/id":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/id.js","vigour-js/value/length":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/length.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/flags.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -44592,7 +44592,7 @@ exports.extend = util.extend(function(object, set) {
   object.flags = _proto.__flags__;
   util.define(object.flags, 'dynamic', {});
 })
-},{"../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/hashpath.js":[function(require,module,exports){
+},{"../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/hashpath.js":[function(require,module,exports){
 var util = require('../util')
   , hash = require('../util/hash')
 
@@ -44606,7 +44606,7 @@ exports.extend = util.extend(function(base) {
     }
   )
 })
-},{"../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../util/hash":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/hash.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js":[function(require,module,exports){
+},{"../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../util/hash":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/hash.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -45007,7 +45007,7 @@ util.define(object,
 exports.listen = require('./listen')
 require('./array')
 require('./util')
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/index.js","../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../util/inject":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/inject.js","./array":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/array.js","./listen":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/listen.js","./util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/util.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/listen.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../util/inject":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/inject.js","./array":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/array.js","./listen":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/listen.js","./util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/util.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/listen.js":[function(require,module,exports){
 var util = require('../util')
   , vObject = require('./')
   , V = require('../')
@@ -45555,7 +45555,7 @@ util.define(vObject,
 
     }
   });
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/index.js","../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","promise":"/Users/shawn/Work/mtv-play/node_modules/promise/index.js","vigour-js/browser/animation/raf":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/animation/raf.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/util.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","promise":"/Users/youzi/dev/mtv-play/node_modules/promise/index.js","vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/util.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -46228,7 +46228,7 @@ util.define(VObject,
 //add find
 
 
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/index.js","../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/index.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js":[function(require,module,exports){
 (function (__dirname){
 var util = require('../')
   , ajax
@@ -46334,7 +46334,7 @@ exports.parse = function( obj, pckg, options, params ) {
 
 }).call(this,"/node_modules/vigour-js/util/config")
 
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../browser/network/ajax":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/ajax.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/config/ua.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../browser/network/ajax":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/ajax.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/ua.js":[function(require,module,exports){
 var ua = require('../../browser/ua')
   , util = require('../')
   , Data = require('../../data').inject(require('../../data/selection'))
@@ -46386,7 +46386,7 @@ exports.parse = function(obj, pckgval, merge, params) {
 }
 
 
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../browser/ua":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/ua.js","../../data":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/index.js","../../data/selection":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/data/selection.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/debug/index.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","../../data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","../../data/selection":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/selection.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/debug/index.js":[function(require,module,exports){
 (function (process){
 var debug = exports
 
@@ -46689,7 +46689,7 @@ debug.remoteResource = function(src, replace, strict) {
 
 }).call(this,require('_process'))
 
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/index.js","../../browser/cases/":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js","./log":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/debug/log.js","./performance":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/debug/performance.js","_process":"/Users/shawn/Work/gaston/node_modules/browserify/node_modules/process/browser.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/debug/log.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/index.js","../../browser/cases/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","./log":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/debug/log.js","./performance":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/debug/performance.js","_process":"/Users/youzi/dev/gaston/node_modules/browserify/node_modules/process/browser.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/debug/log.js":[function(require,module,exports){
 var debug = require('./') 
   , util = require('../') 
   , isNode = util.isNode //has to become part of util
@@ -47107,7 +47107,7 @@ util.define(debug,'localStorageKeysSize', {
 
 
 
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/index.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/debug/index.js","colors":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/node_modules/colors/colors.js","repl":"/Users/shawn/Work/gaston/node_modules/browserify/lib/_empty.js","util":"/Users/shawn/Work/gaston/node_modules/browserify/node_modules/util/util.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/debug/performance.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/debug/index.js","colors":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/node_modules/colors/colors.js","repl":"/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js","util":"/Users/youzi/dev/gaston/node_modules/browserify/node_modules/util/util.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/debug/performance.js":[function(require,module,exports){
 (function (process){
 var util = require('../') 
   , debug = require('./') 
@@ -47329,7 +47329,7 @@ exports.average = function (array) {
 
 }).call(this,require('_process'))
 
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/debug/index.js","_process":"/Users/shawn/Work/gaston/node_modules/browserify/node_modules/process/browser.js","os":"/Users/shawn/Work/gaston/node_modules/browserify/node_modules/os-browserify/browser.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/encode64.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/debug/index.js","_process":"/Users/youzi/dev/gaston/node_modules/browserify/node_modules/process/browser.js","os":"/Users/youzi/dev/gaston/node_modules/browserify/node_modules/os-browserify/browser.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/encode64.js":[function(require,module,exports){
 /**
 *
 *  Base64 encode / decode
@@ -47473,7 +47473,7 @@ _utf8_decode : function (utftext) {
 }
 
 module.exports = exports = Base64
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/global.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/global.js":[function(require,module,exports){
 (function (process,global){
 var g = typeof window !== 'undefined'
         ? window
@@ -47515,7 +47515,7 @@ function getSet(thing, key, val, getter, setter){
 }
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"_process":"/Users/shawn/Work/gaston/node_modules/browserify/node_modules/process/browser.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/hash.js":[function(require,module,exports){
+},{"_process":"/Users/youzi/dev/gaston/node_modules/browserify/node_modules/process/browser.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/hash.js":[function(require,module,exports){
 //check this for more compression http://www.htmlgoodies.com/html5/client/optimizing-websockets-bandwidth.html#fbid=6QZx8napu20
 
 /*
@@ -47627,7 +47627,7 @@ exports.decode = function (a, b, c, d) {
 
 // exports.decode64
 
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/id.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/id.js":[function(require,module,exports){
 module.exports = function id(pre, level){
   var r = rnd()
   if(level) 
@@ -47640,7 +47640,7 @@ module.exports = function id(pre, level){
 function rnd(){
   return Number(String(Math.random()).slice(2)).toString(36)
 }
-},{}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -47716,7 +47716,7 @@ exports.empty = function (obj, list) {
 
 exports.inject = require('./inject')
 
-},{"./inject":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/inject.js","./object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/object.js","./prop":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/prop.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/inject.js":[function(require,module,exports){
+},{"./inject":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/inject.js","./object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/object.js","./prop":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/prop.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/inject.js":[function(require,module,exports){
 
 var V = require('../')
   , util = require('./')
@@ -47857,7 +47857,7 @@ veel dingen werken als extension niet als losse class --
 */
 
 
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/index.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/object.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/object.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -48328,7 +48328,7 @@ function getEndpoint(obj){
   return obj
 }
 
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/index.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/process.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/process.js":[function(require,module,exports){
 //processes
 var vObject = require('../object')
 
@@ -48336,7 +48336,7 @@ var vObject = require('../object')
 
 module.exports = {}
 
-},{"../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/prop.js":[function(require,module,exports){
+},{"../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/prop.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -48591,7 +48591,7 @@ exports.define = function (obj, name, val, set, get, id) {
     }
   }
 }
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/index.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/base.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/base.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -48802,7 +48802,7 @@ exports.type = {
     return prop
   }
 }
-},{"../base":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/base/index.js","../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/data.js":[function(require,module,exports){
+},{"../base":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/base/index.js","../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/data.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -48933,7 +48933,7 @@ flags.data = {
     },0)
   }
 };
-},{"../../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/index.js":[function(require,module,exports){
+},{"../../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -48945,7 +48945,7 @@ var value = require('../'),
     base.clonelist.push(['_flag', true]); //true clone!
     flags.extend(value);
     module.exports = value.flags;
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","../../object/flags":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/flags.js","../base":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/base.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/parent.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","../../object/flags":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/flags.js","../base":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/base.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/parent.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -49221,7 +49221,7 @@ flags.parent =
     }
   }
 }
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","../../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/process.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","../../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/process.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -49894,7 +49894,7 @@ exports.create( 'init',
 
 module.exports = exports
 
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js","../../browser/network/ajax":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/network/ajax.js","../../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","../../util/process":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/process.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/self.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","../../browser/network/ajax":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/ajax.js","../../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","../../util/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/process.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/self.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -49921,7 +49921,7 @@ flags.self = {
   }
 };
 
-},{"./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/util.js":[function(require,module,exports){
+},{"./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/util.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -49972,7 +49972,7 @@ flags.listen = {
   }
 }
 
-},{"./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/flags/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js":[function(require,module,exports){
+},{"./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -50304,7 +50304,7 @@ util.define(exports, 'operators', {
 
 
 
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/index.js","../object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","./operators":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/operators.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/length.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/index.js","../object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","./operators":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/operators.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/length.js":[function(require,module,exports){
 var Value = require('vigour-js/value'),
   util = require('vigour-js/util'),
   VObject = require('vigour-js/object')
@@ -50367,7 +50367,7 @@ function getLength (current) {
   }
 }
 
-},{"vigour-js/object":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/object/index.js","vigour-js/util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/value":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/on.js":[function(require,module,exports){
+},{"vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/object/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/on.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -50432,7 +50432,7 @@ exports.extend = util.extend
   }
 )
 
-},{"../base":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/base/index.js","../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/vigour-js/value/operators.js":[function(require,module,exports){
+},{"../base":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/base/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/operators.js":[function(require,module,exports){
 /**
  * operators
  * operators can be set on V.Value.operators
@@ -50499,7 +50499,7 @@ exports.default = function( val, operator ) {
   return val
 }
 exports.default.order = 1000
-},{"../":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/index.js","../util":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/shawn/Work/mtv-play/node_modules/zepto-browserify/zepto.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/zepto-browserify/zepto.js":[function(require,module,exports){
 /* Zepto v1.0 - polyfill zepto detect event ajax form fx - zeptojs.com/license */
 
 ;(function(undefined){
@@ -52091,7 +52091,7 @@ module.exports.Zepto = Zepto;
   testEl = null
 })(Zepto)
 
-},{}],"/Users/shawn/Work/mtv-play/platform/all.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/platform/all.js":[function(require,module,exports){
 var app = require('../app')
   // , mslogs = require('../test/multiscreen/log')
   , Switcher = require('../components/switcher')
@@ -52154,7 +52154,7 @@ if(cases.phone && !cases.native)
 
 app.initialised.val = true
 
-},{"../app":"/Users/shawn/Work/mtv-play/app/index.js","../components/rotate-message":"/Users/shawn/Work/mtv-play/components/rotate-message/index.js","../components/switcher":"/Users/shawn/Work/mtv-play/components/switcher/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/platform/cast.js":[function(require,module,exports){
+},{"../app":"/Users/youzi/dev/mtv-play/app/index.js","../components/rotate-message":"/Users/youzi/dev/mtv-play/components/rotate-message/index.js","../components/switcher":"/Users/youzi/dev/mtv-play/components/switcher/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/platform/cast.js":[function(require,module,exports){
 
 var app = require('../app')
   // , mslogs = require('../test/multiscreen/log')
@@ -52206,7 +52206,7 @@ app.set( // switcher between first/second/player
 
 app.initialised.val = true
 
-},{"../app":"/Users/shawn/Work/mtv-play/app/index.js","../components/switcher":"/Users/shawn/Work/mtv-play/components/switcher/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/shawn/Work/mtv-play/platform/tv.js":[function(require,module,exports){
+},{"../app":"/Users/youzi/dev/mtv-play/app/index.js","../components/switcher":"/Users/youzi/dev/mtv-play/components/switcher/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/platform/tv.js":[function(require,module,exports){
 
 var tv = require('vigour-js/app/ui/tv') //events and stuff make inject on app?
   , app = require('../app')
@@ -52256,7 +52256,7 @@ app.set( // switcher between first/second/player
 
 app.initialised.val = true
 
-},{"../app":"/Users/shawn/Work/mtv-play/app/index.js","../components/switcher":"/Users/shawn/Work/mtv-play/components/switcher/index.js","vigour-js/app/ui/tv":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/app/ui/tv/index.js","vigour-js/browser/cases":"/Users/shawn/Work/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"package.json":[function(require,module,exports){
+},{"../app":"/Users/youzi/dev/mtv-play/app/index.js","../components/switcher":"/Users/youzi/dev/mtv-play/components/switcher/index.js","vigour-js/app/ui/tv":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/tv/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"package.json":[function(require,module,exports){
 module.exports={"name":"mtv-play","version":"1.2.66","description":"mtv's multiscreen adventure","main":"index.js","scripts":{"start":"gaston -d","test":"test/test.js","release":"packer -r -c package.json,.package.json"},"repository":{"type":"git","url":"https://github.com/vigour-io/mtv-play","branch":"develop"},"keywords":["multiscreen","play","shows","smart","tv","js"],"dependencies":{"lodash":"3.2.0","monotonic-timestamp":"0.0.9","package-branch-config":"^1.2.2","promise":"6.1.0","through2":"^2.0.0","vigour-js":"git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay","zepto-browserify":"x"},"devDependencies":{"vigour-dev-tools":"git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master","vigour-packer-server":"git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"},"author":"Jim de Beer","license":"other","bugs":{"url":"https://github.com/vigour-io/mtv-play/issues"},"homepage":"https://github.com/vigour-io/mtv-play","vigour":{"ga":"UA-43955457-3","hashUrl":true,"defaultRegion":false,"regionOverride":false,"availableRegions":["DE","NL","CH","PL","RO","BE"],"geo":"https://wwwmtvplay-a.akamaihd.net/geo/","development":{"button":true},"cloud":"http://mtv-hub.dev.vigour.io:80","othercloud":"http://localhost:10001","languages":["en","de","nl","pl","ro","it","fr"],"mtvmobile":["de","ch","ro"],"roles":["free","premium","mtv","trial"],"countrycodes":{"de":49,"ch":41,"ro":40,"nl":31},"dictionary":"http://mtv-develop.vigour.io//translations/lang_$language.json","webtranslateit":{"files":{"de":374130,"en":374126,"nl":374128,"pl":374129,"ro":374131,"fr":404562,"it":404563},"token":"-rN-CdCWmgh4IDxFRT-MEg"},"epg":"https://wwwmtvplay-a.akamaihd.net/xhr/index.html","img":"https://imgmtvplay-a.akamaihd.net","api":{"type":"production","url":"https://utt.mtvnn.com/","acceptHeader":"application/json","key":"4e99c9381b74354fbae9f468497912f0"},"player":{"debug":false,"web":"http://player.mtvnn.com/html5player/production/player.js","settings":{"domain":"mtv","tld":"de","localization":{"language":"de","country":"DE"},"ads":{"enabled":true,"engine":"Freewheel","networkID":174975,"profileID":"174975:MTVNE_live_HTML5","viralSID":"mtvplaytv/test","defaultAssetID":41349526,"server":"http://2ab7f.v.fwmrm.net/ad/p/1"},"controls":false,"blankVideo":"http://player.mtvnn.com/codebase/blank.m4v","simulcastApiKey":"c153f28d950ae49a"}},"chromecast":{"id":"30C914C1","web":"https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"},"facebook":{"id":"720547754665171","web":"https://connect.facebook.net/de_DE/sdk.js"},"packer":{"language":"https://wwwmtvplay-a.akamaihd.net/translations/","url":"https://wwwmtvplay-a.akamaihd.net/","domain":"http://mtv-develop.vigour.io","assets":{"index.html":true,"bundle.js":true,"bundle.css":true,"build.html":true,"build.js":true,"build.css":true,"img":"*","assets":"*","fonts":"*","fonts.css":true,"translations":"*"},"transforms":{"build.js":["inform"],"bundle.css":["rebase"],"build.css":["rebase"]},"main":"build.js","web":"build.html","fbDefaults":{"title":"MTV Play","description":"Mtv's new app to view shows on all devices","image":"http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png"}},"store":{"ios":{"monthly":"$region_subscription_monthly","yearly":"$region_subscription_annual","single":"$region_single_purchase"},"android":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annually","single":"mtvplay_single_purchase"},"windows":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annual","single":"mtvplay_single_purchase"}}},"gaston":{"port":8080,"socket-port":9000,"no-auto-reload":false,"no-package":false,"bundle":"./","build":"./","browserify":{"transforms":[{"path":"package-branch-config","options":{"section":"vigour"}}]},"less":{"options":{}},"smaps":true,"source-maps":true,"remote-logging":true,"require-paths":{}},"sha":"1.2.66"}
-},{}]},{},["/Users/shawn/Work/mtv-play/index.js"])
+},{}]},{},["/Users/youzi/dev/mtv-play/index.js"])
 //# sourceMappingURL=bundle.js.map
