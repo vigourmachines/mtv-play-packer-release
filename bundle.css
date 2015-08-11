@@ -3025,29 +3025,6 @@ x:-o-prefocus,
 .tablet .first-epg .ui-seekbar .bg {
   background-color: #dbcedb;
 }
-/* /Users/youzi/dev/mtv-play/components/second/discover/style.less */
-.second-discover {
-  white-space: nowrap;
-}
-.second-discover > div {
-  display: inline-block;
-  white-space: normal;
-  vertical-align: top;
-  margin-left: 80px;
-}
-.second-discover .holder {
-  overflow: hidden;
-}
-.second-discover .roll {
-  white-space: nowrap;
-}
-.second-discover .roll > div {
-  display: inline-block;
-  background-size: cover;
-}
-.bigPurp {
-  background-color: #3a1a58;
-}
 /* /Users/youzi/dev/mtv-play/components/second/shows/style.less */
 .second-shows {
   height: 100%;
@@ -3096,6 +3073,29 @@ x:-o-prefocus,
   -ms-transition: opacity 0.3s ease-out;
   -o-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
+}
+/* /Users/youzi/dev/mtv-play/components/second/discover/style.less */
+.second-discover {
+  white-space: nowrap;
+}
+.second-discover > div {
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+  margin-left: 80px;
+}
+.second-discover .holder {
+  overflow: hidden;
+}
+.second-discover .roll {
+  white-space: nowrap;
+}
+.second-discover .roll > div {
+  display: inline-block;
+  background-size: cover;
+}
+.bigPurp {
+  background-color: #3a1a58;
 }
 /* /Users/youzi/dev/mtv-play/components/second/channels/style.less */
 .second-channels {
