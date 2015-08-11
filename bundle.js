@@ -2238,266 +2238,276 @@ module.exports = function context( title, pageView, franchise ) {
 },{"./map":"/Users/youzi/dev/mtv-play/api/tracking/map.js","./omniture":"/Users/youzi/dev/mtv-play/api/tracking/omniture.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/ga.js":[function(require,module,exports){
 var omniture = require('./omniture')
   , config = require('vigour-js/util/config')
-  , pageName = require('./pagename')
-  , context = require('./context')
+  , cases = require('vigour-js/browser/cases');
 
-  
-(function(window, document, variableName, scriptElement, firstScript) {
-    window['GoogleAnalyticsObject'] = variableName;
-    window[variableName] || (window[variableName] = function() {
-      (window[variableName].q = window[variableName].q || []).push(arguments);
-    });
-    window[variableName].l = +new Date;
-    scriptElement = document.createElement('script'),
-    firstScript = document.scripts[0];
-    scriptElement.src = 'https://www.google-analytics.com/analytics.js';
-    firstScript.parentNode.insertBefore(scriptElement, firstScript)
-  }(window, document, 'ga'));
 
-  ga('create', 'UA-43955457-3', 'none');
-  
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+
+  // if (cases.native && window.device && window.device.uuid) {
+  //   var UUID = window.device.uuid
+  //   ga('create', 'UA-43955457-6', {
+  //       'storage': 'none',
+  //       'clientId': UUID
+  //   })
+  // } else {
+    ga('create', 'UA-43955457-6', 'auto')
+  // }
+
+
   module.exports = window.ga
-},{"./context":"/Users/youzi/dev/mtv-play/api/tracking/context.js","./omniture":"/Users/youzi/dev/mtv-play/api/tracking/omniture.js","./pagename":"/Users/youzi/dev/mtv-play/api/tracking/pagename.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/index.js":[function(require,module,exports){
-var omniture = require('./omniture')
-  , postpone = require('vigour-js/browser/events/util').postpone
-  , ua = require('vigour-js/browser/ua')
-  , config = require('vigour-js/util/config')
-  , url = require('vigour-js/browser/network/url')
-  , util = require('vigour-js/util')
-  , map = require( './map' )
-  , config = require( 'vigour-js/util/config' )
-  , context = require('./context')
-  , pageName = require('./pagename')
-  , ajax = require('vigour-js/browser/network/ajax')
-  , facebookShare = require('../facebook/share')
-  , user = require('../../app/user') 
-  , cases = require('vigour-js/browser/cases')
-  
-  require('./ga')
+},{"./omniture":"/Users/youzi/dev/mtv-play/api/tracking/omniture.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/index.js":[function(require,module,exports){
+  var omniture = require('./omniture'),
+      postpone = require('vigour-js/browser/events/util').postpone,
+      ua = require('vigour-js/browser/ua'),
+      config = require('vigour-js/util/config'),
+      url = require('vigour-js/browser/network/url'),
+      util = require('vigour-js/util'),
+      map = require('./map'),
+      config = require('vigour-js/util/config'),
+      context = require('./context'),
+      pageName = require('./pagename'),
+      ajax = require('vigour-js/browser/network/ajax'),
+      facebookShare = require('../facebook/share'),
+      user = require('../../app/user'),
+      cases = require('vigour-js/browser/cases')
+
+      require('./ga')
 
   //TODO: this is very dirty! make it work with app.user for example
-  
-exports.omniture = omniture
+
+  exports.omniture = omniture
 
 
-omniture.account = config.omniture
+  omniture.account = config.omniture
 
-var tlDelayed = postpone( function() { 
-  omniture.tl.apply(this,arguments)
-  delete omniture.events
-}, 1e3 )
+  var tlDelayed = postpone(function() {
+      omniture.tl.apply(this, arguments)
+      delete omniture.events
+  }, 1e3)
 
-
-//omniture['prop'+map.vars.search[1]] = search
-exports.setSearchProp = postpone( function(search) {
-  if(search) {
-    omniture['prop'+map.vars.search[0]] = search
-  }
-}, 1e3 )
-
-var lastVid
-
-exports.video = function( val, media, title ) {
-
-  if( !title ) title = media
-
-  if( media.from ) {
-    title = media.from._cachedPath
-  } 
-
-  if( typeof title !== 'string' ) return
-  
-  var eventType = (val === 'videoPlay' || val === 'videoPause') ? val : ''
-    , compare
-    , vidEventMap = 
-      { videostart:[ 0, 0.1 ]
-      , video25: [ 0.25, 0.26 ]
-      , video50: [ 0.5, 0.51 ]
-      , video75: [ 0.75, 0.76 ]
-      , videofinished: [ 0.9, 0.95 ]
+  //omniture['prop'+map.vars.search[1]] = search
+  exports.setSearchProp = postpone(function(search) {
+      if (search) {
+          omniture['prop' + map.vars.search[0]] = search
       }
-  val = -1*val
+  }, 1e3)
 
-  if( !eventType ) {
-    for( var event$ in vidEventMap ) {
-      if( val > vidEventMap[event$][0] && val < vidEventMap[event$][1] ) {
-        eventType = event$
-        compare = eventType+title
-        if( lastVid && ( eventType+title ) === lastVid ) return
-        lastVid = eventType+title
-        break
+
+  var lastVid
+
+  exports.video = function(val, media, title) {
+
+      if (!title) title = media
+
+      if (media.from) {
+          title = media.from._cachedPath
       }
-    }
-  }
 
-  //track watch, id to utt backend
-  if( eventType && media.from._parent._parent) 
-  {
-    var pageNameObj = pageName(media.from._parent._parent._parent._cachedPath)
-      , vidname = 'video > ' +pageNameObj.name
+      if (typeof title !== 'string') return
 
-    context( pageNameObj.title, false, true )
-    
-    if( vidname.split( '>' ).length<7 ) vidname+= ' > seasons 1 > episodes 1' 
-    
-    vidname += (' : '+ media.get( 'title','' ).val ).toLowerCase()
-
-    omniture['eVar'+map.vars.videoName[1]] = vidname
-    omniture.events = 'event'+map.events[ eventType ]
-    // omniture['eVar'+map.events[eventType]] = true
-
-    if (eventType === "videostart") {
-      triggerWatch(media.id.val)
-    }
-    omniture.tl( true , 'o', eventType )
-  }
-}
-
-function triggerWatch (id) {
-  var token = user.token.val
-    , url = config.api.url
-      + "api/v1/users/"
-      + token
-      + "/activities"
-    , isChannel = cases.$isOnChannel.val
-    , payload =
-    {
-      activity:
-      {
-        action: "watch",
-        resource_type: (isChannel)
-          ? "simulcast"
-          : "episode",
-        resource_id: id,
-        repository: "sensei",
-        environment: "production" 
+      var eventType = (val === 'videoPlay' || val === 'videoPause') ? val : '',
+          compare, vidEventMap = {
+              videostart: [0, 0.1],
+              video25: [0.25, 0.26],
+              video50: [0.5, 0.51],
+              video75: [0.75, 0.76],
+              videofinished: [0.9, 0.95]
+          }
+      val = -1 * val
+      if (!eventType) {
+          for (var event$ in vidEventMap) {
+              if (val > vidEventMap[event$][0] && val < vidEventMap[event$][1]) {
+                  eventType = event$
+                  compare = eventType + title
+                  if (lastVid && (eventType + title) === lastVid) return
+                  lastVid = eventType + title
+                  break
+              }
+          }
       }
-    }
-  if (token) {
-    ajax({
-      url: url
-      , method: "POST"
-      , headers:
-      {
-        accept: "application/json"
+
+      //track watch, id to utt backend
+      if (eventType && media.from._parent._parent) {
+          var pageNameObj = pageName(media.from._parent._parent._parent._cachedPath),
+              vidname = 'video > ' + pageNameObj.name
+
+          context(pageNameObj.title, false, true)
+
+          if (vidname.split('>').length < 7) vidname += ' > seasons 1 > episodes 1'
+
+          vidname += (' : ' + media.get('title', '').val).toLowerCase()
+
+          omniture['eVar' + map.vars.videoName[1]] = vidname
+          omniture.events = 'event' + map.events[eventType]
+              // omniture['eVar'+map.events[eventType]] = true
+
+          if (eventType === "videostart") {
+              triggerWatch(media.id.val)
+          }
+          omniture.tl(true, 'o', eventType)
       }
-      , encode: "json"
-      , data: payload
-      , error: function (err) {
-        void(0)
+  }
+
+  function triggerWatch(id) {
+      var token = user.token.val,
+          url = config.api.url + "api/v1/users/" + token + "/activities",
+          isChannel = cases.$isOnChannel.val,
+          payload = {
+              activity: {
+                  action: "watch",
+                  resource_type: (isChannel) ? "simulcast" : "episode",
+                  resource_id: id,
+                  repository: "sensei",
+                  environment: "production"
+              }
+          }
+      ga('send', 'event', 'video', 'watch')
+      if (token) {
+          ajax({
+              url: url,
+              method: "POST",
+              headers: {
+                  accept: "application/json"
+              },
+              encode: "json",
+              data: payload,
+              error: function(err) {
+                  void(0)
+              }
+          })
       }
-    })
   }
-}
 
-exports.event = postpone(function( eventType, flag, link, video ) {
+  exports.event = postpone(function(eventType, flag, link, video) {
 
-  omniture.events = 'event'+map.events[eventType]
+      //send event same for all
+      if (eventType === 'swipeUp') {
+          ga('send', 'event', 'multiscreen', 'swipe-up');
+      };
 
-  context()
 
-  if(eventType==='upgradeMtvFailed') 
-  {
-    omniture['eVar'+map.events.mtvMobileFailed ] = flag
-  } 
-  else if(eventType==='teaserClick') 
-  {
-    // alert('fuckery')
-    // omniture['eVar'+map.events.teaserCollection ] = flag
-    // omniture['eVar'+map.events.teaserClicked ] = link && pageName(link).name //get link yourself its a path
-  } 
-  else if(eventType) 
-  {
-    // omniture['eVar'+map.events[eventType] ] = flag || true
-  }
-  if(eventType==='search') 
-  {
-    tlDelayed( true , 'o', eventType)
-  } {
-    omniture.tl(true , 'o', eventType)
-    delete omniture.events
-  }
-  if (eventType === 'sharingFacebookSucces') {
-    void(0)
-    triggerFbShare()
-  }
-}, 1e3 )
+      omniture.events = 'event' + map.events[eventType]
 
-function triggerFbShare () {  
-  var auth_token = user.token.val
-    , resourceType = "UNKNOWN"
-    , id = "UNKNOWN"
-    , url = config.api.url
-      + "/api/v1/users/"
-      + auth_token
-      + "/activities"
-    , payload = {
-      "activity":    {
-        "action": "share",
-        "resource_type": resourceType,
-        "resource_id": id,
-        "repository": "sensei",
-        "environment": "production" 
+      context()
+
+      if (eventType === 'upgradeMtvFailed') {
+          omniture['eVar' + map.events.mtvMobileFailed] = flag
+      } else if (eventType === 'teaserClick') {
+          // alert('fuckery')
+          // omniture['eVar'+map.events.teaserCollection ] = flag
+          // omniture['eVar'+map.events.teaserClicked ] = link && pageName(link).name //get link yourself its a path
+      } else if (eventType) {
+          // omniture['eVar'+map.events[eventType] ] = flag || true
       }
-    }
-  void(0)
-  void(0)
-  void(0)
-  void(0)
-  void(0)
-  // ajax({
-  //   url: url
-  //   , method: "POST"
-  //   , headers: {
-  //     accept: "application/json"
-  //   }
-  //   , data: payload
-  //   , error: function (err) {
-  //     console.error("POST", url, payload, err)
-  //   }
-  // })
-}
+      if (eventType === 'search') {
+          tlDelayed(true, 'o', eventType)
+      } {
+          omniture.tl(true, 'o', eventType)
+          delete omniture.events
+      }
+      if (eventType === 'sharingFacebookSucces') {
+          void(0)
+          triggerFbShare()
+      }
+  }, 1e3)
+  function triggerFbShare() {
+      var auth_token = user.token.val,
+          resourceType = "UNKNOWN",
+          id = "UNKNOWN",
+          url = config.api.url + "/api/v1/users/" + auth_token + "/activities",
+          payload = {
+              "activity": {
+                  "action": "share",
+                  "resource_type": resourceType,
+                  "resource_id": id,
+                  "repository": "sensei",
+                  "environment": "production"
+              }
+          }
+      void(0)
+      void(0)
+      void(0)
+      void(0)
+      void(0)
+          // ajax({
+          //   url: url
+          //   , method: "POST"
+          //   , headers: {
+          //     accept: "application/json"
+          //   }
+          //   , data: payload
+          //   , error: function (err) {
+          //     console.error("POST", url, payload, err)
+          //   }
+          // })
+          ga('send', 'event', 'sharing', 'facebook')
+  }
 
-exports.popup = postpone(function( name ) {
-  if(!name) return
-  var platform = ua.device=== 'desktop' ? 'web' : ua.platform
-    , pageName = config.region.val +' > '+ platform + ' > '
-  context( name, true, false )
-  omniture.pageName = ( pageName + 'other > ' + name).toLowerCase()
-  omniture.t()
-}, 1e3 )
+  exports.popup = postpone(function(name) {
+      if (!name) return
+      var platform = ua.device === 'desktop' ? 'web' : ua.platform,
+          pageName = config.region.val + ' > ' + platform + ' > '
+      context(name, true, false)
+      omniture.pageName = (pageName + 'other > ' + name).toLowerCase()
+      omniture.t()
+  }, 1e3)
 
-exports.pageView = postpone(function( obj ) {
+  exports.pageView = postpone(function(obj) {
 
-  if(obj.from) {
-    obj = obj.from._cachedPath
-  } 
+      if (obj.from) {
+          obj = obj.from._cachedPath
+      }
 
-  if(typeof obj !== 'string') return
+      if (typeof obj !== 'string') return
 
-  var pageNameObj = pageName(obj)
-    , title = pageNameObj.title
+      var pageNameObj = pageName(obj),
+          title = pageNameObj.title
 
-  omniture.pageName = (pageNameObj.name).toLowerCase()
-  context( title, true, ~obj.lastIndexOf('.') )
+      omniture.pageName = (pageNameObj.name).toLowerCase()
+      context(title, true, ~obj.lastIndexOf('.'))
 
-  omniture.t()
-  // console.log(ga)
+      omniture.t()
+
+      //USERLEVEL DIMENSION
+      // if(userID) {
+      //   ga('set', 'dimensionage', 16);  &cd2=M                                  // Gender (M/F)
+      // }
+
+      if (cases.$isLoggedIn) {
+          ga('set', 'userId', user.id.val);
+      };
+
+      ga('set', {
+          'anonymizeIp': true,
+          'appName': 'MTV Play',
+      });
+
+      ga('send', 'screenview', {
+              'screenName': pageNameObj.name
+          })
+          //send set appview
+      if (cases.chromecast) {
+          ga('set', 'dimension2', 'Chromecast')
+      }
+      if (cases.tv) {
+          ga('set', 'dimension3', 'tv')
+              ajax({
+                  url: 'http://www.google-analytics.com/collect?v=1&tid=' + 'UA-43955457-6' + '-1&cid='+ 5555 +'&t=screenview&dp=%2F'+ pageNameObj.name,
+                  method: "POST",
+                  headers: {
+                      accept: "application/json"
+                  }
+              })
+      }
 
 
-  ga('set', {
-      title: pageNameObj.name
-  });
+      // console.log(pageNameObj.name)
 
-  ga('send', 'pageview');
-
-
-  // console.log(pageNameObj.name)
-
-}, 1e3 )
-
-
-
+  }, 1e3)
 
 },{"../../app/user":"/Users/youzi/dev/mtv-play/app/user.js","../facebook/share":"/Users/youzi/dev/mtv-play/api/facebook/share.js","./context":"/Users/youzi/dev/mtv-play/api/tracking/context.js","./ga":"/Users/youzi/dev/mtv-play/api/tracking/ga.js","./map":"/Users/youzi/dev/mtv-play/api/tracking/map.js","./omniture":"/Users/youzi/dev/mtv-play/api/tracking/omniture.js","./pagename":"/Users/youzi/dev/mtv-play/api/tracking/pagename.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/util.js","vigour-js/browser/network/ajax":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/ajax.js","vigour-js/browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/url.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/lib/AppMeasurement.js":[function(require,module,exports){
 /*
@@ -3998,9 +4008,10 @@ video  end
 franchise name  
 */
 
-var app = require('./index')   
-  , tracking = require('../api/tracking')
-  , api = require( '../api' )
+var app = require('./index'),
+  tracking = require('../api/tracking'),
+  api = require('../api'),
+  cases = require('vigour-js/browser/cases')
 
 var Value = require('vigour-js/value')
 
@@ -4008,166 +4019,173 @@ app.mediaTime = new Value()
 
 tracking.omniture.user = app.user
 
-app.popup.on( function() {
-  tracking.popup( this.val )
-} )
+app.popup.on(function() {
+  tracking.popup(this.val)
+})
 
-app.user.navigation.page.on( function() {
-  tracking.pageView( this.val )
-} )
+app.user.navigation.page.on(function() {
+  tracking.pageView(this.val)
+})
 
-app.user.navigation.show.on( function() {
-  tracking.pageView( this.val )
-} )
+app.user.navigation.show.on(function() {
+  tracking.pageView(this.val)
+})
 
-app.user.navigation.media.on( function() {
-  tracking.pageView( this.val )
-} )
+app.user.navigation.media.on(function() {
+  tracking.pageView(this.val)
+})
 
-app.user.navigation.season.on( function() {
-  tracking.pageView( this.val )
-} )
+app.user.navigation.season.on(function() {
+  tracking.pageView(this.val)
+})
 
 app.popup.on('intro', function() {
-  app.popup.once( function(val) {
-    tracking.event
-    ( val === false 
-        ? 'introSkipped' 
-        : 'introCompleted'
-    , true 
-    )
+  app.popup.once(function(val) {
+    tracking.event(val === false ? 'introSkipped' : 'introCompleted', true)
   })
 })
 
 api.login
-  .on( 'success', function() {
+  .on('success', function() {
     if (this.new_record) {
-      tracking.event( 'signupSucces', true )  
+      tracking.event('signupSucces', true)
+      ga('send', 'event', 'login', 'signup')
     } else {
-      tracking.event( 'loginSucces', true )
+      tracking.event('loginSucces', true)
+      ga('send', 'event', 'login', 'login')
     }
-    
+
   })
-  .on( 'error', function() {
-    tracking.event( 'loginFailed', true )
+  .on('error', function() {
+    tracking.event('loginFailed', true)
   })
 
 api.register
-  .on( 'success', function() {
-    tracking.event( 'signupSucces', true )
+  .on('success', function() {
+    tracking.event('signupSucces', true)
   })
-  .on( 'error', function() {
-    tracking.event( 'signupFailed', true )
+  .on('error', function() {
+    tracking.event('signupFailed', true)
   })
 
 api.facebook.share
-  .on( function() {
-    tracking.event( 'sharingFacebookStart', true )
+  .on(function() {
+    tracking.event('sharingFacebookStart', true)
   })
-  .on( 'success', function() {
-    tracking.event( 'sharingFacebookSucces', true )
+  .on('success', function() {
+    tracking.event('sharingFacebookSucces', true)
   })
 
 api.email.share
   .on(function() {
-    tracking.event( 'sharingEmailStart', true )
+    tracking.event('sharingEmailStart', true)
   })
-  .on( 'success', function() {
-    tracking.event( 'sharingEmailSucces', true )
+  .on('success', function() {
+    tracking.event('sharingEmailSucces', true)
+    ga('send', 'event', 'sharing', 'email')
   })
 
-app.user.search.on( function() {
-  if( app.user.search.val && typeof app.user.search.val === 'string' ) {
-    tracking.event( 'search', app.user.search.val )
+var first = true
+app.user.search.on(function() {
+  var query = app.user.search.val
+  if (query && typeof query === 'string') {
+    tracking.event('search', query)
+    if (first) {
+      first = false
+      ga('send', 'event', 'search')
+      app.user.navigation.page.on(function() {
+        first = true
+      })
+    }
   }
 })
 
 api.mobile.verify
   .on('error', function() {
-    tracking.event( 'upgradeMtvFailed' )
-    //mtvMobileFailed do this
+    tracking.event('upgradeMtvFailed')
+      //mtvMobileFailed do this
   })
 
 app.menu.on(function() {
-  if( this.val ) tracking.event( 'menu', this.val )
+  if (this.val) tracking.event('menu', this.val)
 })
 
 //TODO: app.ready should only fire once
-app.ready.once( true, function() {
-  tracking.event( 'appstart', true )
-} )
+app.ready.once(true, function() {
+  tracking.event('appstart', true)
+})
 
 app.notification
-  .on( 'favourite', function() {
-    tracking.event( 'favoAdded', true )
+  .on('favourite', function() {
+    tracking.event('favoAdded', true)
+    ga('send', 'event', 'favourite', 'added')
   })
-  .on( 'unFavourite', function() {
-    tracking.event( 'favoRemoved', true )
+  .on('unFavourite', function() {
+    tracking.event('favoRemoved', true)
+    ga('send', 'event', 'favourite', 'removed')
   })
 
 app.user.receiver.media
-  .on( function( val ) {
-    if(!( this.from && this.from._name === 'media' ) )
-    {
-        tracking.event( val ? 'swipeUp' : 'swipeDown', this.from && this.from._cachedPath )
+  .on(function(val) {
+    if (!(this.from && this.from._name === 'media')) {
+      tracking.event(val ? 'swipeUp' : 'swipeDown', this.from && this.from._cachedPath)
     }
   })
 
+cases.$hasReceiver.on(function() {
+  if (this.val) {
+    ga('set', 'dimension1', 'multiscreener')
+  }
+})
+
 api.purchase
-  .on( 'success', function() {      
-      tracking.event( 
-        this.subscription.val === 'monthly' 
-        ? 'upgradeMonthSucces' 
-        : 'upgradeAnSucces'
-        , true 
-      )
-    })
-  .on( 'error', function() {
-      tracking.event( 
-        this.subscription.val === 'monthly' 
-        ? 'upgradeMonthError' 
-        : 'upgradeAnError'
-        , true 
-      )
-    })
+  .on('success', function() {
+    tracking.event(
+      this.subscription.val === 'monthly' ? 'upgradeMonthSucces' : 'upgradeAnSucces', true
+    )
+    ga('send', 'event', 'purchase', 'month')
+  })
+  .on('error', function() {
+    tracking.event(
+      this.subscription.val === 'monthly' ? 'upgradeMonthError' : 'upgradeAnError', true
+    )
+  })
 
 api.mobile.sms
-  .on( 'success', function( val ) {
-     tracking.event( 'upgradeMtvSucces', true )
+  .on('success', function(val) {
+    tracking.event('upgradeMtvSucces', true)
   })
-  .on( 'error', function( val ) {
-     tracking.event( 'upgradeMtvFailed', true )
+  .on('error', function(val) {
+    tracking.event('upgradeMtvFailed', true)
   })
 
 
 
 function getMedia() {
   var media
-  if( app.state.val === 'player' )
-  {
+  if (app.state.val === 'player') {
     media = app.state.video.val
-  }
-  else {
+  } else {
     media = app.user.navigation.media.from
   }
-  if( media && media.val === false ) return 
+  if (media && media.val === false) return
   return media
 }
 
-app.mediaTime.on(function( val ) {
+app.mediaTime.on(function(val) {
   var media = getMedia()
-  if( val && val > 0 ) {
-    return 
+  if (val && val > 0) {
+    return
   }
-  if( media ) {
-    tracking.video( val, media )
+  if (media) {
+    tracking.video(val, media)
   }
 })
 
-app.playing.on( function( val ) {
+app.playing.on(function(val) {
   var media = getMedia()
-  if( media ) {
-    tracking.video( val ? 'videoPlay' : 'videoPause', media )
+  if (media) {
+    tracking.video(val ? 'videoPlay' : 'videoPause', media)
   }
 })
 
@@ -4177,10 +4195,9 @@ app.playing.on( function( val ) {
 
 */
 
-//popup 
+//popup
 
-
-},{"../api":"/Users/youzi/dev/mtv-play/api/index.js","../api/tracking":"/Users/youzi/dev/mtv-play/api/tracking/index.js","./index":"/Users/youzi/dev/mtv-play/app/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/upgrade.js":[function(require,module,exports){
+},{"../api":"/Users/youzi/dev/mtv-play/api/index.js","../api/tracking":"/Users/youzi/dev/mtv-play/api/tracking/index.js","./index":"/Users/youzi/dev/mtv-play/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/upgrade.js":[function(require,module,exports){
   var config = require( './config' )
     , app = require( 'vigour-js/app/' )
     , user = app.user
@@ -4756,294 +4773,272 @@ module.exports = new Overview(
 // , touch:{h:{parent:'h'}} 
 }).Class
 },{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../overview":"/Users/youzi/dev/mtv-play/components/first/overview/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/first/discover/carousel.js":[function(require,module,exports){
-require('./style.less')
+require( './style.less' )
 
-var Element = require('vigour-js/app/ui/element')
-  , dictionary = require( 'vigour-js/app/dictionary' )
-  , Img = require('../../img')
-  , Icon = require('../../icon')
-  , Title = require('../../text').Title
-  , app = require('vigour-js/app/')
-  , cases = require('vigour-js/browser/cases')
-  , config = require('vigour-js/util/config')
-  , animationFrame = require('vigour-js/browser/animation/frame')
-  , timer
-  , cancelAutoRoll
+var Element = require( 'vigour-js/app/ui/element' )
+var dictionary = require( 'vigour-js/app/dictionary' )
+var Img = require( '../../img' )
+var Icon = require( '../../icon' )
+var Title = require( '../../text' ).Title
+var app = require( 'vigour-js/app/' )
+var cases = require( 'vigour-js/browser/cases' )
+var config = require( 'vigour-js/util/config' )
+var animationFrame = require( 'vigour-js/browser/animation/frame' )
+var timer
+var cancelAutoRoll
 
-  , slide = new Element(
-    { img:new Img.Carousel(
-      { teaser:
-        { 
-        //   topic:
-        //   { text:
-        //     { data:
-        //       { val:function(data){
-        //           if(data.type && data.type.val === 'Article') {
-        //             return dictionary.get('text.spotlight.promotion').val
-        //           }
-        //           return dictionary.get('text.new').val
-        //         }
-        //       , listen:['type']
-        //       }
-        //     }
-        //   }
-        // , 
-        title:new Title()
-        }
-      , background:
-        { range:100
-        }
-      , events:
-        { active:'clicked'
-        , click:function(){
-            // var roll = this.parent.parent
-            // if(roll.x.val%roll.w.val) return
-            var data = this.data
-              , type = data.type && data.type.val
-              , link = data.link && data.link.val
-              , show
-              , episode
+var slide = new Element( {
+  img: new Img.Carousel( {
+    teaser: {
+      title: new Title()
+    },
+    background: {
+      range: 100
+    },
+    events: {
+      active: 'clicked',
+      click: function() {
+        var data = this.data,
+          type = data.type && data.type.val,
+          link = data.link && data.link.val,
+          show, episode
 
-            if( type === 'Article' )
-            {
-              if( link )
-              {
-                app.api.url.val = link
-              }
-              else
-              {
-                app.popup.from.data = data.from
-                app.popup.from.val = 'article'
-              }
-            }
-            else if( link )
-            {
-              link = link.split('.')
-              show = link[3] === 'shows'
-              episode = link[ link.length - 2 ] === 'episodes'
-
-              if( episode ) 
-              {
-                linkdata = app.content.from.get( link.slice(3) )
-                app.user.navigation.media.$userOrigin.val = linkdata
-                app.state.val = { val:'player', video:linkdata }
-              }
-              else if( show ) 
-              {
-
-                app.user.navigation.show.$userOrigin = app.content.from.get( link.slice(3) )
-              } 
-
-            }
+        if( type === 'Article' ) {
+          if( link ) {
+            app.api.url.val = link
+          } else {
+            app.popup.from.data = data.from
+            app.popup.from.val = 'article'
           }
-        }
-      })
-    , model:{subscription:{link:true,type:true}}
-    })
+        } else if( link ) {
+          link = link.split( '.' )
+          show = link[ 3 ] === 'shows'
+          episode = link[ link.length - 2 ] === 'episodes'
 
-  , roll = new Element( //fix load different on done
-    { css:'ui-roll'
-    , x:
-      { data:'carousel'
-      , transform:function(v,cv){
-          if(isNaN(cv)) cv = cv._val || 0
-          this._pos = cv
-          return cv * this.node.offsetWidth || 0
-        }
-      , animation:{ time:{val:36,phone:18},easing:'outCubic'}
-      , listen:app.w
-      }
-    // , h:
-    //   { parent:'h'
-    //   }
-    // , w:{parent:'w'}
-    , collection:
-      { data:'marquee'
-      , element:slide
-      }
-    , touch:
-      { events:
-        { grab:
-          { x:true
-          , pass:function(e,d){
-              if(Math.abs(d.x) > Math.abs(d.y)){
-                cancelAutoRoll = true
-                return true
-              }
+          if( episode ) {
+            linkdata = app.content.from.get( link.slice( 3 ) )
+            app.user.navigation.media.$userOrigin.val = linkdata
+            app.state.val = {
+              val: 'player',
+              video: linkdata
             }
-          , up:setPosition
+          } else if( show ) {
+
+            app.user.navigation.show.$userOrigin = app.content.from.get( link.slice( 3 ) )
           }
+
         }
       }
-    , model:
-      { complete:function(){
-          var _this = this
-          _this.x._p = true
-          window.requestAnimationFrame(function(){
-            if(_this.x) 
-            {
-              _this.x.update()
-              _this.x._p = null
-            }
-          })
-          this.model = {complete:null}
-      }}
-    })
+    }
+  } ),
+  model: {
+    subscription: {
+      link: true,
+      type: true
+    }
+  }
+} )
 
-  , buttons = new Element(
-    { css:'ui-car-buttons'
-    , prevBtn:new Icon(
-      { icon:'leftnav'
-      , events:
-        { click:function(){
-            var rll = this.parent.parent.roll
-              , ps = rll._pos 
-
-            if(ps < 0) setPos(rll,ps + 1)
+var roll = new Element( {
+  css: 'ui-roll',
+  x: {
+    data: 'carousel',
+    transform: function( v, cv ) {
+      if( isNaN( cv ) ) cv = cv._val || 0
+      this._pos = cv
+      return cv * this.node.offsetWidth || 0
+    },
+    animation: {
+      time: {
+        val: 36,
+        phone: 18
+      },
+      easing: 'outCubic'
+    },
+    listen: app.w
+  },
+  collection: {
+    data: 'marquee',
+    element: slide
+  },
+  touch: {
+    events: {
+      grab: {
+        x: true,
+        pass: function( e, d ) {
+          if( Math.abs( d.x ) > Math.abs( d.y ) ) {
+            cancelAutoRoll = true
+            return true
           }
-        }
-      })
-    , nextBtn:new Icon(
-      { icon:'rightnav'
-      , events:
-        { click:function(){
-            var rll = this.parent.parent.roll
-              , ps = rll._pos | 0
-            if(ps - 1 > - rll.children.length) setPos(rll,ps - 1)
-          }
-        }
-      })
-    })
-
-  , dots = new Element(
-    { css:'ui-dots'
-    , collection:
-      { data:'marquee'
-      , element:new Element(
-        { events:
-          { click:function(){
-              setPos(this.checkParent('roll',true),-index(this))
-            }
-          }
-        })
+        },
+        up: setPosition
       }
-    // , model:function( data ){
-    //     console.log('>>>>',data)
-    //   }
-    })
+    }
+  },
+  model: {
+    complete: function() {
+      var _this = this
+      _this.x._p = true
+      window.requestAnimationFrame( function() {
+        if( _this.x ) {
+          _this.x.update()
+          _this.x._p = null
+        }
+      } )
+      this.model = {
+        complete: null
+      }
+    }
+  }
+} )
 
-dots.extend(
-{ dotFocus:function( val ){
-    var pos = -val.val || 0
-      , dts = this.children
+var buttons = new Element( {
+  css: 'ui-car-buttons',
+  prevBtn: new Icon( {
+    icon: 'leftnav',
+    events: {
+      click: function() {
+        var rll = this.parent.parent.roll,
+          ps = rll._pos
 
-    for (var i = dts.length - 1; i >= 0; i--) {
-      var dot = dts[i]
-      if(i === pos) dot.css = 'dot-focus'
+        if( ps < 0 ) setPos( rll, ps + 1 )
+      }
+    }
+  } ),
+  nextBtn: new Icon( {
+    icon: 'rightnav',
+    events: {
+      click: function() {
+        var rll = this.parent.parent.roll,
+          ps = rll._pos | 0
+        if( ps - 1 > -rll.children.length ) setPos( rll, ps - 1 )
+      }
+    }
+  } )
+} )
+
+var dots = new Element( {
+  css: 'ui-dots',
+  collection: {
+    data: 'marquee',
+    element: new Element( {
+      events: {
+        click: function() {
+          setPos( this.checkParent( 'roll', true ), -index( this ) )
+        }
+      }
+    } )
+  }
+} )
+
+dots.extend( {
+  dotFocus: function( val ) {
+    var pos = -val.val || 0,
+      dts = this.children
+
+    for( var i = dts.length - 1; i >= 0; i-- ) {
+      var dot = dts[ i ]
+      if( i === pos ) dot.css = 'dot-focus'
       else dot.css = false
     }
   }
-})
+} )
 
-var carousel = new Element(
-    { on:
-      { $remove:
-        { defer:function( update ){
-            clearTimeout(timer)
-          }
-        }
+var carousel = new Element( {
+  on: {
+    $remove: {
+      defer: function( update ) {
+        clearTimeout( timer )
       }
-    // , w:{ parent:'w'   }
-    // , h:{ parent:'w', divide: 16/9, tablet:{max:{val:app.w, divide:2}}}//{ val:320, touch:{val:app.h, tablet:{max:app.w, divide:2}, phone:{divide:3}}}
-    , tablet:{ bgTeaser:{} }
-    , roll:roll
-    , 'desktop.buttons':buttons
-    , dotholder:
-      { dots:new dots.Class(
-        { dotFocus:{data:'carousel'}
-        })
+    }
+  },
+  tablet: {
+    bgTeaser: {}
+  },
+  roll: roll,
+  'desktop.buttons': buttons,
+  dotholder: {
+    dots: new dots.Class( {
+      dotFocus: {
+        data: 'carousel'
       }
-    // , model:
-      // { field:'spotlight'
-      // , complete:function(){
-      //     var roll = this.roll
-      //       , keys = this.data.keys
-      //     roll._pos = 0
-      //     if(keys && keys.length){
-      //       // appData.userData.from.set('carousel',0)
-      //       autoRoll(roll)
-      //       this.model = false//{complete:false}
-      //     }
-      //   }
-      // , inherit:false
-      // }
-    })
+    } )
+  }
+} )
 
-if(cases.tablet) carousel.h = {val:app.w,multiply:9/16,max:{val:app.h,multiply:1/2}}
+if( cases.tablet ){
+  carousel.h = {
+    val: app.w,
+    multiply: 9 / 16,
+    max: {
+      val: app.h,
+      multiply: 1 / 2
+    }
+  }
+}
 
 module.exports = exports = carousel
 exports.Dots = dots.Class
 exports.Buttons = buttons.Class
 exports.Roll = roll.Class
 
-function autoRoll(roll){
-  clearTimeout(timer)
-  timer = setTimeout(function(){
-    var newPos = roll._pos !== -roll.children.length+1 ? roll._pos - 1 : 0
-    // if(!cancelAutoRoll && !app.user && !cases.openSidemenu.val && animationFrame.done.val) setPos(roll,newPos)
-    autoRoll(roll)
-  },5000)
+function autoRoll( roll ) {
+  clearTimeout( timer )
+  timer = setTimeout( function() {
+    var newPos = roll._pos !== -roll.children.length + 1 ? roll._pos - 1 : 0
+    autoRoll( roll )
+  }, 5000 )
 }
 
-function index(me){
-  if(!me._i){
-    var siblings = me.parent.children
-      , i = siblings.length - 1
+function index( me ) {
+  if( !me._i ) {
+    var siblings = me.parent.children,
+      i = siblings.length - 1
 
-    for (;i >= 0;) siblings[i]._i = i--
+    for( ; i >= 0; ) siblings[ i ]._i = i--
   }
   return me._i
 }
 
-function setPosition(e, d, ld){ // unify with switcher
-  var treshold = 120
-    , flick = 10
-    , l = this.children.length
-    , oldPos = this._pos || (this._pos = 0)
-    , newPos = oldPos
-    , unfocus
+// TODO: unify with switcher
+function setPosition( e, d, ld ) {
+  var treshold = 120,
+    flick = 10,
+    l = this.children.length,
+    oldPos = this._pos || ( this._pos = 0 ),
+    newPos = oldPos,
+    unfocus
 
-  if(Math.abs(ld.x) > flick){
-    if(ld.x < 0 && !(d.x > treshold)) newPos = Math.max(oldPos - 1,-l+1)
-    if(ld.x > 0 && !(d.x < -treshold)) newPos = Math.min(oldPos + 1,0)
-  }else{
-    if(d.x < -treshold) newPos = Math.max(oldPos - 1,-l+1)
-    if(d.x > treshold) newPos = Math.min(oldPos + 1,0)
+  if( Math.abs( ld.x ) > flick ) {
+    if( ld.x < 0 && !( d.x > treshold ) ) newPos = Math.max( oldPos - 1, -l + 1 )
+    if( ld.x > 0 && !( d.x < -treshold ) ) newPos = Math.min( oldPos + 1, 0 )
+  } else {
+    if( d.x < -treshold ) newPos = Math.max( oldPos - 1, -l + 1 )
+    if( d.x > treshold ) newPos = Math.min( oldPos + 1, 0 )
   }
 
-  if(this.x._e) this.x = {_esub:this.x._e._val}
+  if( this.x._e ) this.x = {
+    _esub: this.x._e._val
+  }
 
   cancelAutoRoll = false
 
-  setPos(this,newPos)
+  setPos( this, newPos )
 }
 
-function setPos(roll,newPos){
-  var oldPos = roll._pos || (roll._pos = 0)
-    , discoverdots = roll.parent.dotholder.dots
-    , dts = (discoverdots || roll.parent.parent.parent.parent.topbar.txt.dotholder.dots).children
+function setPos( roll, newPos ) {
+  var oldPos = roll._pos || ( roll._pos = 0 ),
+    discoverdots = roll.parent.dotholder.dots,
+    dts = ( discoverdots || roll.parent.parent.parent.parent.topbar.txt.dotholder.dots ).children
 
-  if(newPos !== oldPos){
-    // dts[-oldPos].css = false
-    // dts[-newPos].css = 'dot-focus'
+  if( newPos !== oldPos ) {
     roll.data.carousel.from = newPos
     roll._pos = newPos
-
-    // appData.userData.from.set('carousel',newPos)
   }
 
-  if(discoverdots && timer) autoRoll(roll)
+  if( discoverdots && timer ) autoRoll( roll )
 }
+
 },{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/discover/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/frame":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/frame.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/first/discover/index.js":[function(require,module,exports){
 require('./style.less')
 
@@ -7490,7 +7485,7 @@ var EpisodeList = new Element({
         },
         txt: {
           title: new text.Title(),
-          subtitle: { //new text.Subtitle()
+          subtitle: {
             text: {
               data: 'number',
               transform: function( v, cv ) {
@@ -7582,7 +7577,7 @@ module.exports = new Element( {
       display:{
         data:'season.extras',
         transform:function(v,cv){
-          return cv ? 'block' : 'none'
+          return cv && cv[0] ? 'block' : 'none'
         }
       },
       text:{
@@ -8062,7 +8057,7 @@ var items = new Element( {
     display:{
       data:'extras',
       transform:function(v,cv){
-        return cv ? 'block' : 'none'
+        return cv && cv[0] ? 'block' : 'none'
       }
     },
     text:{
@@ -52257,6 +52252,6 @@ app.set( // switcher between first/second/player
 app.initialised.val = true
 
 },{"../app":"/Users/youzi/dev/mtv-play/app/index.js","../components/switcher":"/Users/youzi/dev/mtv-play/components/switcher/index.js","vigour-js/app/ui/tv":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/tv/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"package.json":[function(require,module,exports){
-module.exports={"name":"mtv-play","version":"1.2.67","description":"mtv's multiscreen adventure","main":"index.js","scripts":{"start":"gaston -d","test":"test/test.js","release":"packer -r -c package.json,.package.json"},"repository":{"type":"git","url":"https://github.com/vigour-io/mtv-play","branch":"staging"},"keywords":["multiscreen","play","shows","smart","tv","js"],"dependencies":{"lodash":"3.2.0","monotonic-timestamp":"0.0.9","package-branch-config":"^1.2.2","promise":"6.1.0","through2":"^2.0.0","vigour-js":"git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay","zepto-browserify":"x"},"devDependencies":{"vigour-dev-tools":"git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master","vigour-packer-server":"git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"},"author":"Jim de Beer","license":"other","bugs":{"url":"https://github.com/vigour-io/mtv-play/issues"},"homepage":"https://github.com/vigour-io/mtv-play","vigour":{"ga":"UA-43955457-3","hashUrl":true,"defaultRegion":false,"regionOverride":"DE","availableRegions":["DE","NL","CH","PL","RO","BE"],"geo":"https://wwwmtvplay-a.akamaihd.net/geo/","development":{"button":false},"cloud":"http://mtvtest.dev.vigour.io:80","othercloud":"http://localhost:10001","languages":["en","de","nl","pl","ro","it","fr"],"mtvmobile":["de","ch","ro"],"roles":["free","premium","mtv","trial"],"countrycodes":{"de":49,"ch":41,"ro":40,"nl":31},"dictionary":"http://mtv-develop.vigour.io//translations/lang_$language.json","webtranslateit":{"files":{"de":374130,"en":374126,"nl":374128,"pl":374129,"ro":374131,"fr":404562,"it":404563},"token":"-rN-CdCWmgh4IDxFRT-MEg"},"epg":"https://wwwmtvplay-a.akamaihd.net/xhr/index.html","img":"https://imgmtvplay-a.akamaihd.net","api":{"type":"production","url":"https://utt.mtvnn.com/","acceptHeader":"application/json","key":"4e99c9381b74354fbae9f468497912f0"},"player":{"debug":false,"web":"http://player.mtvnn.com/html5player/staging/player.js","settings":{"domain":"mtv","tld":"de","localization":{"language":"de","country":"DE"},"ads":{"enabled":true,"engine":"Freewheel","networkID":174975,"profileID":"174975:MTVNE_live_HTML5","viralSID":"production","defaultAssetID":41349526,"server":"http://2ab7f.v.fwmrm.net/ad/p/1"},"controls":false,"blankVideo":"http://player.mtvnn.com/codebase/blank.m4v","simulcastApiKey":"c153f28d950ae49a"}},"chromecast":{"id":"30C914C1","web":"https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"},"facebook":{"id":"709421825777638","web":"https://connect.facebook.net/de_DE/sdk.js"},"packer":{"language":"https://wwwmtvplay-a.akamaihd.net/translations/","url":"https://wwwmtvplay-a.akamaihd.net/","domain":"http://staging.packer.mtv.vigour.io","assets":{"index.html":true,"bundle.js":true,"bundle.css":true,"build.html":true,"build.js":true,"build.css":true,"img":"*","assets":"*","fonts":"*","fonts.css":true,"translations":"*"},"transforms":{"build.js":["inform"],"bundle.css":["rebase"],"build.css":["rebase"]},"main":"build.js","web":"build.html","fbDefaults":{"title":"MTV Play","description":"Mtv's new app to view shows on all devices","image":"http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png"}},"store":{"ios":{"monthly":"$region_subscription_monthly","yearly":"$region_subscription_annual","single":"$region_single_purchase"},"android":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annually","single":"mtvplay_single_purchase"},"windows":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annual","single":"mtvplay_single_purchase"}},"omniture":"vianorthtestweb"},"gaston":{"port":8080,"socket-port":9000,"no-auto-reload":false,"no-package":false,"bundle":"./","build":"./","browserify":{"transforms":[{"path":"package-branch-config","options":{"section":"vigour"}}]},"less":{"options":{}},"smaps":true,"source-maps":true,"remote-logging":true,"require-paths":{}},"sha":"1.2.67"}
+module.exports={"name":"mtv-play","version":"1.2.67","description":"mtv's multiscreen adventure","main":"index.js","scripts":{"start":"gaston -d","test":"test/test.js","release":"packer -r -c package.json,.package.json"},"repository":{"type":"git","url":"https://github.com/vigour-io/mtv-play","branch":"staging"},"keywords":["multiscreen","play","shows","smart","tv","js"],"dependencies":{"lodash":"3.2.0","monotonic-timestamp":"0.0.9","package-branch-config":"^1.2.2","promise":"6.1.0","through2":"^2.0.0","vigour-js":"git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay","zepto-browserify":"x"},"devDependencies":{"vigour-dev-tools":"git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master","vigour-packer-server":"git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"},"author":"Jim de Beer","license":"other","bugs":{"url":"https://github.com/vigour-io/mtv-play/issues"},"homepage":"https://github.com/vigour-io/mtv-play","vigour":{"ga":"UA-43955457-3","hashUrl":true,"defaultRegion":false,"regionOverride":"DE","availableRegions":["DE","NL","CH","PL","RO","BE"],"geo":"https://wwwmtvplay-a.akamaihd.net/geo/","development":{"button":false},"cloud":"http://mtvtest.dev.vigour.io:80","othercloud":"http://localhost:10001","languages":["en","de","nl","pl","ro","it","fr"],"mtvmobile":["de","ch","ro"],"roles":["free","premium","mtv","trial"],"countrycodes":{"de":49,"ch":41,"ro":40,"nl":31},"dictionary":"http://mtv-develop.vigour.io/translations/lang_$language.json","webtranslateit":{"files":{"de":374130,"en":374126,"nl":374128,"pl":374129,"ro":374131,"fr":404562,"it":404563},"token":"-rN-CdCWmgh4IDxFRT-MEg"},"epg":"https://wwwmtvplay-a.akamaihd.net/xhr/index.html","img":"https://imgmtvplay-a.akamaihd.net","api":{"type":"production","url":"https://utt.mtvnn.com/","acceptHeader":"application/json","key":"4e99c9381b74354fbae9f468497912f0"},"player":{"debug":false,"web":"http://player.mtvnn.com/html5player/staging/player.js","settings":{"domain":"mtv","tld":"de","localization":{"language":"de","country":"DE"},"ads":{"enabled":true,"engine":"Freewheel","networkID":174975,"profileID":"174975:MTVNE_live_HTML5","viralSID":"production","defaultAssetID":41349526,"server":"http://2ab7f.v.fwmrm.net/ad/p/1"},"controls":false,"blankVideo":"http://player.mtvnn.com/codebase/blank.m4v","simulcastApiKey":"c153f28d950ae49a"}},"chromecast":{"id":"30C914C1","web":"https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"},"facebook":{"id":"709421825777638","web":"https://connect.facebook.net/de_DE/sdk.js"},"packer":{"language":"https://wwwmtvplay-a.akamaihd.net/translations/","url":"https://wwwmtvplay-a.akamaihd.net/","domain":"http://staging.packer.mtv.vigour.io","assets":{"index.html":true,"bundle.js":true,"bundle.css":true,"build.html":true,"build.js":true,"build.css":true,"img":"*","assets":"*","fonts":"*","fonts.css":true,"translations":"*"},"transforms":{"build.js":["inform"],"bundle.css":["rebase"],"build.css":["rebase"]},"main":"build.js","web":"build.html","fbDefaults":{"title":"MTV Play","description":"Mtv's new app to view shows on all devices","image":"http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png"}},"store":{"ios":{"monthly":"$region_subscription_monthly","yearly":"$region_subscription_annual","single":"$region_single_purchase"},"android":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annually","single":"mtvplay_single_purchase"},"windows":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annual","single":"mtvplay_single_purchase"}},"omniture":"vianorthtestweb"},"gaston":{"port":8080,"socket-port":9000,"no-auto-reload":false,"no-package":false,"bundle":"./","build":"./","browserify":{"transforms":[{"path":"package-branch-config","options":{"section":"vigour"}}]},"less":{"options":{}},"smaps":true,"source-maps":true,"remote-logging":true,"require-paths":{}},"sha":"1.2.67"}
 },{}]},{},["/Users/youzi/dev/mtv-play/index.js"])
 //# sourceMappingURL=bundle.js.map

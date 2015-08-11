@@ -84,7 +84,7 @@
       "ro": 40,
       "nl": 31
     },
-    "dictionary": "http://mtv-develop.vigour.io//translations/lang_$language.json",
+    "dictionary": "http://mtv-develop.vigour.io/translations/lang_$language.json",
     "webtranslateit": {
       "files": {
         "de": 374130,
@@ -261,13 +261,14 @@
         }
       },
       "develop": {
-        "cloud": "http://mtv-hub.dev.vigour.io:80",
+        "cloud": "http://mtvtest.dev.vigour.io:80",
         "facebook": {
           "id": "720547754665171"
         },
         "packer": {
           "domain": "http://mtv-develop.vigour.io"
-        }
+        },
+        "regionOverride": "DE"
       },
       "master": {
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
