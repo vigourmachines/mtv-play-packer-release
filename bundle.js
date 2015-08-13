@@ -2247,15 +2247,15 @@ var omniture = require('./omniture')
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 
-  if (cases.native) {
-    var UUID = window.device.uuid;
-      ga('create', 'UA-43955457-6', {
-          'storage': 'none',
-          'clientId': UUID
-      });
-  } else {
-      ga('create', 'UA-43955457-6', 'auto');
-  }
+  // if (cases.native && window.device && window.device.uuid) {
+  //   var UUID = window.device.uuid
+  //   ga('create', 'UA-43955457-6', {
+  //       'storage': 'none',
+  //       'clientId': UUID
+  //   })
+  // } else {
+    ga('create', 'UA-43955457-6', 'auto')
+  // }
 
 
   module.exports = window.ga
@@ -4773,294 +4773,272 @@ module.exports = new Overview(
 // , touch:{h:{parent:'h'}} 
 }).Class
 },{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../overview":"/Users/youzi/dev/mtv-play/components/first/overview/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/first/discover/carousel.js":[function(require,module,exports){
-require('./style.less')
+require( './style.less' )
 
-var Element = require('vigour-js/app/ui/element')
-  , dictionary = require( 'vigour-js/app/dictionary' )
-  , Img = require('../../img')
-  , Icon = require('../../icon')
-  , Title = require('../../text').Title
-  , app = require('vigour-js/app/')
-  , cases = require('vigour-js/browser/cases')
-  , config = require('vigour-js/util/config')
-  , animationFrame = require('vigour-js/browser/animation/frame')
-  , timer
-  , cancelAutoRoll
+var Element = require( 'vigour-js/app/ui/element' )
+var dictionary = require( 'vigour-js/app/dictionary' )
+var Img = require( '../../img' )
+var Icon = require( '../../icon' )
+var Title = require( '../../text' ).Title
+var app = require( 'vigour-js/app/' )
+var cases = require( 'vigour-js/browser/cases' )
+var config = require( 'vigour-js/util/config' )
+var animationFrame = require( 'vigour-js/browser/animation/frame' )
+var timer
+var cancelAutoRoll
 
-  , slide = new Element(
-    { img:new Img.Carousel(
-      { teaser:
-        { 
-        //   topic:
-        //   { text:
-        //     { data:
-        //       { val:function(data){
-        //           if(data.type && data.type.val === 'Article') {
-        //             return dictionary.get('text.spotlight.promotion').val
-        //           }
-        //           return dictionary.get('text.new').val
-        //         }
-        //       , listen:['type']
-        //       }
-        //     }
-        //   }
-        // , 
-        title:new Title()
-        }
-      , background:
-        { range:100
-        }
-      , events:
-        { active:'clicked'
-        , click:function(){
-            // var roll = this.parent.parent
-            // if(roll.x.val%roll.w.val) return
-            var data = this.data
-              , type = data.type && data.type.val
-              , link = data.link && data.link.val
-              , show
-              , episode
+var slide = new Element( {
+  img: new Img.Carousel( {
+    teaser: {
+      title: new Title()
+    },
+    background: {
+      range: 100
+    },
+    events: {
+      active: 'clicked',
+      click: function() {
+        var data = this.data,
+          type = data.type && data.type.val,
+          link = data.link && data.link.val,
+          show, episode
 
-            if( type === 'Article' )
-            {
-              if( link )
-              {
-                app.api.url.val = link
-              }
-              else
-              {
-                app.popup.from.data = data.from
-                app.popup.from.val = 'article'
-              }
-            }
-            else if( link )
-            {
-              link = link.split('.')
-              show = link[3] === 'shows'
-              episode = link[ link.length - 2 ] === 'episodes'
-
-              if( episode ) 
-              {
-                linkdata = app.content.from.get( link.slice(3) )
-                app.user.navigation.media.$userOrigin.val = linkdata
-                app.state.val = { val:'player', video:linkdata }
-              }
-              else if( show ) 
-              {
-
-                app.user.navigation.show.$userOrigin = app.content.from.get( link.slice(3) )
-              } 
-
-            }
+        if( type === 'Article' ) {
+          if( link ) {
+            app.api.url.val = link
+          } else {
+            app.popup.from.data = data.from
+            app.popup.from.val = 'article'
           }
-        }
-      })
-    , model:{subscription:{link:true,type:true}}
-    })
+        } else if( link ) {
+          link = link.split( '.' )
+          show = link[ 3 ] === 'shows'
+          episode = link[ link.length - 2 ] === 'episodes'
 
-  , roll = new Element( //fix load different on done
-    { css:'ui-roll'
-    , x:
-      { data:'carousel'
-      , transform:function(v,cv){
-          if(isNaN(cv)) cv = cv._val || 0
-          this._pos = cv
-          return cv * this.node.offsetWidth || 0
-        }
-      , animation:{ time:{val:36,phone:18},easing:'outCubic'}
-      , listen:app.w
-      }
-    // , h:
-    //   { parent:'h'
-    //   }
-    // , w:{parent:'w'}
-    , collection:
-      { data:'marquee'
-      , element:slide
-      }
-    , touch:
-      { events:
-        { grab:
-          { x:true
-          , pass:function(e,d){
-              if(Math.abs(d.x) > Math.abs(d.y)){
-                cancelAutoRoll = true
-                return true
-              }
+          if( episode ) {
+            linkdata = app.content.from.get( link.slice( 3 ) )
+            app.user.navigation.media.$userOrigin.val = linkdata
+            app.state.val = {
+              val: 'player',
+              video: linkdata
             }
-          , up:setPosition
+          } else if( show ) {
+
+            app.user.navigation.show.$userOrigin = app.content.from.get( link.slice( 3 ) )
           }
+
         }
       }
-    , model:
-      { complete:function(){
-          var _this = this
-          _this.x._p = true
-          window.requestAnimationFrame(function(){
-            if(_this.x) 
-            {
-              _this.x.update()
-              _this.x._p = null
-            }
-          })
-          this.model = {complete:null}
-      }}
-    })
+    }
+  } ),
+  model: {
+    subscription: {
+      link: true,
+      type: true
+    }
+  }
+} )
 
-  , buttons = new Element(
-    { css:'ui-car-buttons'
-    , prevBtn:new Icon(
-      { icon:'leftnav'
-      , events:
-        { click:function(){
-            var rll = this.parent.parent.roll
-              , ps = rll._pos 
-
-            if(ps < 0) setPos(rll,ps + 1)
+var roll = new Element( {
+  css: 'ui-roll',
+  x: {
+    data: 'carousel',
+    transform: function( v, cv ) {
+      if( isNaN( cv ) ) cv = cv._val || 0
+      this._pos = cv
+      return cv * this.node.offsetWidth || 0
+    },
+    animation: {
+      time: {
+        val: 36,
+        phone: 18
+      },
+      easing: 'outCubic'
+    },
+    listen: app.w
+  },
+  collection: {
+    data: 'marquee',
+    element: slide
+  },
+  touch: {
+    events: {
+      grab: {
+        x: true,
+        pass: function( e, d ) {
+          if( Math.abs( d.x ) > Math.abs( d.y ) ) {
+            cancelAutoRoll = true
+            return true
           }
-        }
-      })
-    , nextBtn:new Icon(
-      { icon:'rightnav'
-      , events:
-        { click:function(){
-            var rll = this.parent.parent.roll
-              , ps = rll._pos | 0
-            if(ps - 1 > - rll.children.length) setPos(rll,ps - 1)
-          }
-        }
-      })
-    })
-
-  , dots = new Element(
-    { css:'ui-dots'
-    , collection:
-      { data:'marquee'
-      , element:new Element(
-        { events:
-          { click:function(){
-              setPos(this.checkParent('roll',true),-index(this))
-            }
-          }
-        })
+        },
+        up: setPosition
       }
-    // , model:function( data ){
-    //     console.log('>>>>',data)
-    //   }
-    })
+    }
+  },
+  model: {
+    complete: function() {
+      var _this = this
+      _this.x._p = true
+      window.requestAnimationFrame( function() {
+        if( _this.x ) {
+          _this.x.update()
+          _this.x._p = null
+        }
+      } )
+      this.model = {
+        complete: null
+      }
+    }
+  }
+} )
 
-dots.extend(
-{ dotFocus:function( val ){
-    var pos = -val.val || 0
-      , dts = this.children
+var buttons = new Element( {
+  css: 'ui-car-buttons',
+  prevBtn: new Icon( {
+    icon: 'leftnav',
+    events: {
+      click: function() {
+        var rll = this.parent.parent.roll,
+          ps = rll._pos
 
-    for (var i = dts.length - 1; i >= 0; i--) {
-      var dot = dts[i]
-      if(i === pos) dot.css = 'dot-focus'
+        if( ps < 0 ) setPos( rll, ps + 1 )
+      }
+    }
+  } ),
+  nextBtn: new Icon( {
+    icon: 'rightnav',
+    events: {
+      click: function() {
+        var rll = this.parent.parent.roll,
+          ps = rll._pos | 0
+        if( ps - 1 > -rll.children.length ) setPos( rll, ps - 1 )
+      }
+    }
+  } )
+} )
+
+var dots = new Element( {
+  css: 'ui-dots',
+  collection: {
+    data: 'marquee',
+    element: new Element( {
+      events: {
+        click: function() {
+          setPos( this.checkParent( 'roll', true ), -index( this ) )
+        }
+      }
+    } )
+  }
+} )
+
+dots.extend( {
+  dotFocus: function( val ) {
+    var pos = -val.val || 0,
+      dts = this.children
+
+    for( var i = dts.length - 1; i >= 0; i-- ) {
+      var dot = dts[ i ]
+      if( i === pos ) dot.css = 'dot-focus'
       else dot.css = false
     }
   }
-})
+} )
 
-var carousel = new Element(
-    { on:
-      { $remove:
-        { defer:function( update ){
-            clearTimeout(timer)
-          }
-        }
+var carousel = new Element( {
+  on: {
+    $remove: {
+      defer: function( update ) {
+        clearTimeout( timer )
       }
-    // , w:{ parent:'w'   }
-    // , h:{ parent:'w', divide: 16/9, tablet:{max:{val:app.w, divide:2}}}//{ val:320, touch:{val:app.h, tablet:{max:app.w, divide:2}, phone:{divide:3}}}
-    , tablet:{ bgTeaser:{} }
-    , roll:roll
-    , 'desktop.buttons':buttons
-    , dotholder:
-      { dots:new dots.Class(
-        { dotFocus:{data:'carousel'}
-        })
+    }
+  },
+  tablet: {
+    bgTeaser: {}
+  },
+  roll: roll,
+  'desktop.buttons': buttons,
+  dotholder: {
+    dots: new dots.Class( {
+      dotFocus: {
+        data: 'carousel'
       }
-    // , model:
-      // { field:'spotlight'
-      // , complete:function(){
-      //     var roll = this.roll
-      //       , keys = this.data.keys
-      //     roll._pos = 0
-      //     if(keys && keys.length){
-      //       // appData.userData.from.set('carousel',0)
-      //       autoRoll(roll)
-      //       this.model = false//{complete:false}
-      //     }
-      //   }
-      // , inherit:false
-      // }
-    })
+    } )
+  }
+} )
 
-if(cases.tablet) carousel.h = {val:app.w,multiply:9/16,max:{val:app.h,multiply:1/2}}
+if( cases.tablet ){
+  carousel.h = {
+    val: app.w,
+    multiply: 9 / 16,
+    max: {
+      val: app.h,
+      multiply: 1 / 2
+    }
+  }
+}
 
 module.exports = exports = carousel
 exports.Dots = dots.Class
 exports.Buttons = buttons.Class
 exports.Roll = roll.Class
 
-function autoRoll(roll){
-  clearTimeout(timer)
-  timer = setTimeout(function(){
-    var newPos = roll._pos !== -roll.children.length+1 ? roll._pos - 1 : 0
-    // if(!cancelAutoRoll && !app.user && !cases.openSidemenu.val && animationFrame.done.val) setPos(roll,newPos)
-    autoRoll(roll)
-  },5000)
+function autoRoll( roll ) {
+  clearTimeout( timer )
+  timer = setTimeout( function() {
+    var newPos = roll._pos !== -roll.children.length + 1 ? roll._pos - 1 : 0
+    autoRoll( roll )
+  }, 5000 )
 }
 
-function index(me){
-  if(!me._i){
-    var siblings = me.parent.children
-      , i = siblings.length - 1
+function index( me ) {
+  if( !me._i ) {
+    var siblings = me.parent.children,
+      i = siblings.length - 1
 
-    for (;i >= 0;) siblings[i]._i = i--
+    for( ; i >= 0; ) siblings[ i ]._i = i--
   }
   return me._i
 }
 
-function setPosition(e, d, ld){ // unify with switcher
-  var treshold = 120
-    , flick = 10
-    , l = this.children.length
-    , oldPos = this._pos || (this._pos = 0)
-    , newPos = oldPos
-    , unfocus
+// TODO: unify with switcher
+function setPosition( e, d, ld ) {
+  var treshold = 120,
+    flick = 10,
+    l = this.children.length,
+    oldPos = this._pos || ( this._pos = 0 ),
+    newPos = oldPos,
+    unfocus
 
-  if(Math.abs(ld.x) > flick){
-    if(ld.x < 0 && !(d.x > treshold)) newPos = Math.max(oldPos - 1,-l+1)
-    if(ld.x > 0 && !(d.x < -treshold)) newPos = Math.min(oldPos + 1,0)
-  }else{
-    if(d.x < -treshold) newPos = Math.max(oldPos - 1,-l+1)
-    if(d.x > treshold) newPos = Math.min(oldPos + 1,0)
+  if( Math.abs( ld.x ) > flick ) {
+    if( ld.x < 0 && !( d.x > treshold ) ) newPos = Math.max( oldPos - 1, -l + 1 )
+    if( ld.x > 0 && !( d.x < -treshold ) ) newPos = Math.min( oldPos + 1, 0 )
+  } else {
+    if( d.x < -treshold ) newPos = Math.max( oldPos - 1, -l + 1 )
+    if( d.x > treshold ) newPos = Math.min( oldPos + 1, 0 )
   }
 
-  if(this.x._e) this.x = {_esub:this.x._e._val}
+  if( this.x._e ) this.x = {
+    _esub: this.x._e._val
+  }
 
   cancelAutoRoll = false
 
-  setPos(this,newPos)
+  setPos( this, newPos )
 }
 
-function setPos(roll,newPos){
-  var oldPos = roll._pos || (roll._pos = 0)
-    , discoverdots = roll.parent.dotholder.dots
-    , dts = (discoverdots || roll.parent.parent.parent.parent.topbar.txt.dotholder.dots).children
+function setPos( roll, newPos ) {
+  var oldPos = roll._pos || ( roll._pos = 0 ),
+    discoverdots = roll.parent.dotholder.dots,
+    dts = ( discoverdots || roll.parent.parent.parent.parent.topbar.txt.dotholder.dots ).children
 
-  if(newPos !== oldPos){
-    // dts[-oldPos].css = false
-    // dts[-newPos].css = 'dot-focus'
+  if( newPos !== oldPos ) {
     roll.data.carousel.from = newPos
     roll._pos = newPos
-
-    // appData.userData.from.set('carousel',newPos)
   }
 
-  if(discoverdots && timer) autoRoll(roll)
+  if( discoverdots && timer ) autoRoll( roll )
 }
+
 },{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/discover/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/frame":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/frame.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/first/discover/index.js":[function(require,module,exports){
 require('./style.less')
 
@@ -7507,7 +7485,7 @@ var EpisodeList = new Element({
         },
         txt: {
           title: new text.Title(),
-          subtitle: { //new text.Subtitle()
+          subtitle: {
             text: {
               data: 'number',
               transform: function( v, cv ) {
@@ -7599,7 +7577,7 @@ module.exports = new Element( {
       display:{
         data:'season.extras',
         transform:function(v,cv){
-          return cv ? 'block' : 'none'
+          return cv && cv[0] ? 'block' : 'none'
         }
       },
       text:{
@@ -8079,7 +8057,7 @@ var items = new Element( {
     display:{
       data:'extras',
       transform:function(v,cv){
-        return cv ? 'block' : 'none'
+        return cv && cv[0] ? 'block' : 'none'
       }
     },
     text:{
@@ -10338,30 +10316,29 @@ module.exports = function( update, args ) {
 },{"./row/show":"/Users/youzi/dev/mtv-play/components/first/tv/row/show.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/data/selection":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/selection.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/style.less":[function(require,module,exports){
 arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
 },{}],"/Users/youzi/dev/mtv-play/components/first/watch/index.js":[function(require,module,exports){
-require('./style.less')
+require( './style.less' )
 
-var Element = require('vigour-js/app/ui/element')
-var Icon = require('../../icon')
-var Player = require('../../player')
-var Favourite = require('../favourite')
-var app = require('vigour-js/app/')
-var Seasons = require('../seasons')
-var Topbar = require('../menu').Topbar
-var text = require('../../text')
-var Epg = require('../epg')
-var cases = require('vigour-js/browser/cases')
-var Switcher = require('vigour-js/app/ui/switcher')
+var Element = require( 'vigour-js/app/ui/element' )
+var Icon = require( '../../icon' )
+var Player = require( '../../player' )
+var Favourite = require( '../favourite' )
+var app = require( 'vigour-js/app/' )
+var Seasons = require( '../seasons' )
+var Topbar = require( '../menu' ).Topbar
+var text = require( '../../text' )
+var Epg = require( '../epg' )
+var cases = require( 'vigour-js/browser/cases' )
+var Switcher = require( 'vigour-js/app/ui/switcher' )
 var landscape
-  // var cnt = 0
 
-Switcher = new Switcher({
-  onTransition: function(current, last) {
-    if (last) last.remove()
-    this.add(current)
+Switcher = new Switcher( {
+  onTransition: function( current, last ) {
+    if( last ) last.remove()
+    this.add( current )
   }
-}).Class
+} ).Class
 
-var Info = new Element({
+var Info = new Element( {
   touch: {
     scrollbar: 'y'
   },
@@ -10369,152 +10346,144 @@ var Info = new Element({
     h: app.h.val - Topbar.base.h.val - app.w.val * 9 / 16
   },
   header: {
-    title: new text.Title({
+    title: new text.Title( {
       text: {
         data: 'media.title'
       }
-    })
+    } )
   },
   description: new text.Description()
-}).Class
+} ).Class
 
 var ChannelInfo = new Info().Class
 
-var EpisodeInfo = new Info({
+var EpisodeInfo = new Info( {
   header: {
-    add: [new Icon({
+    add: [ new Icon( {
       icon: 'share',
       name: 'share',
       events: {
         click: function() {
-          var popup = this.checkParent('on.popup', true).from
-          popup.data = this.checkParent('data', true).media.from
+          var popup = this.checkParent( 'on.popup', true ).from
+          popup.data = this.checkParent( 'data', true ).media.from
           popup.val = 'share'
         }
       }
-    }), 'title'],
+    } ), 'title' ],
     subtitle: {
       text: {
         val: {
           dictionary: 'text.season'
         },
-        add: [' ', {
-          data: 'season.number'//,
-          // transform: function(v, cv) {
-          //   var realNumber = this.data && this.data.media.from._parent._parent.number,
-          //     realNumberVal = realNumber && realNumber.val
-          //   if (realNumberVal) cv = realNumberVal
-          //   return cv
-          // }
+        add: [ ' ', {
+          data: 'season.number'
         }, ' ', {
           dictionary: 'text.episode'
         }, ' ', {
           data: 'media.number'
-        }]
+        } ]
       }
 
     }
   }
-}).Class
+} ).Class
 
-var ChannelTitle = new text.Title({
+var ChannelTitle = new text.Title( {
   text: {
     data: 'media.title'
   }
-}).Class
+} ).Class
 
-var ShowTitle = new text.Title({
+var ShowTitle = new text.Title( {
   text: {
     data: 'show.title'
   },
   favourite: new Favourite()
-}).Class
+} ).Class
 
-function updateLayout(update) {
-  var parent = this._parent,
-    caller = parent._caller,
-    w = window.innerWidth,
-    h = window.innerHeight,
-    data = caller.data,
-    type = 'side'
+function updateLayout( update ) {
+  var parent = this._parent
+  var caller = parent._caller
+  var w = window.innerWidth
+  var h = window.innerHeight
+  var data = caller.data
+  var type = 'side'
 
   landscape = w > h
 
-  if (!this.from.val) return
+  if( !this.from.val ) return
 
-  if (landscape) //landscape
-  {
-    if (!caller[type]) {
-      if (caller.media[type]) {
-        caller.media[type].remove()
+  if( landscape ) {
+    if( !caller[ type ] ) {
+      if( caller.media[ type ] ) {
+        caller.media[ type ].remove()
       }
 
       caller.node.style.tableLayout = 'auto'
 
-      caller.add(new Switcher({
+      caller.add( new Switcher( {
         name: type,
         data: data
-      }), 'media')
+      } ), 'media' )
 
-      caller.media.info.set({
+      caller.media.info.set( {
         display: 'block',
         h: {
           val: app.h,
-          sub: [Topbar.base.h.val, {
+          sub: [ Topbar.base.h.val, {
             val: app.w,
             sub: 400,
             multiply: 9 / 16
-          }]
+          } ]
         }
-      })
+      } )
 
       parent.channel._update()
 
     }
 
-  } else //portrait
-  {
-    if (!caller.media[type]) {
-      if (caller[type]) {
-        caller[type].remove()
+  } else {
+    if( !caller.media[ type ] ) {
+      if( caller[ type ] ) {
+        caller[ type ].remove()
       }
 
-      caller.media.add(new Switcher({
+      caller.media.add( new Switcher( {
         name: type,
         data: data
-      }), 'info')
+      } ), 'info' )
 
       caller.node.style.tableLayout = 'fixed'
 
-      caller.media.info.set({
+      caller.media.info.set( {
         display: 'table-cell',
         h: {
           val: app.h,
-          sub: [Topbar.base.h.val, {
+          sub: [ Topbar.base.h.val, {
             val: app.w,
             sub: 0,
             multiply: 9 / 16
-          }]
+          } ]
         }
-      })
+      } )
 
       parent.channel._update()
 
     }
   }
 
-  if (!caller.on.resize.val) {
-    caller.set({
+  if( !caller.on.resize.val ) {
+    caller.set( {
       on: {
         resize: app.w
       }
-    })
+    } )
   }
 
   update()
 }
 
-module.exports = new Element({
+module.exports = new Element( {
   css: 'first-watch',
   x: {
     translate: true
@@ -10529,7 +10498,7 @@ module.exports = new Element({
   on: {
     channel: {
       val: false,
-      defer: function(update) {
+      defer: function( update ) {
         var caller = this._parent._caller,
           info = caller.media.info,
           side = caller.side || caller.media.side,
@@ -10539,31 +10508,31 @@ module.exports = new Element({
           },
           isChannel = cases.$isOnChannel.val
 
-          if(caller.data){
-            params.data = caller.data
-            params.data.media = app.user.navigation.media
-          }
+        if( caller.data ) {
+          params.data = caller.data
+          params.data.media = app.user.navigation.media
+        }
 
-        if (isChannel === false) {
+        if( isChannel === false ) {
           info.transition = {
             element: EpisodeInfo,
             $params: params
           }
 
-          if (header) {
+          if( header ) {
             header.transition = {
               element: ShowTitle,
               $params: params
             }
           }
 
-          if (side) {
+          if( side ) {
             params.on = {
               media: app.user.navigation.media.$userOrigin
             }
 
             //quick fix dirty!
-            if (!landscape) {
+            if( !landscape ) {
               params.list = {
                 h: {
                   sub: {
@@ -10583,24 +10552,24 @@ module.exports = new Element({
 
             side.css = 'first-seasons seasons-only'
           }
-        } else if (isChannel === true) {
-          if (cases.phone) info.css = 'first-seasons first-epg'
+        } else if( isChannel === true ) {
+          if( cases.phone ) info.css = 'first-seasons first-epg'
 
           info.transition = {
             element: cases.phone ? Epg : ChannelInfo,
             $params: params
           }
 
-          if (header) {
+          if( header ) {
             header.transition = {
               element: ChannelTitle,
               $params: params
             }
           }
 
-          if (side) {
+          if( side ) {
 
-            if (!landscape) {
+            if( !landscape ) {
               params.list = {
                 h: {
                   sub: {
@@ -10625,9 +10594,9 @@ module.exports = new Element({
       }
     },
     $render: {
-      defer: function(update) {
+      defer: function( update ) {
         var parent = this._parent
-        if (cases.tablet){
+        if( cases.tablet ) {
           parent.resize._update()
         }
         parent.channel._update()
@@ -10635,7 +10604,7 @@ module.exports = new Element({
       }
     }
   },
-  tablet:{
+  tablet: {
     on: {
       resize: {
         defer: updateLayout
@@ -10647,13 +10616,13 @@ module.exports = new Element({
     info: new Switcher()
   },
   desktop: {
-    add: [new Switcher({
+    add: [ new Switcher( {
       name: 'pageheader'
-    }), 'media'],
+    } ), 'media' ],
     margin: {},
     side: new Switcher()
   }
-}).Class
+} ).Class
 
 },{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../player":"/Users/youzi/dev/mtv-play/components/player/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","../epg":"/Users/youzi/dev/mtv-play/components/first/epg/index.js","../favourite":"/Users/youzi/dev/mtv-play/components/first/favourite/index.js","../menu":"/Users/youzi/dev/mtv-play/components/first/menu/index.js","../seasons":"/Users/youzi/dev/mtv-play/components/first/seasons/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/watch/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/watch/style.less":[function(require,module,exports){
 arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
@@ -11205,27 +11174,27 @@ module.exports = new Element(
 },{"../seekbar":"/Users/youzi/dev/mtv-play/components/player/seekbar/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/player/controls/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/element/video/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/video/util.js"}],"/Users/youzi/dev/mtv-play/components/player/controls/style.less":[function(require,module,exports){
 arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
 },{}],"/Users/youzi/dev/mtv-play/components/player/index.js":[function(require,module,exports){
-require('./style.less')
+require( './style.less' )
 
-var app = require('vigour-js/app/')
-  , cases = require('vigour-js/browser/cases')
-  , ua = require('vigour-js/browser/ua')
-  , Element = require('vigour-js/app/ui/element')
-  , Video = require('./video')
-  , Overlay = require('./overlay')
-  , Backdrop = require('./backdrop')
-  , config = require('vigour-js/util/config')
-  , density = cases.retina ? 2 : 1
-  , keyUpID = 'keyUpID'
-  , raf = require('vigour-js/browser/animation/raf')
-  , fromMediaSwitch
+var app = require( 'vigour-js/app/' ),
+  cases = require( 'vigour-js/browser/cases' ),
+  ua = require( 'vigour-js/browser/ua' ),
+  Element = require( 'vigour-js/app/ui/element' ),
+  Video = require( './video' ),
+  Overlay = require( './overlay' ),
+  Backdrop = require( './backdrop' ),
+  config = require( 'vigour-js/util/config' ),
+  density = cases.retina ? 2 : 1,
+  keyUpID = 'keyUpID',
+  raf = require( 'vigour-js/browser/animation/raf' ),
+  fromMediaSwitch
 
 //for martin
 document.cookie = "_L1Nl9uK_DJGt_RDAVBq_=_L1Nl9uK_DJGt_RDAVBq_; domain=.mtvplay.tv";
 
 function launchIntoFullscreen( el ) { //add these to framework
   var element = el.node || el
-  if( element.requestFullscreen ){
+  if( element.requestFullscreen ) {
     element.requestFullscreen()
   } else if( element.mozRequestFullScreen ) {
     element.mozRequestFullScreen()
@@ -11248,74 +11217,66 @@ function exitFullscreen() {
   }
 }
 
-function swiped(){ // make this a case!
-  var mediaData = app.user.navigation.media.from
-    , msMediaData = app.user.receiver.media.from
-    , swiped = cases.$hasReceiver.val
-      && msMediaData._cachedPath === mediaData._cachedPath
+function swiped() { // make this a case!
+  var mediaData = app.user.navigation.media.from,
+    msMediaData = app.user.receiver.media.from,
+    swiped = cases.$hasReceiver.val && msMediaData._cachedPath === mediaData._cachedPath
 
-    return swiped
+  return swiped
 }
 
-function updateSwipe(){
-  var player = this._parent._caller
-    , holder = player.parent
-    , video = player.video
-    , videoData = video && video.data
+function updateSwipe() {
+  var player = this._parent._caller,
+    holder = player.parent,
+    video = player.video,
+    videoData = video && video.data
 
   if( !holder ) return
-  if( !cases.$isReceiver.val )
-  {
+  if( !cases.$isReceiver.val ) {
     player._cachedW = null
-    if( swiped() )
-    {
+    if( swiped() ) {
       if( player._fullscreen ) player.x = app.w
       else {
-        player.y = { multiply:-1 }
+        player.y = {
+          multiply: -1
+        }
       }
 
-      raf(function(){
+      raf( function() {
         if( swiped() ) app.playing.from.val = false
-      })
+      } )
 
-      if( holder.backdrop.empty )
-      {
-        holder.set(
-        { backdrop:new Backdrop(
-          { data:player.video.data
-          })
-        })
+      if( holder.backdrop.empty ) {
+        holder.set( {
+          backdrop: new Backdrop( {
+            data: player.video.data
+          } )
+        } )
       }
 
       return true
-    }
-    else if( player.y.multiply.val )
-    {
+    } else if( player.y.multiply.val ) {
       player.x = 0
-      player.y = { multiply:0 }
+      player.y = {
+        multiply: 0
+      }
     }
-  }
-  else if( player.__ready && !swiped )
-  {
+  } else if( player.__ready && !swiped ) {
     return true
   }
 }
 
 //on receiver media update > update swipe & update time
-function onMsMedia( update ){
-  var caller = this._parent._caller
-    , video = caller.video
-    , videoData = video
-      && video.data
-    , mediaUsage = videoData
-      && videoData.mediausage
-      && videoData.mediausage.from
-    , videoTime = video && video.time.from.val
+function onMsMedia( update ) {
+  var caller = this._parent._caller,
+    video = caller.video,
+    videoData = video && video.data,
+    mediaUsage = videoData && videoData.mediausage && videoData.mediausage.from,
+    videoTime = video && video.time.from.val
 
   var updateTime = updateSwipe.call( this )
 
-  if( !cases.$isOnChannel.val && updateTime && mediaUsage && ( videoTime || videoTime === 0 ) )
-  {
+  if( !cases.$isOnChannel.val && updateTime && mediaUsage && ( videoTime || videoTime === 0 ) ) {
     mediaUsage.set( 'time', Math.abs( videoTime ) )
   }
 
@@ -11323,8 +11284,8 @@ function onMsMedia( update ){
 }
 
 //on media nav > update swipe
-function onMedia( update ){
-  if( !cases.tv && !cases.$isReceiver.val ){
+function onMedia( update ) {
+  if( !cases.tv && !cases.$isReceiver.val ) {
     var player = this._parent._caller
     player.y._p = true
     updateSwipe.call( this )
@@ -11334,62 +11295,57 @@ function onMedia( update ){
 }
 
 //on render > set play & bind msmedia & bind media & bind fullscreen
-function onRender( update ){
-  var parent = this._parent
-    , player = parent._caller
+function onRender( update ) {
+  var parent = this._parent,
+    player = parent._caller
 
   app.playing.from.val = cases.tv || ( !cases.$isActive.val && cases.$isReceiver.val ) ? true : false
 
-  parent.msmedia.val =
-  { val:app.user.receiver.media
-  , listen:[ cases.$hasReceiver ]
+  parent.msmedia.val = {
+    val: app.user.receiver.media,
+    listen: [ cases.$hasReceiver ]
   }
 
   parent.media.val = app.user.navigation.media
 
   parent.fullscreen.val = cases.$isFullscreen
 
-  raf(function(){
-    if( player.video )
-    {
+  raf( function() {
+    if( player.video ) {
       player.__ready = true
       player.video.$play = app.playing
       player.overlay.on.volume.val = app.volume
     }
-  })
+  } )
 
   window.player = player
 
-  if( cases.desktop )
-  {
-    app.addEvent('keydown',function( e ){
+  if( cases.desktop ) {
+    app.addEvent( 'keydown', function( e ) {
       if( app.popup.val || ( !cases.$isReceiver.val && swiped() ) ) return
 
       var keyEvent = true
-      //space or enter
+        //space or enter
       if( e.keyCode === 32 || e.keyCode === 13 ) player.togglePlay()
-      //left
+        //left
       else if( e.keyCode === 37 ) player.seekBackward()
-      //right
+        //right
       else if( e.keyCode === 39 ) player.seekForward()
-      //up
+        //up
       else if( e.keyCode === 38 ) player.volumeUp()
-      //down
+        //down
       else if( e.keyCode === 40 ) player.volumeDown()
-      //F
+        //F
       else if( e.keyCode === 70 ) player.goFullscreen()
 
       else keyEvent = false
 
-      if( keyEvent )
-      {
+      if( keyEvent ) {
         e.preventDefault()
       }
 
-    },keyUpID)
-  }
-  else if( cases.tv )
-  {
+    }, keyUpID )
+  } else if( cases.tv ) {
     player.$focus()
   }
 
@@ -11397,7 +11353,7 @@ function onRender( update ){
 }
 
 //on remove > pause global play
-function onRemove( update ){
+function onRemove( update ) {
   app.playing.from.val = false
 
   app.removeEvent( false, keyUpID )
@@ -11405,112 +11361,111 @@ function onRemove( update ){
   update()
 }
 
-function onFullscreen( update ){
-  var fullscreen = this.from.val
-    , player = this._parent._caller
-    , fsListener = ua.prefix + 'fullscreenchange'
+function onFullscreen( update ) {
+  var fullscreen = this.from.val,
+    player = this._parent._caller,
+    fsListener = ua.prefix + 'fullscreenchange'
 
-  if( fullscreen )
-  {
+  if( fullscreen ) {
     if( window.statusBar ) window.statusBar.hide()
     else if( cases.desktop ) launchIntoFullscreen( player )
     else if( cases.phone ) launchIntoFullscreen( player )
 
-    player._exitFullscreen = function(e){
-      var fullscreenElement = document.fullscreenElement
-      || document.mozFullScreenElement
-      || document.webkitFullscreenElement
+    player._exitFullscreen = function( e ) {
+      var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement
 
       if( !fullscreenElement ) app.state.val = 'first'
 
     }
     document.body.addEventListener( fsListener, player._exitFullscreen )
-  }
-  else
-  {
+  } else {
     if( window.statusBar ) window.statusBar.show()
     if( cases.desktop ) exitFullscreen()
-    document.body.removeEventListener( fsListener, player._exitFullscreen)
+    document.body.removeEventListener( fsListener, player._exitFullscreen )
   }
 
-  raf.repeat(function(){
+  raf.repeat( function() {
     if( player.background ) player.background._update()
-  },2)
+  }, 2 )
 
   update()
 }
 
-function seekBackward(){
+function seekBackward() {
   var usage = this.data && this.data.mediausage
-  if( usage && usage.time && !cases.$isOnChannel.val ) usage.time.from.val = Math.max( 0, Math.abs(usage.time.from.val) - 0.01 )
+  if( usage && usage.time && !cases.$isOnChannel.val ) usage.time.from.val = Math.max( 0, Math.abs( usage.time.from.val ) - 0.01 )
 }
 
-function seekForward(){
+function seekForward() {
   var usage = this.data && this.data.mediausage
-  if( usage && usage.time && !cases.$isOnChannel.val ) usage.time.from.val = Math.min( 1, Math.abs(usage.time.from.val) + 0.01 )
+  if( usage && usage.time && !cases.$isOnChannel.val ) usage.time.from.val = Math.min( 1, Math.abs( usage.time.from.val ) + 0.01 )
 }
 
-function togglePlay(){
+function togglePlay() {
   app.playing.from.val = !app.playing.val
 }
 
-function volumeUp(){
+function volumeUp() {
   if( app.volume.val <= 0.9 ) app.volume.from.val += 0.1
 }
 
-function volumeDown(){
+function volumeDown() {
   if( app.volume.val >= 0.1 ) app.volume.from.val -= 0.1
 }
 
-module.exports = exports = new Element(
-{ on:
-  { fullscreen:
-    { defer:onFullscreen
+module.exports = exports = new Element( {
+  on: {
+    fullscreen: {
+      defer: onFullscreen
+    },
+    msmedia: // update y and also time on msmedia update
+    {
+      defer: onMsMedia
+    },
+    media: // update y on media navigation
+    {
+      defer: onMedia
+    },
+    $render: {
+      defer: onRender
+    },
+    $remove: {
+      defer: onRemove
     }
-  , msmedia: // update y and also time on msmedia update
-    { defer:onMsMedia
-    }
-  , media: // update y on media navigation
-    { defer:onMedia
-    }
-  , $render:
-    { defer:onRender
-    }
-  , $remove:
-    { defer:onRemove
-    }
-  }
-, tv:
-  { css:'base-player fullscreen-player'
-  , events:
-    { back: function() {
+  },
+  tv: {
+    css: 'base-player fullscreen-player',
+    events: {
+      back: function() {
         // app.focusState._val = 'row'
         app.state.val = 'first'
-        // app.user.updateNavigation()
-      }
-    , click: togglePlay
-    , arrowLeft: seekBackward
-    , arrowRight: seekForward
-    // leftArrow , rightArrow
-    // up down door episodes?
-    , $focus: function( e ) {
+          // app.user.updateNavigation()
+      },
+      click: togglePlay,
+      arrowLeft: seekBackward,
+      arrowRight: seekForward
+        // leftArrow , rightArrow
+        // up down door episodes?
+        ,
+      $focus: function( e ) {
 
       }
     }
-  }
-, chromecast:
-  { css:'base-player fullscreen-player'
-  }
-, x:
-  { val:0
-  , animation:
-    { time:24
-    , easing:'outCubic'
-    , done:function( cv ){
-        if( cv )
-        {
+  },
+  chromecast: {
+    css: 'base-player fullscreen-player'
+  },
+  x: {
+    val: 0,
+    animation: {
+      time: 24,
+      easing: 'outCubic',
+      done: function( cv ) {
+        if( cv ) {
           this.y._p = true
-          this.y = { multiply:-1 }
+          this.y = {
+            multiply: -1
+          }
           this.y._p = null
           this.x._p = true
           this.x = 0
@@ -11519,453 +11474,383 @@ module.exports = exports = new Element(
         }
       }
     }
-  }
-, y:
-  { translate:true
-  , val:app.w
-  , defer:function( update, args ){
+  },
+  y: {
+    translate: true,
+    val: app.w,
+    defer: function( update, args ) {
       var _this = this
-      if( !this._caller.rendered ){
+      if( !this._caller.rendered ) {
         update( true )
         return true
       }
-      if( args[2] === false ){ // only do if the update is coming from app.w, is this right?
-        raf(function(){
+      if( args[ 2 ] === false ) { // only do if the update is coming from app.w, is this right?
+        raf( function() {
           _this._p = true
           update()
           _this._p = null
-        })
+        } )
       } else {
         update()
       }
-    }
-  , transform:function( v, cv ){
-      if( this._cachedW !== cv )
-      {
+    },
+    transform: function( v, cv ) {
+      if( this._cachedW !== cv ) {
         this._cachedW = cv
         this._cachedY = this.node.offsetHeight
       }
       var value = this._cachedY || ( this._cachedY = this.node.offsetHeight )
       if( value ) return value
-    }
-  , multiply:
-    { val:0
-    , animation:
-      { time:24
-      , easing:'outCubic'
+    },
+    multiply: {
+      val: 0,
+      animation: {
+        time: 24,
+        easing: 'outCubic'
       }
     }
-  }
-, video:new Video()
-, overlay:new Overlay()
-, adMessage:
-  { text:'Advertisement'
-  , display:
-    { val:'none'
-    , $isPlayingAd:'block'
+  },
+  video: new Video(),
+  overlay: new Overlay(),
+  adMessage: {
+    text: 'Advertisement',
+    display: {
+      val: 'none',
+      $isPlayingAd: 'block'
     }
-  }
-, background:
-  { data:'media.img'
-  , $bubble:{ self:true }
-  , transform:function(v,cv){
+  },
+  background: {
+    data: 'media.img',
+    $bubble: {
+      self: true
+    },
+    transform: function( v, cv ) {
 
-    if( !cv ) return ''
+      if( !cv ) return ''
 
-    var node = this.node
-      , w = node.offsetWidth
-      , _this = this
+      var node = this.node,
+        w = node.offsetWidth,
+        _this = this
 
-    if( !w )
-    {
-      if( !_this.rafId ) {
-        _this.rafId = raf(function(){
-          if( _this.rendered ) _this.background.update(_this)
-        })
-      }
-      return ''
-    }
-
-    return config.img
-         + '/image/'
-         + cv
-         + '/'
-         + w * density
-         + '/'
-         + node.offsetHeight * density
-    }
-  }
-}).Class
-
-var goFullscreen = cases.phone
-? require( './phone-fullscreen' )
-: function(){
-    if( cases.$isFullscreen.val )
-    {
-      var user = app.user
-        , receiver = cases.$isReceiver.val
-        , mediadata = this.checkParent('data.media',true)
-        , seasondata
-
-      if( receiver )
-      {
-        if( mediadata )
-        {
-          if( mediadata._parent._name === 'episodes' )
-          {
-            seasondata = mediadata._parent._parent
-            user.navigation.season.$userOrigin.val = seasondata
-            user.navigation.show.$userOrigin.val = seasondata._parent._parent
-          }
-          user.navigation.media.$userOrigin = mediadata.from
+      if( !w ) {
+        if( !_this.rafId ) {
+          _this.rafId = raf( function() {
+            if( _this.rendered ) _this.background.update( _this )
+          } )
         }
-        user.activeClient.$userOrigin = user.cloud.client.from
-        user.receiver.media.$userOrigin = false
+        return ''
       }
-      else
-      {
-        app.state.val = 'first'
-      }
-    }
-    else
-    {
-      app.state.val = 'player'
+
+      return config.img + '/image/' + cv + '/' + w * density + '/' + node.offsetHeight * density
     }
   }
+} ).Class
 
-exports.base.define(
-{ seekBackward:seekBackward
-, seekForward:seekForward
-, togglePlay:togglePlay
-, volumeUp:volumeUp
-, volumeDown:volumeDown
-, goFullscreen:goFullscreen
-})
+var goFullscreen = cases.phone ? require( './phone-fullscreen' ) : function() {
+  if( cases.$isFullscreen.val ) {
+    var user = app.user,
+      receiver = cases.$isReceiver.val,
+      mediadata = this.checkParent( 'data.media', true ),
+      seasondata
 
-exports.Holder = new Element(
-{ css:'player-holder'
-, backdrop:{ empty:true }
-, player:new exports(
-  { css:
-    { val:'base-player windowed-player'
-    , $isFullscreen:!cases.phone && 'base-player fullscreen-player'
+    if( receiver ) {
+      if( mediadata ) {
+        if( mediadata._parent._name === 'episodes' ) {
+          seasondata = mediadata._parent._parent
+          user.navigation.season.$userOrigin.val = seasondata
+          user.navigation.show.$userOrigin.val = seasondata._parent._parent
+        }
+        user.navigation.media.$userOrigin = mediadata.from
+      }
+      user.activeClient.$userOrigin = user.cloud.client.from
+      user.receiver.media.$userOrigin = false
+    } else {
+      app.state.val = 'first'
     }
-  })
-}).Class
+  } else {
+    app.state.val = 'player'
+  }
+}
 
+exports.base.define( {
+  seekBackward: seekBackward,
+  seekForward: seekForward,
+  togglePlay: togglePlay,
+  volumeUp: volumeUp,
+  volumeDown: volumeDown,
+  goFullscreen: goFullscreen
+} )
+
+exports.Holder = new Element( {
+  css: 'player-holder',
+  backdrop: {
+    empty: true
+  },
+  player: new exports( {
+    css: {
+      val: 'base-player windowed-player',
+      $isFullscreen: !cases.phone && 'base-player fullscreen-player'
+    }
+  } )
+} ).Class
 
 },{"./backdrop":"/Users/youzi/dev/mtv-play/components/player/backdrop.js","./overlay":"/Users/youzi/dev/mtv-play/components/player/overlay/index.js","./phone-fullscreen":"/Users/youzi/dev/mtv-play/components/player/phone-fullscreen.js","./style.less":"/Users/youzi/dev/mtv-play/components/player/style.less","./video":"/Users/youzi/dev/mtv-play/components/player/video/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/player/overlay/index.js":[function(require,module,exports){
-var app = require('vigour-js/app/')
-var cases = window.cases = require('vigour-js/browser/cases')
-var Element = require('vigour-js/app/ui/element')
-var Controls = require('../controls')
-var Icon = require('../../icon')
-var Img = require('../../img')
-var Play = require('./play')
-var Volume = require('../volume')
+var app = require( 'vigour-js/app/' )
+var cases = window.cases = require( 'vigour-js/browser/cases' )
+var Element = require( 'vigour-js/app/ui/element' )
+var Controls = require( '../controls' )
+var Icon = require( '../../icon' )
+var Img = require( '../../img' )
+var Play = require( './play' )
+var Volume = require( '../volume' )
 
-function swipeUp(e){
-  var data = this.checkParent('_d',true)
+function swipeUp( e ) {
+  var data = this.checkParent( '_d', true )
   e.prevent = true
   app.user.receiver.media.$userOrigin.val = data.media.from
 }
 
-var Clickable = new Element(
-{ on:{data:'media.id'}
-, buttons:
-  { play:new Play(
-    { display:!cases.phone &&
-      { data:'media.access'
-      , transform: function( val, cv ) {
+var Clickable = new Element( {
+  on: {
+    data: 'media.id'
+  },
+  buttons: {
+    play: new Play( {
+      display: !cases.phone && {
+        data: 'media.access',
+        transform: function( val, cv ) {
           var icon = app.util.access( cv, this.data && this.data.media )
-          return ( icon && ~icon.indexOf('play') ) ? 'none' : 'inline-block'
+          return( icon && ~icon.indexOf( 'play' ) ) ? 'none' : 'inline-block'
         }
       }
-    })
-  , swipe:new Icon(
-    { icon:'swipeup'
-    , display:
-      { data:'media.access'
-      , transform:function(cv){
-          var media = this.data && this.data.media
-            , accesAllowed = media
-              && !( media._parent && media._parent._name === 'channels' && app.user.role.val === 3 )
-              && ( cases.$isUpgraded.val
-                  || ( media.access && !media.access.val )
-                  || ( media.val && media.val.access && !media.val.access.val )
-                  )
-            , showSwipeButton = cases.$hasReceiver.val && accesAllowed
+    } ),
+    swipe: new Icon( {
+      icon: 'swipeup',
+      display: {
+        data: 'media.access',
+        transform: function( cv ) {
+          var media = this.data && this.data.media,
+            accesAllowed = media && !( media._parent && media._parent._name === 'channels' && app.user.role.val === 3 ) && ( cases.$isUpgraded.val || ( media.access && !media.access.val ) || ( media.val && media.val.access && !media.val.access.val ) ),
+            showSwipeButton = cases.$hasReceiver.val && accesAllowed
 
           return showSwipeButton ? 'inline-block' : 'none'
-        }
-      , listen:[ cases.$hasReceiver, app.user.role, app.user.purchases ]
+        },
+        listen: [ cases.$hasReceiver, app.user.role, app.user.purchases ]
+      },
+      events: {
+        click: swipeUp
       }
-    , events:
-      { click:swipeUp
-      }
-    })
+    } )
+  },
+  events: {
+    click: !cases.touch ? function() {
+      app.playing.from.val = !app.playing.val
+    } : function() {
+      var opacity = this.parent.opacity
+      opacity.val = opacity.val ? 0 : 1
+    }
   }
-, events:
-  { click:!cases.phone
-    ? function(){
-        app.playing.from.val = !app.playing.val
-      }
-    : function(){
-        var opacity = this.parent.opacity
-        opacity.val = opacity.val ? 0 : 1
-      }
-  }
-}).Class
+} ).Class
 
 var pointerElement = new Element().Class
 
-pointerElement.base.extend(
-{ pointerEvents:function( val ){
+pointerElement.base.extend( {
+  pointerEvents: function( val ) {
     this.node.style.pointerEvents = val.val
   }
-})
+} )
 
-// exports.nextEpisode = function( currentEpisode ){
-
-//   if( currentEpisode )
-//   {
-//     var currentEpisodeName = currentEpisode._name
-//       , currentEpisodes = currentEpisode._parent
-//       , currentSeason
-//       , currentSeasonName
-//       , currentShow
-//       , nextEpisode
-//       , nextSeason
-
-//     nextEpisode = currentEpisodes[( currentEpisodeName | 0 ) + 1]
-
-//     if( !nextEpisode )
-//     {
-//       currentSeason = currentEpisodes._parent
-//       currentSeasonName = currentSeason._name
-//       currentShow = currentSeason._parent
-//       nextSeason = currentShow[( currentSeasonName | 0 ) + 1]
-//       if( nextSeason ) nextEpisode = nextSeason.get('episodes.0')
-//     }
-
-//     if( nextEpisode ) return nextEpisode
-//   }
-
-// }
-
-module.exports = new pointerElement(
-{ on:
-  { $remove:
-    { defer:function( update ){
+module.exports = new pointerElement( {
+  on: {
+    $remove: {
+      defer: function( update ) {
         var overlay = this._parent._caller
         if( overlay._timer ) clearTimeout( overlay._timer )
         update()
       }
-    }
-  , volume:
-    { defer:function( update ){
+    },
+    volume: {
+      defer: function( update ) {
         var overlay = this._parent._caller
         overlay.opacity.val = 1
         update()
       }
     }
-  // , data:'mediausage.time'
-  // , defer:function( update, args ){
-  //     var time = args[0]
-  //     if( !isNaN( time ) )
-  //     {
-  //       time = Math.abs( time )
-  //       if( time > 0.97 ) this._caller.nextEpisode.display = 'block'
-  //       else this._caller.nextEpisode.display = 'none'
-  //     }
-  //     update()
-  //   }
-  }
-, opacity:
-  { val:1
-  , defer:function( update, args ){
+  },
+  opacity: {
+    val: 1,
+    defer: function( update, args ) {
       var caller = this._caller
 
       if( this._block ) return true
 
-      if( this._val === 1 )
-      {
+      if( this._val === 1 ) {
         if( caller._timer ) clearTimeout( caller._timer )
-        caller._timer = setTimeout( function(){
+        caller._timer = setTimeout( function() {
           if( app.playing.val ) caller.opacity.val = 0
           caller._timer = null
         }, 2500 )
       }
 
       update()
-    }
-  , listen:app.playing
-  }
-// , 'nextEpisode.events.click':function(e){
-//     e.prevent = true
-//     var mediaData = this.checkParent('data',true).media
-//       , nextEpisode = mediaData && exports.nextEpisode( mediaData.from )
-
-//     if( nextEpisode ){
-//       app.user.navigation.media.$userOrigin = nextEpisode
-//     }
-//     else
-//     {
-//       alert('no next!!')
-//     }
-//   }
-, infoholder:
-  { display:
-    { val:'table'
-    , $isPlayingAd:'none'
-    , $isOnChannel:'none'
-    }
-  , '!phone.thumb':new Img(
-    { h:
-      { val:50
-      , $isFullscreen:110
-      }
-    , w:
-      { self:'h'
-      , defer:function( update ){
+    },
+    listen: app.playing
+  },
+  infoholder: {
+    display: {
+      val: 'table',
+      $isPlayingAd: 'none',
+      $isOnChannel: 'none'
+    },
+    '!phone.thumb': new Img( {
+      h: {
+        val: 50,
+        $isFullscreen: 110
+      },
+      w: {
+        self: 'h',
+        defer: function( update ) {
           this._caller.background._update()
           update()
         }
+      },
+      background: {
+        data: 'show.img'
       }
-    , background:
-      { data:'show.img'
-      }
-    })
-  , titles:
-    { showtitle:
-      { text:
-        { data:'media.title'
+    } ),
+    titles: {
+      showtitle: {
+        text: {
+          data: 'media.title'
         }
-      }
-    , showsubtitle:
-      { text:
-        { val:
-          { dictionary:'text.season'
-          , transform:function( v, cv ){ return cv && cv[0] }
-          , add:
-            { data:'season.number'
-            , transform:function( v,cv ){
-                var realNumber = this.data && this.data.media.from._parent._parent.number
-                  , realNumberVal = realNumber && realNumber.val
+      },
+      showsubtitle: {
+        text: {
+          val: {
+            dictionary: 'text.season',
+            transform: function( v, cv ) {
+              return cv && cv[ 0 ]
+            },
+            add: {
+              data: 'season.number',
+              transform: function( v, cv ) {
+                var realNumber = this.data && this.data.media.from._parent._parent.number,
+                  realNumberVal = realNumber && realNumber.val
                 if( realNumberVal ) cv = realNumberVal
-                return (cv > 9 ? cv : '0' + cv) + ' '
+                return( cv > 9 ? cv : '0' + cv ) + ' '
               }
             }
-          }
-        , add:
-          [ { val:
-              { dictionary:'text.episode'
-              , transform:function( v, cv ){ return cv && cv[0] }
+          },
+          add: [ {
+            val: {
+              dictionary: 'text.episode',
+              transform: function( v, cv ) {
+                return cv && cv[ 0 ]
               }
             }
-          , { data:'media.number'
-            , transform:function( v, cv ){
-                return (cv > 9 ? cv : '0' + cv)
-              }
+          }, {
+            data: 'media.number',
+            transform: function( v, cv ) {
+              return( cv > 9 ? cv : '0' + cv )
             }
-          ]
+          } ]
         }
       }
     }
-  }
-, clickable:new Clickable()
-, '!phoneBrowser.controls':
-  { css:{val:'',$isOnChannel:'on-channel'}
-  , on:{data:'media.id'}
-  , left:new Play()
-  , display:
-    { data:'media.access'
-    , transform: function( val, cv ) {
-        return app.util.access( cv, this.data && this.data.media ) === 'lockedContent'
-        ? 'none'
-        : 'table'
-      }
-    , listen:[ app.user.role, app.user.purchases ]
-    }
-  , center:new Controls(
-    { container:
-      { display:
-        { val:'block'
-        , $isOnChannel:'none'
-        , $isPlayingAd:'none'
-        }
-      , seekbar:
-        { bg:
-          { seekLoader:
-            { opacity:
-              { val:0
-              , $isLoadingVideo:1
+  },
+  clickable: new Clickable(),
+  '!phoneBrowser.controls': {
+    css: {
+      val: '',
+      $isOnChannel: 'on-channel'
+    },
+    on: {
+      data: 'media.id'
+    },
+    left: new Play(),
+    display: {
+      data: 'media.access',
+      transform: function( val, cv ) {
+        return app.util.access( cv, this.data && this.data.media ) === 'lockedContent' ? 'none' : 'table'
+      },
+      listen: [ app.user.role, app.user.purchases ]
+    },
+    center: new Controls( {
+      container: {
+        display: {
+          val: 'block',
+          $isOnChannel: 'none',
+          $isPlayingAd: 'none'
+        },
+        seekbar: {
+          bg: {
+            seekLoader: {
+              opacity: {
+                val: 0,
+                $isLoadingVideo: 1
               }
             }
           }
         }
-      }
-    , adMessage:
-      { text:'Your video will play after this ad.'
-      , display:
-        { val:'none'
-        , $isPlayingAd:'block'
+      },
+      adMessage: {
+        text: 'Your video will play after this ad.',
+        display: {
+          val: 'none',
+          $isPlayingAd: 'block'
         }
       }
-    })
-  , '!tv.right':
-    { volume:
-      { holder:new Volume(
-        { bars:
-          { data:'volume'
+    } ),
+    '!tv.right': {
+      volume: {
+        holder: new Volume( {
+          bars: {
+            data: 'volume'
           }
-        })
-      }
-    , fullscreen:new Icon(
-      { icon:
-        { val:'fullscreen'
-        , $isFullscreen:'exitfullscreen'
-        }
-      , events:
-        { click:function(){
+        } )
+      },
+      fullscreen: new Icon( {
+        icon: {
+          val: 'fullscreen',
+          $isFullscreen: 'exitfullscreen'
+        },
+        events: {
+          click: function() {
             var player = this.checkParent( 'player', true )
             if( player ) player.goFullscreen()
           }
         }
-      })
+      } )
     }
-  }
-, events:
-  { down:function( e ){
+  },
+  events: {
+    down: function( e ) {
       var opacity = this.opacity
-      if( cases.$isFullscreen.val && !opacity.val )
-      {
+      if( cases.$isFullscreen.val && !opacity.val ) {
         e.prevent = true
         opacity.val = 1
       }
     }
-  }
-, desktop:
-  { pointerEvents:
-    { val:'auto'
-    , $isPlayingAd:'none'
-    }
-  , events:
-    { move:function(){
+  },
+  desktop: {
+    pointerEvents: {
+      val: 'auto',
+      $isPlayingAd: 'none'
+    },
+    events: {
+      move: function() {
         var opacity = this.opacity
-        if( !opacity.val )
-        {
+        if( !opacity.val ) {
           opacity.val = 1
           opacity._block = true
-          setTimeout(function(){
+          setTimeout( function() {
             opacity._block = null
-          },1000)
+          }, 1000 )
         }
       }
     }
   }
-}).Class
-
+} ).Class
 
 },{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../controls":"/Users/youzi/dev/mtv-play/components/player/controls/index.js","../volume":"/Users/youzi/dev/mtv-play/components/player/volume/index.js","./play":"/Users/youzi/dev/mtv-play/components/player/overlay/play.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/player/overlay/play.js":[function(require,module,exports){
 var Icon = require('../../icon')
@@ -12030,14 +11915,15 @@ var app = require('vigour-js/app/')
 
 function fullscreen( exit ){
   var page = this.checkParent('media',true)
-    , player = page.player.player
-    , topbar = this.checkParent('topbar',true)
-    , controls = player.overlay.controls
-    , fullscreenButton = controls.right.fullscreen
-    , seekbar = controls.center.container.seekbar
-    , miniplayer = this.checkParent('miniplayer',true)
-    , style = player.node.style
-    , _this = this
+  var switcher = page.checkParent('switcher',true)
+  var player = page.player.player
+  var topbar = switcher.checkParent('topbar',true)
+  var controls = player.overlay.controls
+  var fullscreenButton = controls.right.fullscreen
+  var seekbar = controls.center.container.seekbar
+  var miniplayer = this.checkParent('miniplayer',true)
+  var style = player.node.style
+  var _this = this
 
   if( window.StatusBar )
   {
@@ -12065,7 +11951,9 @@ function fullscreen( exit ){
   , x: 0
   })
   
+
   player.overlay.node.style.zIndex = exit ? null : '1'
+  switcher.node.style.zIndex = exit ? null : '1'
   style.zIndex = exit ? null : '1'
   style.margin = exit ? '0' : '-' + topbarHeight + 'px ' + app.w.val + 'px'
   style.width = exit ? null : app.h.val + 'px'
@@ -17047,8 +16935,7 @@ if( !remote )
   else
   {
 
-    cases.phoneBrowser = ua.device === 'phone' && !( cases.$isNative || cases.$isIosFull )
-
+    cases.phoneBrowser = ua.device === 'phone' && !( cases.native || cases.$isIosFull )
     require( './platform/all.js' )
   }
 
@@ -52274,6 +52161,6 @@ app.set( // switcher between first/second/player
 app.initialised.val = true
 
 },{"../app":"/Users/youzi/dev/mtv-play/app/index.js","../components/switcher":"/Users/youzi/dev/mtv-play/components/switcher/index.js","vigour-js/app/ui/tv":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/tv/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"package.json":[function(require,module,exports){
-module.exports={"name":"mtv-play","version":"1.2.68","description":"mtv's multiscreen adventure","main":"index.js","scripts":{"start":"gaston -d","test":"test/test.js","release":"packer -r -c package.json,.package.json"},"repository":{"type":"git","url":"https://github.com/vigour-io/mtv-play","branch":"develop"},"keywords":["multiscreen","play","shows","smart","tv","js"],"dependencies":{"lodash":"3.2.0","monotonic-timestamp":"0.0.9","package-branch-config":"^1.2.2","promise":"6.1.0","through2":"^2.0.0","vigour-js":"git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay","zepto-browserify":"x"},"devDependencies":{"vigour-dev-tools":"git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master","vigour-packer-server":"git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"},"author":"Jim de Beer","license":"other","bugs":{"url":"https://github.com/vigour-io/mtv-play/issues"},"homepage":"https://github.com/vigour-io/mtv-play","vigour":{"ga":"UA-43955457-3","hashUrl":true,"defaultRegion":false,"regionOverride":false,"availableRegions":["DE","NL","CH","PL","RO","BE"],"geo":"https://wwwmtvplay-a.akamaihd.net/geo/","development":{"button":true},"cloud":"http://mtv-hub.dev.vigour.io:80","othercloud":"http://localhost:10001","languages":["en","de","nl","pl","ro","it","fr"],"mtvmobile":["de","ch","ro"],"roles":["free","premium","mtv","trial"],"countrycodes":{"de":49,"ch":41,"ro":40,"nl":31},"dictionary":"http://mtv-develop.vigour.io/translations/lang_$language.json","webtranslateit":{"files":{"de":374130,"en":374126,"nl":374128,"pl":374129,"ro":374131,"fr":404562,"it":404563},"token":"-rN-CdCWmgh4IDxFRT-MEg"},"epg":"https://wwwmtvplay-a.akamaihd.net/xhr/index.html","img":"https://imgmtvplay-a.akamaihd.net","api":{"type":"production","url":"https://utt.mtvnn.com/","acceptHeader":"application/json","key":"4e99c9381b74354fbae9f468497912f0"},"player":{"debug":false,"web":"http://player.mtvnn.com/html5player/production/player.js","settings":{"domain":"mtv","tld":"de","localization":{"language":"de","country":"DE"},"ads":{"enabled":true,"engine":"Freewheel","networkID":174975,"profileID":"174975:MTVNE_live_HTML5","viralSID":"mtvplaytv/test","defaultAssetID":41349526,"server":"http://2ab7f.v.fwmrm.net/ad/p/1"},"controls":false,"blankVideo":"http://player.mtvnn.com/codebase/blank.m4v","simulcastApiKey":"c153f28d950ae49a"}},"chromecast":{"id":"30C914C1","web":"https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"},"facebook":{"id":"720547754665171","web":"https://connect.facebook.net/de_DE/sdk.js"},"packer":{"language":"https://wwwmtvplay-a.akamaihd.net/translations/","url":"https://wwwmtvplay-a.akamaihd.net/","domain":"http://mtv-develop.vigour.io","assets":{"index.html":true,"bundle.js":true,"bundle.css":true,"build.html":true,"build.js":true,"build.css":true,"img":"*","assets":"*","fonts":"*","fonts.css":true,"translations":"*"},"transforms":{"build.js":["inform"],"bundle.css":["rebase"],"build.css":["rebase"]},"main":"build.js","web":"build.html","fbDefaults":{"title":"MTV Play","description":"Mtv's new app to view shows on all devices","image":"http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png"}},"store":{"ios":{"monthly":"$region_subscription_monthly","yearly":"$region_subscription_annual","single":"$region_single_purchase"},"android":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annually","single":"mtvplay_single_purchase"},"windows":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annual","single":"mtvplay_single_purchase"}}},"gaston":{"port":8080,"socket-port":9000,"no-auto-reload":false,"no-package":false,"bundle":"./","build":"./","browserify":{"transforms":[{"path":"package-branch-config","options":{"section":"vigour"}}]},"less":{"options":{}},"smaps":true,"source-maps":true,"remote-logging":true,"require-paths":{}},"sha":"1.2.68"}
+module.exports={"name":"mtv-play","version":"1.2.69","description":"mtv's multiscreen adventure","main":"index.js","scripts":{"start":"gaston -d","test":"test/test.js","release":"packer -r -c package.json,.package.json"},"repository":{"type":"git","url":"https://github.com/vigour-io/mtv-play","branch":"develop"},"keywords":["multiscreen","play","shows","smart","tv","js"],"dependencies":{"lodash":"3.2.0","monotonic-timestamp":"0.0.9","package-branch-config":"^1.2.2","promise":"6.1.0","through2":"^2.0.0","vigour-js":"git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay","zepto-browserify":"x"},"devDependencies":{"vigour-dev-tools":"git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master","vigour-packer-server":"git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"},"author":"Jim de Beer","license":"other","bugs":{"url":"https://github.com/vigour-io/mtv-play/issues"},"homepage":"https://github.com/vigour-io/mtv-play","vigour":{"ga":"UA-43955457-3","hashUrl":true,"defaultRegion":false,"regionOverride":"DE","availableRegions":["DE","NL","CH","PL","RO","BE"],"geo":"https://wwwmtvplay-a.akamaihd.net/geo/","development":{"button":true},"cloud":"http://mtvtest.dev.vigour.io:80","othercloud":"http://localhost:10001","languages":["en","de","nl","pl","ro","it","fr"],"mtvmobile":["de","ch","ro"],"roles":["free","premium","mtv","trial"],"countrycodes":{"de":49,"ch":41,"ro":40,"nl":31},"dictionary":"http://mtv-develop.vigour.io/translations/lang_$language.json","webtranslateit":{"files":{"de":374130,"en":374126,"nl":374128,"pl":374129,"ro":374131,"fr":404562,"it":404563},"token":"-rN-CdCWmgh4IDxFRT-MEg"},"epg":"https://wwwmtvplay-a.akamaihd.net/xhr/index.html","img":"https://imgmtvplay-a.akamaihd.net","api":{"type":"production","url":"https://utt.mtvnn.com/","acceptHeader":"application/json","key":"4e99c9381b74354fbae9f468497912f0"},"player":{"debug":false,"web":"http://player.mtvnn.com/html5player/production/player.js","settings":{"domain":"mtv","tld":"de","localization":{"language":"de","country":"DE"},"ads":{"enabled":true,"engine":"Freewheel","networkID":174975,"profileID":"174975:MTVNE_live_HTML5","viralSID":"mtvplaytv/test","defaultAssetID":41349526,"server":"http://2ab7f.v.fwmrm.net/ad/p/1"},"controls":false,"blankVideo":"http://player.mtvnn.com/codebase/blank.m4v","simulcastApiKey":"c153f28d950ae49a"}},"chromecast":{"id":"30C914C1","web":"https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"},"facebook":{"id":"720547754665171","web":"https://connect.facebook.net/de_DE/sdk.js"},"packer":{"language":"https://wwwmtvplay-a.akamaihd.net/translations/","url":"https://wwwmtvplay-a.akamaihd.net/","domain":"http://mtv-develop.vigour.io","assets":{"index.html":true,"bundle.js":true,"bundle.css":true,"build.html":true,"build.js":true,"build.css":true,"img":"*","assets":"*","fonts":"*","fonts.css":true,"translations":"*"},"transforms":{"build.js":["inform"],"bundle.css":["rebase"],"build.css":["rebase"]},"main":"build.js","web":"build.html","fbDefaults":{"title":"MTV Play","description":"Mtv's new app to view shows on all devices","image":"http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png"}},"store":{"ios":{"monthly":"$region_subscription_monthly","yearly":"$region_subscription_annual","single":"$region_single_purchase"},"android":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annually","single":"mtvplay_single_purchase"},"windows":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annual","single":"mtvplay_single_purchase"}}},"gaston":{"port":8080,"socket-port":9000,"no-auto-reload":false,"no-package":false,"bundle":"./","build":"./","browserify":{"transforms":[{"path":"package-branch-config","options":{"section":"vigour"}}]},"less":{"options":{}},"smaps":true,"source-maps":true,"remote-logging":true,"require-paths":{}},"sha":"1.2.69"}
 },{}]},{},["/Users/youzi/dev/mtv-play/index.js"])
 //# sourceMappingURL=bundle.js.map
