@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.69",
+  "version": "1.2.70",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -148,11 +148,12 @@
         "build.html": true,
         "build.js": true,
         "build.css": true,
+        "fonts.css":true,
+        "fonts":"*",
         "img": "*",
         "assets": "*",
-        "fonts": "*",
-        "fonts.css": true,
-        "translations":"*"
+        "googleebecff275dd42f4a.html":true,
+        "google2c4a46fac7686373.html":true
       },
       "transforms": {
         "build.js": [
@@ -197,16 +198,6 @@
           "button": false
         },
         "cloud": "http://mtvtest.dev.vigour.io:80",
-        "player": {
-          "debug": false,
-          "web": "http://player.mtvnn.com/html5player/staging/player.js",
-          "settings": {
-            "ads": {
-              "enabled": true,
-              "viralSID": "production"
-            }
-          }
-        },
         "packer": {
           "domain": "http://staging.packer.mtv.vigour.io"
         },
@@ -256,6 +247,16 @@
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
         "omniture": "viaviamtvplay",
+        "player": {
+          "debug": false,
+          "web": "http://player.mtvnn.com/html5player/production/player.js",
+          "settings": {
+            "ads": {
+              "enabled": true,
+              "viralSID": "production"
+            }
+          }
+        },
         "development": {
           "button": false
         }
@@ -298,9 +299,9 @@
     "less": {
       "options": {}
     },
-    "smaps": true,
-    "source-maps": true,
-    "remote-logging": true,
+    "smaps": false,
+    "source-maps": false,
+    "remote-logging": false,
     "require-paths": {}
   }
 }
