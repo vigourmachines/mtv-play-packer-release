@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.64",
+  "version": "1.2.65",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -202,7 +202,7 @@
         "packer": {
           "domain": "http://staging.packer.mtv.vigour.io"
         },
-        "regionOverride": "DE"
+        "regionOverride": "url"
       },
       "demo": {
         "api": {
