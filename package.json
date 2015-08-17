@@ -202,7 +202,7 @@
         "packer": {
           "domain": "http://staging.packer.mtv.vigour.io"
         },
-        "regionOverride": "DE"
+        "regionOverride": "url"
       },
       "demo": {
         "api": {
