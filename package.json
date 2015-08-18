@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.66",
+  "version": "1.2.67",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -150,7 +150,8 @@
         "img": "*",
         "assets": "*",
         "googleebecff275dd42f4a.html":true,
-        "google2c4a46fac7686373.html":true
+        "google2c4a46fac7686373.html":true,
+        "xhr":"*"
       },
       "transforms": {
         "build.js": [
@@ -241,7 +242,7 @@
         "regionOverride": "DE"
       },
       "production": {
-        "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
+        "dictionary": "https://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
         "omniture": "viaviamtvplay",
         "player": {
