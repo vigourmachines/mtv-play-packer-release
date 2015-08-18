@@ -204,7 +204,7 @@
         "packer": {
           "domain": "http://staging.packer.mtv.vigour.io"
         },
-        "regionOverride": "url"
+        "regionOverride": "NO"
       },
       "demo": {
         "api": {
@@ -272,7 +272,7 @@
         "packer": {
           "domain": "http://mtv-develop.vigour.io"
         },
-        "regionOverride": "DE"
+        "regionOverride": "NO"
       },
       "master": {
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
