@@ -3014,80 +3014,69 @@ module.exports = exports = require( 'vigour-js/util/config' )
 
 var util = require( 'vigour-js/util' )
 
-var ua = require( 'vigour-js/browser/ua' )
-  , cases = require('vigour-js/browser/cases' )
-  , Value = require('vigour-js/value')
+var ua = require( 'vigour-js/browser/ua' ),
+  cases = require( 'vigour-js/browser/cases' ),
+  Value = require( 'vigour-js/value' )
 
 exports.language = new Value()
 exports.region = new Value()
 
-if( exports.dictionary === 'webtranslateit' )
-{
+if( exports.dictionary === 'webtranslateit' ) {
   exports.dictionary = function( val ) {
-    return 'https://webtranslateit.com/api/projects/'
-         + exports.webtranslateit.token
-         + '/files/'
-         + exports.webtranslateit.files[ val ]
-         + '/locales/'
-         + val
+    return 'https://webtranslateit.com/api/projects/' + exports.webtranslateit.token + '/files/' + exports.webtranslateit.files[ val ] + '/locales/' + val
   }
-}
-else
-{
+} else {
   var dict = exports.dictionary
   exports.dictionary = function( val ) {
     return dict.replace( '$language', val )
   }
 }
 
-var protocol
-  , port
+var protocol, port
 
 if( exports.cloud === 'production' ) //this used to have === 'demo' as well
 {
-  protocol = cases.tv ?  'http://' : 'https://'
+  protocol = cases.tv ? 'http://' : 'https://'
   port = protocol === 'https://' ? 443 : 80
 
-  if( exports.cloud === 'production' )
-  {
-    exports.cloud = new Value({
+  if( exports.cloud === 'production' ) {
+    exports.cloud = new Value( {
       val: exports.region,
       transform: function( c, cv ) {
-        if(cv === 'PL') { cv = 'po' }
-        return cv ? protocol + cv.toLowerCase() + '-hubs.mtvplay.tv:'+port
-                  : false
+        if( cv === 'PL' ) {
+          cv = 'po'
+        }
+        return cv ? protocol + cv.toLowerCase() + '-hubs.mtvplay.tv:' + port : false
       }
-    })
-  }
-  else
-  {
+    } )
+  } else {
     // this else will never happen?
     var regionOverride = exports.regionOverride
-    if(regionOverride === 'url') {
+    if( regionOverride === 'url' ) {
       void(0)
       var regions = [ 'CH', 'BE', 'DE', 'NO', 'NL', 'PL', 'RO' ]
       var href = window.location.href
-      var regionat = href.indexOf('r=')
-      regionOverride = href.slice(regionat + 2, regionat + 4)
-      if( regions.indexOf(regionOverride) === -1 ){
+      var regionat = href.indexOf( 'r=' )
+      regionOverride = href.slice( regionat + 2, regionat + 4 )
+      if( regions.indexOf( regionOverride ) === -1 ) {
         regionOverride = 'DE'
       }
       exports.regionOverride = regionOverride
     }
-    
-    exports.cloud = protocol
-      + ( exports.regionOverride || 'nl' ).toLowerCase()
-      + '-hubs.mtvplay.tv:'+port
+
+    exports.cloud = protocol + ( exports.regionOverride || 'nl' ).toLowerCase() + '-hubs.mtvplay.tv:' + port
   }
 }
 
-if( exports.player && exports.player.settings.ads.viralSID === 'production' )
-{
+if( exports.player && exports.player.settings.ads.viralSID === 'production' ) {
   var viralSID
-
-  if( cases.tv ) viralSID = 'mtvplaytv/smarttv'
-  else if( cases.native ) viralSID = 'mtvplaytv/app'
-  else  viralSID = 'mtvplaytv/web'
+  if( cases.tv ) {
+    viralSID = 'mtvplaytv/smarttv'
+  } else if( cases.tablet || cases.phone ) {
+    viralSID = 'mtvplaytv/app'
+  } else {
+    viralSID = 'mtvplaytv/web'
+  }
 
   exports.player.settings.ads.viralSID = viralSID
 }
@@ -3109,6 +3098,7 @@ if( exports.player && exports.player.settings.ads.viralSID === 'production' )
    set all correct branch info
    cloud - geo forced wel production
 */
+
 },{"vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/index.js":[function(require,module,exports){
 //TODO:not connnected to internet app thing
 //TODO:verander responseData naam
@@ -3328,6 +3318,7 @@ app.dictionary = dictionary
 var regionOverride = config.regionOverride
 if( regionOverride ) {
   if( regionOverride === 'url' ) {
+
     var regions = [ 'CH', 'BE', 'DE', 'NO', 'NL', 'PL', 'RO' ]
     var href = window.location.href
     var regionat = href.indexOf('r=')
@@ -3335,6 +3326,7 @@ if( regionOverride ) {
     if( regions.indexOf(regionOverride) === -1 ){
       regionOverride = 'DE'
     }
+    void(0)
     config.regionOverride = regionOverride
   }
   app.region.val =
@@ -52233,6 +52225,6 @@ app.set( // switcher between first/second/player
 app.initialised.val = true
 
 },{"../app":"/Users/youzi/dev/mtv-play/app/index.js","../components/switcher":"/Users/youzi/dev/mtv-play/components/switcher/index.js","vigour-js/app/ui/tv":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/tv/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"package.json":[function(require,module,exports){
-module.exports={"name":"mtv-play","version":"1.2.70","description":"mtv's multiscreen adventure","main":"index.js","scripts":{"start":"gaston -d","test":"test/test.js","release":"packer -r -c package.json,.package.json"},"repository":{"type":"git","url":"https://github.com/vigour-io/mtv-play","branch":"develop"},"keywords":["multiscreen","play","shows","smart","tv","js"],"dependencies":{"lodash":"3.2.0","monotonic-timestamp":"0.0.9","package-branch-config":"^1.2.2","promise":"6.1.0","through2":"^2.0.0","vigour-js":"git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay","zepto-browserify":"x"},"devDependencies":{"vigour-dev-tools":"git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master","vigour-packer-server":"git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"},"author":"Jim de Beer","license":"other","bugs":{"url":"https://github.com/vigour-io/mtv-play/issues"},"homepage":"https://github.com/vigour-io/mtv-play","vigour":{"ga":"UA-43955457-3","hashUrl":true,"defaultRegion":false,"regionOverride":"DE","availableRegions":["DE","NL","CH","PL","RO","BE"],"geo":"https://wwwmtvplay-a.akamaihd.net/geo/","development":{"button":true},"cloud":"http://mtvtest.dev.vigour.io:80","othercloud":"http://localhost:10001","languages":["en","de","nl","pl","ro","it","fr","no"],"mtvmobile":["de","ch","ro"],"roles":["free","premium","mtv","trial"],"countrycodes":{"de":49,"ch":41,"ro":40,"nl":31},"dictionary":"http://mtv-develop.vigour.io/translations/lang_$language.json","webtranslateit":{"files":{"de":374130,"en":374126,"nl":374128,"pl":374129,"ro":374131,"fr":404562,"it":404563},"token":"-rN-CdCWmgh4IDxFRT-MEg"},"epg":"https://wwwmtvplay-a.akamaihd.net/xhr/index.html","img":"https://imgmtvplay-a.akamaihd.net","api":{"type":"production","url":"https://utt.mtvnn.com/","acceptHeader":"application/json","key":"4e99c9381b74354fbae9f468497912f0"},"player":{"debug":false,"web":"http://player.mtvnn.com/html5player/production/player.js","settings":{"domain":"mtv","tld":"de","localization":{"language":"de","country":"DE"},"ads":{"enabled":true,"engine":"Freewheel","networkID":174975,"profileID":"174975:MTVNE_live_HTML5","viralSID":"mtvplaytv/test","defaultAssetID":41349526,"server":"http://2ab7f.v.fwmrm.net/ad/p/1"},"controls":false,"blankVideo":"http://player.mtvnn.com/codebase/blank.m4v","simulcastApiKey":"c153f28d950ae49a"}},"chromecast":{"id":"30C914C1","web":"https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"},"facebook":{"id":"720547754665171","web":"https://connect.facebook.net/de_DE/sdk.js"},"packer":{"language":"https://wwwmtvplay-a.akamaihd.net/translations/","url":"https://wwwmtvplay-a.akamaihd.net/","domain":"http://mtv-develop.vigour.io","assets":{"index.html":true,"bundle.js":true,"bundle.css":true,"build.html":true,"build.js":true,"build.css":true,"fonts.css":true,"fonts":"*","img":"*","assets":"*","translations":"*","xhr":"*","googleebecff275dd42f4a.html":true,"google2c4a46fac7686373.html":true},"transforms":{"build.js":["inform"],"bundle.css":["rebase"],"build.css":["rebase"]},"main":"build.js","web":"build.html","fbDefaults":{"title":"MTV Play","description":"Mtv's new app to view shows on all devices","image":"http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png"}},"store":{"ios":{"monthly":"$region_subscription_monthly","yearly":"$region_subscription_annual","single":"$region_single_purchase"},"android":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annually","single":"mtvplay_single_purchase"},"windows":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annual","single":"mtvplay_single_purchase"}}},"gaston":{"port":8080,"socket-port":9000,"no-auto-reload":false,"no-package":false,"bundle":"./","build":"./","browserify":{"transforms":[{"path":"package-branch-config","options":{"section":"vigour"}}]},"less":{"options":{}},"smaps":false,"source-maps":false,"remote-logging":false,"require-paths":{}},"sha":"1.2.70"}
+module.exports={"name":"mtv-play","version":"1.2.67","description":"mtv's multiscreen adventure","main":"index.js","scripts":{"start":"gaston -d","test":"test/test.js","release":"packer -r -c package.json,.package.json"},"repository":{"type":"git","url":"https://github.com/vigour-io/mtv-play","branch":"develop"},"keywords":["multiscreen","play","shows","smart","tv","js"],"dependencies":{"lodash":"3.2.0","monotonic-timestamp":"0.0.9","package-branch-config":"^1.2.2","promise":"6.1.0","through2":"^2.0.0","vigour-js":"git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay","zepto-browserify":"x"},"devDependencies":{"vigour-dev-tools":"git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master","vigour-packer-server":"git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"},"author":"Jim de Beer","license":"other","bugs":{"url":"https://github.com/vigour-io/mtv-play/issues"},"homepage":"https://github.com/vigour-io/mtv-play","vigour":{"ga":"UA-43955457-3","hashUrl":true,"defaultRegion":false,"regionOverride":"NO","availableRegions":["DE","NL","CH","PL","RO","BE"],"geo":"https://wwwmtvplay-a.akamaihd.net/geo/","development":{"button":true},"cloud":"http://mtvtest.dev.vigour.io:80","othercloud":"http://localhost:10001","languages":["en","de","nl","pl","ro","it","fr","no"],"mtvmobile":["de","ch","ro"],"roles":["free","premium","mtv","trial"],"countrycodes":{"de":49,"ch":41,"ro":40,"nl":31},"dictionary":"http://mtv-develop.vigour.io/translations/lang_$language.json","webtranslateit":{"files":{"de":374130,"en":374126,"nl":374128,"pl":374129,"ro":374131,"fr":404562,"it":404563},"token":"-rN-CdCWmgh4IDxFRT-MEg"},"epg":"https://wwwmtvplay-a.akamaihd.net/xhr/index.html","img":"https://imgmtvplay-a.akamaihd.net","api":{"type":"production","url":"https://utt.mtvnn.com/","acceptHeader":"application/json","key":"4e99c9381b74354fbae9f468497912f0"},"player":{"debug":false,"web":"http://player.mtvnn.com/html5player/production/player.js","settings":{"domain":"mtv","tld":"de","localization":{"language":"de","country":"DE"},"ads":{"enabled":true,"engine":"Freewheel","networkID":174975,"profileID":"174975:MTVNE_live_HTML5","viralSID":"mtvplaytv/test","defaultAssetID":41349526,"server":"http://2ab7f.v.fwmrm.net/ad/p/1"},"controls":false,"blankVideo":"http://player.mtvnn.com/codebase/blank.m4v","simulcastApiKey":"c153f28d950ae49a"}},"chromecast":{"id":"30C914C1","web":"https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"},"facebook":{"id":"720547754665171","web":"https://connect.facebook.net/de_DE/sdk.js"},"packer":{"language":"https://wwwmtvplay-a.akamaihd.net/translations/","url":"https://wwwmtvplay-a.akamaihd.net/","domain":"http://mtv-develop.vigour.io","assets":{"index.html":true,"bundle.js":true,"bundle.css":true,"build.html":true,"build.js":true,"build.css":true,"fonts.css":true,"fonts":"*","img":"*","assets":"*","translations":"*","xhr":"*","googleebecff275dd42f4a.html":true,"google2c4a46fac7686373.html":true},"transforms":{"build.js":["inform"],"bundle.css":["rebase"],"build.css":["rebase"]},"main":"build.js","web":"build.html","fbDefaults":{"title":"MTV Play","description":"Mtv's new app to view shows on all devices","image":"http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png"}},"store":{"ios":{"monthly":"$region_subscription_monthly","yearly":"$region_subscription_annual","single":"$region_single_purchase"},"android":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annually","single":"mtvplay_single_purchase"},"windows":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annual","single":"mtvplay_single_purchase"}}},"gaston":{"port":8080,"socket-port":9000,"no-auto-reload":false,"no-package":false,"bundle":"./","build":"./","browserify":{"transforms":[{"path":"package-branch-config","options":{"section":"vigour"}}]},"less":{"options":{}},"smaps":false,"source-maps":false,"remote-logging":false,"require-paths":{}},"sha":"1.2.67"}
 },{}]},{},["/Users/youzi/dev/mtv-play/index.js"])
 //# sourceMappingURL=bundle.js.map

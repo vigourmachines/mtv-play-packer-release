@@ -1968,55 +1968,6 @@ x:-o-prefocus,
   margin-bottom: 0;
   padding: 8px 0;
 }
-/* /Users/youzi/dev/mtv-play/components/first/switcher/style.less */
-.first-switcher {
-  width: 100%;
-  position: relative;
-}
-.first-switcher .first-loader {
-  height: 100%;
-  width: 100%;
-  display: table;
-  text-align: center;
-}
-.first-switcher .first-loader .loadicon {
-  display: table-cell;
-  vertical-align: middle;
-  font-size: 64px;
-  color: #dbcedb;
-}
-.touch .first-switcher > div {
-  position: absolute;
-  width: 100%;
-  min-height: 100%;
-  background-color: #f8eff8;
-  -webkit-transition: opacity 0.2s ease-out;
-  -moz-transition: opacity 0.2s ease-out;
-  -ms-transition: opacity 0.2s ease-out;
-  -o-transition: opacity 0.2s ease-out;
-  transition: opacity 0.2s ease-out;
-}
-.windows.touch .first-switcher > div {
-  -ms-transition: opacity 0.2s ease-out 0.1s, -ms-transform 0.2s ease-out;
-  transition: opacity 0.2s ease-out 0.1s, transform 0.2s ease-out;
-}
-.desktop .first-switcher .first-loader {
-  margin: 0 !important;
-}
-.desktop .first-switcher > div {
-  margin: 30px auto 90px auto;
-  max-width: 1385px;
-  min-width: 1060px;
-  border-left: 50px solid #fafafa;
-  border-right: 50px solid #fafafa;
-}
-.touch .first-switcher {
-  background-color: #f8eff8;
-}
-.tv .first-switcher {
-  background-color: #231331;
-  overflow: hidden;
-}
 /* /Users/youzi/dev/mtv-play/components/first/notification/style.less */
 .first-notification {
   position: absolute;
@@ -2104,124 +2055,54 @@ x:-o-prefocus,
   margin-right: 15px;
   padding-right: 15px;
 }
-/* /Users/youzi/dev/mtv-play/components/first/watch/style.less */
-.first-watch {
-  color: #3a1a58;
-}
-.first-watch .title {
-  font-family: OpenSansBold;
-  font-size: 22px;
-}
-.first-watch .txt .title {
-  font-family: OpenSansBold;
-  font-size: 16px;
-}
-.first-watch > .media {
-  overflow: hidden;
+/* /Users/youzi/dev/mtv-play/components/first/switcher/style.less */
+.first-switcher {
   width: 100%;
+  position: relative;
 }
-.first-watch > .media .subtitle {
-  font-size: 12px;
-  font-family: OpenSansRegular;
-  color: #ac99b9;
-}
-.first-watch .description {
-  margin-bottom: 80px;
-}
-.first-watch .share {
-  float: right;
-  padding: 15px;
-  margin: -15px;
-}
-.phone .first-watch {
+.first-switcher .first-loader {
   height: 100%;
-}
-.phone .first-watch .description {
-  padding: 15px;
-  border-top: 1px solid #dbcedb;
-}
-.phone .first-watch .header {
-  padding: 15px;
-}
-.tablet .first-watch .info {
-  border-left: 1px solid #dbcedb;
-  display: table-cell;
   width: 100%;
-}
-.tablet .first-watch .holder .info {
-  background-color: rgba(22, 22, 22, 0.5);
-}
-.tablet .first-watch .holder .info .title {
-  font-size: 22px;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-}
-.tablet .first-watch .holder .info .txt {
-  font-size: 16px;
-}
-.tablet .first-watch .favourite {
-  font-size: 36px;
-  margin-left: -8px;
-}
-.tablet .first-watch .header {
-  border-bottom: 1px solid #dbcedb;
-  margin-bottom: 15px;
-}
-.desktop .first-watch .header {
-  border-bottom: 1px solid #dddddd;
-  margin-bottom: 15px;
-}
-.desktop .first-watch > .margin {
-  width: 30px;
-}
-.desktop .first-watch > .pageheader {
-  display: table-caption;
-  padding-left: 50px;
-}
-.desktop .first-watch > .media {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  border: 1px solid #dddddd;
-  background-color: #ffffff;
-}
-.desktop .first-watch .favourite {
-  font-size: 48px;
-  margin-top: -10px;
-  color: #ac99b9;
-}
-.desktop .first-watch .holder .info {
-  background-color: rgba(22, 22, 22, 0.5);
-}
-.desktop .first-watch .holder .info .title {
-  font-size: 22px;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-}
-.desktop .first-watch .holder .info .txt {
-  font-size: 16px;
-}
-.not-phone .first-watch {
   display: table;
+  text-align: center;
 }
-.not-phone .first-watch .info > div {
-  padding: 15px 15px;
-  -webkit-box-sizing: border-box;
-  /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;
-  /* Firefox, other Gecko */
-  box-sizing: border-box;
-  /* Opera/IE 8+ */
-}
-.not-phone .first-watch .favourite {
-  display: inline-block;
-  vertical-align: middle;
-}
-.not-phone .first-watch .header {
-  padding-bottom: 15px;
-}
-.not-phone .first-watch > .media {
+.first-switcher .first-loader .loadicon {
   display: table-cell;
+  vertical-align: middle;
+  font-size: 64px;
+  color: #dbcedb;
+}
+.touch .first-switcher > div {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background-color: #f8eff8;
+  -webkit-transition: opacity 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out;
+  -ms-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+.windows.touch .first-switcher > div {
+  -ms-transition: opacity 0.2s ease-out 0.1s, -ms-transform 0.2s ease-out;
+  transition: opacity 0.2s ease-out 0.1s, transform 0.2s ease-out;
+}
+.desktop .first-switcher .first-loader {
+  margin: 0 !important;
+}
+.desktop .first-switcher > div {
+  margin: 30px auto 90px auto;
+  max-width: 1385px;
+  min-width: 1060px;
+  border-left: 50px solid #fafafa;
+  border-right: 50px solid #fafafa;
+}
+.touch .first-switcher {
+  background-color: #f8eff8;
+}
+.tv .first-switcher {
+  background-color: #231331;
+  overflow: hidden;
 }
 /* /Users/youzi/dev/mtv-play/components/first/miniplayer/style.less */
 .mini-player {
@@ -2361,37 +2242,124 @@ x:-o-prefocus,
 .not-phone .mini-player .clickable {
   background-color: #3a1a58;
 }
-/* /Users/youzi/dev/mtv-play/components/second/bar/style.less */
-.second-bar {
-  -webkit-transition: background-color 0.2s ease-out;
-  -moz-transition: background-color 0.2s ease-out;
-  -ms-transition: background-color 0.2s ease-out;
-  -o-transition: background-color 0.2s ease-out;
-  transition: background-color 0.2s ease-out;
-  height: 80px;
+/* /Users/youzi/dev/mtv-play/components/first/watch/style.less */
+.first-watch {
+  color: #3a1a58;
+}
+.first-watch .title {
+  font-family: OpenSansBold;
+  font-size: 22px;
+}
+.first-watch .txt .title {
+  font-family: OpenSansBold;
+  font-size: 16px;
+}
+.first-watch > .media {
+  overflow: hidden;
   width: 100%;
-  bottom: 0;
-  color: #ffffff;
-  background-color: #231331;
-  font-size: 24px;
-  display: none;
 }
-.isReceiver .second-bar {
-  background-color: #ee255c !important;
-  display: block;
+.first-watch > .media .subtitle {
+  font-size: 12px;
+  font-family: OpenSansRegular;
+  color: #ac99b9;
 }
-.second-bar > div {
-  line-height: 80px;
+.first-watch .description {
+  margin-bottom: 80px;
+}
+.first-watch .share {
+  float: right;
+  padding: 15px;
+  margin: -15px;
+}
+.phone .first-watch {
+  height: 100%;
+}
+.phone .first-watch .description {
+  padding: 15px;
+  border-top: 1px solid #dbcedb;
+}
+.phone .first-watch .header {
+  padding: 15px;
+}
+.tablet .first-watch .info {
+  border-left: 1px solid #dbcedb;
+  display: table-cell;
+  width: 100%;
+}
+.tablet .first-watch .holder .info {
+  background-color: rgba(22, 22, 22, 0.5);
+}
+.tablet .first-watch .holder .info .title {
+  font-size: 22px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.tablet .first-watch .holder .info .txt {
+  font-size: 16px;
+}
+.tablet .first-watch .favourite {
+  font-size: 36px;
+  margin-left: -8px;
+}
+.tablet .first-watch .header {
+  border-bottom: 1px solid #dbcedb;
+  margin-bottom: 15px;
+}
+.desktop .first-watch .header {
+  border-bottom: 1px solid #dddddd;
+  margin-bottom: 15px;
+}
+.desktop .first-watch > .margin {
+  width: 30px;
+}
+.desktop .first-watch > .pageheader {
+  display: table-caption;
+  padding-left: 50px;
+}
+.desktop .first-watch > .media {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  background-color: #ffffff;
+}
+.desktop .first-watch .favourite {
+  font-size: 48px;
+  margin-top: -10px;
+  color: #ac99b9;
+}
+.desktop .first-watch .holder .info {
+  background-color: rgba(22, 22, 22, 0.5);
+}
+.desktop .first-watch .holder .info .title {
+  font-size: 22px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.desktop .first-watch .holder .info .txt {
+  font-size: 16px;
+}
+.not-phone .first-watch {
+  display: table;
+}
+.not-phone .first-watch .info > div {
+  padding: 15px 15px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+.not-phone .first-watch .favourite {
   display: inline-block;
   vertical-align: middle;
 }
-.second-bar > .device {
-  width: 80px;
-  font-size: 48px;
-  background-color: #d71f52 !important;
+.not-phone .first-watch .header {
+  padding-bottom: 15px;
 }
-.second-bar > .info {
-  padding-left: 15px;
+.not-phone .first-watch > .media {
+  display: table-cell;
 }
 /* /Users/youzi/dev/mtv-play/components/second/switcher/style.less */
 .second-switcher {
@@ -2482,6 +2450,38 @@ x:-o-prefocus,
 }
 .second-screensaver > div {
   position: absolute;
+}
+/* /Users/youzi/dev/mtv-play/components/second/bar/style.less */
+.second-bar {
+  -webkit-transition: background-color 0.2s ease-out;
+  -moz-transition: background-color 0.2s ease-out;
+  -ms-transition: background-color 0.2s ease-out;
+  -o-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+  height: 80px;
+  width: 100%;
+  bottom: 0;
+  color: #ffffff;
+  background-color: #231331;
+  font-size: 24px;
+  display: none;
+}
+.isReceiver .second-bar {
+  background-color: #ee255c !important;
+  display: block;
+}
+.second-bar > div {
+  line-height: 80px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.second-bar > .device {
+  width: 80px;
+  font-size: 48px;
+  background-color: #d71f52 !important;
+}
+.second-bar > .info {
+  padding-left: 15px;
 }
 /* /Users/youzi/dev/mtv-play/components/img/style.less */
 .ui-img {
@@ -2660,6 +2660,89 @@ x:-o-prefocus,
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
+/* /Users/youzi/dev/mtv-play/components/first/favourite/style.less */
+.ui-icon.favorited {
+  color: #ffeb00 !important;
+}
+.desktop .ui-icon.favorited {
+  color: #fdcd2f !important;
+}
+/* /Users/youzi/dev/mtv-play/components/player/controls/style.less */
+.player-controls {
+  height: 100%;
+}
+.player-controls .container {
+  padding: 1px;
+  position: relative;
+  height: 100%;
+}
+.player-controls .container > div {
+  position: absolute;
+  top: 0;
+}
+.player-controls .duration {
+  right: 0;
+}
+.player-controls .progress {
+  left: 0;
+}
+.player-controls .progress,
+.duration {
+  text-align: center;
+  line-height: 50px;
+}
+.player-controls .seekbar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  left: 80px;
+  right: 80px;
+}
+.not-phone .player-controls .progress,
+.not-phone .duration {
+  width: 80px;
+}
+.phone .player-controls .progress,
+.phone .duration {
+  width: 60px;
+}
+.phone .player-controls .seekbar {
+  left: 58px;
+  right: 58px;
+}
+/* /Users/youzi/dev/mtv-play/components/player/volume/style.less */
+.player-volume {
+  display: inline-block;
+}
+.player-volume > div {
+  display: inline-block;
+  margin-right: 6px;
+  margin-top: 4px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 1px;
+}
+.player-volume > div .nested {
+  background-color: #ffeb00;
+  height: 100%;
+  width: 100%;
+}
+.player-volume > div:hover {
+  margin-top: 0;
+}
+.fullscreen-player .player-volume > div {
+  height: 32px;
+  width: 4px;
+}
+.fullscreen-player .player-volume > div:hover {
+  height: 36px;
+}
+.windowed-player .player-volume > div {
+  height: 23px;
+  width: 2px;
+}
+.windowed-player .player-volume > div:hover {
+  height: 27px;
+}
 /* /Users/youzi/dev/mtv-play/components/first/seasons/style.less */
 .first-seasons {
   vertical-align: top;
@@ -2821,13 +2904,6 @@ x:-o-prefocus,
   vertical-align: top;
   display: table-cell;
 }
-/* /Users/youzi/dev/mtv-play/components/first/favourite/style.less */
-.ui-icon.favorited {
-  color: #ffeb00 !important;
-}
-.desktop .ui-icon.favorited {
-  color: #fdcd2f !important;
-}
 /* /Users/youzi/dev/mtv-play/components/first/epg/style.less */
 .first-epg .list > div:first-child .border {
   margin: 0;
@@ -2948,82 +3024,6 @@ x:-o-prefocus,
 }
 .tablet .first-epg .ui-seekbar .bg {
   background-color: #dbcedb;
-}
-/* /Users/youzi/dev/mtv-play/components/player/controls/style.less */
-.player-controls {
-  height: 100%;
-}
-.player-controls .container {
-  padding: 1px;
-  position: relative;
-  height: 100%;
-}
-.player-controls .container > div {
-  position: absolute;
-  top: 0;
-}
-.player-controls .duration {
-  right: 0;
-}
-.player-controls .progress {
-  left: 0;
-}
-.player-controls .progress,
-.duration {
-  text-align: center;
-  line-height: 50px;
-}
-.player-controls .seekbar {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  left: 80px;
-  right: 80px;
-}
-.not-phone .player-controls .progress,
-.not-phone .duration {
-  width: 80px;
-}
-.phone .player-controls .progress,
-.phone .duration {
-  width: 60px;
-}
-.phone .player-controls .seekbar {
-  left: 58px;
-  right: 58px;
-}
-/* /Users/youzi/dev/mtv-play/components/player/volume/style.less */
-.player-volume {
-  display: inline-block;
-}
-.player-volume > div {
-  display: inline-block;
-  margin-right: 6px;
-  margin-top: 4px;
-  overflow: hidden;
-  background-color: #ffffff;
-  border-radius: 1px;
-}
-.player-volume > div .nested {
-  background-color: #ffeb00;
-  height: 100%;
-  width: 100%;
-}
-.player-volume > div:hover {
-  margin-top: 0;
-}
-.fullscreen-player .player-volume > div {
-  height: 32px;
-  width: 4px;
-}
-.fullscreen-player .player-volume > div:hover {
-  height: 36px;
-}
-.windowed-player .player-volume > div {
-  height: 23px;
-  width: 2px;
-}
-.windowed-player .player-volume > div:hover {
-  height: 27px;
 }
 /* /Users/youzi/dev/mtv-play/components/second/discover/style.less */
 .second-discover {
