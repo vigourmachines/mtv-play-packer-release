@@ -1221,11 +1221,11 @@ exports.url = require( './url' )
 exports.player = require( './player' )
 exports.price = require( './purchase/pricing' )
 },{"./email":"/Users/youzi/dev/mtv-play/api/email.js","./facebook":"/Users/youzi/dev/mtv-play/api/facebook/index.js","./login":"/Users/youzi/dev/mtv-play/api/login.js","./mobile":"/Users/youzi/dev/mtv-play/api/mobile.js","./network":"/Users/youzi/dev/mtv-play/api/network.js","./password":"/Users/youzi/dev/mtv-play/api/password.js","./player":"/Users/youzi/dev/mtv-play/api/player.js","./purchase":"/Users/youzi/dev/mtv-play/api/purchase/index.js","./purchase/pricing":"/Users/youzi/dev/mtv-play/api/purchase/pricing.js","./receipt":"/Users/youzi/dev/mtv-play/api/receipt.js","./register":"/Users/youzi/dev/mtv-play/api/register.js","./url":"/Users/youzi/dev/mtv-play/api/url.js","./user":"/Users/youzi/dev/mtv-play/api/user.js","./verify":"/Users/youzi/dev/mtv-play/api/verify.js"}],"/Users/youzi/dev/mtv-play/api/login.js":[function(require,module,exports){
-var config = require('vigour-js/util/config')
-	, Value = require('vigour-js/value') 
-	, util = require('./util')
-	, url = config.api.url
-  , defer = require('vigour-js/value/flags/process')
+var config = require( 'vigour-js/util/config' )
+var Value = require( 'vigour-js/value' )
+var util = require( './util' )
+var url = config.api.url
+var defer = require( 'vigour-js/value/flags/process' )
 
 
 /*
@@ -1237,71 +1237,66 @@ login.val =
 login.val = { facebook: 'FBoAuthtoken' }
 */
 
-module.exports = exports = new Value(
-{ ajax: {
-    condition:function( ajax, val ) {
+module.exports = exports = new Value( {
+  ajax: {
+    condition: function( ajax, val ) {
 
       //TODO: clearing perhaps? or handle from login/logout
-    	if( this.email && this.password ) 
-    	{
-    		ajax.url = url + 'api/v1/sessions.json'
-    		ajax.data = 
-    		{ user: 
-          { email: this.email.val
-          , password: this.password.val
-          , app_version: window.package.version
+      if( this.email && this.password ) {
+        ajax.url = url + 'api/v1/sessions.json'
+        ajax.data = {
+          user: {
+            email: this.email.val,
+            password: this.password.val,
+            app_version: window.package.version
           }
-     		}
-     		return true
-    	} 
-      else if( this.region && this.facebook && this.facebook.token ) 
-      {
+        }
+        return true
+      } else if( this.region && this.facebook && this.facebook.token ) {
         ajax.url = url + 'api/v2/sessions.json'
-        ajax.data = 
-        { auth_method: 1
-        , user:
-          { oauth_token: this.facebook.token.val
-          , accept_data_protection_tcs: true
-          , accept_mtv_country_tcs_for: this.region.val
-          , app_version: window.package.version
+        ajax.data = {
+          auth_method: 1,
+          user: {
+            oauth_token: this.facebook.token.val,
+            accept_data_protection_tcs: true,
+            accept_mtv_country_tcs_for: this.region.val,
+            app_version: window.package.version
           }
         }
         return true
       }
-  	}
-  , headers: { appVersion: 3 }
-  , method: 'POST'
-  , encode: 'json'
-  , defer: function( update , args, err, data ) {
+    },
+    headers: {
+      appVersion: 3
+    },
+    method: 'POST',
+    encode: 'json',
+    defer: function( update, args, err, data ) {
 
-      if( err || !data || !data.success ) 
-      {
-      	this.type = err ? err.message : util.findError( data ) 
+      if( err || !data || !data.success ) {
+        this.type = err ? err.message : util.findError( data )
         update( 'error' )
-        this.$empty( ['loading', 'region'] )
-      } 
-      else 
-      {
-      	this.set( 'token', data.authentication_token )
-        if (data.new_record) {
-          this.set('new_record', data.new_record)
+        this.$empty( [ 'loading', 'region' ] )
+      } else {
+        this.set( 'token', data.authentication_token )
+        if( data.new_record ) {
+          this.set( 'new_record', data.new_record )
         }
-      	update( 'success' )
+        update( 'success' )
       }
 
-  	}
+    }
   }
-})
+} )
 
 //TODO: get rid of this temp fix
 exports._name = '_mtvlogin'
 
-
 },{"./util":"/Users/youzi/dev/mtv-play/api/util.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","vigour-js/value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/api/mobile.js":[function(require,module,exports){
-var config = require('vigour-js/util/config')
-	, Value = require('vigour-js/value') 
-	, util = require('./util')
-	, url = config.api.url
+var config = require( 'vigour-js/util/config' )
+var Value = require( 'vigour-js/value' )
+var util = require( './util' )
+var url = config.api.url
 
 /*
 mobile.verify.val = 
@@ -1309,56 +1304,55 @@ mobile.verify.val =
 , country:'schaap99'
 }
 */
-module.exports = exports = new Value(
-{ verify://this validates that the number is ok and sends sms
-  { ajax: 
-    { url: url+'api/v2/mbl_verifications.json'
-    , encode: 'json'
-    , method: 'POST'
-    , headers: 
-      { Accept:'*/*'
-      , redirectUrl: config.packer.domain + '/?m=$data'
-    } 
+
+module.exports = exports = new Value( {
+  verify: //this validates that the number is ok and sends sms
+  {
+    ajax: {
+      url: url + 'api/v2/mbl_verifications.json',
+      encode: 'json',
+      method: 'POST',
+      headers: {
+        Accept: '*/*',
+        redirectUrl: config.packer.domain + '/?m=$data'
+      }
       //TODO: double check, maybe just use .json ?
-    , data: function( ajax, val ) {
-        if( this.token && this.token.val 
-         && this.phonenumber && this.phonenumber.val
-         && this.country && this.country.val ) 
-        {
+      ,
+      data: function( ajax, val ) {
+        if( this.token && this.token.val && this.phonenumber && this.phonenumber.val && this.country && this.country.val ) {
+
           return {
-            auth_token: this.token.val
-            , user: 
-              { mobile_number: Number( this.phonenumber.val )
-              , mobile_country_prefix: Number( this.country.val )
-              , app_version: window.package.version
-              }
+            auth_token: this.token.val,
+            user: {
+              mobile_number: Number( this.phonenumber.val ),
+              mobile_country_prefix: Number( this.country.val ),
+              app_version: window.package.version
+            }
           }
         }
-      }
-    , defer: function( update , args, err, data ) {
-        if( err || !data || !data.valid ) 
-        {
-          this.type = err ? err.message : util.findError( data ) 
+      },
+      defer: function( update, args, err, data ) {
+        if( err || !data || !data.valid ) {
+          this.type = err ? err.message : util.findError( data )
           update( 'error' )
-          //this way you make sure you can retry on error
+            //this way you make sure you can retry on error
           this.$empty( [ 'loading', 'token' ] )
-        } 
-        else 
-        {
+        } else {
           update( 'success' )
         }
       }
     }
-  }
-, sms: 
-  { ajax: //this verifies sms token
-    { url: function( ajax, val ) {
+  },
+  sms: {
+    ajax: //this verifies sms token
+    {
+      url: function( ajax, val ) {
         return typeof val === 'string' && url + 'api/v2/mblconfirmation/' + val + '.json'
-      }
-    , method: 'GET'
-    , defer: function( update , args, err, data ) {
+      },
+      method: 'GET',
+      defer: function( update, args, err, data ) {
         if( !data.success ) {
-          this.type = err ? err.message : util.findError( data ) 
+          this.type = err ? err.message : util.findError( data )
           update( 'error' )
         } else {
           //TODO: get token, no token very bad!
@@ -1367,39 +1361,36 @@ module.exports = exports = new Value(
         }
       }
     }
-  }
-, available: 
-  { ajax:
-    { url: function() { 
+  },
+  available: {
+    ajax: {
+      url: function() {
         //todo make this an internal part of ajax defer --- add to the defer tempars and compare there
         //TODO: add from - self
         var val = this._val instanceof Value ? this._val : this
-        if( typeof val.val === 'string') {
-          var str = url + 'api/v1/utt_info/c153f28d950ae49a/'+val.val //+.json
+        if( typeof val.val === 'string' ) {
+          var str = url + 'api/v1/utt_info/c153f28d950ae49a/' + val.val //+.json
           this._cached = val.val
           return str
         }
-      }
-    , defer: function( update , args, err, data ) {
+      },
+      defer: function( update, args, err, data ) {
         var val = this._val instanceof Value ? this._val : this
         if( val.val !== this._cached ) {
-          update(true)
+          update( true )
           this._update()
         } else {
-          if(!data || !data.success ) {
+          if( !data || !data.success ) {
             update( true )
           } else {
-            this.set
-            ('transform', ( data && data.country_info && data.country_info.mbl_available && true ) || false
-            )
+            this.set( 'transform', ( data && data.country_info && data.country_info.mbl_available && true ) || false )
             update()
           }
         }
       }
     }
   }
-})
-
+} )
 
 },{"./util":"/Users/youzi/dev/mtv-play/api/util.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/network.js":[function(require,module,exports){
 var Value = require('vigour-js/value') 
@@ -1570,46 +1561,33 @@ module.exports = exports = new Value(
 { apiDefer: function( update ) {
     var _this = this
 
-    if ( this.subscription && this.subscription.val ) {
-      void(0)
-    }
-    if ( this.product && this.product.val ) {
-      void(0)
-    }
+    // if ( this.subscription && this.subscription.val ) {
+    //   console.log("sub", this.subscription.val)
+    // }
+    // if ( this.product && this.product.val ) {
+    //   console.log( "prod", this.product.val )
+    // }
 
     if( !window.Store ) 
     {
       this.type = 'no store available'
      
-      update( 'error' ) 
-       if( this.subscription ) this.subscription.val = false
+      if( this.subscription ) this.subscription.val = false
       if( this.product ) this.product.val = false 
     } 
     else {
       var product = ( this.subscription && this.subscription.val ) //monthly_de
                  || ( this.product && this.product.val ) //single_nl
 
-      void(0)
-      void(0)
-
       if( !product ) 
       {
-
-        void(0)
-        // console.log('suzler')
         update( true )
         if( this.subscription ) this.subscription.val = false
         if( this.product ) this.product.val = false 
       } 
       else if( cases.ios ) 
       {
-        //TODO: buy product
-        void(0)
-
         Store.buy( product, function(err, response) {
-
-          void(0)
-          void(0)
 
           if( response ) err = null
           if( !err ) 
@@ -1697,28 +1675,17 @@ module.exports = exports = new Value(
       }
       else 
       {
-        void(0)
-        // it's android
         function callback ( err, response ) {
-          void(0)
-          void(0)
-          // alert(JSON.stringify(response))
           if(response) err = null
           if(!err) 
           {
             try {
               void(0)
-              // alert("response " + JSON.stringify(response, false, 2))
               localStorage.setItem( 'receiptData', JSON.stringify( response ) )
             } catch (e) {
-              // console.error(e)
               _this.type = e
-              update('error')
-              void(0)
             }
             
-            void(0)
-
             _this.set('packageName', response.packageName)
             _this.set('subscriptionId', response.productId)
             _this.set('orderId', response.orderId)
@@ -1731,18 +1698,12 @@ module.exports = exports = new Value(
             //   _this.set('subscriptionId', response.productId)
             // }
 
-            void(0)
-            void(0)
-
             _this.set('token', response.purchaseToken )
 
             update( 'success' )
 
           } else {
             _this.type = err
-             
-            void(0)
-            void(0)
 
             update( 'error' )
           }
@@ -1751,10 +1712,8 @@ module.exports = exports = new Value(
         }
 
         if ( this.subscription && this.subscription.val ) { 
-          void(0)
           Store.subscribe(product, callback)
         } else { 
-          void(0)
           Store.buy(product, callback)
         }
       }
@@ -1767,13 +1726,13 @@ exports._name = 'purchase'
 },{"../util":"/Users/youzi/dev/mtv-play/api/util.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/purchase/pricing.js":[function(require,module,exports){
 
 var cases = require('vigour-js/browser/cases')
-  , app = require('vigour-js/app')
-  , config = require('vigour-js/util/config')
-  , ua = require('vigour-js/browser/ua')
-  , Value = require('vigour-js/value')
-  , store = config.store[ ua.platform ]
-  , typeMap = {}
-  , currencyMap = {
+var app = require('vigour-js/app')
+var config = require('vigour-js/util/config')
+var ua = require('vigour-js/browser/ua')
+var Value = require('vigour-js/value')
+var store = config.store[ ua.platform ]
+var typeMap = {}
+var currencyMap = {
       EUR:'€'
     , PLN:'zł'
     , RON:'Lei'
@@ -1885,13 +1844,13 @@ exports.yearly = new Value(
 
 },{"vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/receipt.js":[function(require,module,exports){
 var config = require( 'vigour-js/util/config' )
-	, Value = require( 'vigour-js/value' ) 
-	, util = require( './util' )
-	, url = config.api.url
-  , cases = require( 'vigour-js/browser/cases' )
-  , base64 = require('vigour-js/util/encode64.js')
-  , dataKey = 'receiptData'
-  , retryTimer
+var Value = require( 'vigour-js/value' )
+var util = require( './util' )
+var url = config.api.url
+var cases = require( 'vigour-js/browser/cases' )
+var base64 = require( 'vigour-js/util/encode64.js' )
+var dataKey = 'receiptData'
+var retryTimer
 
 /*
 single episodes ?
@@ -1903,13 +1862,11 @@ receipt.val =
 }
 */
 var loginTimeout = 10000
-  , previousRetryTime = 0
-// document.body.style.color = 'white'
+var previousRetryTime = 0
 
-function retryAfterTimeout(){
+function retryAfterTimeout() {
   var retryTime
-  if( retryTimer )
-  { 
+  if( retryTimer ) {
     clearTimeout( retryTimer )
     retryTimer = null
   }
@@ -1917,47 +1874,40 @@ function retryAfterTimeout(){
   retryTime = previousRetryTime + ( 0.08 * loginTimeout )
   previousRetryTime = retryTime <= 60000 ? retryTime : 0
 
-  retryTimer = setTimeout( function(){
+  retryTimer = setTimeout( function() {
     retryTimer = null
     finish()
   }, retryTime )
 }
 
-module.exports = exports = new Value(
-{ ajax: 
-  { url: url+'api/v2/subscriptions'
-  , encode: 'json'
-  , method: 'POST'
-  , headers: { Accept:'*/*' } 
-  , data: function( ajax, val ) {
+module.exports = exports = new Value( {
+  ajax: {
+    url: url + 'api/v2/subscriptions',
+    encode: 'json',
+    method: 'POST',
+    headers: {
+      Accept: '*/*'
+    },
+    data: function( ajax, val ) {
       var data
-
-      // try{
-      //   alert('receipt!'+JSON.stringify(this.raw,false,2))
-      // }catch(e){
-      //   alert('nope!')
-      // }
-
-      if( this.token && this.token.val
-       && this.receipt && this.receipt.val )
-      {
+      if( this.token && this.token.val && this.receipt && this.receipt.val ) {
         try {
-          localStorage.setItem( dataKey, JSON.stringify(this.raw))  
-        } catch (e) {
+          localStorage.setItem( dataKey, JSON.stringify( this.raw ) )
+        } catch( e ) {
           this.type = e
-          update('error')
+          update( 'error' )
         }
 
-    
+
         // DO DIFFERENT THINGS FOR PRODUCTS OR SUBSCRIPTIONS!
 
         if( cases.ios ) {
-          data = 
-          { receipt: this.receipt.val
-          , vendor:'apple'
+          data = {
+            receipt: this.receipt.val,
+            vendor: 'apple'
           }
 
-          if (this.episodeId) {
+          if( this.episodeId ) {
             data.episode = this.episodeId.val
           }
         } else if( cases.android ) {
@@ -1972,35 +1922,35 @@ module.exports = exports = new Value(
           //   return;
           // }
 
-          data = 
-          { packageName: this.packageName.val
-          , token: this.receipt.val
-          , orderId: this.orderId.val
-          , purchaseTime: this.purchaseTime.val
-          , purchaseState: this.purchaseState.val
-          , developerPayload: this.developerPayload.val
-          , signature: this.signature.val
-          , vendor:'google'
+          data = {
+            packageName: this.packageName.val,
+            token: this.receipt.val,
+            orderId: this.orderId.val,
+            purchaseTime: this.purchaseTime.val,
+            purchaseState: this.purchaseState.val,
+            developerPayload: this.developerPayload.val,
+            signature: this.signature.val,
+            vendor: 'google'
           }
 
-          if ( this.episodeId ) {
+          if( this.episodeId ) {
             data.episode = this.episodeId.val
           }
 
-          if ( this.subscriptionId ) {
+          if( this.subscriptionId ) {
             data.subscriptionId = this.subscriptionId.val
           }
         } else if( cases.windowsMobile ) {
-          data =
-          { receipt: base64.encode(this.receipt.val)
-          , vendor: "microsoft"
+          data = {
+            receipt: base64.encode( this.receipt.val ),
+            vendor: "microsoft"
           }
-          if (this.episodeId) {
+          if( this.episodeId ) {
             data.episode = this.episodeId.val
           }
         }
 
-        if ( data ) {
+        if( data ) {
           data.auth_token = this.token.val
           retryAfterTimeout()
         }
@@ -2011,53 +1961,48 @@ module.exports = exports = new Value(
       // console.error('this is for michael',data)
 
       return data //data to send to Michael
-    }
-  , defer: function( update , args, err, data ) {
+    },
+    defer: function( update, args, err, data ) {
       // alert('response'+JSON.stringify(data,false,2))
       // console.log("receipt returns " + JSON.stringify(data, false, 2))
 
-      localStorage.removeItem(dataKey)
+      localStorage.removeItem( dataKey )
 
-      if( err || !data || !data.success ) 
-      {
+      if( err || !data || !data.success ) {
         this.type = err ? err.message : util.findError( data )
         update( 'error' )
         this.$empty( 'loading' )
-      } 
-      else 
-      {
+      } else {
         previousRetryTime = 0
         update( 'success' )
       }
     }
   }
-})
+} )
 
 exports._name = 'receipt'
 
-function finish () {
-  var data = localStorage.getItem( dataKey )
-    , token
-  if ( data ) {
+function finish() {
+  var data = localStorage.getItem( dataKey ),
+    token
+  if( data ) {
     token = exports.token && exports.token._val
-    
-    exports.once('success', resetAuthToken)
-      .once('error', resetAuthToken)
+
+    exports.once( 'success', resetAuthToken )
+      .once( 'error', resetAuthToken )
 
     try {
       void(0)
       exports.val = JSON.parse( data )
-    } catch (e) {
+    } catch( e ) {
       void(0)
     }
-  }
-  else
-  {
+  } else {
     return true
   }
 
-  function resetAuthToken () {
-    if ( token ) {
+  function resetAuthToken() {
+    if( token ) {
       void(0)
       exports.token.val = token
     }
@@ -2065,9 +2010,10 @@ function finish () {
 }
 
 if( cases.native ) {
-  document.addEventListener('resume', finish, false)
+  document.addEventListener( 'resume', finish, false )
   finish()
 }
+
 },{"./util":"/Users/youzi/dev/mtv-play/api/util.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/util/encode64.js":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/encode64.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/register.js":[function(require,module,exports){
 var config = require('vigour-js/util/config')
 	, Value = require('vigour-js/value') 
@@ -2235,47 +2181,109 @@ module.exports = function context( title, pageView, franchise ) {
   }
 
 }
-},{"./map":"/Users/youzi/dev/mtv-play/api/tracking/map.js","./omniture":"/Users/youzi/dev/mtv-play/api/tracking/omniture.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/ga.js":[function(require,module,exports){
-var omniture = require('./omniture')
-  , config = require('vigour-js/util/config')
-  , cases = require('vigour-js/browser/cases');
+},{"./map":"/Users/youzi/dev/mtv-play/api/tracking/map.js","./omniture":"/Users/youzi/dev/mtv-play/api/tracking/omniture.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/dataform.js":[function(require,module,exports){
+var ajax = require('vigour-js/browser/network/ajax');
+var postpone = require('vigour-js/browser/events/util').postpone;
+require('./ga')
+
+var cid
+
+if (window.device) {
+  cid = window.device.uuid
+} else {
+  ga(function(tracker) {
+    cid = tracker.get('clientId')
+  })
+}
+
+var sendData = function(payload) {
+  payload.an = 'MTV Play',
+  payload.tid = 'UA-43955457-6',
+  payload.cid = cid
+
+  ajax({
+    url: 'http://www.google-analytics.com/collect?v=1',
+    method: 'POST',
+    headers: {
+      accept: 'text/plain'
+    },
+    data: payload
+  })
+}
+
+var sendEvent = function(category, action, label) {
+  sendData({
+    t:'event',
+    ec:category,
+    ea:action,
+    el:label
+  })
+}
+
+var setUserid = function(uid) {
+  sendData({
+    uid:uid
+  })
+}
+
+var setDimension = function(dimension) {
+  var dataform = {}
+  dataform.cm1 = dimension
+  sendData(dataform)
+}
+
+exports.sendData = sendData;
+exports.sendEvent = sendEvent;
+exports.setUserid = setUserid;
+exports.setDimension = setDimension;
+
+},{"./ga":"/Users/youzi/dev/mtv-play/api/tracking/ga.js","vigour-js/browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/util.js","vigour-js/browser/network/ajax":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/ajax.js"}],"/Users/youzi/dev/mtv-play/api/tracking/ga.js":[function(require,module,exports){
+var cases = require('vigour-js/browser/cases');
+
+(function(i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r;
+  i[r] = i[r] || function() {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date();
+  a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0];
+  a.async = 1;
+  a.src = g;
+  m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+if (!cases.native) {
+  ga('create', 'UA-43955457-6', 'auto')
+}
+else {
+  ga('set', {
+      'checkProtocolTask' : null,
+      'storage'       : 'none',
+  });
+}
 
 
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+module.exports = window.ga
 
+},{"vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/index.js":[function(require,module,exports){
+  var omniture = require('./omniture')
+  var postpone = require('vigour-js/browser/events/util').postpone
+  var ua = require('vigour-js/browser/ua')
+  var config = require('vigour-js/util/config')
+  var url = require('vigour-js/browser/network/url')
+  var util = require('vigour-js/util')
+  var map = require('./map')
+  var config = require('vigour-js/util/config')
+  var context = require('./context')
+  var pageName = require('./pagename')
+  var ajax = require('vigour-js/browser/network/ajax')
+  var facebookShare = require('../facebook/share')
+  var user = require('../../app/user')
+  var cases = require('vigour-js/browser/cases')
+  var uid
 
-  // if (cases.native && window.device && window.device.uuid) {
-  //   var UUID = window.device.uuid
-  //   ga('create', 'UA-43955457-6', {
-  //       'storage': 'none',
-  //       'clientId': UUID
-  //   })
-  // } else {
-    ga('create', 'UA-43955457-6', 'auto')
-  // }
-
-
-  module.exports = window.ga
-},{"./omniture":"/Users/youzi/dev/mtv-play/api/tracking/omniture.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/index.js":[function(require,module,exports){
-  var omniture = require('./omniture'),
-      postpone = require('vigour-js/browser/events/util').postpone,
-      ua = require('vigour-js/browser/ua'),
-      config = require('vigour-js/util/config'),
-      url = require('vigour-js/browser/network/url'),
-      util = require('vigour-js/util'),
-      map = require('./map'),
-      config = require('vigour-js/util/config'),
-      context = require('./context'),
-      pageName = require('./pagename'),
-      ajax = require('vigour-js/browser/network/ajax'),
-      facebookShare = require('../facebook/share'),
-      user = require('../../app/user'),
-      cases = require('vigour-js/browser/cases')
-
-      require('./ga')
+  var sendData = require('./dataform').sendData
+  var sendEvent = require('./dataform').sendEvent
 
   //TODO: this is very dirty! make it work with app.user for example
 
@@ -2285,15 +2293,15 @@ var omniture = require('./omniture')
   omniture.account = config.omniture
 
   var tlDelayed = postpone(function() {
-      omniture.tl.apply(this, arguments)
-      delete omniture.events
+    omniture.tl.apply(this, arguments)
+    delete omniture.events
   }, 1e3)
 
   //omniture['prop'+map.vars.search[1]] = search
   exports.setSearchProp = postpone(function(search) {
-      if (search) {
-          omniture['prop' + map.vars.search[0]] = search
-      }
+    if (search) {
+      omniture['prop' + map.vars.search[0]] = search
+    }
   }, 1e3)
 
 
@@ -2301,215 +2309,203 @@ var omniture = require('./omniture')
 
   exports.video = function(val, media, title) {
 
-      if (!title) title = media
+    if (!title) title = media
 
-      if (media.from) {
-          title = media.from._cachedPath
+    if (media.from) {
+      title = media.from._cachedPath
+    }
+
+    if (typeof title !== 'string') return
+
+    var eventType = (val === 'videoPlay' || val === 'videoPause') ? val : '',
+      compare, vidEventMap = {
+        videostart: [0, 0.1],
+        video25: [0.25, 0.26],
+        video50: [0.5, 0.51],
+        video75: [0.75, 0.76],
+        videofinished: [0.9, 0.95]
       }
-
-      if (typeof title !== 'string') return
-
-      var eventType = (val === 'videoPlay' || val === 'videoPause') ? val : '',
-          compare, vidEventMap = {
-              videostart: [0, 0.1],
-              video25: [0.25, 0.26],
-              video50: [0.5, 0.51],
-              video75: [0.75, 0.76],
-              videofinished: [0.9, 0.95]
-          }
-      val = -1 * val
-      if (!eventType) {
-          for (var event$ in vidEventMap) {
-              if (val > vidEventMap[event$][0] && val < vidEventMap[event$][1]) {
-                  eventType = event$
-                  compare = eventType + title
-                  if (lastVid && (eventType + title) === lastVid) return
-                  lastVid = eventType + title
-                  break
-              }
-          }
+    val = -1 * val
+    if (!eventType) {
+      for (var event$ in vidEventMap) {
+        if (val > vidEventMap[event$][0] && val < vidEventMap[event$][1]) {
+          eventType = event$
+          compare = eventType + title
+          if (lastVid && (eventType + title) === lastVid) return
+          lastVid = eventType + title
+          break
+        }
       }
+    }
 
-      //track watch, id to utt backend
-      if (eventType && media.from._parent._parent) {
-          var pageNameObj = pageName(media.from._parent._parent._parent._cachedPath),
-              vidname = 'video > ' + pageNameObj.name
+    //track watch, id to utt backend
+    if (eventType && media.from._parent._parent) {
+      var pageNameObj = pageName(media.from._parent._parent._parent._cachedPath),
+        vidname = 'video > ' + pageNameObj.name
 
-          context(pageNameObj.title, false, true)
+      context(pageNameObj.title, false, true)
 
-          if (vidname.split('>').length < 7) vidname += ' > seasons 1 > episodes 1'
+      if (vidname.split('>').length < 7) vidname += ' > seasons 1 > episodes 1'
 
-          vidname += (' : ' + media.get('title', '').val).toLowerCase()
+      vidname += (' : ' + media.get('title', '').val).toLowerCase()
 
-          omniture['eVar' + map.vars.videoName[1]] = vidname
-          omniture.events = 'event' + map.events[eventType]
-              // omniture['eVar'+map.events[eventType]] = true
+      omniture['eVar' + map.vars.videoName[1]] = vidname
+      omniture.events = 'event' + map.events[eventType]
+        // omniture['eVar'+map.events[eventType]] = true
 
-          if (eventType === "videostart") {
-              triggerWatch(media.id.val)
-          }
-          omniture.tl(true, 'o', eventType)
+      if (eventType === "videostart") {
+        triggerWatch(media.id.val)
       }
+      omniture.tl(true, 'o', eventType)
+    }
   }
 
   function triggerWatch(id) {
-      var token = user.token.val,
-          url = config.api.url + "api/v1/users/" + token + "/activities",
-          isChannel = cases.$isOnChannel.val,
-          payload = {
-              activity: {
-                  action: "watch",
-                  resource_type: (isChannel) ? "simulcast" : "episode",
-                  resource_id: id,
-                  repository: "sensei",
-                  environment: "production"
-              }
-          }
-      ga('send', 'event', 'video', 'watch')
-      if (token) {
-          ajax({
-              url: url,
-              method: "POST",
-              headers: {
-                  accept: "application/json"
-              },
-              encode: "json",
-              data: payload,
-              error: function(err) {
-                  void(0)
-              }
-          })
+    var token = user.token.val,
+      url = config.api.url + "api/v1/users/" + token + "/activities",
+      isChannel = cases.$isOnChannel.val,
+      payload = {
+        activity: {
+          action: "watch",
+          resource_type: (isChannel) ? "simulcast" : "episode",
+          resource_id: id,
+          repository: "sensei",
+          environment: "production"
+        }
       }
+    sendEvent('event', 'video', 'watch')
+      // ga('send', 'event', 'video', 'watch')
+    if (token) {
+      ajax({
+        url: url,
+        method: "POST",
+        headers: {
+          accept: "application/json"
+        },
+        encode: "json",
+        data: payload,
+        error: function(err) {
+          void(0)
+        }
+      })
+    }
   }
 
   exports.event = postpone(function(eventType, flag, link, video) {
 
-      //send event same for all
-      if (eventType === 'swipeUp') {
-          ga('send', 'event', 'multiscreen', 'swipe-up');
-      };
+    //send event same for all
+    if (eventType === 'swipeUp') {
+      sendEvent('event', 'multiscreen', 'swipe-up')
+    };
 
+    omniture.events = 'event' + map.events[eventType]
 
-      omniture.events = 'event' + map.events[eventType]
+    context()
 
-      context()
-
-      if (eventType === 'upgradeMtvFailed') {
-          omniture['eVar' + map.events.mtvMobileFailed] = flag
-      } else if (eventType === 'teaserClick') {
-          // alert('fuckery')
-          // omniture['eVar'+map.events.teaserCollection ] = flag
-          // omniture['eVar'+map.events.teaserClicked ] = link && pageName(link).name //get link yourself its a path
-      } else if (eventType) {
-          // omniture['eVar'+map.events[eventType] ] = flag || true
-      }
-      if (eventType === 'search') {
-          tlDelayed(true, 'o', eventType)
-      } {
-          omniture.tl(true, 'o', eventType)
-          delete omniture.events
-      }
-      if (eventType === 'sharingFacebookSucces') {
-          void(0)
-          triggerFbShare()
-      }
+    if (eventType === 'upgradeMtvFailed') {
+      omniture['eVar' + map.events.mtvMobileFailed] = flag
+    } else if (eventType === 'teaserClick') {
+      // alert('fuckery')
+      // omniture['eVar'+map.events.teaserCollection ] = flag
+      // omniture['eVar'+map.events.teaserClicked ] = link && pageName(link).name //get link yourself its a path
+    } else if (eventType) {
+      // omniture['eVar'+map.events[eventType] ] = flag || true
+    }
+    if (eventType === 'search') {
+      tlDelayed(true, 'o', eventType)
+    } {
+      omniture.tl(true, 'o', eventType)
+      delete omniture.events
+    }
+    if (eventType === 'sharingFacebookSucces') {
+      // console.log("sharingFacebookSucces", this)
+      triggerFbShare()
+    }
   }, 1e3)
+
   function triggerFbShare() {
-      var auth_token = user.token.val,
-          resourceType = "UNKNOWN",
-          id = "UNKNOWN",
-          url = config.api.url + "/api/v1/users/" + auth_token + "/activities",
-          payload = {
-              "activity": {
-                  "action": "share",
-                  "resource_type": resourceType,
-                  "resource_id": id,
-                  "repository": "sensei",
-                  "environment": "production"
-              }
-          }
-      void(0)
-      void(0)
-      void(0)
-      void(0)
-      void(0)
-          // ajax({
-          //   url: url
-          //   , method: "POST"
-          //   , headers: {
-          //     accept: "application/json"
-          //   }
-          //   , data: payload
-          //   , error: function (err) {
-          //     console.error("POST", url, payload, err)
-          //   }
-          // })
-          ga('send', 'event', 'sharing', 'facebook')
+    var auth_token = user.token.val,
+      resourceType = "UNKNOWN",
+      id = "UNKNOWN",
+      url = config.api.url + "/api/v1/users/" + auth_token + "/activities",
+      payload = {
+        "activity": {
+          "action": "share",
+          "resource_type": resourceType,
+          "resource_id": id,
+          "repository": "sensei",
+          "environment": "production"
+        }
+      }
+      // console.log('auth_token', auth_token)
+      // console.log('url', url)
+      // console.log('resourceType', resourceType)
+      // console.log('media_id', id)
+      // console.log('payload', payload)
+      // ajax({
+      //   url: url
+      //   , method: "POST"
+      //   , headers: {
+      //     accept: "application/json"
+      //   }
+      //   , data: payload
+      //   , error: function (err) {
+      //     console.error("POST", url, payload, err)
+      //   }
+      // })
+    sendEvent('event', 'sharing', 'facebook')
   }
 
   exports.popup = postpone(function(name) {
-      if (!name) return
-      var platform = ua.device === 'desktop' ? 'web' : ua.platform,
-          pageName = config.region.val + ' > ' + platform + ' > '
-      context(name, true, false)
-      omniture.pageName = (pageName + 'other > ' + name).toLowerCase()
-      omniture.t()
+    if (!name){
+      return
+    }
+    var platform = ua.device === 'desktop' ? 'web' : ua.platform,
+      pageName = config.region.val + ' > ' + platform + ' > '
+    context(name, true, false)
+    omniture.pageName = (pageName + 'other > ' + name).toLowerCase()
+    omniture.t()
   }, 1e3)
 
   exports.pageView = postpone(function(obj) {
+    if (obj.from) {
+      obj = obj.from._cachedPath
+    }
 
-      if (obj.from) {
-          obj = obj.from._cachedPath
-      }
+    if (typeof obj !== 'string') {
+      return
+    }
 
-      if (typeof obj !== 'string') return
+    var pageNameObj = pageName(obj)
+    var title = pageNameObj.title
 
-      var pageNameObj = pageName(obj),
-          title = pageNameObj.title
+    omniture.pageName = (pageNameObj.name).toLowerCase()
 
-      omniture.pageName = (pageNameObj.name).toLowerCase()
-      context(title, true, ~obj.lastIndexOf('.'))
+    context(title, true, ~obj.lastIndexOf('.'))
 
-      omniture.t()
+    omniture.t()
 
-      //USERLEVEL DIMENSION
-      // if(userID) {
-      //   ga('set', 'dimensionage', 16);  &cd2=M                                  // Gender (M/F)
-      // }
+    var dataform = {
+      t: 'appview',
+      aip: 1,
+      cd: pageNameObj.name
+    }
 
-      if (cases.$isLoggedIn) {
-          ga('set', 'userId', user.id.val);
-      };
-
-      ga('set', {
-          'anonymizeIp': true,
-          'appName': 'MTV Play',
-      });
-
-      ga('send', 'screenview', {
-              'screenName': pageNameObj.name
-          })
-          //send set appview
-      if (cases.chromecast) {
-          ga('set', 'dimension2', 'Chromecast')
-      }
-      if (cases.tv) {
-          ga('set', 'dimension3', 'tv')
-              ajax({
-                  url: 'http://www.google-analytics.com/collect?v=1&tid=' + 'UA-43955457-6' + '-1&cid='+ 5555 +'&t=screenview&dp=%2F'+ pageNameObj.name,
-                  method: "POST",
-                  headers: {
-                      accept: "application/json"
-                  }
-              })
-      }
-
-
-      // console.log(pageNameObj.name)
-
+    if (uid) {
+      dataform.uid = uid
+    }
+    sendData( dataform )
   }, 1e3)
 
-},{"../../app/user":"/Users/youzi/dev/mtv-play/app/user.js","../facebook/share":"/Users/youzi/dev/mtv-play/api/facebook/share.js","./context":"/Users/youzi/dev/mtv-play/api/tracking/context.js","./ga":"/Users/youzi/dev/mtv-play/api/tracking/ga.js","./map":"/Users/youzi/dev/mtv-play/api/tracking/map.js","./omniture":"/Users/youzi/dev/mtv-play/api/tracking/omniture.js","./pagename":"/Users/youzi/dev/mtv-play/api/tracking/pagename.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/util.js","vigour-js/browser/network/ajax":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/ajax.js","vigour-js/browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/url.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/lib/AppMeasurement.js":[function(require,module,exports){
+  cases.$isLoggedIn.on(function(){
+    if(cases.$isLoggedIn.val){
+      uid = user.id.val
+    }else{
+      uid = false
+    }
+  })
+
+},{"../../app/user":"/Users/youzi/dev/mtv-play/app/user.js","../facebook/share":"/Users/youzi/dev/mtv-play/api/facebook/share.js","./context":"/Users/youzi/dev/mtv-play/api/tracking/context.js","./dataform":"/Users/youzi/dev/mtv-play/api/tracking/dataform.js","./map":"/Users/youzi/dev/mtv-play/api/tracking/map.js","./omniture":"/Users/youzi/dev/mtv-play/api/tracking/omniture.js","./pagename":"/Users/youzi/dev/mtv-play/api/tracking/pagename.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/events/util.js","vigour-js/browser/network/ajax":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/ajax.js","vigour-js/browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/url.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/lib/AppMeasurement.js":[function(require,module,exports){
 /*
  ============== DO NOT ALTER ANYTHING BELOW THIS LINE ! ===============
 
@@ -2862,116 +2858,106 @@ module.exports = exports = new Value(
 exports._name = '_urlApi'
 
 },{"vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/user.js":[function(require,module,exports){
-var config = require('vigour-js/util/config')
-  , Value = require('vigour-js/value') //all process flags
-  , util = require('./util')
-  , cases = require('vigour-js/browser/cases')
-  , url = config.api.url
-  , defer = require('vigour-js/value/flags/process')
+var config = require( 'vigour-js/util/config' )
+var Value = require( 'vigour-js/value' ) //all process flags
+var util = require( './util' )
+var cases = require( 'vigour-js/browser/cases' )
+var url = config.api.url
+var defer = require( 'vigour-js/value/flags/process' )
 
-/*
-  user.newsletter.val = true/false
-
-  role.poll = number || false
-*/
-
-module.exports = exports = new Value(
-{ newsletter: {
+module.exports = exports = new Value( {
+  newsletter: {
     ajax: {
-      url: function( ajax, val ) { 
+      url: function( ajax, val ) {
         if( this._parent.token && this._parent.token.val ) {
           return url + 'api/v1/users/' + this._parent.token.val + '.json'
         }
-      }
-    , method: 'PUT'
-    , encode: 'json'
-    , data: function( ajax, val ) {
+      },
+      method: 'PUT',
+      encode: 'json',
+      data: function( ajax, val ) {
         this.clearCache()
-        return ( this.val === true || this.val === false ) 
-            && { user:
-              { accept_newsletter: this.val
-              , app_version: window.package.version
-              }
-            }
+        return( this.val === true || this.val === false ) && {
+          user: {
+            accept_newsletter: this.val,
+            app_version: window.package.version
+          }
+        }
       }
     }
-  }
-, role: {
-    poll:false
-  , ajax:{
+  },
+  role: {
+    poll: false,
+    ajax: {
       url: function( ajax, val ) {
-        return ( this._parent.token && this._parent.token.val )
-            && url + 'api/v1/users/' + this._parent.token.val + '.json'
-      }
-    , defer: function( update , args, err, data ) {
+        return ( this._parent.token && this._parent.token.val ) && url + 'api/v1/users/' + this._parent.token.val + '.json'
+      },
+      defer: function( update, args, err, data ) {
         if( data.user ) {
-          this.val = args[0] = data.user.role
-          //poll
-          update() 
+          this.val = args[ 0 ] = data.user.role
+            //poll
+          update()
         } else {
           update( true )
         }
       }
     }
   }
-})
+} )
 
-exports.role.poll.on(function( val ) {
+exports.role.poll.on( function( val ) {
   if( val === true ) val = 1e3
-  if( val > 0  )
-  {
+  if( val > 0 ) {
     if( this._d ) clearInterval( this._id )
     this._id = setInterval( function() {
       exports.role._update()
     }, val )
-  }
-  else
-  {
+  } else {
     clearInterval( this._id )
     this._d = null
   }
-})
+} )
 
 exports._name = 'userApi'
 
 },{"./util":"/Users/youzi/dev/mtv-play/api/util.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js","vigour-js/value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/api/util.js":[function(require,module,exports){
-var config = require('vigour-js/util/config')
-	, errors = { emailExists: 'Email has already been taken' 
-						 , invalid: 'Username or password is invalid'
-						 , expired: 'Your confirmation link expired. Please sign up again using the app.'
-             , mobileTimeout: 'Timeout error'
-             , terms: 'MTV country terms and conditions must be accepted'
-						 , email: 'Email can\'t be blank'
-             , password: 'Password can\'t be blank'
-             , privacy: 'Data protection terms and conditions must be accepted'
-             , numberExists: 'Mobile number has already been taken'
-             , subscription: 'Subscription is not verified'
-             , resetTokenExpired: 'Outdated password reset token.'
-             , invalidPasswordToken: 'Invalid password reset token.'
-             , invalidEmail: 'Email is invalid'
-             }
+var config = require( 'vigour-js/util/config' )
+var errors = {
+  emailExists: 'Email has already been taken',
+  invalid: 'Username or password is invalid',
+  expired: 'Your confirmation link expired. Please sign up again using the app.',
+  mobileTimeout: 'Timeout error',
+  terms: 'MTV country terms and conditions must be accepted',
+  email: 'Email can\'t be blank',
+  password: 'Password can\'t be blank',
+  privacy: 'Data protection terms and conditions must be accepted',
+  numberExists: 'Mobile number has already been taken',
+  subscription: 'Subscription is not verified',
+  resetTokenExpired: 'Outdated password reset token.',
+  invalidPasswordToken: 'Invalid password reset token.',
+  invalidEmail: 'Email is invalid'
+}
 
 //[ exists, invalid ]
-exports.findError = function( data ){
-	if( !data ) return;
+exports.findError = function( data ) {
+  if( !data ) return;
   var errs = data && data.errors
 
   if( data.error_message ) {
-  	for( var key in errors ) {
-    	if( data.error_message === errors[key] ) return key
+    for( var key in errors ) {
+      if( data.error_message === errors[ key ] ) return key
     }
   }
 
-  if( errs instanceof Array ){
-    for(var i = errs.length, err; err = errs[--i];){
-    	for( var key in errors ) {
-    		if(err.description === errors[key] ) return key
-    	}
+  if( errs instanceof Array ) {
+    for( var i = errs.length, err; err = errs[ --i ]; ) {
+      for( var key in errors ) {
+        if( err.description === errors[ key ] ) return key
+      }
     }
   }
   return 'invalid'
 }
-
 
 },{"vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/verify.js":[function(require,module,exports){
 var config = require('vigour-js/util/config')
@@ -3028,81 +3014,67 @@ module.exports = exports = require( 'vigour-js/util/config' )
 
 var util = require( 'vigour-js/util' )
 
-var ua = require( 'vigour-js/browser/ua' )
-  , cases = require('vigour-js/browser/cases' )
-  , Value = require('vigour-js/value')
+var ua = require( 'vigour-js/browser/ua' ),
+  cases = require( 'vigour-js/browser/cases' ),
+  Value = require( 'vigour-js/value' )
 
 exports.language = new Value()
 exports.region = new Value()
 
-if( exports.dictionary === 'webtranslateit' )
-{
+if( exports.dictionary === 'webtranslateit' ) {
   exports.dictionary = function( val ) {
-    return 'https://webtranslateit.com/api/projects/'
-         + exports.webtranslateit.token
-         + '/files/'
-         + exports.webtranslateit.files[ val ]
-         + '/locales/'
-         + val
+    return 'https://webtranslateit.com/api/projects/' + exports.webtranslateit.token + '/files/' + exports.webtranslateit.files[ val ] + '/locales/' + val
   }
-}
-else
-{
+} else {
   var dict = exports.dictionary
   exports.dictionary = function( val ) {
     return dict.replace( '$language', val )
   }
 }
 
-var protocol
-  , port
+var protocol, port
 
-if( exports.cloud === 'production' )
+if( exports.cloud === 'production' ) //this used to have === 'demo' as well
 {
-  protocol = cases.tv ?  'http://' : 'https://'
+  protocol = cases.tv ? 'http://' : 'https://'
   port = protocol === 'https://' ? 443 : 80
 
-  if( exports.cloud === 'production' )
-  {
-    exports.cloud = new Value({
+  if( exports.cloud === 'production' ) {
+    exports.cloud = new Value( {
       val: exports.region,
       transform: function( c, cv ) {
-        if(cv === 'PL') { cv = 'po' }
-        return cv ? protocol + cv.toLowerCase() + '-hubs.mtvplay.tv:'+port
-                  : false
+        if( cv === 'PL' ) {
+          cv = 'po'
+        }
+        return cv ? protocol + cv.toLowerCase() + '-hubs.mtvplay.tv:' + port : false
       }
-    })
-  }
-  else
-  {
+    } )
+  } else {
     // this else will never happen?
     var regionOverride = exports.regionOverride
-    if(regionOverride === 'url') {
+    if( regionOverride === 'url' ) {
       void(0)
       var regions = [ 'CH', 'BE', 'DE', 'NO', 'NL', 'PL', 'RO' ]
       var href = window.location.href
-      var regionat = href.indexOf('r=')
-      regionOverride = href.slice(regionat + 2, regionat + 4)
-      if( regions.indexOf(regionOverride) === -1 ){
+      var regionat = href.indexOf( 'r=' )
+      regionOverride = href.slice( regionat + 2, regionat + 4 )
+      if( regions.indexOf( regionOverride ) === -1 ) {
         regionOverride = 'DE'
       }
       exports.regionOverride = regionOverride
     }
 
-    exports.cloud = protocol
-      + ( exports.regionOverride || 'nl' ).toLowerCase()
-      + '-hubs.mtvplay.tv:'+port
+    exports.cloud = protocol + ( exports.regionOverride || 'nl' ).toLowerCase() + '-hubs.mtvplay.tv:' + port
   }
 }
 
-if( exports.player && exports.player.settings.ads.viralSID === 'production' )
-{
+if( exports.player && exports.player.settings.ads.viralSID === 'production' ) {
   var viralSID
-  if( cases.tv ){
+  if( cases.tv ) {
     viralSID = 'mtvplaytv/smarttv'
-  }else if( cases.tablet || cases.phone ){
+  } else if( cases.tablet || cases.phone ) {
     viralSID = 'mtvplaytv/app'
-  }else{
+  } else {
     viralSID = 'mtvplaytv/web'
   }
 
@@ -3507,139 +3479,108 @@ api.facebook.login
 },{"../api":"/Users/youzi/dev/mtv-play/api/index.js","./config":"/Users/youzi/dev/mtv-play/app/config.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js"}],"/Users/youzi/dev/mtv-play/app/playback.js":[function(require,module,exports){
 var app = require( 'vigour-js/app' )
 var config = app.config = require( './config' )
-var Value = require('vigour-js/value')
+var Value = require( 'vigour-js/value' )
 var cases = app.cases
 var user = app.user
 
 cases.$playing = app.playing
 
-cases.$isFullscreen = new Value(
-{ val:function(){
+cases.$isFullscreen = new Value( {
+  val: function() {
     return app.state.val === 'player'
-  }
-, listen:app.state
-})
+  },
+  listen: app.state
+} )
 
 cases.$isPlayingAd = new Value()
 
-cases.$isLoadingVideo = new Value(
-{ val:false
-, defer:function( update ){
+cases.$isLoadingVideo = new Value( {
+  val: false,
+  defer: function( update ) {
     var _this = this
-    if( this._timer )
-    {
+    if( this._timer ) {
       clearTimeout( this._timer )
       this._timer = null
     }
-    if( this._val )
-    { 
-      this._timer = setTimeout(function(){
+    if( this._val ) {
+      this._timer = setTimeout( function() {
         _this.val = false
         _this._timer = null
-      },2000)
+      }, 2000 )
     }
     update()
   }
-})
+} )
 
 cases.$isOnChannel = new Value()
-// cases.$isPlayingAd.on(false,function(){
-//   app.adProgress.val = 0
-// })
+  // cases.$isPlayingAd.on(false,function(){
+  //   app.adProgress.val = 0
+  // })
 
 //make injectable
-app.wifiOnly = new Value(
-{ val:localStorage.getItem('wifiOnly') || false
-, defer:function( update ){
-    if(this._val) localStorage.setItem('wifiOnly',true)
-    else localStorage.removeItem('wifiOnly')
+app.wifiOnly = new Value( {
+  val: localStorage.getItem( 'wifiOnly' ) || false,
+  defer: function( update ) {
+    if( this._val ) localStorage.setItem( 'wifiOnly', true )
+    else localStorage.removeItem( 'wifiOnly' )
     update()
   }
-})
+} )
 
-app.restrictPlayback.val = 
-{ val: app.wifiOnly
-, transform:function(v,cv){
-    return ( cv && cases.native && api.network.val !== 'wifi' )
-      ? true
-      : false
+app.restrictPlayback.val = {
+  val: app.wifiOnly,
+  transform: function( v, cv ) {
+    return( cv && cases.native && api.network.val !== 'wifi' ) ? true : false
   }
 }
 
 //playing
 app.playing.on( function( val ) {
-  if( cases.$isLoggedIn.val ) 
-  {
-    if( val === true ) 
-    {
+  if( cases.$isLoggedIn.val ) {
+    if( val === true ) {
       var media = app.user.navigation.media.from
-      if( media._parent._name !== 'channels' )
-      {
+      if( media._parent._name !== 'channels' ) {
         var epi = app.user.usage.from.get( media._contentPath )
-          , show = epi._parent._parent._parent._parent
+        var show = epi._parent._parent._parent._parent
 
-        if( show )
-        {
+        if( show ) {
           show.set( 'media', media )
         }
       }
     }
   }
-})
+} )
 
 app.playing.val = {
-  defer:function checkAccess( update, args ){
-    // console.error('1')
+  defer: function checkAccess( update, args ) {
     var media = user.navigation.media.from
-      , access =  media 
-               && media.access 
-               && media.access.val
-      , id = media
-          && media.id
-          && media.id.val
-      , trial = user.role.val === 3
+    var access = media && media.access && media.access.val
+    var id = media && media.id && media.id.val
+    var trial = user.role.val === 3
 
-    //TODO: handle lsiteners beter
-    if( args[0] === true  && ( app.wifiOnly.val && app.api.network.val  ) )
-    {
-      // console.error('2', this.val, this.from, args[0])
-      this.val = args[0] = false
+    if( args[ 0 ] === true && ( app.wifiOnly.val && app.api.network.val ) ) {
+      this.val = args[ 0 ] = false
       app.notification.from.val = 'enable4g' //real noticication
-    }
-    else if( args[0] === true 
-      && access
-      && this.val //TODO: double check - this may not be good!
-    )
-    {
-      if( !cases.$isLoggedIn.val )
-      {
-        this.val = args[0] = false
+    } else if( !cases.$accessForEveryone.val && args[ 0 ] === true && access && this.val ) {
+      if( !cases.$isLoggedIn.val ) {
+        this.val = args[ 0 ] = false
         app.popup.from.val = 'roadblock'
-      }
-      else if( media._parent._name === 'channels' && ( trial || !cases.$isUpgraded.val ) ){
-        this.val = args[0] = false
+      } else if( media._parent._name === 'channels' && ( trial || !cases.$isUpgraded.val ) ) {
+        this.val = args[ 0 ] = false
         app.popup.from.val = 'upgrade'
-      }
-      /*
-      , transform: function( val, cv ) {
-          return app.util.access( cv, this.data && this.data.media )
-        }
-      */
-      else if( !cases.$isUpgraded.val
-        && !user.purchases.$userOrigin[id] // not purchased by the user
-        || ( media._parent._name === 'channels' && trial ) 
-        || ( trial && access === 2 )
-      )
-      {
-        this.val = args[0] = false
+      } else if( !cases.$isUpgraded.val && !user.purchases.$userOrigin[ id ] // not purchased by the user
+        || ( media._parent._name === 'channels' && trial ) || ( trial && access === 2 )
+      ) {
+        this.val = args[ 0 ] = false
         app.popup.from.data = media
         app.popup.from.val = 'roadblockMedia'
       }
     }
 
-    update()  
+    update()
   }
 }
+
 },{"./config":"/Users/youzi/dev/mtv-play/app/config.js","vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/popup.js":[function(require,module,exports){
 var app = require( 'vigour-js/app' )
 var cases = app.cases
@@ -4027,7 +3968,7 @@ exports.val = user.role
 },{"vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/data/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/tracking.js":[function(require,module,exports){
 /*
   TODO: still missing events
-  , enable3g:10 
+  , enable3g:10
   , disable3g:11
   , introSkipped:20
   , introCompleted:19
@@ -4035,13 +3976,17 @@ exports.val = user.role
 
 subcriptionFailure
 video  end
-franchise name  
+franchise name
 */
 
 var app = require('./index'),
   tracking = require('../api/tracking'),
   api = require('../api'),
-  cases = require('vigour-js/browser/cases')
+  cases = require('vigour-js/browser/cases'),
+
+  sendEvent = require('../api/tracking/dataform').sendEvent
+  setDimension = require('../api/tracking/dataform').setDimension
+
 
 var Value = require('vigour-js/value')
 
@@ -4079,10 +4024,10 @@ api.login
   .on('success', function() {
     if (this.new_record) {
       tracking.event('signupSucces', true)
-      ga('send', 'event', 'login', 'signup')
+      sendEvent('event','login','signup')
     } else {
       tracking.event('loginSucces', true)
-      ga('send', 'event', 'login', 'login')
+      sendEvent('event','login','login')
     }
 
   })
@@ -4093,6 +4038,7 @@ api.login
 api.register
   .on('success', function() {
     tracking.event('signupSucces', true)
+    sendEvent('event','login','signup')
   })
   .on('error', function() {
     tracking.event('signupFailed', true)
@@ -4112,7 +4058,7 @@ api.email.share
   })
   .on('success', function() {
     tracking.event('sharingEmailSucces', true)
-    ga('send', 'event', 'sharing', 'email')
+    sendEvent('event','sharing','email')
   })
 
 var first = true
@@ -4122,7 +4068,7 @@ app.user.search.on(function() {
     tracking.event('search', query)
     if (first) {
       first = false
-      ga('send', 'event', 'search')
+      sendEvent('event','search','query')
       app.user.navigation.page.on(function() {
         first = true
       })
@@ -4148,11 +4094,11 @@ app.ready.once(true, function() {
 app.notification
   .on('favourite', function() {
     tracking.event('favoAdded', true)
-    ga('send', 'event', 'favourite', 'added')
+    sendEvent('event','favourite','added')
   })
   .on('unFavourite', function() {
     tracking.event('favoRemoved', true)
-    ga('send', 'event', 'favourite', 'removed')
+    sendEvent('event','favourite','removed')
   })
 
 app.user.receiver.media
@@ -4164,7 +4110,7 @@ app.user.receiver.media
 
 cases.$hasReceiver.on(function() {
   if (this.val) {
-    ga('set', 'dimension1', 'multiscreener')
+    setDimension(app.user.receiverClient.val.device.val)
   }
 })
 
@@ -4173,7 +4119,7 @@ api.purchase
     tracking.event(
       this.subscription.val === 'monthly' ? 'upgradeMonthSucces' : 'upgradeAnSucces', true
     )
-    ga('send', 'event', 'purchase', 'month')
+    sendEvent('event','purchase','month')
   })
   .on('error', function() {
     tracking.event(
@@ -4227,7 +4173,7 @@ app.playing.on(function(val) {
 
 //popup
 
-},{"../api":"/Users/youzi/dev/mtv-play/api/index.js","../api/tracking":"/Users/youzi/dev/mtv-play/api/tracking/index.js","./index":"/Users/youzi/dev/mtv-play/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/upgrade.js":[function(require,module,exports){
+},{"../api":"/Users/youzi/dev/mtv-play/api/index.js","../api/tracking":"/Users/youzi/dev/mtv-play/api/tracking/index.js","../api/tracking/dataform":"/Users/youzi/dev/mtv-play/api/tracking/dataform.js","./index":"/Users/youzi/dev/mtv-play/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/upgrade.js":[function(require,module,exports){
   var config = require( './config' )
     , app = require( 'vigour-js/app/' )
     , user = app.user
@@ -4350,16 +4296,12 @@ api.purchase
       if(!this.product.from.cloud) {
         throw new Error('trying to buy something else then an episode')
       }
-      void(0)
       this.product.from.get('id').is('loaded', function() {
         obj.episodeId = this.val
-        void(0)
-        // alert("receipting " + JSON.stringify(obj, false, 2))
         api.receipt.val = obj  
       })
     } else {
-      // alert("receipting " + JSON.stringify(obj, false, 2))
-      void(0)
+      obj.episodeId = false
       api.receipt.val = obj  
     }
     //seperate api for product or the same?
@@ -4400,65 +4342,63 @@ api.receipt
 
 
 },{"../api":"/Users/youzi/dev/mtv-play/api/index.js","./config":"/Users/youzi/dev/mtv-play/app/config.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/app/user.js":[function(require,module,exports){
-var app = require('vigour-js/app')
-
+var app = require( 'vigour-js/app' )
 var cases = app.cases
-
-var Value = require('vigour-js/value')
-
+var Value = require( 'vigour-js/value' )
 var config = app.config
-
-var raf = require('vigour-js/browser/animation/raf')
+var raf = require( 'vigour-js/browser/animation/raf' )
 
 var user = module.exports = app.user.inject(
-  require('vigour-js/app/user/token' ),
-  require('vigour-js/app/user/usage'),
-  require('vigour-js/app/user/navigation' ),
-  require('vigour-js/app/user/multiscreen'),
-  require('vigour-js/app/user/multiscreen/cast'),
-  require('vigour-js/app/user/url')
+  require( 'vigour-js/app/user/token' ),
+  require( 'vigour-js/app/user/usage' ),
+  require( 'vigour-js/app/user/navigation' ),
+  require( 'vigour-js/app/user/multiscreen' ),
+  require( 'vigour-js/app/user/multiscreen/cast' ),
+  require( 'vigour-js/app/user/url' )
 )
 
-user.set({
-  profilepic:false,
-  first_name:false,
-  email:false,
-  language:false,
-  role:false,
-  highlight:false,
-  carousel:false,
-  search:false,
-  accept_newsletter:false,
-  FB_token:false,
-  scroll:false,
-  facebook_id:false,
-  url: require('vigour-js/browser/network/url'),
-  localStorageToken: config.api.type+'userToken'
-})
+user.set( {
+  profilepic: false,
+  first_name: false,
+  email: false,
+  language: false,
+  role: false,
+  highlight: false,
+  carousel: false,
+  search: false,
+  accept_newsletter: false,
+  FB_token: false,
+  scroll: false,
+  facebook_id: false,
+  url: require( 'vigour-js/browser/network/url' ),
+  localStorageToken: config.api.type + 'userToken'
+} )
 
-user.extend(
-{ name:'purchases'
-, mock:
-  { purchases:{}
-  }
-, subscription:
-  { purchases:{ $:true }
-  }
-, on:
-  { mock:function(){
+user.extend( {
+  name: 'purchases',
+  mock: {
+    purchases: {}
+  },
+  subscription: {
+    purchases: {
+      $: true
+    }
+  },
+  on: {
+    mock: function() {
       this.purchases = this.mockdata.purchases
-    }
-  , user:function(){
-      this.purchases = this.data.from.get('purchases',{})
+    },
+    user: function() {
+      this.purchases = this.data.from.get( 'purchases', {} )
     }
   }
-})
+} )
 
-cases.$isActive.on(function(){
+cases.$isActive.on( function() {
   if( app.state.val !== 'player' ) {
-    app.state.val = this.val ? 'first' : 'second' 
+    app.state.val = this.val ? 'first' : 'second'
   }
-})
+} )
 
 app.language.val = app.user.language
 
@@ -4468,94 +4408,114 @@ app.language.val = app.user.language
 app.content.on( 'self', function switchContent( val, stamp ) { //niet smooth
   var old = app.state.val
   app.state.val = 'empty'
-  app.state.val = old 
-})
+  app.state.val = old
+} )
 
-user.spotlight = require('./spotlight')
+user.spotlight = require( './spotlight' )
 
-user.spotlight.on(function( val ) {
+user.spotlight.on( function( val ) {
   app.popup.from.data = user.spotlight.selected.from
   app.popup.from.val = 'article'
-})
+} )
 
-user.role.set('text', {
-  val: user.role
-, transform: function(c, cv) {
-    return config.roles[cv] || ''
+user.role.set( 'text', {
+  val: user.role,
+  transform: function( c, cv ) {
+    return config.roles[ cv ] || ''
   }
-})
+} )
 
 //is this a good palce for $isUpgraded???
-cases.$isUpgraded = new Value({
+cases.$isUpgraded = new Value( {
   val: user.role,
   transform: function( val, cv ) {
     return cv > 0 ? true : 0
-  } 
+  }
+} )
+
+
+cases.$accessForEveryone = new Value()
+
+//temp solution
+app.region.on(function(){
+  cases.$accessForEveryone.val = app.region.val.toLowerCase() === 'no'
 })
 
-user.receiver.media.on(function(){
-  if( cases.$isReceiver.val )
-  {
-    if( this.val )
-    { 
+user.role = {
+  transform:function(v,cv){
+    return cases.$accessForEveryone.val && cv === 3 ? 0 : cv
+  },
+  listen:cases.$accessForEveryone
+}
+
+user.receiver.media.on( function() {
+  if( cases.$isReceiver.val ) {
+    if( this.val ) {
       app.state.clearCache()
       app.state._ignoreValue = true
-      app.state.val = { val:'player', video:this.from }
+      app.state.val = {
+        val: 'player',
+        video: this.from
+      }
       app.state._ignoreValue = null
-    }
-    else
-    {
+    } else {
       app.state.val = cases.$isActive.val ? 'first' : 'second'
     }
   }
-})
+} )
 
-cases.$isReceiver.on(function(){
-  if( this.val )
-  {
+cases.$isReceiver.on( function() {
+  if( this.val ) {
     app.volume.val = user.receiver.volume
     app.playing.val = user.receiver.playing
     user.receiver.media.clearCache()
     user.receiver.media._update()
-  }
-  else
-  {
+  } else {
     app.volume.val = app.volume.from.val || 1
     app.playing.val = app.playing.from.val
     app.state.val = cases.$isActive.val ? 'first' : 'second'
   }
-})
+} )
 
 //TODO: remove this use normal css mod (this is a temp bug fix!)
-cases.$isReceiver.on(function() {
-  if(this.val) {
-    app.css.val = { addClass:'isReceiver' }
+cases.$isReceiver.on( function() {
+  if( this.val ) {
+    app.css.val = {
+      addClass: 'isReceiver'
+    }
   } else {
-    app.css.val = { removeClass:'isReceiver' }
+    app.css.val = {
+      removeClass: 'isReceiver'
+    }
   }
-})
-
+} )
 
 },{"./spotlight":"/Users/youzi/dev/mtv-play/app/spotlight.js","vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/user/multiscreen":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/multiscreen/index.js","vigour-js/app/user/multiscreen/cast":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/multiscreen/cast/index.js","vigour-js/app/user/navigation":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/navigation.js","vigour-js/app/user/token":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/token.js","vigour-js/app/user/url":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/url.js","vigour-js/app/user/usage":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/user/usage.js","vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/animation/raf.js","vigour-js/browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/network/url.js","vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/util.js":[function(require,module,exports){
 var app = require('vigour-js/app/')
-  , cases = require('vigour-js/browser/cases')
-  , playIcon = cases.phone ? 'play' : 'playAlt'
+var cases = require('vigour-js/browser/cases')
+var playIcon = cases.phone ? 'play' : 'playAlt'
 
 //TODO: LOCK ICONS NEEDS TOTAL REFACTOR -- make one module for it
 exports.access = function( access, media ) {
+  if( media ){
 
-  if( !media ) return
+    var trial = app.user.role.val === 3
+    var id = media.id && media.id.val
+    var accessAllowed
+    var isChannel
 
-  var trial = app.user.role.val === 3
-    , id = media.id && media.id.val //for purchases
-    , accesAllowed = media 
-      && !( media._parent && media._parent._name === 'channels' && app.user.role.val === 3 )
-      && ( !access || cases.$isUpgraded.val && ( !trial || ( trial && access < 2 ) ) )
+    if( cases.$accessForEveryone.val || app.user.purchases.$userOrigin[id] ){
+      accessAllowed = true
+    }else{
+      isChannel = media._parent
+        && media._parent._name === 'channels'
+      accessAllowed = !( isChannel && trial )
+        && ( !access || cases.$isUpgraded.val && ( !trial || ( trial && access < 2 ) ) )
+    }
 
-  if( app.user.purchases.$userOrigin[id] ) accesAllowed = true
-
-  return accesAllowed ? playIcon : 'lockedContent'
-
+    return accessAllowed ? playIcon : 'lockedContent'
+    
+  }
 }
 },{"vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/button/index.js":[function(require,module,exports){
 require('./style.less')
@@ -7107,7 +7067,7 @@ module.exports =
 //UPGRADE
 
   , purchaseError: { 'txt.title.text.dictionary':'text.account.purchaseError' }
-  , $isUpgraded: { 'txt.title.text.dictionary':'text.upgradedMessage'}
+  , upgraded: { 'txt.title.text.dictionary':'text.upgradedMessage'}
   , subscription:  { 'txt.title.text.dictionary':'text.account.purchaseError' }
   , singleEpisodePurchased: { 'txt.title.text.dictionary': 'singleEpisodePurchased'}
 
@@ -11649,7 +11609,7 @@ var Clickable = new Element( {
       display: !cases.phone && {
         data: 'media.access',
         transform: function( val, cv ) {
-          var icon = app.util.access( cv, this.data && this.data.media )
+          var icon = app.util.access( cv, this.data && this.data.media && this.data.media.from )
           return( icon && ~icon.indexOf( 'play' ) ) ? 'none' : 'inline-block'
         }
       }
@@ -11659,7 +11619,7 @@ var Clickable = new Element( {
       display: {
         data: 'media.access',
         transform: function( cv ) {
-          var media = this.data && this.data.media,
+          var media = this.data && this.data.media && this.data.media.from,
             accesAllowed = media && !( media._parent && media._parent._name === 'channels' && app.user.role.val === 3 ) && ( cases.$isUpgraded.val || ( media.access && !media.access.val ) || ( media.val && media.val.access && !media.val.access.val ) ),
             showSwipeButton = cases.$hasReceiver.val && accesAllowed
 
@@ -11695,7 +11655,9 @@ module.exports = new pointerElement( {
     $remove: {
       defer: function( update ) {
         var overlay = this._parent._caller
-        if( overlay._timer ) clearTimeout( overlay._timer )
+        if( overlay._timer ){
+          clearTimeout( overlay._timer )
+        }
         update()
       }
     },
@@ -11801,7 +11763,7 @@ module.exports = new pointerElement( {
     display: {
       data: 'media.access',
       transform: function( val, cv ) {
-        return app.util.access( cv, this.data && this.data.media ) === 'lockedContent' ? 'none' : 'table'
+        return app.util.access( cv, this.data && this.data.media && this.data.media.from ) === 'lockedContent' ? 'none' : 'table'
       },
       listen: [ app.user.role, app.user.purchases ]
     },
@@ -11883,62 +11845,68 @@ module.exports = new pointerElement( {
 } ).Class
 
 },{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../controls":"/Users/youzi/dev/mtv-play/components/player/controls/index.js","../volume":"/Users/youzi/dev/mtv-play/components/player/volume/index.js","./play":"/Users/youzi/dev/mtv-play/components/player/overlay/play.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/player/overlay/play.js":[function(require,module,exports){
-var Icon = require('../../icon')
-  , cases = require('vigour-js/browser/cases')
-  , app = require('vigour-js/app/')
+var Icon = require( '../../icon' ),
+  cases = require( 'vigour-js/browser/cases' ),
+  app = require( 'vigour-js/app/' )
 
-module.exports = exports = new Icon(
-{ on:{data:'media.id'}
-, icon:
-  { val:
-    { data:'media.access'
-    , transform: function( val, cv ) {
-        var icon = app.util.access( cv, this.data && this.data.media )
+module.exports = exports = new Icon( {
+  on: {
+    data: 'media.id'
+  },
+  icon: {
+    val: {
+      data: 'media.access',
+      transform: function( val, cv ) {
+        var icon = app.util.access( cv, this.data && this.data.media && this.data.media.from )
         return icon
       }
-    }
-  , $playing: cases.phone
-              ? 'pause'
-              : 'pauseAlt'
-  , transform:function( v, cv ){
-      if( !this._loading ) this.rotate = 0
+    },
+    $playing: cases.phone ? 'pause' : 'pauseAlt',
+    transform: function( v, cv ) {
+      if( !this._loading ){
+        this.rotate = 0
+      }
       return this._loading ? 'loader2' : cv
-    }
-  , listen:[ app.user.role, app.user.purchases ]
-  }
-, rotate:
-  { val:0
-  , animation:
-    { complete:function(){
+    },
+    listen: [
+      app.user.role,
+      app.user.purchases.from
+    ]
+  },
+  rotate: {
+    val: 0,
+    animation: {
+      complete: function() {
         var rotate = this.rotate
         rotate._p = true
         rotate = 0
         rotate._p = false
         this._loading = false
-        this.icon.update(this)
+        this.icon.update( this )
       }
     }
-  }
-, events:
-  { click:function(e){
+  },
+  events: {
+    click: function( e ) {
       e.prevent = true
       app.playing.from.val = !app.playing.val
     }
   }
-}).Class
+} ).Class
 
-exports.base.define(
-{ load:function(){
+exports.base.define( {
+  load: function() {
     this._loading = true
-    this.icon.update(this)
+    this.icon.update( this )
     this.rotate = this.rotate.val + 360
   }
-})
+} )
 
 /*
 , trial = user.role.val === 3
 
 */
+
 },{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/player/phone-fullscreen.js":[function(require,module,exports){
 var app = require('vigour-js/app/')
   , cases = require('vigour-js/browser/cases')
@@ -12026,17 +11994,17 @@ exports.exit = function(){
   fullscreen.call( this, true )
 }
 },{"vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/player/players/html5.js":[function(require,module,exports){
-var ua = require('vigour-js/browser/ua')
-  , _winPhone = ua.platform === 'windows' && ua.device === 'phone'
-  , _ios = ua.platform === 'ios'
-  , _android = ua.platform === 'android'
-  , _canplay = 'canplaytrough'
-  , app = require('vigour-js/app/')
-  , cases = require('vigour-js/browser/cases')
+var ua = require( 'vigour-js/browser/ua' ),
+  _winPhone = ua.platform === 'windows' && ua.device === 'phone',
+  _ios = ua.platform === 'ios',
+  _android = ua.platform === 'android',
+  _canplay = 'canplaytrough',
+  app = require( 'vigour-js/app/' ),
+  cases = require( 'vigour-js/browser/cases' )
 
 // app.api.player.val = true
 
-module.exports = exports = require('vigour-js/browser/element/video/html5')
+module.exports = exports = require( 'vigour-js/browser/element/video/html5' )
 
 // app.set({logger:{html:''}})
 // var style = app.logger.node.style
@@ -12059,15 +12027,15 @@ module.exports = exports = require('vigour-js/browser/element/video/html5')
 
 // domLogger('width: '+window.innerWidth+' height: '+window.innerHeight)
 
-function setTime (val, force) {
+function setTime( val, force ) {
   this._correctTime = val
-  if(!this.channel && this._ready && this._time !== val) {
+  if( !this.channel && this._ready && this._time !== val ) {
 
-    if (this.jqHandle && (!this.__paused || force)) {
+    if( this.jqHandle && ( !this.__paused || force ) ) {
       this.tset = null
       this.out = null
       this.cnt = null
-      this.jqHandle.setCurrentTime( Math.abs(Math.round(val)) )
+      this.jqHandle.setCurrentTime( Math.abs( Math.round( val ) ) )
       this._time = val
     } else {
       this.tset = true
@@ -12075,19 +12043,19 @@ function setTime (val, force) {
   }
 }
 
-function createPlayer(t, cb) {
-  if( typeof VIACOM === 'undefined' ){
-    app.api.player.once('success',function(){
+function createPlayer( t, cb ) {
+  if( typeof VIACOM === 'undefined' ) {
+    app.api.player.once( 'success', function() {
       exports.settings = app.api.player.settings
-      if( t.rendered ) createPlayer(t,cb)
-    })
+      if( t.rendered ) createPlayer( t, cb )
+    } )
     app.api.player.val = true
     return
   }
 
-  t.addEvent( 'down', function( e ){
+  t.addEvent( 'down', function( e ) {
     if( !cases.$isPlayingAd.val ) e.preventDefault()
-  })
+  } )
 
   if( t.data && t.data.media ) {
     if( t.data.media.from.videolang ) {
@@ -12095,72 +12063,62 @@ function createPlayer(t, cb) {
     }
   }
 
-  if( cases.$isUpgraded.val )
-  {
+  if( cases.$isUpgraded.val ) {
     exports.settings.ads.enabled = false
-  }
-  else if( t.data && t.data.mediausage && t.data.mediausage.time )
-  {
+  } else if( t.data && t.data.mediausage && t.data.mediausage.time ) {
     exports.settings.ads.enabled = Math.abs( t.data.mediausage.time.val | 0 ) > 0.01 ? false : true
-  }
-  else
-  {
+  } else {
     exports.settings.ads.enabled = true
   }
 
-  if( cases.tv )
-  {
+  if( cases.tv ) {
     exports.settings.force = 'html5'
     exports.settings.html5smartTVMode = 'Samsung'
-  }
-  else if( cases.chromecast )
-  {
+  } else if( cases.chromecast ) {
     exports.settings.force = 'html5'
     exports.settings.html5smartTVMode = 'Chromecast'
     exports.settings.ads.enabled = false
   }
 
   t.jqHandle = new VIACOM.Mediaplayer(
-    '.video'
-    , exports.settings
-    , { controls:false
-      , 'webkit-playsinline': true
-      }
-    , app.api.player.debug
+    '.video', exports.settings, {
+      controls: false,
+      'webkit-playsinline': true
+    }, app.api.player.debug
   )
 
-  t.jqHandle.addEventListener('error', function( error ){
+  t.jqHandle.addEventListener( 'error', function( error ) {
     void(0)
-  })
+  } )
 
-  t.jqHandle.addEventListener('ended', function( e ){
+  t.jqHandle.addEventListener( 'ended', function( e ) {
     app.playing.from.val = false
-  })
+  } )
 
-  t.jqHandle.addEventListener('timeupdate', function( e ){
-    
-  })
+  t.jqHandle.addEventListener( 'timeupdate', function( e ) {
 
-  t.jqHandle.addEventListener('ads:rollPlaying', function( e ){
+  } )
+
+  t.jqHandle.addEventListener( 'ads:rollPlaying', function( e ) {
     cases.$isPlayingAd.val = true
-  })  
+  } )
 
-  t.jqHandle.addEventListener('ads:rollEnded', function( e ){
+  t.jqHandle.addEventListener( 'ads:rollEnded', function( e ) {
     cases.$isPlayingAd.val = false
-  })
+  } )
 
   var video = t.jqHandle.proxy.player && t.jqHandle.proxy.player.video
-  if( video )
-  {
-    video.setAttribute('webkit-playsinline', '"true"')
-    video.removeAttribute("controls")
-    if( _ios ) 
-    {
-      video.addEventListener('webkitendfullscreen', function() {
-        window.requestAnimationFrame(function() { document.body.scrollTop = 0 })
+  if( video ) {
+    video.setAttribute( 'webkit-playsinline', '"true"' )
+    video.removeAttribute( "controls" )
+    if( _ios ) {
+      video.addEventListener( 'webkitendfullscreen', function() {
+        window.requestAnimationFrame( function() {
+          document.body.scrollTop = 0
+        } )
         t.pause()
         app.playing.from.val = false
-      }, false)
+      }, false )
     }
 
     t.video = video
@@ -12169,7 +12127,7 @@ function createPlayer(t, cb) {
     // domLogger('addedEvents etc')
   }
 
-  exports.protoNew.call(t)
+  exports.protoNew.call( t )
 
   cb()
 }
@@ -12178,34 +12136,30 @@ exports.settings = app.api.player.settings
 
 exports.protoNew = exports.new
 
-exports.new = function(){}
+exports.new = function() {}
 
 exports.setEvents = false
 
-function initVideo( _this, src ){
+function initVideo( _this, src ) {
   _this._correctTime = Math.abs( _this.time.val ) * _this.duration.val
-  if( src && typeof src === 'string' )
-  {
-    if( _this.data.media && ~_this.data.media.from._path.indexOf('channels') )
-    { type = 'simulcast_stream'
-    }
-    else
-    { type = 'riptide_video'
+  if( src && typeof src === 'string' ) {
+    if( _this.data.media && ~_this.data.media.from._path.indexOf( 'channels' ) ) {
+      type = 'simulcast_stream'
+    } else {
+      type = 'riptide_video'
     }
 
     _this._correctTime = void 0
-    _this.jqHandle.load( 
-      type
-    , src
-    , { startTime:Math.abs(_this.time.val) * _this.duration.val
-        || ( cases.$isUpgraded.val ? 0.00000000000000000000000001 : void 0 )
-      , simulcastApiKey: exports.settings.simulcastApiKey
-      }
-    , function( obj ) {
+    _this.jqHandle.load(
+      type, src, {
+        startTime: Math.abs( _this.time.val ) * _this.duration.val || ( cases.$isUpgraded.val ? 0.00000000000000000000000001 : void 0 ),
+        simulcastApiKey: exports.settings.simulcastApiKey
+      },
+      function( obj ) {
         _this._ready = true
         app.playing.from.val = !( cases.phoneBrowser && _this.playing )
-        if(_this._correctTime !== void 0)
-        { setTime.call(_this, Math.abs(_this._correctTime), true )
+        if( _this._correctTime !== void 0 ) {
+          setTime.call( _this, Math.abs( _this._correctTime ), true )
         }
       }
     )
@@ -12213,56 +12167,50 @@ function initVideo( _this, src ){
 }
 
 exports.play = function( val ) {
-  var _this = this
-    , src
-    , type
+  var _this = this,
+    src, type
 
-  if ( val ) //play
+  if( val ) //play
   {
     if( !_this.jqHandle || !_this.__src ) {
-      
+
       src = _this.src.val
       _this.__src = src
 
       if( !_this.jqHandle ) {
-        createPlayer(_this, function(){
+        createPlayer( _this, function() {
           initVideo( _this, src )
         } )
-      }else{
+      } else {
         initVideo( _this, src )
       }
-    } 
-    else if( _this.jqHandle )
-    {
-      if( _this.tset )
-      {
-        setTime.call(_this, Math.abs(_this.time.val) * _this.duration.val, true )
+    } else if( _this.jqHandle ) {
+      if( _this.tset ) {
+        setTime.call( _this, Math.abs( _this.time.val ) * _this.duration.val, true )
       }
       _this.jqHandle.play()
     }
     _this.tset = null
-  }
-  else if( _this.jqHandle )
-  {
+  } else if( _this.jqHandle ) {
     _this.jqHandle.pause()
   }
 }
 
-exports.volume = function(val) {
+exports.volume = function( val ) {
   var volume = val.val
-  if( this.jqHandle && !isNaN(volume) ) this.jqHandle.setVolume( volume )
+  if( this.jqHandle && !isNaN( volume ) ) this.jqHandle.setVolume( volume )
 }
 
-exports.time = 
-{ set: setTime
-, get: function( val ){
+exports.time = {
+  set: setTime,
+  get: function( val ) {
     var time = this.jqHandle && this.jqHandle.getCurrentTime()
-    // domLogger( 'time: ' + time + ' duration: ' + this.duration.val + 'handle: ' + this.jqHandle )
+      // domLogger( 'time: ' + time + ' duration: ' + this.duration.val + 'handle: ' + this.jqHandle )
     return time / this.duration.val || val.val
-  } 
+  }
 }
 
-exports.remove = function(val) {
+exports.remove = function( val ) {
   if( this.jqHandle ) this.jqHandle.destroy()
   this.jqHandle = null
   this.video = null
@@ -12270,22 +12218,22 @@ exports.remove = function(val) {
 
 exports.src = function( val ) {
   src = val.val
-  if ( this.__src !== src ) {
+  if( this.__src !== src ) {
     this.__src = null
-    if( this.jqHandle )
-    {
+    if( this.jqHandle ) {
       // initVideo( this, src )
       this.jqHandle.destroy()
       this.jqHandle = null
       this._ready = null
-    }else if( cases.phoneBrowser && this.rendered ){
+    } else if( cases.phoneBrowser && this.rendered ) {
       var _this = this
-      createPlayer(_this, function(){
+      createPlayer( _this, function() {
         initVideo( _this, src )
       } )
     }
   }
 }
+
 },{"vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/browser/element/video/html5":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/element/video/html5.js","vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/components/player/seekbar/index.js":[function(require,module,exports){
 require('./style.less')
 
@@ -12543,470 +12491,554 @@ arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0]
 },{}],"/Users/youzi/dev/mtv-play/components/popup/article.js":[function(require,module,exports){
 //anim up op phone
 // anders scale en fade
-var Element = require('vigour-js/app/ui/element')
-  , util = require('vigour-js/util')
-  , Icon = require('../icon')
-  , Item = require('../item')
-  , cases = require('vigour-js/browser/cases')
-  , Img = require('../img')
-  , Page = require('./page')
+var Element = require( 'vigour-js/app/ui/element' )
+var util = require( 'vigour-js/util' )
+var Icon = require( '../icon' )
+var Item = require( '../item' )
+var cases = require( 'vigour-js/browser/cases' )
+var Img = require( '../img' )
+var Page = require( './page' )
 
 //deze heeft als special dat de topbar title dynamisch is
-module.exports = exports = new Page(
-{ css:'popup-article'
-, img: new Img.Relative(
-	{ h:190
-	, display:
-		{ data:'img'
-		, transform: function(c, cv)
-			{ return cv ? 'block' : 'none'
-			}
-		}
-	}) //ook liever relative
-, title: { text: { data: 'title' } }
-, body: {text: { data: 'text' } }
-}).Class
-
-
+module.exports = exports = new Page( {
+  css: 'popup-article',
+  img: new Img.Relative( {
+    h: 190,
+    display: {
+      data: 'img',
+      transform: function( c, cv ) {
+        return cv ? 'block' : 'none'
+      }
+    }
+  } ),
+  title: {
+    text: {
+      data: 'title'
+    }
+  },
+  body: {
+    text: {
+      data: 'text'
+    }
+  }
+} ).Class
 
 },{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/auth.js":[function(require,module,exports){
 //anim up op phone
 // anders scale en fade
-var Element = require('vigour-js/app/ui/element')
-  , util = require('vigour-js/util')
-  , Icon = require('../icon')
-  , cases = require('vigour-js/browser/cases')
-  , Button = require('../button')
-  , Input = require('../text/input')
-  , Item = require('../item')
-  , Page = require('./page')
-  , app = require('vigour-js/app/')
-  , FacebookBtn
+var Element = require( 'vigour-js/app/ui/element' )
+var util = require( 'vigour-js/util' )
+var Icon = require( '../icon' )
+var cases = require( 'vigour-js/browser/cases' )
+var Button = require( '../button' )
+var Input = require( '../text/input' )
+var Item = require( '../item' )
+var Page = require( './page' )
+var app = require( 'vigour-js/app/' )
+var FacebookBtn
 
 //user.activeDevices  // TODO SAME AS IN MENU >> UNITE
-var Term = new Element(
-{ 'events.click': function() {
-    var popup = this.checkParent( 'on.popup' , true ).from
-      , user = app.user //TODO: fix
+var Term = new Element( {
+  'events.click': function() {
+    var popup = this.checkParent( 'on.popup', true ).from,
+      user = app.user //TODO: fix
     popup.previous = popup.val
     popup.data = app.content.get( [ this._name, 'list', '0' ] )
     popup.val = 'article'
-  }
-, css: 'term'
-}).Class
+  },
+  css: 'term'
+} ).Class
 
-exports.FbButton = new Button(
-{ 'events.click': function() {
+exports.FbButton = new Button( {
+  'events.click': function() {
     var api = this.checkParent( 'api', true )
     api.facebook.login.val = true
   }
-}).Class
+} ).Class
 
-exports.GetApp = new Page({
-  css:'getapp'
-//, platform:{}
-, on:
-  { $parent:
-    { defer:function( update ){
-        var topbar = this._parent._caller.checkParent('topbar',true)
-        if(topbar)
-        { 
+exports.GetApp = new Page( {
+  css: 'getapp',
+  on: {
+    $parent: {
+      defer: function( update ) {
+        var topbar = this._parent._caller.checkParent( 'topbar', true )
+        if( topbar ) {
           topbar.empty()
           topbar.node.style.backgroundColor = '#3a1a58'
         }
         update()
       }
     }
-  }
-, info: 
-  { title: {
-     'text.dictionary': 'text.register.redirectTitle'
-    }
-  , subtitle: {
-      'text.dictionary' : 'text.register.redirectSubtitle'
-    }
-  , freepass: {}
-  }
-, 'ios.teleport': new Button(
-  { text: { dictionary: 'text.register.redirectTeleport' }
-  , 'events.click': function() {
+  },
+  info: {
+    title: {
+      'text.dictionary': 'text.register.redirectTitle'
+    },
+    subtitle: {
+      'text.dictionary': 'text.register.redirectSubtitle'
+    },
+    freepass: {}
+  },
+  'ios.teleport': new Button( {
+    text: {
+      dictionary: 'text.register.redirectTeleport'
+    },
+    'events.click': function() {
       window.location.href = 'fb709421825777638://'
     }
-  })
-}).Class
+  } )
+} ).Class
 
-var Conditions = new Element(
-{ top:{ text:{dictionary:'text.signInTOS'} }
-, items:
-  { privacy:new Term({ text:{ dictionary:'text.privacy' } })
-  , terms:new Term({ text:{ dictionary:'text.terms' } })
+var Conditions = new Element( {
+  top: {
+    text: {
+      dictionary: 'text.signInTOS'
+    }
+  },
+  items: {
+    privacy: new Term( {
+      text: {
+        dictionary: 'text.privacy'
+      }
+    } ),
+    terms: new Term( {
+      text: {
+        dictionary: 'text.terms'
+      }
+    } )
   }
-}).Class
+} ).Class
 
-exports.Login = new Page(
-{ css:'login'
-, logo:{}
-, '!windowsMobile.facebook': new exports.FbButton(
-  { 'text.dictionary' : 'text.account.signin.facebook'
-  })
-, email: new Button(
-  { text: { dictionary: 'text.account.signin.email' }
-  , 'events.click': function() {
+exports.Login = new Page( {
+  css: 'login',
+  logo: {},
+  '!windowsMobile.facebook': new exports.FbButton( {
+    'text.dictionary': 'text.account.signin.facebook'
+  } ),
+  email: new Button( {
+    text: {
+      dictionary: 'text.account.signin.email'
+    },
+    'events.click': function() {
       var popup = this.checkParent( 'on.popup', true ).from
       popup.val = 'loginEmail'
     }
-  })
-, conditions:new Conditions({css:'alignedTop'})
-}).Class
+  } ),
+  conditions: new Conditions( {
+    css: 'alignedTop'
+  } )
+} ).Class
 
-exports.Login.Email = new Input.Form(
-{ css:'login'
-, scrollbar:'y'
-, x:{translate:true}
-, email: new Input({
+exports.Login.Email = new Input.Form( {
+  css: 'login',
+  scrollbar: 'y',
+  x: {
+    translate: true
+  },
+  email: new Input( {
     input: 'email'
-    //verification add later!
-  })
-, password: new Input({
+      //verification add later!
+  } ),
+  password: new Input( {
     input: 'password'
-  })
-, 'desktop.confirm': new Button(
-  { text: { dictionary: 'text.account.signin.title' }
-  , 'events.confirm': function() {
+  } ),
+  'desktop.confirm': new Button( {
+    text: {
+      dictionary: 'text.account.signin.title'
+    },
+    'events.confirm': function() {
       var form = this.parent
-      form.done.call(form)
+      form.done.call( form )
     }
-  })
-, conditions:new Conditions()
-, verify:[ 'email', 'password' ]
-, bottom: {
-    'text.dictionary': 'text.account.forgot.title'
-  , 'events.click': function() {
+  } ),
+  conditions: new Conditions(),
+  verify: [ 'email', 'password' ],
+  bottom: {
+    'text.dictionary': 'text.account.forgot.title',
+    'events.click': function() {
       var api = this.checkParent( 'api', true )
       api.password.forgot.val = this.parent.email.val
     }
-  }
-, define:
-  { done:function(){
-      if( this.verified ) 
-      {
+  },
+  define: {
+    done: function() {
+      if( this.verified ) {
         var api = this.checkParent( 'api', true )
         api.login.val = {
-          email: this.email.val
-        , password: this.password.val
+          email: this.email.val,
+          password: this.password.val
         }
-      }
-      else 
-      {
-        //check password etc
-        // app.notification.type = 'email'
+      } else {
         app.notification.val = 'invalid'
       }
     }
   }
-}).Class
+} ).Class
 
-var RegisterConditions = new Conditions(
-{ top:
-  { text:
-    { dictionary:'text.termsOfService'
+var RegisterConditions = new Conditions( {
+  top: {
+    text: {
+      dictionary: 'text.termsOfService'
     }
   }
-}).Class
+} ).Class
 
-exports.Register = new Page(
-{ css:'register'
-, logo:{}
-, '!windowsMobile.facebook': new exports.FbButton(
-  { 'text.dictionary' : 'text.account.signup.facebook'
-  })
-, email: new Button(
-  { text: { dictionary: 'text.account.signup.email' }
-  , 'events.click': function() {
+exports.Register = new Page( {
+  css: 'register',
+  logo: {},
+  '!windowsMobile.facebook': new exports.FbButton( {
+    'text.dictionary': 'text.account.signup.facebook'
+  } ),
+  email: new Button( {
+    text: {
+      dictionary: 'text.account.signup.email'
+    },
+    'events.click': function() {
       var popup = this.checkParent( 'on.popup', true ).from
       popup.val = 'registerEmail'
     }
-  })
-, conditions:new RegisterConditions(
-  { css:'alignedTop'
-  })
-}).Class
+  } ),
+  conditions: new RegisterConditions( {
+    css: 'alignedTop'
+  } )
+} ).Class
 
-exports.Register.Email = new Input.Form(
-{ css:'register'
-, scrollbar:'y'
-, x:{translate:true}
-, email: new Input({
-    input:'email'
-    //verification add later!
-  })
-, password: new Input({
+exports.Register.Email = new Input.Form( {
+  css: 'register',
+  scrollbar: 'y',
+  x: {
+    translate: true
+  },
+  email: new Input( {
+    input: 'email'
+  } ),
+  password: new Input( {
     input: 'password'
-  })
-, repeatPassword: new Input({
-    input: { val: 'password', text: 'text.repeatPassword' }
-  })
-, verify:[ 'email', 'password', 'repeatPassword' ]
-, 'desktop.confirm': new Button(
-  { text: { dictionary: 'text.next' }
-  , 'events.confirm': function(){
-      var form = this.parent
-      form.done.call(form)
+  } ),
+  repeatPassword: new Input( {
+    input: {
+      val: 'password',
+      text: 'text.repeatPassword'
     }
-  })
-, conditions:new RegisterConditions()
-, define:
-  { done:function(){
+  } ),
+  verify: [ 'email', 'password', 'repeatPassword' ],
+  'desktop.confirm': new Button( {
+    text: {
+      dictionary: 'text.next'
+    },
+    'events.confirm': function() {
+      var form = this.parent
+      form.done.call( form )
+    }
+  } ),
+  conditions: new RegisterConditions(),
+  define: {
+    done: function() {
 
-      if( this.verified ) 
-      {
-        if( this.password.val === this.repeatPassword.val )
-        {
-          var popup = this.checkParent('on.popup', true ).from
-          popup.data =
-          { email: this.email.val
-          , password: this.password.val
+      if( this.verified ) {
+        if( this.password.val === this.repeatPassword.val ) {
+          var popup = this.checkParent( 'on.popup', true ).from
+          popup.data = {
+            email: this.email.val,
+            password: this.password.val
           }
           popup.val = 'registerNewsletter'
-        }
-        else
-        {
+        } else {
           app.notification.val = 'noMatchPassword'
         }
-      }
-      else 
-      {
+      } else {
         app.notification.type = this.verificationError && this.verificationError.val
         app.notification.val = 'invalid'
       }
 
     }
   }
-}).Class
+} ).Class
 
-var NewsLetterButton = new Item.Switcher({
-  txt:
-  { 'title.text.dictionary': 'text.newsletterTitle'
-  , 'subtitle.text.dictionary': 'text.newsletterSubtitle'
-  }
-// , switchOn: true
-, 'events.click':function() {
-    if(!this.parent.data) this.parent.data = {}
+var NewsLetterButton = new Item.Switcher( {
+  txt: {
+    'title.text.dictionary': 'text.newsletterTitle',
+    'subtitle.text.dictionary': 'text.newsletterSubtitle'
+  },
+  'events.click': function() {
+    if( !this.parent.data ) this.parent.data = {}
     var data = this.parent.data
     data.newsletter = !this.righticon.hold.switchOn.val
     this.righticon.hold.switchOn = data.newsletter
-  }
-, add: [ new Icon({ name:'lefticon',icon:'newsletter' }), 'txt' ]
-}).Class
+  },
+  add: [ new Icon( {
+    name: 'lefticon',
+    icon: 'newsletter'
+  } ), 'txt' ]
+} ).Class
 
 var Dropdown
 
-if(cases.phone && cases.native)
-{
-  var dropdownMenu = new Element(
-  { css:'auth-dropdown'
-  , position:'absolute'
-  , y:
-    { animation:
-      { time:18
-      , easing:'outCubic'
-      , done:function(){
-          if(this._remove) this.remove()
+if( cases.phone && cases.native ) {
+  var dropdownMenu = new Element( {
+    css: 'auth-dropdown',
+    position: 'absolute',
+    y: {
+      animation: {
+        time: 18,
+        easing: 'outCubic',
+        done: function() {
+          if( this._remove ) this.remove()
         }
       }
-    }
-  , model:
-    { complete:function(){
-      var _this = this
-        window.requestAnimationFrame(function(){
-         _this.y = {sub:_this.node.offsetHeight}
-       })
+    },
+    model: {
+      complete: function() {
+        var _this = this
+        window.requestAnimationFrame( function() {
+          _this.y = {
+            sub: _this.node.offsetHeight
+          }
+        } )
       }
     }
-  }).Class
+  } ).Class
 
-  function removeDropdown(){
+  function removeDropdown() {
     app.dropdown._remove = true
-    app.dropdown.y = {sub:0}
+    app.dropdown.y = {
+      sub: 0
+    }
     app.dropdownBackdrop.remove()
   }
 
-  Dropdown = new Item.IconLeft(
-  { lefticon:{icon:'newsletter'}
-  , txt:
-    { css:{data:'value', transform:function(v,cv){
-        return cv.trim() === 'txt' ? 'inactive' : ' '
-      }}
-    , text:{dictionary:{data:'dictionary'}}
-    , model:{inherit:false}
-    }
-  , model:function( data ){
-      if(data instanceof Array) this.txt.data = data[0]
-    }
-  , 'events.click':function(){
-      if(!app.dropdown)
-      {
-        var form = this.parent
-          , name = this._name
-          , data = this.data
+  Dropdown = new Item.IconLeft( {
+    lefticon: {
+      icon: 'newsletter'
+    },
+    txt: {
+      css: {
+        data: 'value',
+        transform: function( v, cv ) {
+          return cv.trim() === 'txt' ? 'inactive' : ' '
+        }
+      },
+      text: {
+        dictionary: {
+          data: 'dictionary'
+        }
+      },
+      model: {
+        inherit: false
+      }
+    },
+    model: function( data ) {
+      if( data instanceof Array ) this.txt.data = data[ 0 ]
+    },
+    'events.click': function() {
+      if( !app.dropdown ) {
+        var form = this.parent,
+          name = this._name,
+          data = this.data
 
-        if(!this._dData) this._dData = data.splice(1)
+        if( !this._dData ) this._dData = data.splice( 1 )
 
-        app.set(
-        { dropdownBackdrop:
-          { css:'relative-size'
-          , 'events.click':removeDropdown
-          }
-        , dropdown:new dropdownMenu(
-          { y:app.h
-          , collection:
-            { data:true
-            , element:new Element(
-              { text:{dictionary:{data:'dictionary'}}
-              , 'events.click':function(){
-                  if(!form.data) form.data = {}
+        app.set( {
+          dropdownBackdrop: {
+            css: 'relative-size',
+            'events.click': removeDropdown
+          },
+          dropdown: new dropdownMenu( {
+            y: app.h,
+            collection: {
+              data: true,
+              element: new Element( {
+                text: {
+                  dictionary: {
+                    data: 'dictionary'
+                  }
+                },
+                'events.click': function() {
+                  if( !form.data ) form.data = {}
                   form.data[ name ] = this.data.value
                   form[ name ].txt.data = this.data
                   removeDropdown()
                 }
-              })
+              } )
+            },
+            data: this._dData
+          } )
+        } )
+      }
+    }
+  } ).Class
+} else {
+  Dropdown = new Item( {
+    select: {
+      node: 'select',
+      collection: {
+        data: true,
+        element: new Element( {
+          node: 'option',
+          attr: {
+            value: {
+              data: 'value'
             }
-          , data:this._dData
-          })
-        })
+          },
+          text: {
+            dictionary: {
+              data: 'dictionary'
+            }
+          }
+        } )
       }
-    }
-  }).Class
-}
-else
-{
-  Dropdown = new Item(
-  { select:
-    { node: 'select'
-    , collection:
-        { data: true
-        , element:new Element(
-          { node: 'option'
-          , attr:
-            { value: { data: 'value' } }
-          , text:{ dictionary:{ data: 'dictionary'} }
-          })
-        }
-      }
-  , 'events.change': function( e ) {
-      if(!this.parent.data) this.parent.data = {}
+    },
+    'events.change': function( e ) {
+      if( !this.parent.data ) this.parent.data = {}
       this.parent.data[ this._name ] = e.target.value
-    }
-  , add:[ new Icon({ name:'lefticon',icon:'newsletter' }) , 'select' ]
-  }).Class
+    },
+    add: [ new Icon( {
+      name: 'lefticon',
+      icon: 'newsletter'
+    } ), 'select' ]
+  } ).Class
 }
 
 function confirmRegisterNewsletter() {
-  var api = this.checkParent( 'api', true )
-    , parent = this.parent
-  if(!parent.data) parent.data = {}
+  var api = this.checkParent( 'api', true ),
+    parent = this.parent
+  if( !parent.data ) parent.data = {}
   api.register.val = parent.data
 }
 
-exports.Register.Newsletter = new Input.Form(
-{ css:'register newsletter'
-, scrollbar:'y'
-, x:{translate:true}
-, age: new Dropdown(
-  { 'on.$render.defer': function( update ) {
-      this._parent._caller.data =
-      [ { value: '' , dictionary:'text.age' }
-      , { dictionary: 'options.age.0.text', value:'1' } //you can put any integer value in min_age and max_age
-      , { dictionary: 'options.age.1.text', value:'2' }
-      , { dictionary: 'options.age.2.text', value:'3' }
+exports.Register.Newsletter = new Input.Form( {
+  css: 'register newsletter',
+  scrollbar: 'y',
+  x: {
+    translate: true
+  },
+  age: new Dropdown( {
+    'on.$render.defer': function( update ) {
+      this._parent._caller.data = [ {
+          value: '',
+          dictionary: 'text.age'
+        }, {
+          dictionary: 'options.age.0.text',
+          value: '1'
+        } //you can put any integer value in min_age and max_age
+        , {
+          dictionary: 'options.age.1.text',
+          value: '2'
+        }, {
+          dictionary: 'options.age.2.text',
+          value: '3'
+        }
       ]
       update()
+    },
+    lefticon: {
+      icon: 'age'
     }
-  , lefticon: {icon: 'age'}
-  })
-, gender: new Dropdown(
-  { 'on.$render.defer': function( update ) {
-      this._parent._caller.data =
-      [ { value: '' , dictionary: 'text.gender' }
-      , { value: 'male' , dictionary: 'options.gender.0.text' }
-      , { value: 'female' , dictionary: 'options.gender.1.text' }
-      , { value: 'other', dictionary: 'options.gender.2.text' }
-      ]
+  } ),
+  gender: new Dropdown( {
+    'on.$render.defer': function( update ) {
+      this._parent._caller.data = [ {
+        value: '',
+        dictionary: 'text.gender'
+      }, {
+        value: 'male',
+        dictionary: 'options.gender.0.text'
+      }, {
+        value: 'female',
+        dictionary: 'options.gender.1.text'
+      }, {
+        value: 'other',
+        dictionary: 'options.gender.2.text'
+      } ]
       update()
+    },
+    lefticon: {
+      icon: 'gender'
     }
-  , lefticon: {icon: 'gender'}
-  })
-, newsletter:  new NewsLetterButton()
-, 'desktop.confirm': new Button(
-  { text: { dictionary: 'text.account.signup.title' }
-  , 'events.confirm': function(){
+  } ),
+  newsletter: new NewsLetterButton(),
+  'desktop.confirm': new Button( {
+    text: {
+      dictionary: 'text.account.signup.title'
+    },
+    'events.confirm': function() {
       var form = this.parent
-      form.done.call(form)
+      form.done.call( form )
     }
-  })
-, conditions:new RegisterConditions()
-, define:
-  { done:function confirmRegisterNewsletter() {
+  } ),
+  conditions: new RegisterConditions(),
+  define: {
+    done: function confirmRegisterNewsletter() {
       var api = this.checkParent( 'api', true )
-      if(!this.data) this.data = {}
+      if( !this.data ) this.data = {}
       api.register.val = this.data
     }
   }
-}).Class
+} ).Class
 
 //not used?
-exports.Register.Success = new Page(
-{ css:'register'
-, text: { dictionary: 'fill in stuff' }
-, email: new Button(
-  { text: { dictionary: 'email is verified' }
-  , 'events.click': function() {
-      var api = this.checkParent( 'api', true )
-        , popup = this.checkParent( 'on.popup', true ).from
+exports.Register.Success = new Page( {
+  css: 'register',
+  text: {
+    dictionary: 'fill in stuff'
+  },
+  email: new Button( {
+    text: {
+      dictionary: 'email is verified'
+    },
+    'events.click': function() {
+      var api = this.checkParent( 'api', true ),
+        popup = this.checkParent( 'on.popup', true ).from
 
-      api.login.val =
-      { email: api.register.email.val
-      , password: api.register.password.val
+      api.login.val = {
+        email: api.register.email.val,
+        password: api.register.password.val
       }
 
-      api.login.once(function( val ) {
+      api.login.once( function( val ) {
         if( val === 'success' ) popup.val = 'profile'
-      })
+      } )
     }
-  })
-}).Class
+  } )
+} ).Class
 
-exports.PasswordReset = new Input.Form(
-{ css:'register'
-, scrollbar:'y'
-, x:{translate:true}
-, password: new Input({
+exports.PasswordReset = new Input.Form( {
+  css: 'register',
+  scrollbar: 'y',
+  x: {
+    translate: true
+  },
+  password: new Input( {
     input: 'password'
-  })
-, repeatPassword: new Input({
-    input: { val: 'password', text: 'text.repeatPassword' }
-  })
-, 'desktop.confirm': new Button(
-  { text: { dictionary: 'text.account.passwordReset' }
-  , 'events.confirm': function(){
-      var form = this.parent
-      form.done.call(form)
+  } ),
+  repeatPassword: new Input( {
+    input: {
+      val: 'password',
+      text: 'text.repeatPassword'
     }
-  })
-, define:
-  { done:function(){
-      if( this.password.val === this.repeatPassword.val )
-      {
+  } ),
+  'desktop.confirm': new Button( {
+    text: {
+      dictionary: 'text.account.passwordReset'
+    },
+    'events.confirm': function() {
+      var form = this.parent
+      form.done.call( form )
+    }
+  } ),
+  define: {
+    done: function() {
+      if( this.password.val === this.repeatPassword.val ) {
         var api = this.checkParent( 'api', true )
-        api.password.reset.val = { password: this.password.val }
-      }
-      else
-      {
+        api.password.reset.val = {
+          password: this.password.val
+        }
+      } else {
         app.notification.val = 'noMatchPassword'
       }
     }
   }
-}).Class
+} ).Class
 
 },{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../text/input":"/Users/youzi/dev/mtv-play/components/text/input.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/buy.js":[function(require,module,exports){
 //anim up op phone
@@ -14257,14 +14289,14 @@ module.exports = new Element({
 //anim up op phone
 // anders scale en fade
 var Element = require('vigour-js/app/ui/element')
-  , util = require('vigour-js/util')
-  , Icon = require('../icon')
-  , Item = require('../item')
-  , cases = require('vigour-js/browser/cases')
-  , Button = require('../button')
-  , Page = require('./page')
-  , dictionary = require('vigour-js/app/dictionary')
-  , app = require('vigour-js/app/')
+var util = require('vigour-js/util')
+var Icon = require('../icon')
+var Item = require('../item')
+var cases = require('vigour-js/browser/cases')
+var Button = require('../button')
+var Page = require('./page')
+var dictionary = require('vigour-js/app/dictionary')
+var app = require('vigour-js/app/')
 
 var MenuItems = new Element(
 { append:
@@ -52193,6 +52225,6 @@ app.set( // switcher between first/second/player
 app.initialised.val = true
 
 },{"../app":"/Users/youzi/dev/mtv-play/app/index.js","../components/switcher":"/Users/youzi/dev/mtv-play/components/switcher/index.js","vigour-js/app/ui/tv":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/tv/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"package.json":[function(require,module,exports){
-module.exports={"name":"mtv-play","version":"1.2.66","description":"mtv's multiscreen adventure","main":"index.js","scripts":{"start":"gaston -d","test":"test/test.js","release":"packer -r -c package.json,.package.json"},"repository":{"type":"git","url":"https://github.com/vigour-io/mtv-play","branch":"staging"},"keywords":["multiscreen","play","shows","smart","tv","js"],"dependencies":{"lodash":"3.2.0","monotonic-timestamp":"0.0.9","package-branch-config":"^1.2.2","promise":"6.1.0","through2":"^2.0.0","vigour-js":"git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay","zepto-browserify":"x"},"devDependencies":{"vigour-dev-tools":"git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master","vigour-packer-server":"git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"},"author":"Jim de Beer","license":"other","bugs":{"url":"https://github.com/vigour-io/mtv-play/issues"},"homepage":"https://github.com/vigour-io/mtv-play","vigour":{"ga":"UA-43955457-3","hashUrl":true,"defaultRegion":false,"regionOverride":"url","availableRegions":["DE","NL","CH","PL","RO","BE"],"geo":"https://wwwmtvplay-a.akamaihd.net/geo/","development":{"button":false},"cloud":"http://mtvtest.dev.vigour.io:80","othercloud":"http://localhost:10001","languages":["en","de","nl","pl","ro","it","fr"],"mtvmobile":["de","ch","ro"],"roles":["free","premium","mtv","trial"],"countrycodes":{"de":49,"ch":41,"ro":40,"nl":31},"dictionary":"http://mtv-develop.vigour.io/translations/lang_$language.json","webtranslateit":{"files":{"de":374130,"en":374126,"nl":374128,"pl":374129,"ro":374131,"fr":404562,"it":404563},"token":"-rN-CdCWmgh4IDxFRT-MEg"},"epg":"https://wwwmtvplay-a.akamaihd.net/xhr/index.html","img":"https://imgmtvplay-a.akamaihd.net","api":{"type":"production","url":"https://utt.mtvnn.com/","acceptHeader":"application/json","key":"4e99c9381b74354fbae9f468497912f0"},"player":{"debug":false,"web":"http://player.mtvnn.com/html5player/production/player.js","settings":{"domain":"mtv","tld":"de","localization":{"language":"de","country":"DE"},"ads":{"enabled":true,"engine":"Freewheel","networkID":174975,"profileID":"174975:MTVNE_live_HTML5","viralSID":"mtvplaytv/test","defaultAssetID":41349526,"server":"http://2ab7f.v.fwmrm.net/ad/p/1"},"controls":false,"blankVideo":"http://player.mtvnn.com/codebase/blank.m4v","simulcastApiKey":"c153f28d950ae49a"}},"chromecast":{"id":"30C914C1","web":"https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"},"facebook":{"id":"709421825777638","web":"https://connect.facebook.net/de_DE/sdk.js"},"packer":{"language":"https://wwwmtvplay-a.akamaihd.net/translations/","url":"https://wwwmtvplay-a.akamaihd.net/","domain":"http://staging.packer.mtv.vigour.io","assets":{"index.html":true,"bundle.js":true,"bundle.css":true,"build.html":true,"build.js":true,"build.css":true,"fonts.css":true,"fonts":"*","img":"*","assets":"*","translations":"*","googleebecff275dd42f4a.html":true,"google2c4a46fac7686373.html":true},"transforms":{"build.js":["inform"],"bundle.css":["rebase"],"build.css":["rebase"]},"main":"build.js","web":"build.html","fbDefaults":{"title":"MTV Play","description":"Mtv's new app to view shows on all devices","image":"http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png"}},"store":{"ios":{"monthly":"$region_subscription_monthly","yearly":"$region_subscription_annual","single":"$region_single_purchase"},"android":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annually","single":"mtvplay_single_purchase"},"windows":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annual","single":"mtvplay_single_purchase"}},"omniture":"vianorthtestweb"},"gaston":{"port":8080,"socket-port":9000,"no-auto-reload":false,"no-package":false,"bundle":"./","build":"./","browserify":{"transforms":[{"path":"package-branch-config","options":{"section":"vigour"}}]},"less":{"options":{}},"smaps":false,"source-maps":false,"remote-logging":false,"require-paths":{}},"sha":"1.2.66"}
+module.exports={"name":"mtv-play","version":"1.2.66","description":"mtv's multiscreen adventure","main":"index.js","scripts":{"start":"gaston -d","test":"test/test.js","release":"packer -r -c package.json,.package.json"},"repository":{"type":"git","url":"https://github.com/vigour-io/mtv-play","branch":"staging"},"keywords":["multiscreen","play","shows","smart","tv","js"],"dependencies":{"lodash":"3.2.0","monotonic-timestamp":"0.0.9","package-branch-config":"^1.2.2","promise":"6.1.0","through2":"^2.0.0","vigour-js":"git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay","zepto-browserify":"x"},"devDependencies":{"vigour-dev-tools":"git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master","vigour-packer-server":"git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"},"author":"Jim de Beer","license":"other","bugs":{"url":"https://github.com/vigour-io/mtv-play/issues"},"homepage":"https://github.com/vigour-io/mtv-play","vigour":{"ga":"UA-43955457-3","hashUrl":true,"defaultRegion":false,"regionOverride":"url","availableRegions":["DE","NL","CH","PL","RO","BE"],"geo":"https://wwwmtvplay-a.akamaihd.net/geo/","development":{"button":false},"cloud":"http://mtvtest.dev.vigour.io:80","othercloud":"http://localhost:10001","languages":["en","de","nl","pl","ro","it","fr","no"],"mtvmobile":["de","ch","ro"],"roles":["free","premium","mtv","trial"],"countrycodes":{"de":49,"ch":41,"ro":40,"nl":31},"dictionary":"http://mtv-develop.vigour.io/translations/lang_$language.json","webtranslateit":{"files":{"de":374130,"en":374126,"nl":374128,"pl":374129,"ro":374131,"fr":404562,"it":404563},"token":"-rN-CdCWmgh4IDxFRT-MEg"},"epg":"https://wwwmtvplay-a.akamaihd.net/xhr/index.html","img":"https://imgmtvplay-a.akamaihd.net","api":{"type":"production","url":"https://utt.mtvnn.com/","acceptHeader":"application/json","key":"4e99c9381b74354fbae9f468497912f0"},"player":{"debug":false,"web":"http://player.mtvnn.com/html5player/production/player.js","settings":{"domain":"mtv","tld":"de","localization":{"language":"de","country":"DE"},"ads":{"enabled":true,"engine":"Freewheel","networkID":174975,"profileID":"174975:MTVNE_live_HTML5","viralSID":"mtvplaytv/test","defaultAssetID":41349526,"server":"http://2ab7f.v.fwmrm.net/ad/p/1"},"controls":false,"blankVideo":"http://player.mtvnn.com/codebase/blank.m4v","simulcastApiKey":"c153f28d950ae49a"}},"chromecast":{"id":"30C914C1","web":"https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"},"facebook":{"id":"709421825777638","web":"https://connect.facebook.net/de_DE/sdk.js"},"packer":{"language":"https://wwwmtvplay-a.akamaihd.net/translations/","url":"https://wwwmtvplay-a.akamaihd.net/","domain":"http://staging.packer.mtv.vigour.io","assets":{"index.html":true,"bundle.js":true,"bundle.css":true,"build.html":true,"build.js":true,"build.css":true,"fonts.css":true,"fonts":"*","img":"*","assets":"*","translations":"*","xhr":"*","googleebecff275dd42f4a.html":true,"google2c4a46fac7686373.html":true},"transforms":{"build.js":["inform"],"bundle.css":["rebase"],"build.css":["rebase"]},"main":"build.js","web":"build.html","fbDefaults":{"title":"MTV Play","description":"Mtv's new app to view shows on all devices","image":"http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png"}},"store":{"ios":{"monthly":"$region_subscription_monthly","yearly":"$region_subscription_annual","single":"$region_single_purchase"},"android":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annually","single":"mtvplay_single_purchase"},"windows":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annual","single":"mtvplay_single_purchase"}},"omniture":"vianorthtestweb"},"gaston":{"port":8080,"socket-port":9000,"no-auto-reload":false,"no-package":false,"bundle":"./","build":"./","browserify":{"transforms":[{"path":"package-branch-config","options":{"section":"vigour"}}]},"less":{"options":{}},"smaps":false,"source-maps":false,"remote-logging":false,"require-paths":{}},"sha":"1.2.66"}
 },{}]},{},["/Users/youzi/dev/mtv-play/index.js"])
 //# sourceMappingURL=bundle.js.map

@@ -65,7 +65,8 @@
       "pl",
       "ro",
       "it",
-      "fr"
+      "fr",
+      "no"
     ],
     "mtvmobile": [
       "de",
@@ -142,19 +143,20 @@
       "url": "https://wwwmtvplay-a.akamaihd.net/",
       "domain": "http://mtvplay.tv",
       "assets": {
-        "index.html":true,
-        "bundle.js":true,
-        "bundle.css":true,
+        "index.html": true,
+        "bundle.js": true,
+        "bundle.css": true,
         "build.html": true,
         "build.js": true,
         "build.css": true,
-        "fonts.css":true,
-        "fonts":"*",
+        "fonts.css": true,
+        "fonts": "*",
         "img": "*",
         "assets": "*",
-        "translations":"*",
-        "googleebecff275dd42f4a.html":true,
-        "google2c4a46fac7686373.html":true
+        "translations": "*",
+        "xhr": "*",
+        "googleebecff275dd42f4a.html": true,
+        "google2c4a46fac7686373.html": true
       },
       "transforms": {
         "build.js": [
