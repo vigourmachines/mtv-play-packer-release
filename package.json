@@ -242,7 +242,7 @@
         "regionOverride": "DE"
       },
       "production": {
-        "dictionary": "https://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
+        "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
         "omniture": "viaviamtvplay",
         "player": {
