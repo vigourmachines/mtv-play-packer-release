@@ -1279,9 +1279,13 @@ module.exports = exports = new Value( {
         this.$empty( [ 'loading', 'region' ] )
       } else {
         this.set( 'token', data.authentication_token )
+
         if( data.new_record ) {
           this.set( 'new_record', data.new_record )
+        }else if( this.new_record ){
+          this.new_record.remove()
         }
+
         update( 'success' )
       }
 
@@ -3053,7 +3057,6 @@ if( exports.cloud === 'production' ) //this used to have === 'demo' as well
     // this else will never happen?
     var regionOverride = exports.regionOverride
     if( regionOverride === 'url' ) {
-      void(0)
       var regions = [ 'CH', 'BE', 'DE', 'NO', 'NL', 'PL', 'RO' ]
       var href = window.location.href
       var regionat = href.indexOf( 'r=' )
@@ -3442,7 +3445,11 @@ api.login
 
     user.token = this.token.val
     //TODO: maybe check error here aswell? --- to redirect someone to login page
-    if( app.popup.val === 'login' 
+              // show hasMobile blabla
+
+    if( cases.hasMobile.val && this.new_record ) {
+      app.popup.val = 'getStarted'
+    } else if( app.popup.val === 'login' 
      || app.popup.val === 'loginEmail' 
      || app.popup.val === 'register'  
     )
@@ -3608,171 +3615,160 @@ app.popup.val = {
   }
 }
 },{"vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js"}],"/Users/youzi/dev/mtv-play/app/register.js":[function(require,module,exports){
-  var config = require( './config' )
-    , dictionary = require('vigour-js/app/dictionary')
-    , app = require( 'vigour-js/app/' )
-    , user = app.user
-    , api = require('../api')
-    , cases = require('vigour-js/browser/cases')
-    , timeout
-// app.api.facebook.share.val = { url: app.share }
-// app.api.email.share.val = { url: app.share }
-//TODO: land without hash!
-// console.log('URL PARAMS', this.raw, val)
+  var config = require( './config' ),
+    dictionary = require( 'vigour-js/app/dictionary' ),
+    app = require( 'vigour-js/app/' ),
+    user = app.user,
+    api = require( '../api' ),
+    cases = require( 'vigour-js/browser/cases' ),
+    timeout
+    // app.api.facebook.share.val = { url: app.share }
+    // app.api.email.share.val = { url: app.share }
+    //TODO: land without hash!
+    // console.log('URL PARAMS', this.raw, val)
 
-/* ------------  register ------------  */
+  /* ------------  register ------------  */
 
-api.register.val = {
-  age: {
-    defer:function( update, args ) {
-      //you can put any integer value in min_age and max_age
-      // console.log( 'AGE DEFER!', args )
+  api.register.val = {
+    age: {
+      defer: function( update, args ) {
+        //you can put any integer value in min_age and max_age
+        // console.log( 'AGE DEFER!', args )
 
-      var val = args[0]
+        var val = args[ 0 ]
 
-      if( !val || val.defer ) 
-      {
-        update( true )
+        if( !val || val.defer ) {
+          update( true )
+        } else {
+          if( val == 1 ) {
+            this.val = {
+              min_age: 1,
+              max_age: 20
+            }
+          } else if( val == 2 ) {
+            this.val = {
+              min_age: 20,
+              max_age: 30
+            }
+          } else if( val == 3 ) {
+            this.val = {
+              min_age: 30,
+              max_age: 40
+            }
+          }
+
+          update()
+        }
+
       }
-      else 
-      {
-        if( val == 1 ) 
-        {
-          this.val = {
-            min_age: 1
-          , max_age: 20
-          }
-        }
-        else if( val == 2 ) 
-        {
-          this.val = {
-            min_age: 20
-          , max_age: 30
-          }
-        }
-        else if( val == 3 ) 
-        {
-          this.val = {
-            min_age: 30
-          , max_age: 40
-          }
-        }
-
-        update()
-      }
-
-    }  
+    },
+    region: config.region
   }
-  , region: config.region
-}
 
-api.register
-  .on( 'error', function() {
-    app.notification.type = this.type
-    app.notification.val = 'registerError'
-  })
-  .on( 'success', function() {
-    //special handelings open popup /w button open your email
-    //then it check for a userToken and uses that to login make sperate value
-    app.notification.val = 'registerSuccess'
-    app.popup.val = false
-    if( this.email && this.email.val ) 
-    {
-      var email = this.email.val
-        , password = this.password.val
-    }
+  api.register
+    .on( 'error', function() {
+      app.notification.type = this.type
+      app.notification.val = 'registerError'
+    } )
+    .on( 'success', function() {
+      //special handelings open popup /w button open your email
+      //then it check for a userToken and uses that to login make sperate value
+      app.notification.val = 'registerSuccess'
+      app.popup.val = false
+      if( this.email && this.email.val ) {
+        var email = this.email.val,
+          password = this.password.val
+      }
 
-    if( api.timeout ) clearInterval( api.timeout )
+      if( api.timeout ) clearInterval( api.timeout )
 
-    //nu gaan pollen voor login!
-    if( cases.native ) {
-      api.timeout = setInterval(function() {
-        api.login.val = {
-          email: email
-        , password: password
+      //nu gaan pollen voor login!
+      if( cases.native ) {
+        api.timeout = setInterval( function() {
+          api.login.val = {
+            email: email,
+            password: password
+          }
+        }, 500 )
+        api.login.once( 'success', function() {
+          //block login error notifications
+
+          clearInterval( api.timeout )
+          api.timeout = false
+
+
+          //api.timeout
+        } )
+      }
+
+    } )
+    .loading.on( app.loading )
+
+  api.verify.email
+    .on( 'success', function( val ) {
+      if( cases.phone || cases.tablet ) {
+        app.popup.val = 'getApp'
+      }
+      user.token.val = this.token.val
+      app.notification.val = 'verifyEmailSuccess'
+    } )
+    .on( 'error', function( val ) {
+      app.notification.type = this.type
+      app.notification.val = 'verifyEmailError'
+    } )
+    .loading.on( app.loading )
+
+  app.url.params
+    .on( function( val ) {
+      if( this.e ) {
+        api.verify.email.val = this.e.val
+        this.val = ''
+      }
+    } )
+
+  /* ------------  forgot password ------------  */
+
+  api.password.forgot
+    .on( 'success', function() {
+      app.notification.val = 'passwordForgot'
+      app.popup.val = false
+    } )
+    .on( 'error', function() {
+      app.notification.type = this.type
+      app.notification.val = 'passwordForgotError'
+    } )
+    .loading.on( app.loading )
+
+  // document.body.base.api.password.forgot.on(function(){ console.log('do it!') })
+
+  api.password.reset
+    .on( 'success', function() {
+      app.notification.val = 'passwordResetSuccess'
+      app.popup.val = false
+      user.token.val = this.token.val
+    } )
+    .on( 'error', function() {
+      app.notification.type = this.type
+      app.notification.val = 'passwordResetError'
+    } )
+    .loading.on( app.loading )
+
+  app.url.params
+    .on( function( val ) {
+      if( this.reset ) {
+        api.password.reset.val = {
+          token: this.reset.val
         }
-      }, 500 )
-      api.login.once( 'success', function() {
-        //block login error notifications
-
-        clearInterval( api.timeout )
-        api.timeout = false
-
-        // show hasMobile blabla
-
-        if( cases.hasMobile.val )
-        {
-          app.popup.val = 'getStarted'
-        }
-        //api.timeout
-      })
-    }
-
-  })
-  .loading.on( app.loading )
-
-api.verify.email
-  .on( 'success', function( val ) {
-    if( cases.phone || cases.tablet ) {
-      app.popup.val = 'getApp'
-    } 
-    user.token.val = this.token.val
-    app.notification.val = 'verifyEmailSuccess'
-  })
-  .on( 'error', function( val ) {
-    app.notification.type = this.type
-    app.notification.val = 'verifyEmailError'
-  })
-  .loading.on( app.loading )
-
-app.url.params
-  .on(function( val ){
-    if( this.e ) {
-      api.verify.email.val = this.e.val  
-      this.val = ''  
-    }
-  })
-  
-/* ------------  forgot password ------------  */
-
-api.password.forgot
-  .on( 'success', function() {
-    app.notification.val = 'passwordForgot'
-    app.popup.val = false
-  })
-  .on( 'error', function() {
-    app.notification.type = this.type
-    app.notification.val = 'passwordForgotError'
-  })
-  .loading.on( app.loading )
-
-// document.body.base.api.password.forgot.on(function(){ console.log('do it!') })
-
-api.password.reset
-  .on( 'success', function() {
-    app.notification.val = 'passwordResetSuccess'
-    app.popup.val = false
-    user.token.val = this.token.val
-  })
-  .on( 'error', function() {
-    app.notification.type = this.type
-    app.notification.val = 'passwordResetError'
-  })
-  .loading.on( app.loading )
-
-app.url.params
-  .on(function( val ){
-    if( this.reset ) {
-      api.password.reset.val = { token : this.reset.val }
-      app.popup.from.val = 'passwordReset'
-      this.val = ''
-    }
-  })
+        app.popup.from.val = 'passwordReset'
+        this.val = ''
+      }
+    } )
 
   //http://play.mtvutt.com/?reset=MFRceiLn5xtsLYtsCGjE
   //http://play.mtvutt.com/?reset=MFRceiLn5xtsLYtsCGjE
 
   //TODO: notifcations longer
+
 },{"../api":"/Users/youzi/dev/mtv-play/api/index.js","./config":"/Users/youzi/dev/mtv-play/app/config.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/app/share.js":[function(require,module,exports){
   var config = require( './config' )
     , dictionary = require('vigour-js/app/dictionary')
@@ -52225,6 +52221,6 @@ app.set( // switcher between first/second/player
 app.initialised.val = true
 
 },{"../app":"/Users/youzi/dev/mtv-play/app/index.js","../components/switcher":"/Users/youzi/dev/mtv-play/components/switcher/index.js","vigour-js/app/ui/tv":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/tv/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"package.json":[function(require,module,exports){
-module.exports={"name":"mtv-play","version":"1.2.66","description":"mtv's multiscreen adventure","main":"index.js","scripts":{"start":"gaston -d","test":"test/test.js","release":"packer -r -c package.json,.package.json"},"repository":{"type":"git","url":"https://github.com/vigour-io/mtv-play","branch":"staging"},"keywords":["multiscreen","play","shows","smart","tv","js"],"dependencies":{"lodash":"3.2.0","monotonic-timestamp":"0.0.9","package-branch-config":"^1.2.2","promise":"6.1.0","through2":"^2.0.0","vigour-js":"git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay","zepto-browserify":"x"},"devDependencies":{"vigour-dev-tools":"git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master","vigour-packer-server":"git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"},"author":"Jim de Beer","license":"other","bugs":{"url":"https://github.com/vigour-io/mtv-play/issues"},"homepage":"https://github.com/vigour-io/mtv-play","vigour":{"ga":"UA-43955457-3","hashUrl":true,"defaultRegion":false,"regionOverride":"NO","availableRegions":["DE","NL","CH","PL","RO","BE"],"geo":"https://wwwmtvplay-a.akamaihd.net/geo/","development":{"button":false},"cloud":"http://mtvtest.dev.vigour.io:80","othercloud":"http://localhost:10001","languages":["en","de","nl","pl","ro","it","fr","no"],"mtvmobile":["de","ch","ro"],"roles":["free","premium","mtv","trial"],"countrycodes":{"de":49,"ch":41,"ro":40,"nl":31},"dictionary":"http://mtv-develop.vigour.io/translations/lang_$language.json","webtranslateit":{"files":{"de":374130,"en":374126,"nl":374128,"pl":374129,"ro":374131,"fr":404562,"it":404563},"token":"-rN-CdCWmgh4IDxFRT-MEg"},"epg":"https://wwwmtvplay-a.akamaihd.net/xhr/index.html","img":"https://imgmtvplay-a.akamaihd.net","api":{"type":"production","url":"https://utt.mtvnn.com/","acceptHeader":"application/json","key":"4e99c9381b74354fbae9f468497912f0"},"player":{"debug":false,"web":"http://player.mtvnn.com/html5player/production/player.js","settings":{"domain":"mtv","tld":"de","localization":{"language":"de","country":"DE"},"ads":{"enabled":true,"engine":"Freewheel","networkID":174975,"profileID":"174975:MTVNE_live_HTML5","viralSID":"mtvplaytv/test","defaultAssetID":41349526,"server":"http://2ab7f.v.fwmrm.net/ad/p/1"},"controls":false,"blankVideo":"http://player.mtvnn.com/codebase/blank.m4v","simulcastApiKey":"c153f28d950ae49a"}},"chromecast":{"id":"30C914C1","web":"https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"},"facebook":{"id":"709421825777638","web":"https://connect.facebook.net/de_DE/sdk.js"},"packer":{"language":"https://wwwmtvplay-a.akamaihd.net/translations/","url":"https://wwwmtvplay-a.akamaihd.net/","domain":"http://staging.packer.mtv.vigour.io","assets":{"index.html":true,"bundle.js":true,"bundle.css":true,"build.html":true,"build.js":true,"build.css":true,"fonts.css":true,"fonts":"*","img":"*","assets":"*","translations":"*","xhr":"*","googleebecff275dd42f4a.html":true,"google2c4a46fac7686373.html":true},"transforms":{"build.js":["inform"],"bundle.css":["rebase"],"build.css":["rebase"]},"main":"build.js","web":"build.html","fbDefaults":{"title":"MTV Play","description":"Mtv's new app to view shows on all devices","image":"http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png"}},"store":{"ios":{"monthly":"$region_subscription_monthly","yearly":"$region_subscription_annual","single":"$region_single_purchase"},"android":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annually","single":"mtvplay_single_purchase"},"windows":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annual","single":"mtvplay_single_purchase"}},"omniture":"vianorthtestweb"},"gaston":{"port":8080,"socket-port":9000,"no-auto-reload":false,"no-package":false,"bundle":"./","build":"./","browserify":{"transforms":[{"path":"package-branch-config","options":{"section":"vigour"}}]},"less":{"options":{}},"smaps":false,"source-maps":false,"remote-logging":false,"require-paths":{}},"sha":"1.2.66"}
+module.exports={"name":"mtv-play","version":"1.2.68","description":"mtv's multiscreen adventure","main":"index.js","scripts":{"start":"gaston -d","test":"test/test.js","release":"packer -r -c package.json,.package.json"},"repository":{"type":"git","url":"https://github.com/vigour-io/mtv-play","branch":"staging"},"keywords":["multiscreen","play","shows","smart","tv","js"],"dependencies":{"lodash":"3.2.0","monotonic-timestamp":"0.0.9","package-branch-config":"^1.2.2","promise":"6.1.0","through2":"^2.0.0","vigour-js":"git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay","zepto-browserify":"x"},"devDependencies":{"vigour-dev-tools":"git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master","vigour-packer-server":"git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"},"author":"Jim de Beer","license":"other","bugs":{"url":"https://github.com/vigour-io/mtv-play/issues"},"homepage":"https://github.com/vigour-io/mtv-play","vigour":{"ga":"UA-43955457-3","hashUrl":true,"defaultRegion":false,"regionOverride":"NO","availableRegions":["DE","NL","CH","PL","RO","BE"],"geo":"https://wwwmtvplay-a.akamaihd.net/geo/","development":{"button":false},"cloud":"http://mtvtest.dev.vigour.io:80","othercloud":"http://localhost:10001","languages":["en","de","nl","pl","ro","it","fr","no"],"mtvmobile":["de","ch","ro"],"roles":["free","premium","mtv","trial"],"countrycodes":{"de":49,"ch":41,"ro":40,"nl":31},"dictionary":"http://mtv-develop.vigour.io/translations/lang_$language.json","webtranslateit":{"files":{"de":374130,"en":374126,"nl":374128,"pl":374129,"ro":374131,"fr":404562,"it":404563},"token":"-rN-CdCWmgh4IDxFRT-MEg"},"epg":"https://wwwmtvplay-a.akamaihd.net/xhr/index.html","img":"https://imgmtvplay-a.akamaihd.net","api":{"type":"production","url":"https://utt.mtvnn.com/","acceptHeader":"application/json","key":"4e99c9381b74354fbae9f468497912f0"},"player":{"debug":false,"web":"http://player.mtvnn.com/html5player/production/player.js","settings":{"domain":"mtv","tld":"de","localization":{"language":"de","country":"DE"},"ads":{"enabled":true,"engine":"Freewheel","networkID":174975,"profileID":"174975:MTVNE_live_HTML5","viralSID":"mtvplaytv/test","defaultAssetID":41349526,"server":"http://2ab7f.v.fwmrm.net/ad/p/1"},"controls":false,"blankVideo":"http://player.mtvnn.com/codebase/blank.m4v","simulcastApiKey":"c153f28d950ae49a"}},"chromecast":{"id":"30C914C1","web":"https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"},"facebook":{"id":"709421825777638","web":"https://connect.facebook.net/de_DE/sdk.js"},"packer":{"language":"https://wwwmtvplay-a.akamaihd.net/translations/","url":"https://wwwmtvplay-a.akamaihd.net/","domain":"http://staging.packer.mtv.vigour.io","assets":{"index.html":true,"bundle.js":true,"bundle.css":true,"build.html":true,"build.js":true,"build.css":true,"fonts.css":true,"fonts":"*","img":"*","assets":"*","translations":"*","cast":"*","cast.html":true,"xhr":"*","googleebecff275dd42f4a.html":true,"google2c4a46fac7686373.html":true},"transforms":{"build.js":["inform"],"bundle.css":["rebase"],"build.css":["rebase"]},"main":"build.js","web":"build.html","fbDefaults":{"title":"MTV Play","description":"Mtv's new app to view shows on all devices","image":"http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png"}},"store":{"ios":{"monthly":"$region_subscription_monthly","yearly":"$region_subscription_annual","single":"$region_single_purchase"},"android":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annually","single":"mtvplay_single_purchase"},"windows":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annual","single":"mtvplay_single_purchase"}},"omniture":"vianorthtestweb"},"gaston":{"port":8080,"socket-port":9000,"no-auto-reload":false,"no-package":false,"bundle":"./","build":"./","browserify":{"transforms":[{"path":"package-branch-config","options":{"section":"vigour"}}]},"less":{"options":{}},"smaps":false,"source-maps":false,"remote-logging":false,"require-paths":{}},"sha":"1.2.68"}
 },{}]},{},["/Users/youzi/dev/mtv-play/index.js"])
 //# sourceMappingURL=bundle.js.map
