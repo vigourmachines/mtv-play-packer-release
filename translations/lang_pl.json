@@ -1,0 +1,424 @@
+{
+  "text": {
+    "all": "Wszystkie",
+    "error": "Ups... coś poszło nie tak!",
+    "cancel": "Anuluj",
+    "about": "Informacje",
+    "available": "Dostępne urządzenia",
+    "done": "Gotowe",
+    "email": "E-mail",
+    "every": "Każdy",
+    "imprint": "Nota prawna",
+    "learnMore": "Dowiedz się więcej",
+    "free": "Darmowe",
+    "verifytaken": "Numer jest już powiązany z innym kontem.",
+    "mtvMobile": "MTV Mobile",
+    "min": "Min.",
+    "visit": "Odwiedź",
+    "episode": "Odcinek",
+    "episodes": "Odcinki",
+    "success": "Udało się!",
+    "oops": "Ups!",
+    "warning": "Uwaga!",
+    "purchase": {
+      "allPremiumFeatures": "Uzyskaj dostęp do pełnej zawartości MTV Play!",
+      "connectInfo": "Zarejestruj się już teraz, a uzyskasz pełny dostęp na 48 godzin! Chcemy, aby każdy mógł spróbować naszych usług, więc pierwsze dwa dni są bezpłatne! Po upływie tego okresu konto automatycznie przejdzie w tryb bezpłatny. Bez żadnych ukrytych opłat. Słowo honoru!",
+      "didYouKnow": "Czy znasz wszystkie korzyści płynące z bycia klientem MTV Mobile? Sprawdź je!",
+      "freeWithMTV": "Bezpłatne z MTV Mobile",
+      "goPremium": "Załóż konto premium",
+      "perMonth": "miesięcznie",
+      "perYear": "rocznie",
+      "getMore": "Odblokuj wszystkie odcinki i kanały telewizyjne dostępne w MTV Play!",
+      "buyMonth": "Konto premium 1,99 euro/miesiąc",
+      "buyYear": "Konto premium 19,99 euro/rok",
+      "monthlyPass": {
+        "body": "Klikając przycisk kontynuuj, wykupisz miesięczny abonament za 1,99 euro.",
+        "title": "Konto premium (miesięczne)"
+      },
+      "singlePass": {
+        "body": null,
+        "title": null
+      },
+      "yearlyPass": {
+        "body": "Klikając przycisk kontynuuj, wykupisz roczny abonament za 19,99 euro.",
+        "title": "Konto premium (roczne)"
+      }
+    },
+    "hoorayMobileTitle": "Zaktualizowano!",
+    "hoorayUpgradedText": "Witamy w MTV Play Premium! Cieszymy się, że jesteś z nami. W razie jakichkolwiek pytań dotyczących aplikacji zapraszamy do sekcji Często zadawane pytania. Jeśli nie znajdziesz tam odpowiedzi, odważni pracownicy obsługi technicznej pod adresem helpme@mtvplay.tv znają odpowiedzi na prawie każde pytanie.",
+    "upgrade": "Aktywuj konto premium",
+    "upgradedMessage": "Aktywowano konto premium",
+    "upgrading": "Trwa ulepszanie",
+    "upgradePremium": "Aktywuj konto premium",
+    "hoorayPremium": "Konto Premium od",
+    "mobilePurchased": "Konto premium z MTV Mobile",
+    "episodePurchased": "Kupiony odcinek",
+    "premium": "Premium",
+    "purchaseHistory": "Historia zakupów",
+    "rental": "Wypożycz na 48 godzin. ",
+    "enterYourNumber": "Jeśli jesteś klientem MTV Mobile, możesz łatwo odblokować wszystkie odcinki i kanały telewizyjne. Aby rozpocząć, wystarczy wybrać kraj i wpisać numer telefonu.",
+    "verify": "Sprawdź",
+    "verifyMobile": "Jeśli jesteś klientem MTV Mobile, możesz łatwo odblokować wszystkie odcinki i kanały telewizyjne. Aby rozpocząć, wystarczy wybrać kraj i wpisać numer telefonu.",
+    "verifying": "Trwa sprawdzanie",
+    "verifyfail": "Przepraszamy, ale to nie jest poprawny numer MTV Mobile. ",
+    "verifysuccess": "Już prawie koniec! Wysłaliśmy na Twój numer wiadomość SMS z linkiem weryfikacyjnym - wystarczy go kliknąć. ",
+    "nav": {
+      "discover": "Odkryj",
+      "allShows": "Wszystkie programy",
+      "channels": "Kanały",
+      "shows": "Programy",
+      "television": "Telewizja",
+      "settings": "Ustawienia"
+    },
+    "privacy": "Polityka prywatności",
+    "profile": "Profil",
+    "mtvPlay": "MTV Play",
+    "onTv": "W telewizji",
+    "needToRegister": "Utwórz konto lub zaloguj się. ",
+    "easyRegister": "Bez obaw, rejestracja jest prosta. Dorzucamy nawet 48 godzin darmowego dostępu do konta premium! Nie wykorzystamy podanych danych w nieuczciwy sposób. Słowo honoru! ",
+    "new": "Nowy",
+    "newEpisodes": "Wszystkie nowe odcinki",
+    "newPassword": "Podaj nowe hasło",
+    "newReleases": "Premiery",
+    "favoriteAdded": "Dodano do ulubionych",
+    "favoriteRemoved": "Usunięto z ulubionych",
+    "favorites": "Ulubione",
+    "noFavos": "Wyświetla ulubione programy, umożliwiając łatwy dostęp oraz śledzenie powiadomień o nowych odcinkach.",
+    "nowOnTv": "Teraz w telewizji",
+    "now": "Teraz",
+    "pause": "Pauza",
+    "play": "Odtwarzaj",
+    "progress": "Postęp",
+    "pullBack": "Wycofaj film",
+    "recommended": "Polecane",
+    "showsYouWatch": "Oglądane",
+    "search": "Znajdź",
+    "season": "Sezon",
+    "seasons": "Sezony",
+    "topShows": "Najpopularniejsze programy",
+    "screenAvailable": "Dostępne w dużym formacie!",
+    "devices": "Urządzenia",
+    "watchBigger": "Oglądaj na dużym ekranie!",
+    "watchBig": "Wystarczy zainstalować aplikację na innym urządzeniu i zalogować się, używając tych samych danych konta. Urządzenie pojawi się na liście i będzie dostępne do podłączenia. Teraz możesz sterować podłączonym urządzeniem i oglądać filmy na dużym ekranie.",
+    "noDevicesTitle": "Brak urządzeń? Żaden problem!",
+    "noDevices": "Istnieją dwa sposoby na podłączenie innego urządzenia. Można po prostu uruchomić aplikację MTV Play na innym urządzeniu i zalogować się za pomocą tych samych danych konta lub też uruchomić Chromecast lub Apple TV podłączone do tej samej sieci.",
+    "playingOn": "Odtwarzane na",
+    "account": {
+      "signin": {
+        "title": "Zaloguj",
+        "facebook": "Logowanie przez Facebook",
+        "twitter": "Zaloguj się przez Twitter",
+        "email": "Logowanie przez e-mail",
+        "wrong": "Ups! Niepoprawny adres e-mail lub hasło!",
+        "success": "Witaj ponownie!",
+        "facebookError": "Nie można zalogować się do serwisu Facebook."
+      },
+      "logout": "Wyloguj się",
+      "signup": {
+        "title": "Utwórz konto",
+        "confirm": "Dziękujemy! Sprawdź skrzynkę pocztową, aby potwierdzić konto!",
+        "facebook": "Utwórz konto przez Facebook",
+        "twitter": "Utwórz konto przez Twitter",
+        "email": "Utwórz konto przez e-mail",
+        "already": "Niestety podany adres e-mail jest już zajęty!"
+      },
+      "invalid": {
+        "email": "Podaj poprawny adres e-mail.",
+        "password": "Hasło musi zawierać przynajmniej sześć znaków.",
+        "cellphone": "Sprawdź, czy numer telefonu i kraj jest poprawny."
+      },
+      "forgot": {
+        "title": "Nie pamiętasz hasła?",
+        "wrong": "Sprawdź, czy podany e-mail jest poprawny.",
+        "success": "Wysłaliśmy wiadomość e-mail z linkiem do resetu hasła. "
+      },
+      "change": {
+        "email": "Zmień adres e-mail",
+        "password": "Zmień hasło",
+        "success": "Twoje hasło zostało zmienione!"
+      },
+      "passwordReset": "Potwierdź nowe hasło",
+      "passwordResetError": "Wpisz poprawne hasło!",
+      "purchaseError": "Przejście do premium niemożliwe. Spróbuj później.",
+      "verifyEmailError": "Nie mogliśmy zweryfikować Twojego konta",
+      "verifyEmailSuccess": {
+        "subtitle": "Jesteś zalogowany/a.",
+        "title": "Konto zweryfikowane!"
+      }
+    },
+    "enterName": "Podaj nazwę użytkownika.",
+    "password": "Hasło",
+    "noMatchPassword": "Podane hasła nie są identyczne.",
+    "noPassword": "Wpisz hasło.",
+    "noRepeatPassword": "Wpisz ponownie hasło.",
+    "chooseTelCode": "Wybierz kraj.",
+    "settings": {
+      "languages": {
+        "title": "Wybierz język.",
+        "subtitle": "Zmień język"
+      }
+    },
+    "name": "Nazwa",
+    "phonenumber": "Numer telefonu",
+    "repeatPassword": "Powtórz nowe hasło",
+    "terms": "Regulamin",
+    "termsOfService": "Rejestracja oznacza zgodę na Regulamin i Politykę prywatności.",
+    "shareFacebook": "Udostępnij na Facebooku",
+    "shareTwitter": "Udostępnij na Twitterze",
+    "shareEmail": "Udostęnij przez pocztę e-mail",
+    "share": "Udostępnij",
+    "shareEpisode": "Udostępnij odcinek",
+    "tellMe": "Więcej informacji",
+    "countries": {
+      "be": {
+        "tel": "+32",
+        "title": "Belgia"
+      },
+      "de": {
+        "tel": "+49",
+        "title": "Niemcy"
+      },
+      "nl": {
+        "tel": "+31",
+        "title": "Holandia"
+      },
+      "pl": {
+        "tel": "+48",
+        "title": "Polska"
+      },
+      "ro": {
+        "tel": "+40",
+        "title": "Rumunia"
+      },
+      "ch": {
+        "tel": "+41",
+        "title": "Szwajcaria"
+      }
+    },
+    "language": "Język",
+    "languages": {
+      "nl": {
+        "title": "Nederlands"
+      },
+      "de": {
+        "title": "Deutsch"
+      },
+      "en": {
+        "title": "English"
+      },
+      "pl": {
+        "title": "Polski"
+      },
+      "it": {
+        "title": "Italiano"
+      },
+      "fr": {
+        "title": "Français"
+      },
+      "ro": {
+        "title": "Romana"
+      }
+    },
+    "connectWith": "Połącz z",
+    "alreadyPurchased": "Już kupiono.",
+    "workInProgress": "PRACUJEMY NAD TYM!",
+    "workingOnIt": "Cieżko pracujemy, aby Twoje ulubione kanały MTV były dostępne wszędzie tam, gdzie jesteś.",
+    "advertisement": "reklama",
+    "age": "Wybierz wiek",
+    "buyPremium": "Kup konto premium",
+    "cellphone": "Telefon",
+    "Connection": "Wystąpił problem z połączeniem. Spróbuj ponownie później lub sprawdź swój dostęp do sieci.",
+    "continue": "Kontynuuj",
+    "countdown": "Wideo rozpocznie sie po odtworzeniu reklamy.",
+    "desktopText": "Komputer",
+    "gender": "Wybierz płeć",
+    "invalidEntry": "Niewłaściwy wpis, sprawdź jego treść.",
+    "legalContainer": "Obowiązują nasze warunki użytkowania. Ulepszając konto, zgadzasz się, że po rozpoczęciu transmisji zakupu nie będzie można anulować.",
+    "lockedEpisode": "Wypożycz odcinek (48 h)",
+    "lockedEpisodeDescription": "Wypożycz odcinek na 48 godzin.",
+    "login": {
+      "tvSubtitle": "Aby oglądać zawartość premium, należy pobrać naszą aplikację mobilną. Dzięki niej zalogujesz się na swoje konto i zaktualizujesz je do statusu premium. Aplikacja umożliwia także sterowanie funkcjami telewizora.",
+      "tvTitle": "logowanie za pomocą numeru telefonu"
+    },
+    "mailHelp": {
+      "body": "Aby uzyskać najlepszą pomoc, podaj adres e-mail, za pomocą którego się zalogowałeś, nazwę urządzenia oraz wersję aplikacji, w której występują problemy. ",
+      "title": "Jest coś, co musisz wiedzieć na temat MTV Play."
+    },
+    "mailShare": {
+      "body": "Widziałeś już ten materiał? Obejrz go na MTV Play!",
+      "title": "Jest coś, co powinieneś wiedzieć na temat MTV Play."
+    },
+    "mobileUpgrade": "Ulepsz konto za pomocą aplikacji mobilnej!",
+    "mobileUpgradeInfo": "Niestety nie możesz wykupić dostępu do konta premium za pośrednictwem naszej witryny. Jednak bez obaw - po to stworzyliśmy nasze aplikacje mobilne. Sięgnij po urządzenie iOS, Android lub Windows Phone i pobierz aplikację MTV Play ze sklepu. ",
+    "newAccount": "Witaj! Teraz możesz się zalogować. ",
+    "newPasswordConfirm": "Potwierdź hasło",
+    "newsletterSubtitle": "Nigdy nie wyślemy Ci spamu!",
+    "newsletterTitle": "Zasubskrybuj nasz biuletyn",
+    "next": "dalej",
+    "noDescription": "Brak opisu",
+    "noEPG": "Brak przewodnika",
+    "or": "lub",
+    "phoneUpgradeTitle": "Ulepsz konto za pomocą naszej aplikacji mobilnej!",
+    "ppv": "Wypożycz pojedynczy odcinek",
+    "premiumUser": "Użytkownik premium",
+    "promotion": "Promocja",
+    "purchaseHistoryText": "Poniżej znajduje się zestawienie wszystkich Twoich poprzednich zakupów.",
+    "recieveMainScreen": "Naciśnij przycisk na połączonym urządzeniu, aby obejrzeć film tutaj. ",
+    "recieveSecondScreen": "Wybierz to urządzenie z listy urządzeń, aby obejrzeć na nim film. ",
+    "register": {
+      "redirectSubtitle": "Utworzyliśmy Twoje konto i udostępniliśmy Ci opcję premium na 48 godzin. Baw się dobrze korzystając z aplikacji.",
+      "redirectTeleport": "Powrót do aplikacji!",
+      "redirectTitle": "Zweryfikowano konto!"
+    },
+    "returnTap": "Dotknij, aby kontynuować",
+    "roadblock": "Ulepsz",
+    "rotateDevice": "Obróć urządzenie",
+    "seconds": "sekundy",
+    "sender": {
+      "remotePlaybackSubtitle": "Film jest teraz odtwarzany na połączonym ekranie.",
+      "remotePlaybackTitle": "Zdalne odtwarzanie"
+    },
+    "signInTOS": "Tworząc konto, zgadzasz się na nasze:",
+    "spotlight": "Spotlight",
+    "swipeup": "Przesuń do góry",
+    "tabletText": "Tablet",
+    "thisDevice": "To urzadzenie",
+    "trial": "48-godzinny okres próbny konta premium",
+    "trialActive": "48-godzinny okres próbny aktywny",
+    "tvLogin": "Pobierz naszą aplikację mobilną na telefon lub tablet i zaloguj się lub ulepsz konto. ",
+    "unlockPrice": "Odblokuj za €",
+    "untitled": "Bez nazwy",
+    "upgradeFromPhone": "Sięgnij po telefon!",
+    "verifyEmail": {
+      "subtitle": "Wysłaliśmy Ci wiadomość e-mail z linkiem potwierdzającym",
+      "title": "Proszę potwierdzić konto"
+    },
+    "versionAvailable": "Dostępna jest nowsza wersja"
+  },
+  "settings": {
+    "connectivity": "Połączenie",
+    "connectivitySub": "Kontroluj strumieniowanie 3G/4G",
+    "connectivityDescription": "Domyślnie MTV Play odtwarza filmy za pośrednictwem Wi-Fi lub sieci mobilnej (3G/4G). Odtwarzanie poprzez sieć mobilną może wiązać się z dodatkowymi opłatami według stawek operatora.",
+    "verifyMobile": "Aktywuj dostęp dla klientów MTV Mobile",
+    "verifyMobileSub": "Zweryfikuj numer telefonu, aby uzyskać dostęp do konta premium",
+    "about": "O MTV Mobile",
+    "aboutSub": "Dowiedz się więcej o MTV Mobile!",
+    "help": "Często zadawane pytania",
+    "helpSub": "Często zadawane pytania",
+    "feedback": "Pomocy!",
+    "feedbackSub": "Skontaktuj się z zespołem obsługi technicznej.",
+    "disableCellular": {
+      "subtitle": "Możesz oglądać filmy w sieci 3G/4G",
+      "title": "sieć 3G/4G jest włączona"
+    },
+    "disableNewsletter": {
+      "subtitle": "Nie będziesz już otrzymywać newsletterów.",
+      "title": "Wyłącz newsletter"
+    },
+    "enableCellular": {
+      "subtitle": "Nie możesz oglądać filmów w sieci 3G/4G",
+      "title": "sieć 3G/4G jest wyłączona"
+    },
+    "enableNewsletter": {
+      "subtitle": "Subskrybuj nasz newsletter.",
+      "title": "Newsletter"
+    },
+    "intro": "Powtórz wstęp",
+    "introSub": "Zapoznaj się ponownie ze wstępem",
+    "newsletter": {
+      "body": "Nigdy nie udostępnimy Twoich danych osobie trzeciej. "
+    }
+  },
+  "intro": {
+    "welcome": {
+      "title": "Witamy w MTV Play",
+      "body": "Tutaj obejrzysz dowolny program, gdziekolwiek i kiedykolwiek zechcesz!"
+    },
+    "devices": {
+      "title": "Usługa MTV Play jest dostępna wszędzie!",
+      "body": "Nasze aplikacje są dostępne na większości platform, dzięki czemu możesz oglądać swoje programy w dowolnym miejscu!"
+    },
+    "connect": {
+      "title": "Każde urządzenie to jednocześnie ekran i pilot!",
+      "body": "Możesz podłączyć MTV Play na wielu urządzeniach i przesunąć program na wybrany ekran!"
+    },
+    "free": {
+      "body": "Utwórz konto lub zaloguj się, aby zacząć!",
+      "button": "Rozpocznij"
+    },
+    "mobile": {
+      "body": "Klienci MTV Mobile otrzymują nieograniczony dostęp premium do wszystkich materiałów!",
+      "button": "Tak, posiadam MTV Mobile",
+      "title": "Ale najpierw powiedz, czy posiadasz konto MTV Mobile?"
+    },
+    "register": {
+      "body": "Twój darmowy 48-godzinny okres próbny konta premium rozpocznie się natychmiast.",
+      "title": "Utwórz konto lub zaloguj się, aby zacząć oglądać!"
+    }
+  },
+  "button": {
+    "exitfullscreen": "Wyjdź z trybu pełnego ekranu",
+    "skip": "Pomiń"
+  },
+  "cancel": "Anuluj",
+  "connect": {
+    "active": "Jesteś podłączony do",
+    "lost": "Próbuję połączyć się ponownie...",
+    "waiting": "Oczekiwanie na urządzenie..."
+  },
+  "install": "Instaluj",
+  "modal": {
+    "connectedText": {
+      "body": "Przenieś filmy na to urządzenie!",
+      "misc": "Jesteś podłączony",
+      "title": "Podłaczono do"
+    },
+    "videoUnavailable": {
+      "subtitle": "Ten program jest niedostępny w Twoim kraju. ",
+      "title": "Film obecnie niedostępny"
+    },
+    "warning": {
+      "cellular": {
+        "subtitle": "Możesz włączyć strumieniowanie 3G/4G z poziomu menu ustawień.\n",
+        "title": "odtwarzanie w sieci 3G/4G wyłączone"
+      },
+      "invalid": "Link nieprawidłowy!",
+      "unabletoverify": "Nie można potwierdzić numeru komórkowego."
+    }
+  },
+  "notnow": "Nie teraz",
+  "ok": "OK",
+  "options": {
+    "age": {
+      "0": {
+        "text": "Poniżej 18 roku życia"
+      },
+      "1": {
+        "text": "18-21 lat"
+      },
+      "2": {
+        "text": "Powyżej 21 roku życia"
+      }
+    },
+    "gender": {
+      "0": {
+        "text": "Kobieta"
+      },
+      "1": {
+        "text": "Mężczyzna"
+      },
+      "2": {
+        "text": "Inna"
+      }
+    }
+  },
+  "share": {
+    "failed": "Nie można udostępnić. ",
+    "success": "Udostępniono!"
+  },
+  "singleEpisodePurchased": "Wypożyczono",
+  "tex": {
+    "buyPremiumPhoneButton": "Kup konto premium"
+  },
+  "verifyemail": "Potwierdź adres e-mail"
+}
