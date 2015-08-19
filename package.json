@@ -151,10 +151,7 @@
         "img": "*",
         "assets": "*",
         "googleebecff275dd42f4a.html":true,
-        "google2c4a46fac7686373.html":true,
-        "translations": "*",
-        "xhr": "*",
-        "cast": "*"
+        "google2c4a46fac7686373.html":true
       },
       "transforms": {
         "build.js": [
