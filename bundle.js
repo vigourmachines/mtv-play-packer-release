@@ -4786,7 +4786,7 @@ var slide = new Element( {
       click: function() {
         var data = this.data,
           type = data.type && data.type.val,
-          link = data.link && data.link.val,
+          link = 'http://www.mtv.de/',//data.link && data.link.val,
           show, episode
 
         if( type === 'Article' ) {
@@ -14050,6 +14050,7 @@ module.exports = new Page(
 , on: {
     $parent: {
       defer: function( update ) {
+        void(0)
         this._parent._caller.data = config.languages
         this._parent.language._update()
         update()
