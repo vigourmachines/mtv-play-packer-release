@@ -13800,134 +13800,135 @@ exports.topbar.holder.righticon.extend({ fn:function(){ } })
 module.exports = exports.Class
 
 },{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./article":"/Users/youzi/dev/mtv-play/components/popup/article.js","./auth":"/Users/youzi/dev/mtv-play/components/popup/auth.js","./buy":"/Users/youzi/dev/mtv-play/components/popup/buy.js","./devices":"/Users/youzi/dev/mtv-play/components/popup/devices.js","./faq":"/Users/youzi/dev/mtv-play/components/popup/faq.js","./intro":"/Users/youzi/dev/mtv-play/components/popup/intro.js","./languages":"/Users/youzi/dev/mtv-play/components/popup/languages.js","./mobile":"/Users/youzi/dev/mtv-play/components/popup/mobile.js","./newsletter":"/Users/youzi/dev/mtv-play/components/popup/newsletter.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","./profile":"/Users/youzi/dev/mtv-play/components/popup/profile.js","./roadblock":"/Users/youzi/dev/mtv-play/components/popup/roadblock.js","./settings":"/Users/youzi/dev/mtv-play/components/popup/settings.js","./share":"/Users/youzi/dev/mtv-play/components/popup/share.js","./style.less":"/Users/youzi/dev/mtv-play/components/popup/style.less","./upgrade":"/Users/youzi/dev/mtv-play/components/popup/upgrade.js","./wifi":"/Users/youzi/dev/mtv-play/components/popup/wifi.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/intro.js":[function(require,module,exports){
-var Element = require('vigour-js/app/ui/element')
-  , util = require('vigour-js/util')
-  , Icon = require('../icon')
-  , Item = require('../item')
-  , cases = require('vigour-js/browser/cases')
-  , Button = require('../button')
-  , Input = require('../text/input')
-  , config = require('vigour-js/util/config')
-  , Img = require('../img')
-  , Page = require('./page')
-  , app = require('vigour-js/app/')
+var Element = require( 'vigour-js/app/ui/element' )
+var util = require( 'vigour-js/util' )
+var Icon = require( '../icon' )
+var Item = require( '../item' )
+var cases = require( 'vigour-js/browser/cases' )
+var Button = require( '../button' )
+var Input = require( '../text/input' )
+var config = require( 'vigour-js/util/config' )
+var Img = require( '../img' )
+var Page = require( './page' )
+var app = require( 'vigour-js/app/' )
 
-var Slide = new Element(
-{ img:new Img.Intro({
-    on:{
-      $new:{ //hot fix background is not set correctly
-        defer:function(update){
+var Slide = new Element( {
+  img: new Img.Intro( {
+    on: {
+      $new: { //hot fix background is not set correctly
+        defer: function( update ) {
           this._parent._caller.background.update()
           update()
         }
       }
     }
-  })
-}).Class
+  } )
+} ).Class
 
-module.exports = exports = new Page(
-{ on:
-  { $parent:
-    { defer:function( update ){
+module.exports = exports = new Page( {
+  on: {
+    $parent: {
+      defer: function( update ) {
         var parent = this._parent
-          , caller = parent._caller
-          , topbar = caller.checkParent('topbar',true)
-          , roll
-        if( topbar )
-        {
+        var caller = parent._caller
+        var topbar = caller.checkParent( 'topbar', true )
+        var roll
+        if( topbar ) {
           roll = caller.roll
           caller._topbar = topbar
           roll._dots = new exports.Dots()
           topbar.node.style.backgroundColor = '#3a1a58'
-          topbar.set(
-          { holder:
-            { title:
-              { dots:roll._dots
+          topbar.set( {
+            holder: {
+              title: {
+                dots: roll._dots
               }
             }
-          })
+          } )
           roll.x = caller.parent.parent.w.val - 15
           parent.popup.val = app.popup
         }
         update()
       }
-    }
-  , popup:
-    { defer:function( update, args ){
+    },
+    popup: {
+      defer: function( update, args ) {
         var val = this._val._val
-        if( val !== 'intro' )
-        {
+        if( val !== 'intro' ) {
           var topbar = this._parent._caller._topbar
-          if( topbar )
-          {
-            if(val === 'settings') topbar.node.style.backgroundColor = '#5d4078'
+          if( topbar ) {
+            if( val === 'settings' ){
+              topbar.node.style.backgroundColor = '#5d4078'
+            }
             topbar.holder.title.dots.remove()
           }
         }
         update()
       }
     }
-  }
-, roll:
-  { css:'intro-roll'
-  , x:
-    { val:0
-    , multiply:0
-    , animation:
-      { time:18
-      , easing:'outCubic'
-      , complete:function( cv ){
+  },
+  roll: {
+    css: 'intro-roll',
+    x: {
+      val: 0,
+      multiply: 0,
+      animation: {
+        time: 18,
+        easing: 'outCubic',
+        complete: function( cv ) {
           var dots = this._dots.children
-          for (var i = dots.length - 1; i >= 0; i--) {
-            dots[i].css = i === -this._pos ? 'focus' : ''
+          for( var i = dots.length - 1; i >= 0; i-- ) {
+            dots[ i ].css = i === -this._pos ? 'focus' : ''
           }
         }
       }
-    }
-  , append:
-    [ Slide
-    , { 'img.background':'1.png'
-      , 'title.text.dictionary':'intro.welcome.title'
-      , 'subtitle.text.dictionary':'intro.welcome.body'
-      }
-    , { 'img.background':'2.png'
-      , 'title.text.dictionary':'intro.devices.title'
-      , 'subtitle.text.dictionary':'intro.devices.body'
-      }
-    , { 'img.background':'3.png'
-      , 'title.text.dictionary':'intro.connect.title'
-      , 'subtitle.text.dictionary':'intro.connect.body'
-      }
-    , { 'img.background':'4.png'
-      , 'subtitle.text.dictionary':'intro.free.body'
-      , button:new Button(
-        { 'text.dictionary':'intro.free.button'
-        , 'events.click':function(){
-            this.checkParent('on.popup', true).from = 'getStartedContinue'
-          }
-        })
-      }
-    ]
-  , events:
-    { grab:
-      { x:true
-      , up:setPosition
+    },
+    append: [ Slide, {
+      'img.background': '1.png',
+      'title.text.dictionary': 'intro.welcome.title',
+      'subtitle.text.dictionary': 'intro.welcome.body'
+    }, {
+      'img.background': '2.png',
+      'title.text.dictionary': 'intro.devices.title',
+      'subtitle.text.dictionary': 'intro.devices.body'
+    }, {
+      'img.background': '3.png',
+      'title.text.dictionary': 'intro.connect.title',
+      'subtitle.text.dictionary': 'intro.connect.body'
+    }, {
+      'img.background': {
+        val: {
+          val: '4.png',
+          $accessForEveryone: '5.png'
+        }
+      },
+      'subtitle.text.dictionary': 'intro.free.body',
+      button: new Button( {
+        'text.dictionary': 'intro.free.button',
+        'events.click': function() {
+          this.checkParent( 'on.popup', true ).from = 'getStartedContinue'
+        }
+      } )
+    } ],
+    events: {
+      grab: {
+        x: true,
+        up: setPosition
       }
     }
   }
-}).Class
+} ).Class
 
-exports.getStarted = new Element(
-{ css:'get-started'
-, on:
-  { $parent:
-    { defer:function( update ){
-        var parent = this._parent
-          , caller = parent._caller
-          , topbar = caller.checkParent('topbar',true)
+exports.getStarted = new Element( {
+  css: 'get-started',
+  on: {
+    $parent: {
+      defer: function( update ) {
+        var parent = this._parent,
+          caller = parent._caller,
+          topbar = caller.checkParent( 'topbar', true )
 
-        if( topbar )
-        {
+        if( topbar ) {
           topbar.node.style.backgroundColor = '#5d4078'
           caller._topbar = topbar
         }
@@ -13935,116 +13936,121 @@ exports.getStarted = new Element(
         update()
       }
     }
-  }
-, 'title.text.dictionary':'intro.mobile.title'
-, 'subtitle.text.dictionary':'intro.mobile.body'
-, append:
-  [ Button
-  , { css:{addClass:'yes'}
-    , 'text.dictionary':'intro.mobile.button'
-    , 'events.click':function(){
-        var popup = this.checkParent('on.popup', true).from
-        popup.previous = popup.val
-        popup.val = 'verifyMobile'
-      }
+  },
+  'title.text.dictionary': 'intro.mobile.title',
+  'subtitle.text.dictionary': 'intro.mobile.body',
+  append: [ Button, {
+    css: {
+      addClass: 'yes'
+    },
+    'text.dictionary': 'intro.mobile.button',
+    'events.click': function() {
+      var popup = this.checkParent( 'on.popup', true ).from
+      popup.previous = popup.val
+      popup.val = 'verifyMobile'
     }
-  , { css:{addClass:'skip'}
-    , 'text.dictionary':'button.skip'
-    , 'events.click':function(){
-        this.checkParent('on.popup', true).from = false
-      }
+  }, {
+    css: {
+      addClass: 'skip'
+    },
+    'text.dictionary': 'button.skip',
+    'events.click': function() {
+      this.checkParent( 'on.popup', true ).from = false
     }
-  ]
-}).Class
+  } ]
+} ).Class
 
-exports.getStartedContinue = new Element(
-{ css:'get-started'
-, on:
-  { $parent:
-    { defer:function( update ){
-        var parent = this._parent
-          , caller = parent._caller
-          , topbar = caller.checkParent('topbar',true)
-        if( topbar ){
+exports.getStartedContinue = new Element( {
+  css: 'get-started',
+  on: {
+    $parent: {
+      defer: function( update ) {
+        var parent = this._parent,
+          caller = parent._caller,
+          topbar = caller.checkParent( 'topbar', true )
+        if( topbar ) {
           topbar.node.style.backgroundColor = '#5d4078'
           caller._topbar = topbar
         }
         update()
       }
     }
-  }
-, 'title.text.dictionary':'intro.register.title'
-, 'subtitle.text.dictionary':'intro.register.body'
-, append:
-  [ Button
-  , { css:{addClass:'facebook'}
-    , 'text.dictionary':'text.account.signup.facebook'
-    , 'events.click':function(){
-        var api = this.checkParent( 'api', true )
-        api.facebook.login.val = true
-      }
+  },
+  'title.text.dictionary': 'intro.register.title',
+  'subtitle.text.dictionary': 'intro.register.body',
+  append: [ Button, {
+    css: {
+      addClass: 'facebook'
+    },
+    'text.dictionary': 'text.account.signup.facebook',
+    'events.click': function() {
+      var api = this.checkParent( 'api', true )
+      api.facebook.login.val = true
     }
-  , { css:{addClass:'email'}
-    , 'text.dictionary':'text.account.signup.email'
-    , 'events.click':function(){
-        var popup = this.checkParent( 'on.popup', true ).from
-        this.parent._topbar.node.style.backgroundColor = '#5d4078'
-        popup.previous = popup.val
-        popup.val = 'registerEmail'
-      }
+  }, {
+    css: {
+      addClass: 'email'
+    },
+    'text.dictionary': 'text.account.signup.email',
+    'events.click': function() {
+      var popup = this.checkParent( 'on.popup', true ).from
+      this.parent._topbar.node.style.backgroundColor = '#5d4078'
+      popup.previous = popup.val
+      popup.val = 'registerEmail'
     }
-  ]
-, 'or.text.dictionary':'text.or'
-, signin:new Button(
-  {'text.dictionary':'text.account.signin.title'
-  , 'events.click':function(){
+  } ],
+  'or.text.dictionary': 'text.or',
+  signin: new Button( {
+    'text.dictionary': 'text.account.signin.title',
+    'events.click': function() {
       var popup = this.checkParent( 'on.popup', true ).from
       this.parent._topbar.node.style.backgroundColor = '#5d4078'
       popup.previous = popup.val
       popup.val = 'login'
     }
-  })
-}).Class
+  } )
+} ).Class
 
-exports.Dots = new Element(
-{ css:'intro-dots'
-, append:
-  [ Element
-  , { css:'focus' }
-  , {}
-  , {}
-  , {}
-  ]
-}).Class
+exports.Dots = new Element( {
+  css: 'intro-dots',
+  append: [ Element, {
+    css: 'focus'
+  }, {}, {}, {} ]
+} ).Class
 
-function setPosition(e, d, ld){ // unify with switcher
-  var treshold = 120
-    , flick = 10
-    , l = this.children.length
-    , oldPos = this._pos || (this._pos = 0)
-    , newPos = oldPos
+function setPosition( e, d, ld ) { // unify with switcher
+  var treshold = 120,
+    flick = 10,
+    l = this.children.length,
+    oldPos = this._pos || ( this._pos = 0 ),
+    newPos = oldPos
 
-  if(Math.abs(ld.x) > flick){
-    if(ld.x < 0 && !(d.x > treshold)) newPos = Math.max(oldPos - 1,-l+1)
-    if(ld.x > 0 && !(d.x < -treshold)) newPos = Math.min(oldPos + 1,0)
-  }else{
-    if(d.x < -treshold) newPos = Math.max(oldPos - 1,-l+1)
-    if(d.x > treshold) newPos = Math.min(oldPos + 1,0)
+  if( Math.abs( ld.x ) > flick ) {
+    if( ld.x < 0 && !( d.x > treshold ) ) newPos = Math.max( oldPos - 1, -l + 1 )
+    if( ld.x > 0 && !( d.x < -treshold ) ) newPos = Math.min( oldPos + 1, 0 )
+  } else {
+    if( d.x < -treshold ) newPos = Math.max( oldPos - 1, -l + 1 )
+    if( d.x > treshold ) newPos = Math.min( oldPos + 1, 0 )
   }
 
-  if(this.x._e) this.x = {_esub:this.x._e._val}
-  setPos(this,newPos)
+  if( this.x._e ) this.x = {
+    _esub: this.x._e._val
+  }
+  setPos( this, newPos )
 }
 
-function setPos(roll,newPos){
-  var oldPos = roll._pos || (roll._pos = 0)
-    , dts = roll._dots
+function setPos( roll, newPos ) {
+  var oldPos = roll._pos || ( roll._pos = 0 ),
+    dts = roll._dots
 
-  if(newPos !== oldPos){
-    roll.x = {multiply:newPos}
+  if( newPos !== oldPos ) {
+    roll.x = {
+      multiply: newPos
+    }
     roll._pos = newPos
   }
 }
+
 },{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../text/input":"/Users/youzi/dev/mtv-play/components/text/input.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js","vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/index.js","vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/languages.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
 var util = require('vigour-js/util')
@@ -16360,96 +16366,81 @@ module.exports = exports = new Switcher
 },{"../first":"/Users/youzi/dev/mtv-play/components/first/index.js","../player":"/Users/youzi/dev/mtv-play/components/player/index.js","../second":"/Users/youzi/dev/mtv-play/components/second/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/switcher/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/switcher/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/switcher/style.less":[function(require,module,exports){
 arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
 },{}],"/Users/youzi/dev/mtv-play/components/text/index.js":[function(require,module,exports){
-var Element = require('vigour-js/app/ui/element')
-var dictionary = require('vigour-js/app/dictionary')
-
-exports.Title = new Element(
-{ text:
-  { data:'title'
-  }
-}).Class
-
+var Element = require( 'vigour-js/app/ui/element' )
+var dictionary = require( 'vigour-js/app/dictionary' )
 var seasonText = dictionary.get( 'text.season' )
 var seasonsText = dictionary.get( 'text.seasons' )
 var episodeText = dictionary.get( 'text.episode' )
-var episodesText  = dictionary.get( 'text.episodes' )
+var episodesText = dictionary.get( 'text.episodes' )
 
-exports.Subtitle = new Element(
-{ text:
-  { data:
-    { val:function( data ){
+exports.Title = new Element( {
+  text: {
+    data: 'title'
+  }
+} ).Class
+
+exports.Subtitle = new Element( {
+  text: {
+    data: {
+      val: function( data ) {
 
         if( data ) data = data.from
         if( !data ) return ''
-        if( data.subtitle ){
+        if( data.subtitle ) {
           return data.subtitle.val || ''
         }
 
-        if( data.number )
-        {
+        if( data.number ) {
 
-          var seasondata = data._parent._parent
-            , seasonnr = seasondata.number
-              ? seasondata.number.val
-              : (data.season && data.season.val) || ((seasondata._name | 0)+1)
+          var seasondata = data._parent._parent,
+            seasonnr = seasondata.number ? seasondata.number.val : ( data.season && data.season.val ) || ( ( seasondata._name | 0 ) + 1 )
 
-          if(data._parent._name === 'seasons'){
+          if( data._parent._name === 'seasons' ) {
             return seasonText.val + ' ' + data.number.val
           }
-          if(!isNaN(seasonnr)){
-            return seasonText.val 
-            + ' ' + seasonnr + ' ' 
-            + episodeText.val
-            + ' ' + data.number.val
+          if( !isNaN( seasonnr ) ) {
+            return seasonText.val + ' ' + seasonnr + ' ' + episodeText.val + ' ' + data.number.val
           }
         }
 
-        if( data.seasonCount && data.episodeCount ) 
-        {
+        if( data.seasonCount && data.episodeCount ) {
 
-          var seasoncnt = data.seasonCount.val
-            , seasons = data.seasonCount.val > 1 
-              ? seasonsText.val
-              : seasonText.val
-            , episodecnt = data.episodeCount.val
-            , episodes = data.episodeCount.val > 1 
-            ? episodesText.val 
-            : episodeText.val
+          var seasoncnt = data.seasonCount.val,
+            seasons = data.seasonCount.val > 1 ? seasonsText.val : seasonText.val,
+            episodecnt = data.episodeCount.val,
+            episodes = data.episodeCount.val > 1 ? episodesText.val : episodeText.val
 
-          return seasoncnt 
-                  + ' ' + seasons 
-                  + ' ' + episodecnt 
-                  + ' ' + episodes 
-                  || ''
+          return seasoncnt + ' ' + seasons + ' ' + episodecnt + ' ' + episodes || ''
         }
         return ''
-      }
-    , listen:[ 'seasonCount', 'episodeCount', 'subtitle', 'number', 'season' ] // <---------- add on specific spots! THIS IS WRONG
-    }
-  , listen: dictionary
+      },
+      listen: [ 'seasonCount', 'episodeCount', 'subtitle', 'number', 'season' ] // <---------- add on specific spots! THIS IS WRONG
+    },
+    listen: dictionary
   }
-}).Class
+} ).Class
 
-exports.TitleSubtitle = new Element(
-{ title:new exports.Title()
-, subtitle:new exports.Subtitle()
-}).Class
+exports.TitleSubtitle = new Element( {
+  title: new exports.Title(),
+  subtitle: new exports.Subtitle()
+} ).Class
 
-exports.Description = new Element(
-{ text:
-  { data:'media.description'
-  , default:
-    { dictionary: 'text.noDescription'
+exports.Description = new Element( {
+  text: {
+    data: 'media.description',
+    default: {
+      dictionary: 'text.noDescription'
     }
   }
-}).Class
+} ).Class
 
-exports.highlight = function(string){
-  var firstletter = string.charAt(0)
-    , rest = string.slice(1)
-    , str = firstletter !== 'i' ? firstletter.toUpperCase() + rest : firstletter + rest.charAt(0).toUpperCase() + rest.slice(1);
+exports.highlight = function( string ) {
+  var firstletter = string.charAt( 0 ),
+    rest = string.slice( 1 ),
+    str = firstletter !== 'i' ? firstletter.toUpperCase() + rest : firstletter + rest.charAt( 0 ).toUpperCase() + rest.slice( 1 );
   return '<span class="text-highlight">' + str + '</span>'
 }
+
 },{"vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/text/input.js":[function(require,module,exports){
 require('./style.less')
 

@@ -193,6 +193,25 @@ body {
   -o-transition: opacity 0.2s ease-out;
   transition: opacity 0.2s ease-out;
 }
+/* /Users/youzi/dev/mtv-play/node_modules/vigour-js/app/style.less */
+html {
+  -ms-touch-action: pan-x;
+  touch-action: pan-x;
+}
+body {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  transform-origin: right top;
+  -ms-transform-origin: right top;
+  -webkit-transform-origin: right top;
+  -ms-touch-action: none;
+  touch-action: none;
+  -ms-content-zooming: none;
+}
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
 /* /Users/youzi/dev/mtv-play/components/rotate-message/style.less */
 @-webkit-keyframes rotate {
   0% {
@@ -256,24 +275,55 @@ body {
   line-height: 36px;
   color: #ffffff;
 }
-/* /Users/youzi/dev/mtv-play/node_modules/vigour-js/app/style.less */
-html {
-  -ms-touch-action: pan-x;
-  touch-action: pan-x;
+/* /Users/youzi/dev/mtv-play/components/second/style.less */
+.second-state {
+  height: 100%;
+  width: 100%;
 }
-body {
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
-  transform-origin: right top;
-  -ms-transform-origin: right top;
-  -webkit-transform-origin: right top;
-  -ms-touch-action: none;
-  touch-action: none;
-  -ms-content-zooming: none;
+.second-state > div {
+  position: absolute;
 }
-* {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+.second-state .button {
+  font-family: OpenSansBold;
+  background: rgba(20, 20, 20, 0.4);
+  width: 100%;
+  height: 100%;
+  bottom: 0px;
+  line-height: 120px;
+  text-align: center;
+}
+.second-state .button .title {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  color: #e1e1e1;
+  font-size: 18px;
+}
+@media all and (max-width: 920px) {
+  .second-state .cover {
+    display: none !important;
+  }
+}
+@media all and (max-width: 1280px) and (min-width: 960px) {
+  .second-state .second-switcher .title {
+    margin-bottom: 15px !important;
+    font-size: 24px !important;
+  }
+  .second-state .second-switcher .extratitle {
+    margin-bottom: 5px !important;
+    font-size: 20px !important;
+    text-transform: capitalize !important;
+  }
+  .second-state .second-switcher .subtitle {
+    margin-bottom: 15px !important;
+    font-size: 14px !important;
+  }
+  .second-state .second-switcher .description {
+    margin-top: 20px !important;
+    font-size: 14px !important;
+    font-family: OpenSansRegular !important;
+  }
 }
 /* /Users/youzi/dev/mtv-play/components/first/style.less */
 .first-state {
@@ -383,56 +433,6 @@ body {
   -moz-border-radius: 4px;
   border-radius: 4px;
   font-size: 16px;
-}
-/* /Users/youzi/dev/mtv-play/components/second/style.less */
-.second-state {
-  height: 100%;
-  width: 100%;
-}
-.second-state > div {
-  position: absolute;
-}
-.second-state .button {
-  font-family: OpenSansBold;
-  background: rgba(20, 20, 20, 0.4);
-  width: 100%;
-  height: 100%;
-  bottom: 0px;
-  line-height: 120px;
-  text-align: center;
-}
-.second-state .button .title {
-  position: absolute;
-  text-align: center;
-  width: 100%;
-  bottom: 0;
-  color: #e1e1e1;
-  font-size: 18px;
-}
-@media all and (max-width: 920px) {
-  .second-state .cover {
-    display: none !important;
-  }
-}
-@media all and (max-width: 1280px) and (min-width: 960px) {
-  .second-state .second-switcher .title {
-    margin-bottom: 15px !important;
-    font-size: 24px !important;
-  }
-  .second-state .second-switcher .extratitle {
-    margin-bottom: 5px !important;
-    font-size: 20px !important;
-    text-transform: capitalize !important;
-  }
-  .second-state .second-switcher .subtitle {
-    margin-bottom: 15px !important;
-    font-size: 14px !important;
-  }
-  .second-state .second-switcher .description {
-    margin-top: 20px !important;
-    font-size: 14px !important;
-    font-family: OpenSansRegular !important;
-  }
 }
 /* /Users/youzi/dev/mtv-play/components/player/style.less */
 video {
@@ -874,23 +874,6 @@ video {
 }
 .desktop .ui-icon.monster {
   cursor: default;
-}
-/* /Users/youzi/dev/mtv-play/components/loader/style.less */
-.ui-loader {
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 8px;
-  overflow: hidden;
-}
-.ui-loader > div {
-  margin: 30px;
-  background-image: url('img/app/loader.png');
-}
-.loader.logo.noanim {
-  background-image: url('img/branding/logo.png');
-  background-size: 100% auto;
-}
-.ui-loader-simple {
-  background-image: url('img/app/loader.png');
 }
 /* /Users/youzi/dev/mtv-play/components/popup/style.less */
 .popup-window {
@@ -1617,6 +1600,23 @@ x:-o-prefocus,
 .not-ios .popup-window .switcher > *::-webkit-scrollbar {
   display: none;
 }
+/* /Users/youzi/dev/mtv-play/components/loader/style.less */
+.ui-loader {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.ui-loader > div {
+  margin: 30px;
+  background-image: url('img/app/loader.png');
+}
+.loader.logo.noanim {
+  background-image: url('img/branding/logo.png');
+  background-size: 100% auto;
+}
+.ui-loader-simple {
+  background-image: url('img/app/loader.png');
+}
 /* /Users/youzi/dev/mtv-play/components/first/menu/style.less */
 .cast .loader {
   margin-left: -10px;
@@ -1968,6 +1968,247 @@ x:-o-prefocus,
   margin-bottom: 0;
   padding: 8px 0;
 }
+/* /Users/youzi/dev/mtv-play/components/second/screensaver/style.less */
+.second-screensaver {
+  height: 100%;
+  width: 100%;
+  background-color: #231331;
+}
+.second-screensaver > div {
+  position: absolute;
+}
+/* /Users/youzi/dev/mtv-play/components/second/bar/style.less */
+.second-bar {
+  -webkit-transition: background-color 0.2s ease-out;
+  -moz-transition: background-color 0.2s ease-out;
+  -ms-transition: background-color 0.2s ease-out;
+  -o-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+  height: 80px;
+  width: 100%;
+  bottom: 0;
+  color: #ffffff;
+  background-color: #231331;
+  font-size: 24px;
+  display: none;
+}
+.isReceiver .second-bar {
+  background-color: #ee255c !important;
+  display: block;
+}
+.second-bar > div {
+  line-height: 80px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.second-bar > .device {
+  width: 80px;
+  font-size: 48px;
+  background-color: #d71f52 !important;
+}
+.second-bar > .info {
+  padding-left: 15px;
+}
+/* /Users/youzi/dev/mtv-play/components/second/switcher/style.less */
+.second-switcher {
+  height: 100%;
+  width: 100%;
+  background-color: #231331;
+}
+.second-switcher .grid-item {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  border: 1px solid black;
+}
+.second-switcher .title {
+  color: #f9f9f9;
+  font-family: OpenSansBoldItalic;
+  text-transform: uppercase;
+}
+.second-switcher .extratitle {
+  font-family: OpenSansBold;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.second-switcher .description {
+  color: #f9f9f9;
+}
+.second-switcher .second-loader {
+  height: 100%;
+  width: 100%;
+  display: table;
+  text-align: center;
+}
+.second-switcher .second-loader .loadicon {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 64px;
+  color: #ac99b9;
+}
+.touch .second-switcher .title {
+  margin-bottom: 10px;
+  font-size: 36px;
+}
+.touch .second-switcher .description {
+  margin-top: 10px;
+  font-size: 14px;
+}
+.not-touch .second-switcher .title {
+  margin-bottom: 20px;
+  font-size: 40px;
+}
+.not-touch .second-switcher .description {
+  margin-top: 20px;
+  font-size: 24px;
+}
+.second-switcher > div {
+  position: absolute;
+  background-color: #231331;
+}
+.second-switcher > div {
+  -webkit-transition: opacity 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out;
+  -ms-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+.second-switcher > div > div {
+  -webkit-transition: opacity 0.4s ease-out;
+  -moz-transition: opacity 0.4s ease-out;
+  -ms-transition: opacity 0.4s ease-out;
+  -o-transition: opacity 0.4s ease-out;
+  transition: opacity 0.4s ease-out;
+}
+.second-switcher > div > div > div {
+  -webkit-transition: opacity 0.4s ease-out;
+  -moz-transition: opacity 0.4s ease-out;
+  -ms-transition: opacity 0.4s ease-out;
+  -o-transition: opacity 0.4s ease-out;
+  transition: opacity 0.4s ease-out;
+}
+/* /Users/youzi/dev/mtv-play/components/first/watch/style.less */
+.first-watch {
+  color: #3a1a58;
+}
+.first-watch .title {
+  font-family: OpenSansBold;
+  font-size: 22px;
+}
+.first-watch .txt .title {
+  font-family: OpenSansBold;
+  font-size: 16px;
+}
+.first-watch > .media {
+  overflow: hidden;
+  width: 100%;
+}
+.first-watch > .media .subtitle {
+  font-size: 12px;
+  font-family: OpenSansRegular;
+  color: #ac99b9;
+}
+.first-watch .description {
+  margin-bottom: 80px;
+}
+.first-watch .share {
+  float: right;
+  padding: 15px;
+  margin: -15px;
+}
+.phone .first-watch {
+  height: 100%;
+}
+.phone .first-watch .description {
+  padding: 15px;
+  border-top: 1px solid #dbcedb;
+}
+.phone .first-watch .header {
+  padding: 15px;
+}
+.tablet .first-watch .info {
+  border-left: 1px solid #dbcedb;
+  display: table-cell;
+  width: 100%;
+}
+.tablet .first-watch .holder .info {
+  background-color: rgba(22, 22, 22, 0.5);
+}
+.tablet .first-watch .holder .info .title {
+  font-size: 22px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.tablet .first-watch .holder .info .txt {
+  font-size: 16px;
+}
+.tablet .first-watch .favourite {
+  font-size: 36px;
+  margin-left: -8px;
+}
+.tablet .first-watch .header {
+  border-bottom: 1px solid #dbcedb;
+  margin-bottom: 15px;
+}
+.desktop .first-watch .header {
+  border-bottom: 1px solid #dddddd;
+  margin-bottom: 15px;
+}
+.desktop .first-watch > .margin {
+  width: 30px;
+}
+.desktop .first-watch > .pageheader {
+  display: table-caption;
+  padding-left: 50px;
+}
+.desktop .first-watch > .media {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  background-color: #ffffff;
+}
+.desktop .first-watch .favourite {
+  font-size: 48px;
+  margin-top: -10px;
+  color: #ac99b9;
+}
+.desktop .first-watch .holder .info {
+  background-color: rgba(22, 22, 22, 0.5);
+}
+.desktop .first-watch .holder .info .title {
+  font-size: 22px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.desktop .first-watch .holder .info .txt {
+  font-size: 16px;
+}
+.not-phone .first-watch {
+  display: table;
+}
+.not-phone .first-watch .info > div {
+  padding: 15px 15px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+.not-phone .first-watch .favourite {
+  display: inline-block;
+  vertical-align: middle;
+}
+.not-phone .first-watch .header {
+  padding-bottom: 15px;
+}
+.not-phone .first-watch > .media {
+  display: table-cell;
+}
 /* /Users/youzi/dev/mtv-play/components/first/notification/style.less */
 .first-notification {
   position: absolute;
@@ -2242,247 +2483,6 @@ x:-o-prefocus,
 .not-phone .mini-player .clickable {
   background-color: #3a1a58;
 }
-/* /Users/youzi/dev/mtv-play/components/first/watch/style.less */
-.first-watch {
-  color: #3a1a58;
-}
-.first-watch .title {
-  font-family: OpenSansBold;
-  font-size: 22px;
-}
-.first-watch .txt .title {
-  font-family: OpenSansBold;
-  font-size: 16px;
-}
-.first-watch > .media {
-  overflow: hidden;
-  width: 100%;
-}
-.first-watch > .media .subtitle {
-  font-size: 12px;
-  font-family: OpenSansRegular;
-  color: #ac99b9;
-}
-.first-watch .description {
-  margin-bottom: 80px;
-}
-.first-watch .share {
-  float: right;
-  padding: 15px;
-  margin: -15px;
-}
-.phone .first-watch {
-  height: 100%;
-}
-.phone .first-watch .description {
-  padding: 15px;
-  border-top: 1px solid #dbcedb;
-}
-.phone .first-watch .header {
-  padding: 15px;
-}
-.tablet .first-watch .info {
-  border-left: 1px solid #dbcedb;
-  display: table-cell;
-  width: 100%;
-}
-.tablet .first-watch .holder .info {
-  background-color: rgba(22, 22, 22, 0.5);
-}
-.tablet .first-watch .holder .info .title {
-  font-size: 22px;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-}
-.tablet .first-watch .holder .info .txt {
-  font-size: 16px;
-}
-.tablet .first-watch .favourite {
-  font-size: 36px;
-  margin-left: -8px;
-}
-.tablet .first-watch .header {
-  border-bottom: 1px solid #dbcedb;
-  margin-bottom: 15px;
-}
-.desktop .first-watch .header {
-  border-bottom: 1px solid #dddddd;
-  margin-bottom: 15px;
-}
-.desktop .first-watch > .margin {
-  width: 30px;
-}
-.desktop .first-watch > .pageheader {
-  display: table-caption;
-  padding-left: 50px;
-}
-.desktop .first-watch > .media {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  border: 1px solid #dddddd;
-  background-color: #ffffff;
-}
-.desktop .first-watch .favourite {
-  font-size: 48px;
-  margin-top: -10px;
-  color: #ac99b9;
-}
-.desktop .first-watch .holder .info {
-  background-color: rgba(22, 22, 22, 0.5);
-}
-.desktop .first-watch .holder .info .title {
-  font-size: 22px;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-}
-.desktop .first-watch .holder .info .txt {
-  font-size: 16px;
-}
-.not-phone .first-watch {
-  display: table;
-}
-.not-phone .first-watch .info > div {
-  padding: 15px 15px;
-  -webkit-box-sizing: border-box;
-  /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;
-  /* Firefox, other Gecko */
-  box-sizing: border-box;
-  /* Opera/IE 8+ */
-}
-.not-phone .first-watch .favourite {
-  display: inline-block;
-  vertical-align: middle;
-}
-.not-phone .first-watch .header {
-  padding-bottom: 15px;
-}
-.not-phone .first-watch > .media {
-  display: table-cell;
-}
-/* /Users/youzi/dev/mtv-play/components/second/switcher/style.less */
-.second-switcher {
-  height: 100%;
-  width: 100%;
-  background-color: #231331;
-}
-.second-switcher .grid-item {
-  -webkit-box-sizing: border-box;
-  /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;
-  /* Firefox, other Gecko */
-  box-sizing: border-box;
-  /* Opera/IE 8+ */
-  border: 1px solid black;
-}
-.second-switcher .title {
-  color: #f9f9f9;
-  font-family: OpenSansBoldItalic;
-  text-transform: uppercase;
-}
-.second-switcher .extratitle {
-  font-family: OpenSansBold;
-  font-size: 30px;
-  text-transform: uppercase;
-}
-.second-switcher .description {
-  color: #f9f9f9;
-}
-.second-switcher .second-loader {
-  height: 100%;
-  width: 100%;
-  display: table;
-  text-align: center;
-}
-.second-switcher .second-loader .loadicon {
-  display: table-cell;
-  vertical-align: middle;
-  font-size: 64px;
-  color: #ac99b9;
-}
-.touch .second-switcher .title {
-  margin-bottom: 10px;
-  font-size: 36px;
-}
-.touch .second-switcher .description {
-  margin-top: 10px;
-  font-size: 14px;
-}
-.not-touch .second-switcher .title {
-  margin-bottom: 20px;
-  font-size: 40px;
-}
-.not-touch .second-switcher .description {
-  margin-top: 20px;
-  font-size: 24px;
-}
-.second-switcher > div {
-  position: absolute;
-  background-color: #231331;
-}
-.second-switcher > div {
-  -webkit-transition: opacity 0.2s ease-out;
-  -moz-transition: opacity 0.2s ease-out;
-  -ms-transition: opacity 0.2s ease-out;
-  -o-transition: opacity 0.2s ease-out;
-  transition: opacity 0.2s ease-out;
-}
-.second-switcher > div > div {
-  -webkit-transition: opacity 0.4s ease-out;
-  -moz-transition: opacity 0.4s ease-out;
-  -ms-transition: opacity 0.4s ease-out;
-  -o-transition: opacity 0.4s ease-out;
-  transition: opacity 0.4s ease-out;
-}
-.second-switcher > div > div > div {
-  -webkit-transition: opacity 0.4s ease-out;
-  -moz-transition: opacity 0.4s ease-out;
-  -ms-transition: opacity 0.4s ease-out;
-  -o-transition: opacity 0.4s ease-out;
-  transition: opacity 0.4s ease-out;
-}
-/* /Users/youzi/dev/mtv-play/components/second/screensaver/style.less */
-.second-screensaver {
-  height: 100%;
-  width: 100%;
-  background-color: #231331;
-}
-.second-screensaver > div {
-  position: absolute;
-}
-/* /Users/youzi/dev/mtv-play/components/second/bar/style.less */
-.second-bar {
-  -webkit-transition: background-color 0.2s ease-out;
-  -moz-transition: background-color 0.2s ease-out;
-  -ms-transition: background-color 0.2s ease-out;
-  -o-transition: background-color 0.2s ease-out;
-  transition: background-color 0.2s ease-out;
-  height: 80px;
-  width: 100%;
-  bottom: 0;
-  color: #ffffff;
-  background-color: #231331;
-  font-size: 24px;
-  display: none;
-}
-.isReceiver .second-bar {
-  background-color: #ee255c !important;
-  display: block;
-}
-.second-bar > div {
-  line-height: 80px;
-  display: inline-block;
-  vertical-align: middle;
-}
-.second-bar > .device {
-  width: 80px;
-  font-size: 48px;
-  background-color: #d71f52 !important;
-}
-.second-bar > .info {
-  padding-left: 15px;
-}
 /* /Users/youzi/dev/mtv-play/components/img/style.less */
 .ui-img {
   background-size: 100% auto;
@@ -2660,81 +2660,224 @@ x:-o-prefocus,
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-/* /Users/youzi/dev/mtv-play/components/player/volume/style.less */
-.player-volume {
-  display: inline-block;
+/* /Users/youzi/dev/mtv-play/components/second/channels/style.less */
+.second-channels {
+  margin-left: 80px;
 }
-.player-volume > div {
-  display: inline-block;
-  margin-right: 6px;
-  margin-top: 4px;
+.second-channels .img {
+  background-size: cover;
+}
+.second-channels .information {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 15px 15px 0px 15px;
   overflow: hidden;
-  background-color: #ffffff;
-  border-radius: 1px;
+  background-color: #3a1a58;
 }
-.player-volume > div .nested {
-  background-color: #ffeb00;
+.second-channels .information .channeltitle {
+  color: #f9f9f9;
+  font-size: 18px;
+  line-height: 30px;
+  font-family: OpenSansBold;
+  overflow: hidden;
+  height: 30px;
+  border-bottom: 1px solid #231331;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.second-channels .information .now {
+  float: left;
+  margin-right: 5px;
+  vertical-align: top;
+  font-family: OpenSansBoldItalic;
+  color: #ee255c;
+}
+.second-channels .information .epg .showtitle {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-family: OpenSansBoldItalic;
+}
+.second-channels .information .epg .time {
+  color: #ac99b9;
+  font-size: 12px;
+  display: none;
+}
+.second-channels .information .epg .bar {
+  margin: 20px 0px 20px 0px;
+}
+/* /Users/youzi/dev/mtv-play/components/second/discover/style.less */
+.second-discover {
+  white-space: nowrap;
+}
+.second-discover > div {
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+  margin-left: 80px;
+}
+.second-discover .holder {
+  overflow: hidden;
+}
+.second-discover .roll {
+  white-space: nowrap;
+}
+.second-discover .roll > div {
+  display: inline-block;
+  background-size: cover;
+}
+.bigPurp {
+  background-color: #3a1a58;
+}
+/* /Users/youzi/dev/mtv-play/components/second/shows/style.less */
+.second-shows {
   height: 100%;
   width: 100%;
 }
-.player-volume > div:hover {
-  margin-top: 0;
+.second-shows > .grid {
+  margin-left: 10px;
 }
-.fullscreen-player .player-volume > div {
-  height: 32px;
-  width: 4px;
+.second-shows .grid-item {
+  display: inline-block;
+  vertical-align: top;
 }
-.fullscreen-player .player-volume > div:hover {
-  height: 36px;
-}
-.windowed-player .player-volume > div {
-  height: 23px;
-  width: 2px;
-}
-.windowed-player .player-volume > div:hover {
-  height: 27px;
-}
-/* /Users/youzi/dev/mtv-play/components/player/controls/style.less */
-.player-controls {
+.second-shows > .search {
+  position: absolute;
+  display: table;
+  top: 0;
   height: 100%;
+  width: 100%;
 }
-.player-controls .container {
-  padding: 1px;
-  position: relative;
-  height: 100%;
+.second-shows .searchholder {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 }
-.player-controls .container > div {
+.second-shows .searchicon {
+  display: inline;
+  font-size: 80px;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+.second-shows .searchbox {
+  display: inline-block;
+  background-color: #f2f2f2;
+  padding-bottom: 5px;
+  max-width: 90%;
+  -webkit-border-radius: 2px 2px 0px 0px;
+  -moz-border-radius: 2px 2px 0px 0px;
+  border-radius: 2px 2px 0px 0px;
+  min-height: 80px;
+  line-height: 80px;
+  font-size: 48px;
+  color: #3a1a58;
+  border-bottom: 5px solid #ee255c;
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  -ms-transition: opacity 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
+/* /Users/youzi/dev/mtv-play/components/second/show/style.less */
+.second-show {
+  white-space: nowrap;
+}
+.second-show > .information {
+  background-color: #231331;
+  box-shadow: 0 0 80px 40px #231331;
+  white-space: normal;
+  padding-left: 80px;
   position: absolute;
   top: 0;
 }
-.player-controls .duration {
-  right: 0;
+.second-show > .roll > div {
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+  margin-left: 80px;
 }
-.player-controls .progress {
-  left: 0;
+/* /Users/youzi/dev/mtv-play/components/second/episode/style.less */
+.second-episode > div {
+  display: inline-block;
+  vertical-align: top;
 }
-.player-controls .progress,
-.duration {
+.second-episode > .information {
+  margin: 0 80px;
+  color: #f9f9f9;
+}
+.second-episode .extra-title {
+  font-family: OpenSansBold;
+}
+.second-episode .subtitle {
+  font-family: OpenSansBold;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+.second-episode > .cover {
+  display: inline-table;
+}
+.second-episode .overlay {
+  display: table-cell;
+  vertical-align: middle;
   text-align: center;
-  line-height: 50px;
+  background: linear-gradient(to bottom, rgba(35, 19, 49, 0.4) 0%, rgba(35, 19, 49, 0.4) 100%);
 }
-.player-controls .seekbar {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  left: 80px;
-  right: 80px;
+.second-episode .message {
+  color: #f9f9f9;
+  font-size: 24px;
+  width: 280px;
+  display: inline-block;
 }
-.not-phone .player-controls .progress,
-.not-phone .duration {
-  width: 80px;
+.second-episode .swipeicon {
+  font-size: 64px;
+  margin-bottom: 40px;
 }
-.phone .player-controls .progress,
-.phone .duration {
-  width: 60px;
+.touch .second-episode .ui-img {
+  margin-bottom: 10px;
 }
-.phone .player-controls .seekbar {
-  left: 58px;
-  right: 58px;
+.not-touch .second-episode .ui-img {
+  margin-bottom: 20px;
+}
+/* /Users/youzi/dev/mtv-play/components/second/channel/style.less */
+.second-channel > div {
+  display: inline-block;
+  vertical-align: top;
+}
+.second-channel > .information {
+  margin-left: 80px;
+  color: #f9f9f9;
+}
+.second-channel .ui-img {
+  margin-bottom: 20px;
+}
+.second-channel .subtitle {
+  font-family: OpenSansBold;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+.second-channel > .cover {
+  margin-left: 80px;
+  display: inline-table;
+}
+.second-channel .overlay {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  background-image: radial-gradient(circle at top right, rgba(20, 20, 20, 0.5), #141414, #141414);
+}
+.second-channel .message {
+  color: #f9f9f9;
+  font-size: 36px;
+  width: 280px;
+  display: inline-block;
+}
+.second-channel .swipeicon {
+  font-size: 64px;
+  margin-bottom: 40px;
 }
 /* /Users/youzi/dev/mtv-play/components/first/favourite/style.less */
 .ui-icon.favorited {
@@ -3025,224 +3168,81 @@ x:-o-prefocus,
 .tablet .first-epg .ui-seekbar .bg {
   background-color: #dbcedb;
 }
-/* /Users/youzi/dev/mtv-play/components/second/discover/style.less */
-.second-discover {
-  white-space: nowrap;
-}
-.second-discover > div {
-  display: inline-block;
-  white-space: normal;
-  vertical-align: top;
-  margin-left: 80px;
-}
-.second-discover .holder {
-  overflow: hidden;
-}
-.second-discover .roll {
-  white-space: nowrap;
-}
-.second-discover .roll > div {
-  display: inline-block;
-  background-size: cover;
-}
-.bigPurp {
-  background-color: #3a1a58;
-}
-/* /Users/youzi/dev/mtv-play/components/second/shows/style.less */
-.second-shows {
+/* /Users/youzi/dev/mtv-play/components/player/controls/style.less */
+.player-controls {
   height: 100%;
-  width: 100%;
 }
-.second-shows > .grid {
-  margin-left: 10px;
-}
-.second-shows .grid-item {
-  display: inline-block;
-  vertical-align: top;
-}
-.second-shows > .search {
-  position: absolute;
-  display: table;
-  top: 0;
+.player-controls .container {
+  padding: 1px;
+  position: relative;
   height: 100%;
-  width: 100%;
 }
-.second-shows .searchholder {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-}
-.second-shows .searchicon {
-  display: inline;
-  font-size: 80px;
-  vertical-align: middle;
-  margin-left: 2px;
-}
-.second-shows .searchbox {
-  display: inline-block;
-  background-color: #f2f2f2;
-  padding-bottom: 5px;
-  max-width: 90%;
-  -webkit-border-radius: 2px 2px 0px 0px;
-  -moz-border-radius: 2px 2px 0px 0px;
-  border-radius: 2px 2px 0px 0px;
-  min-height: 80px;
-  line-height: 80px;
-  font-size: 48px;
-  color: #3a1a58;
-  border-bottom: 5px solid #ee255c;
-  -webkit-transition: opacity 0.3s ease-out;
-  -moz-transition: opacity 0.3s ease-out;
-  -ms-transition: opacity 0.3s ease-out;
-  -o-transition: opacity 0.3s ease-out;
-  transition: opacity 0.3s ease-out;
-}
-/* /Users/youzi/dev/mtv-play/components/second/show/style.less */
-.second-show {
-  white-space: nowrap;
-}
-.second-show > .information {
-  background-color: #231331;
-  box-shadow: 0 0 80px 40px #231331;
-  white-space: normal;
-  padding-left: 80px;
+.player-controls .container > div {
   position: absolute;
   top: 0;
 }
-.second-show > .roll > div {
-  display: inline-block;
-  white-space: normal;
-  vertical-align: top;
-  margin-left: 80px;
+.player-controls .duration {
+  right: 0;
 }
-/* /Users/youzi/dev/mtv-play/components/second/channels/style.less */
-.second-channels {
-  margin-left: 80px;
+.player-controls .progress {
+  left: 0;
 }
-.second-channels .img {
-  background-size: cover;
-}
-.second-channels .information {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  font-size: 14px;
-  padding: 15px 15px 0px 15px;
-  overflow: hidden;
-  background-color: #3a1a58;
-}
-.second-channels .information .channeltitle {
-  color: #f9f9f9;
-  font-size: 18px;
-  line-height: 30px;
-  font-family: OpenSansBold;
-  overflow: hidden;
-  height: 30px;
-  border-bottom: 1px solid #231331;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-.second-channels .information .now {
-  float: left;
-  margin-right: 5px;
-  vertical-align: top;
-  font-family: OpenSansBoldItalic;
-  color: #ee255c;
-}
-.second-channels .information .epg .showtitle {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  font-family: OpenSansBoldItalic;
-}
-.second-channels .information .epg .time {
-  color: #ac99b9;
-  font-size: 12px;
-  display: none;
-}
-.second-channels .information .epg .bar {
-  margin: 20px 0px 20px 0px;
-}
-/* /Users/youzi/dev/mtv-play/components/second/episode/style.less */
-.second-episode > div {
-  display: inline-block;
-  vertical-align: top;
-}
-.second-episode > .information {
-  margin: 0 80px;
-  color: #f9f9f9;
-}
-.second-episode .extra-title {
-  font-family: OpenSansBold;
-}
-.second-episode .subtitle {
-  font-family: OpenSansBold;
-  font-size: 20px;
-  text-transform: capitalize;
-}
-.second-episode > .cover {
-  display: inline-table;
-}
-.second-episode .overlay {
-  display: table-cell;
-  vertical-align: middle;
+.player-controls .progress,
+.duration {
   text-align: center;
-  background: linear-gradient(to bottom, rgba(35, 19, 49, 0.4) 0%, rgba(35, 19, 49, 0.4) 100%);
+  line-height: 50px;
 }
-.second-episode .message {
-  color: #f9f9f9;
-  font-size: 24px;
-  width: 280px;
+.player-controls .seekbar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  left: 80px;
+  right: 80px;
+}
+.not-phone .player-controls .progress,
+.not-phone .duration {
+  width: 80px;
+}
+.phone .player-controls .progress,
+.phone .duration {
+  width: 60px;
+}
+.phone .player-controls .seekbar {
+  left: 58px;
+  right: 58px;
+}
+/* /Users/youzi/dev/mtv-play/components/player/volume/style.less */
+.player-volume {
   display: inline-block;
 }
-.second-episode .swipeicon {
-  font-size: 64px;
-  margin-bottom: 40px;
-}
-.touch .second-episode .ui-img {
-  margin-bottom: 10px;
-}
-.not-touch .second-episode .ui-img {
-  margin-bottom: 20px;
-}
-/* /Users/youzi/dev/mtv-play/components/second/channel/style.less */
-.second-channel > div {
+.player-volume > div {
   display: inline-block;
-  vertical-align: top;
+  margin-right: 6px;
+  margin-top: 4px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 1px;
 }
-.second-channel > .information {
-  margin-left: 80px;
-  color: #f9f9f9;
+.player-volume > div .nested {
+  background-color: #ffeb00;
+  height: 100%;
+  width: 100%;
 }
-.second-channel .ui-img {
-  margin-bottom: 20px;
+.player-volume > div:hover {
+  margin-top: 0;
 }
-.second-channel .subtitle {
-  font-family: OpenSansBold;
-  font-size: 24px;
-  text-transform: capitalize;
+.fullscreen-player .player-volume > div {
+  height: 32px;
+  width: 4px;
 }
-.second-channel > .cover {
-  margin-left: 80px;
-  display: inline-table;
+.fullscreen-player .player-volume > div:hover {
+  height: 36px;
 }
-.second-channel .overlay {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  background-image: radial-gradient(circle at top right, rgba(20, 20, 20, 0.5), #141414, #141414);
+.windowed-player .player-volume > div {
+  height: 23px;
+  width: 2px;
 }
-.second-channel .message {
-  color: #f9f9f9;
-  font-size: 36px;
-  width: 280px;
-  display: inline-block;
-}
-.second-channel .swipeicon {
-  font-size: 64px;
-  margin-bottom: 40px;
+.windowed-player .player-volume > div:hover {
+  height: 27px;
 }
 /* /Users/youzi/dev/mtv-play/components/text/style.less */
 input[type="text"],
@@ -4702,6 +4702,16 @@ input:invalid {
   padding: 10px 15px 5px;
   border-bottom: 1px solid #dbcedb;
 }
+/* /Users/youzi/dev/mtv-play/components/second/grid/style.less */
+.grid-item {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  color: white;
+  display: inline-block;
+  vertical-align: top;
+  background-size: cover;
+  background-color: #3a1a58;
+}
 /* /Users/youzi/dev/mtv-play/components/player/seekbar/style.less */
 .ui-seekbar {
   white-space: nowrap;
@@ -4739,16 +4749,6 @@ input:invalid {
   margin: -14px -10px 0 -10px;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.35);
-}
-/* /Users/youzi/dev/mtv-play/components/second/grid/style.less */
-.grid-item {
-  margin-right: 10px;
-  margin-bottom: 10px;
-  color: white;
-  display: inline-block;
-  vertical-align: top;
-  background-size: cover;
-  background-color: #3a1a58;
 }
 /* /Users/youzi/dev/mtv-play/components/first/overview/style.less */
 .desktop .ui-item-large .title {
