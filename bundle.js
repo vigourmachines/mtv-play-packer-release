@@ -4429,12 +4429,21 @@ cases.$isUpgraded = new Value( {
   }
 } )
 
+app.cloud.subscribe({
+  mtvData:{
+    notrial:{
+      $:true
+    }
+  }
+})
 
-cases.$accessForEveryone = new Value()
-
-//temp solution
-app.region.on(function(){
-  cases.$accessForEveryone.val = app.region.val.toLowerCase() === 'no'
+cases.$accessForEveryone = new Value({
+  val:app.cloud.data.get(['mtvData','notrial']),
+  transform:function( v, cv ){
+    var region = app.region.val
+    var access = region && cv && cv.keys.indexOf(app.region.val.toUpperCase()) !== -1
+    return access || 0
+  }
 })
 
 user.role = {
@@ -4786,7 +4795,7 @@ var slide = new Element( {
       click: function() {
         var data = this.data,
           type = data.type && data.type.val,
-          link = 'http://www.mtv.de/',//data.link && data.link.val,
+          link = data.link && data.link.val,
           show, episode
 
         if( type === 'Article' ) {
@@ -4830,7 +4839,9 @@ var roll = new Element( {
   x: {
     data: 'carousel',
     transform: function( v, cv ) {
-      if( isNaN( cv ) ) cv = cv._val || 0
+      if( isNaN( cv ) ){
+        cv = cv._val || 0
+      }
       this._pos = cv
       return cv * this.node.offsetWidth || 0
     },
