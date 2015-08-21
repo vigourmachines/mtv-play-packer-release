@@ -217,6 +217,9 @@
       },
       "ro": {
         "title": "Romana"
+      },
+      "no": {
+        "title": "Norsk"
       }
     },
     "connectWith": "Połącz z",

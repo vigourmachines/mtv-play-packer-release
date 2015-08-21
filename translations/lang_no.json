@@ -36,7 +36,7 @@
         "title": "Premium (måned)"
       },
       "singlePass": {
-        "body": "Ved å trykke på fortsett kjøper du denne episoden for",
+        "body": "Ved å trykke på fortsett leie du denne episoden for",
         "title": "Lås opp episoden"
       },
       "yearlyPass": {
@@ -217,6 +217,9 @@
       },
       "ro": {
         "title": "Romana"
+      },
+      "no": {
+        "title": "Norsk"
       }
     },
     "connectWith": "Koble til med",
@@ -225,7 +228,7 @@
     "workingOnIt": "Vi jobber veldig hardt for å gi deg favorittkanalene dine fra MTV – uansett hvor du er.",
     "advertisement": "Annonse",
     "age": "Velg alder",
-    "backlink": "Tilbake til nyheter og musikk",
+    "backlink": "Tilbake til MTV",
     "buyPremium": "Kjøp premiumpass",
     "cellphone": "Telefon",
     "Connection": "Kontroller Internett-tilkoblingen din.",
