@@ -6121,15 +6121,17 @@ module.exports = exports = new Element(
 },{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../../loader":"/Users/youzi/dev/mtv-play/components/loader/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/first/menu/index.js":[function(require,module,exports){
 require( './style.less' )
 
-var Element = require( 'vigour-js/app/ui/element' ),
-  Item = require( '../../item' ),
-  Img = require( '../../img' ),
-  Icon = require( '../../icon' ),
-  text = require( '../../text' ),
-  cases = require( 'vigour-js/browser/cases' ),
-  app = require( 'vigour-js/app/' ),
-  CastIcon = require( './casticon' )
-  // , Loader = require('../../loader')
+var Element = require( 'vigour-js/app/ui/element' )
+var Item = require( '../../item' )
+var Img = require( '../../img' )
+var Icon = require( '../../icon' )
+var text = require( '../../text' )
+var cases = require( 'vigour-js/browser/cases' )
+var app = require( 'vigour-js/app/' )
+var CastIcon = require( './casticon' )
+var dictionary = require('vigour-js/app/dictionary')
+var channelsText = dictionary.get( 'text.nav.television' )
+var showsText  = dictionary.get( 'text.nav.shows' )
 
 function setPageFactory( page ) {
   if( cases.phone ) {
@@ -6470,7 +6472,7 @@ exports.Topbar = new Element( {
         } else {
           topbar.css = css
           topbar.holder.title.text.val = {
-            transform: false
+            transform: title === 'channels' ? channelsText : showsText
           }
         }
 
@@ -6726,7 +6728,7 @@ exports.Topmenu.base.define( {
 //   Things[i]
 // };
 
-},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","./casticon":"/Users/youzi/dev/mtv-play/components/first/menu/casticon.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/menu/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/menu/style.less":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","./casticon":"/Users/youzi/dev/mtv-play/components/first/menu/casticon.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/menu/style.less","vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/index.js","vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/dictionary/index.js","vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/app/ui/element/index.js","vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/menu/style.less":[function(require,module,exports){
 arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
 },{}],"/Users/youzi/dev/mtv-play/components/first/miniplayer/index.js":[function(require,module,exports){
 require('./style.less')
@@ -14061,7 +14063,6 @@ module.exports = new Page(
 , on: {
     $parent: {
       defer: function( update ) {
-        void(0)
         this._parent._caller.data = config.languages
         this._parent.language._update()
         update()
@@ -16360,14 +16361,11 @@ module.exports = exports = new Switcher
 arguments[4]["/Users/youzi/dev/gaston/node_modules/browserify/lib/_empty.js"][0].apply(exports,arguments)
 },{}],"/Users/youzi/dev/mtv-play/components/text/index.js":[function(require,module,exports){
 var Element = require('vigour-js/app/ui/element')
-  , dictionary = require('vigour-js/app/dictionary')
+var dictionary = require('vigour-js/app/dictionary')
 
 exports.Title = new Element(
 { text:
   { data:'title'
-  // , default:
-  //   { dictionary: 'text.untitled'
-  //   }
   }
 }).Class
 
