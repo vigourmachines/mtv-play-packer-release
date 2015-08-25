@@ -108,7 +108,7 @@
     },
     "player": {
       "debug": false,
-      "web": "http://player.mtvnn.com/html5player/production/player.js",
+      "web": "http://player.mtvnn.com/html5player/development/player.js",
       "settings": {
         "domain": "mtv",
         "tld": "de",
