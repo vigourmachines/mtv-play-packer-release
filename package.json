@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.68",
+  "version": "1.2.69",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -123,7 +123,15 @@
           "profileID": "174975:MTVNE_live_HTML5",
           "viralSID": "mtvplaytv/test",
           "defaultAssetID": 41349526,
-          "server": "http://2ab7f.v.fwmrm.net/ad/p/1"
+          "server": "http://2ab7f.v.fwmrm.net/ad/p/1",
+          "midroll_intervals":{
+            "longer_than_15":"50%",
+            "longer_than_20":"33%",
+            "longer_than_30":"25%"
+          },
+          "defaults":{
+            "interval":0
+          }
         },
         "controls": false,
         "blankVideo": "http://player.mtvnn.com/codebase/blank.m4v",
