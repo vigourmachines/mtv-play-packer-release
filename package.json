@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.69",
+  "version": "1.2.70",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -143,9 +143,6 @@
       "url": "https://wwwmtvplay-a.akamaihd.net/",
       "domain": "http://mtvplay.tv",
       "assets": {
-        "index.html": true,
-        "bundle.js": true,
-        "bundle.css": true,
         "build.html": true,
         "build.js": true,
         "build.css": true,
