@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.70",
+  "version": "1.2.71",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -276,14 +276,13 @@
         }
       },
       "develop": {
-        "cloud": "http://mtvtest.dev.vigour.io:80",
+        "cloud": "production",
         "facebook": {
           "id": "720547754665171"
         },
         "packer": {
           "domain": "http://mtv-develop.vigour.io"
-        },
-        "regionOverride": "NO"
+        }
       },
       "master": {
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
