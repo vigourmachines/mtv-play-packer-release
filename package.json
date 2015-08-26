@@ -143,6 +143,7 @@
       "url": "https://wwwmtvplay-a.akamaihd.net/",
       "domain": "http://mtvplay.tv",
       "assets": {
+        "bundle.css": true,
         "build.html": true,
         "build.js": true,
         "build.css": true,
@@ -246,6 +247,7 @@
         "regionOverride": "DE"
       },
       "production": {
+        "protected":["no"],
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
         "omniture": "viaviamtvplay",
@@ -288,8 +290,7 @@
     "socket-port": 9000,
     "no-auto-reload": false,
     "no-package": false,
-    "bundle": "./",
-    "build": "./",
+    "build": "./build.html",
     "browserify": {
       "transforms": [{
         "path": "package-branch-config",
