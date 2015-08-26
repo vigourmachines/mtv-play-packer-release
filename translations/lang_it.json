@@ -29,18 +29,18 @@
       "perMonth": "al mese",
       "perYear": "all'anno",
       "getMore": "Sblocca tutti gli episodi e i canali TV offerti da MTV Play!",
-      "buyMonth": "Premium (mensile) a 2,99 €",
-      "buyYear": "Premium (annuale) a 29,99 €",
+      "buyMonth": "Premium (mensile) a",
+      "buyYear": "Premium (annuale) a",
       "monthlyPass": {
-        "body": "Se premi Continua, procederai all'acquisto di un abbonamento mensile per 2,99 €.",
+        "body": "Se premi Continua, procederai all'acquisto di un abbonamento mensile per",
         "title": "Premium (mensile)"
       },
       "singlePass": {
-        "body": null,
-        "title": null
+        "body": "Premendo continua si affitta questo episodio per",
+        "title": "Sbloccare episodio"
       },
       "yearlyPass": {
-        "body": "Se premi Continua, procederai all'acquisto di un abbonamento annuale per 29,99 €.",
+        "body": "Se premi Continua, procederai all'acquisto di un abbonamento annuale per",
         "title": "Premium (annuale)"
       }
     },
@@ -217,6 +217,9 @@
       },
       "ro": {
         "title": "Romana"
+      },
+      "no": {
+        "title": "Norsk"
       }
     },
     "connectWith": "Collega con",
@@ -225,14 +228,14 @@
     "workingOnIt": "Stiamo lavorando sodo per portare i tuoi canali MTV preferiti ovunque ti trovi.",
     "advertisement": "Pubblicità",
     "age": "Seleziona età",
-    "backlink": null,
+    "backlink": "Torna a MTV",
     "buyPremium": "Acquista il Premium Pass",
     "cellphone": "Telefono",
     "Connection": "Assicurati di essere connesso a Internet.",
     "continue": "Continua",
     "countdown": "Il video apparirà dopo l'annuncio.",
     "desktopText": "Computer",
-    "extras": null,
+    "extras": "Extras",
     "gender": "Seleziona sesso",
     "invalidEntry": "Inserimento non valido. Contollalo.",
     "legalContainer": "Valgono i nostri termini di utilizzo. Con l'upgrade, riconosci e accetti di non poter annullare l'acquisto una volta iniziata la sua consegna.",
@@ -281,7 +284,7 @@
       "remotePlaybackTitle": "Riproduzione remota"
     },
     "signInTOS": "Se accedi, accetti:",
-    "specials": null,
+    "specials": "Specials",
     "spotlight": "Spotlight",
     "swipeup": "Scorri su",
     "tabletText": "Tablet",
@@ -289,7 +292,7 @@
     "trial": "Prova Premium per 48h",
     "trialActive": "Premium attivo per 48h",
     "tvLogin": "Scarica la nostra app per dispositivi mobili sul telefono o il tablet per accedere o fare l'upgrade. ",
-    "unlockPrice": "Sblocca per €",
+    "unlockPrice": "Sblocca per ",
     "untitled": "Senza titolo",
     "upgradeFromPhone": "Prendi il telefono!",
     "verifyEmail": {

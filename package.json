@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.71",
+  "version": "1.2.67",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -108,7 +108,7 @@
     },
     "player": {
       "debug": false,
-      "web": "http://player.mtvnn.com/html5player/development/player.js",
+      "web": "http://player.mtvnn.com/html5player/production/player.js",
       "settings": {
         "domain": "mtv",
         "tld": "de",
@@ -123,15 +123,7 @@
           "profileID": "174975:MTVNE_live_HTML5",
           "viralSID": "mtvplaytv/test",
           "defaultAssetID": 41349526,
-          "server": "http://2ab7f.v.fwmrm.net/ad/p/1",
-          "midroll_intervals":{
-            "longer_than_15":"50%",
-            "longer_than_20":"33%",
-            "longer_than_30":"25%"
-          },
-          "defaults":{
-            "interval":0
-          }
+          "server": "http://2ab7f.v.fwmrm.net/ad/p/1"
         },
         "controls": false,
         "blankVideo": "http://player.mtvnn.com/codebase/blank.m4v",
@@ -151,12 +143,12 @@
       "url": "https://wwwmtvplay-a.akamaihd.net/",
       "domain": "http://mtvplay.tv",
       "assets": {
-        "index.html": true,
-        "bundle.js": true,
-        "bundle.css": true,
         "build.html": true,
         "build.js": true,
         "build.css": true,
+        "bundle.css": true,
+        "fonts.css":true,
+        "fonts":"*",
         "fonts.css": true,
         "fonts": "*",
         "img": "*",
@@ -276,13 +268,14 @@
         }
       },
       "develop": {
-        "cloud": "production",
+        "cloud": "http://mtvtest.dev.vigour.io:80",
         "facebook": {
           "id": "720547754665171"
         },
         "packer": {
           "domain": "http://mtv-develop.vigour.io"
-        }
+        },
+        "regionOverride": "NO"
       },
       "master": {
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
