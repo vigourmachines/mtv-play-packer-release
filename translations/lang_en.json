@@ -36,7 +36,7 @@
         "title": "Premium (Month)"
       },
       "singlePass": {
-        "body": "By pressing continue you buy this episode for",
+        "body": "By pressing continue you rent this episode for",
         "title": "Unlock Episode"
       },
       "yearlyPass": {
@@ -217,6 +217,9 @@
       },
       "ro": {
         "title": "Romana"
+      },
+      "no": {
+        "title": "Norsk"
       }
     },
     "connectWith": "Connect with",
@@ -225,12 +228,14 @@
     "workingOnIt": "We are working very hard to bring you your favorite MTV channels wherever you are.",
     "advertisement": "Advertisement",
     "age": "Select Age",
+    "backlink": "Back to MTV",
     "buyPremium": "Buy Premium Pass",
     "cellphone": "Phone",
     "Connection": "Please check your internet connection.",
     "continue": "Continue",
     "countdown": "Your video will play after this ad.",
     "desktopText": "Computer",
+    "extras": "Extras",
     "gender": "Select Gender",
     "invalidEntry": "Invalid entry, please revise.",
     "legalContainer": "Our terms of use apply. By continuing you acknowledge and agree that you cannot withdraw your purchase once delivery has started.",
@@ -279,6 +284,7 @@
       "remotePlaybackTitle": "Remote Playback"
     },
     "signInTOS": "By signing in you agree to our:",
+    "specials": "Specials",
     "spotlight": "Spotlight",
     "swipeup": "Swipe Up",
     "tabletText": "Tablet",
@@ -286,7 +292,7 @@
     "trial": "48 Hours Premium Trial",
     "trialActive": "48hr Premium trial active",
     "tvLogin": "Download our mobile app to your phone or tablet to log in or upgrade. ",
-    "unlockPrice": "Unlock for",
+    "unlockPrice": "48 Rental for ",
     "untitled": "Untitled",
     "upgradeFromPhone": "Grab your phone!",
     "verifyEmail": {

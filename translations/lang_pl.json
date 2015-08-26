@@ -217,6 +217,9 @@
       },
       "ro": {
         "title": "Romana"
+      },
+      "no": {
+        "title": "Norsk"
       }
     },
     "connectWith": "Połącz z",
@@ -225,15 +228,17 @@
     "workingOnIt": "Cieżko pracujemy, aby Twoje ulubione kanały MTV były dostępne wszędzie tam, gdzie jesteś.",
     "advertisement": "reklama",
     "age": "Wybierz wiek",
+    "backlink": null,
     "buyPremium": "Kup konto premium",
     "cellphone": "Telefon",
     "Connection": "Wystąpił problem z połączeniem. Spróbuj ponownie później lub sprawdź swój dostęp do sieci.",
     "continue": "Kontynuuj",
     "countdown": "Wideo rozpocznie sie po odtworzeniu reklamy.",
     "desktopText": "Komputer",
+    "extras": null,
     "gender": "Wybierz płeć",
     "invalidEntry": "Niewłaściwy wpis, sprawdź jego treść.",
-    "legalContainer": "Obowiązują nasze warunki użytkowania. Ulepszając konto, zgadzasz się, że po rozpoczęciu transmisji zakupu nie będzie można anulować.",
+    "legalContainer": "Obowiązują nasze warunki użytkowania. Kontynuując, zgadzasz się, że po rozpoczęciu transmisji zakupu nie będzie można anulować.",
     "lockedEpisode": "Wypożycz odcinek (48 h)",
     "lockedEpisodeDescription": "Wypożycz odcinek na 48 godzin.",
     "login": {
@@ -279,6 +284,7 @@
       "remotePlaybackTitle": "Zdalne odtwarzanie"
     },
     "signInTOS": "Tworząc konto, zgadzasz się na nasze:",
+    "specials": null,
     "spotlight": "Spotlight",
     "swipeup": "Przesuń do góry",
     "tabletText": "Tablet",

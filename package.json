@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.66",
+  "version": "1.2.67",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -56,7 +56,7 @@
     "development": {
       "button": true
     },
-    "cloud": "http://178.162.206.183:10002",
+    "cloud": "http://mtv-hub.dev.vigour.io:80",
     "othercloud": "http://localhost:10001",
     "languages": [
       "en",
@@ -65,7 +65,8 @@
       "pl",
       "ro",
       "it",
-      "fr"
+      "fr",
+      "no"
     ],
     "mtvmobile": [
       "de",
@@ -84,7 +85,7 @@
       "ro": 40,
       "nl": 31
     },
-    "dictionary": "http://dev.packer.mtv.vigour.io/translations/lang_$language.json",
+    "dictionary": "http://mtv-develop.vigour.io/translations/lang_$language.json",
     "webtranslateit": {
       "files": {
         "de": 374130,
@@ -148,14 +149,16 @@
         "bundle.css": true,
         "fonts.css":true,
         "fonts":"*",
+        "fonts.css": true,
+        "fonts": "*",
         "img": "*",
         "assets": "*",
-        "googleebecff275dd42f4a.html":true,
-        "google2c4a46fac7686373.html":true,
         "translations": "*",
-        "xhr": "*",
         "cast": "*",
-        "cast.html": "*"
+        "cast.html": true,
+        "xhr": "*",
+        "googleebecff275dd42f4a.html": true,
+        "google2c4a46fac7686373.html": true
       },
       "transforms": {
         "build.js": [
@@ -203,7 +206,7 @@
         "packer": {
           "domain": "http://staging.packer.mtv.vigour.io"
         },
-        "regionOverride": "DE"
+        "regionOverride": "NO"
       },
       "demo": {
         "api": {
@@ -246,6 +249,7 @@
         "regionOverride": "DE"
       },
       "production": {
+        "protected":["no"],
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
         "omniture": "viaviamtvplay",
@@ -263,6 +267,16 @@
           "button": false
         }
       },
+      "develop": {
+        "cloud": "http://mtvtest.dev.vigour.io:80",
+        "facebook": {
+          "id": "720547754665171"
+        },
+        "packer": {
+          "domain": "http://mtv-develop.vigour.io"
+        },
+        "regionOverride": "NO"
+      },
       "master": {
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
@@ -278,17 +292,14 @@
     "socket-port": 9000,
     "no-auto-reload": false,
     "no-package": false,
-    "bundle": "./",
-    "build": "./",
+    "build": "./build.html",
     "browserify": {
-      "transforms": [
-        {
-          "path": "package-branch-config",
-          "options": {
-            "section": "vigour"
-          }
+      "transforms": [{
+        "path": "package-branch-config",
+        "options": {
+          "section": "vigour"
         }
-      ]
+      }]
     },
     "less": {
       "options": {}

@@ -29,18 +29,18 @@
       "perMonth": "per maand",
       "perYear": "per jaar",
       "getMore": "Ontgrendel alle afleveringen en tv-kanalen die MTV Play te bieden heeft!",
-      "buyMonth": "Premium (maand) voor € 2,99",
-      "buyYear": "Premium (jaar) voor € 29,99",
+      "buyMonth": "Premium (maand) voor",
+      "buyYear": "Premium (jaar) voor",
       "monthlyPass": {
-        "body": "Door op Doorgaan te drukken, koop je een maandabonnement voor € 2,99.",
+        "body": "Door op Doorgaan te drukken, koop je een maandabonnement voor",
         "title": "Premium (maand)"
       },
       "singlePass": {
-        "body": null,
-        "title": null
+        "body": "Door op volgende te drukken koop je deze aflevering voor",
+        "title": "Koop aflevering"
       },
       "yearlyPass": {
-        "body": "Door op Doorgaan te drukken, koop je een jaarabonnement voor € 29,99.",
+        "body": "Door op Doorgaan te drukken, koop je een jaarabonnement voor",
         "title": "Premium (jaar)"
       }
     },
@@ -217,6 +217,9 @@
       },
       "ro": {
         "title": "Romana"
+      },
+      "no": {
+        "title": "Norsk"
       }
     },
     "connectWith": "Verbinden met",
@@ -225,12 +228,14 @@
     "workingOnIt": "We werken er hard aan om je je favoriete MTV-kanalen aan te kunnen bieden, waar je ook bent.",
     "advertisement": "Advertentie",
     "age": "Kies leeftijd",
+    "backlink": "Terug naar MTV",
     "buyPremium": "Premium Pass kopen",
     "cellphone": "Telefoon",
     "Connection": "Controleer je internetverbinding.",
     "continue": "Doorgaan",
     "countdown": "Je video begint na de reclame.",
     "desktopText": "Computer",
+    "extras": "Extra",
     "gender": "Kies geslacht",
     "invalidEntry": "Niet juist ingevuld, gaarne corrigeren.",
     "legalContainer": "Onze gebruiksvoorwaarden zijn van toepassing. Door te upgraden erken je en stem je ermee in dat je je aankoop niet kunt annuleren zodra de levering begonnen is.",
@@ -279,6 +284,7 @@
       "remotePlaybackTitle": "Op afstand afspelen"
     },
     "signInTOS": "Door je aan te melden stem je in met onze:",
+    "specials": "Specials",
     "spotlight": "Spotlight",
     "swipeup": "Omhoog vegen",
     "tabletText": "Tablet",
@@ -286,7 +292,7 @@
     "trial": "48 uur Premium proberen",
     "trialActive": "48 uur Premiumprobeerperiode actief",
     "tvLogin": "Download onze mobiele app op je telefoon of tablet om je aan te melden of te upgraden. ",
-    "unlockPrice": "Ontgrendelen voor €",
+    "unlockPrice": "Ontgrendelen voor ",
     "untitled": "Naamloos",
     "upgradeFromPhone": "Pak je telefoon!",
     "verifyEmail": {
