@@ -50,8 +50,7 @@
       "CH",
       "PL",
       "RO",
-      "BE",
-      "NO"
+      "BE"
     ],
     "geo": "https://wwwmtvplay-a.akamaihd.net/geo/",
     "development": {
@@ -110,7 +109,7 @@
     "player": {
       "debug": false,
       "web": "http://player.mtvnn.com/html5player/production/player.js",
-      "settings":  {
+      "settings": {
         "domain": "mtv",
         "tld": "de",
         "localization": {
@@ -118,24 +117,13 @@
           "country": "DE"
         },
         "ads": {
-          "autoSID": false,
-          "context": null,
-          "defaultAssetID": 41349526,
-          "defaults": {
-            "interval": 0
-          },
           "enabled": true,
           "engine": "Freewheel",
-          "fallbackID": 41349526,
-          "midroll_intervals": {
-            "longer_than_15": null,
-            "longer_than_20": null,
-            "longer_than_30": null
-          },
           "networkID": 174975,
           "profileID": "174975:MTVNE_live_HTML5",
-          "server": "http://2ab7f.v.fwmrm.net/ad/p/1",
-          "viralSID": "mtvplaytv/test"
+          "viralSID": "mtvplaytv/test",
+          "defaultAssetID": 41349526,
+          "server": "http://2ab7f.v.fwmrm.net/ad/p/1"
         },
         "controls": false,
         "blankVideo": "http://player.mtvnn.com/codebase/blank.m4v",
@@ -286,10 +274,6 @@
         },
         "packer": {
           "domain": "http://mtv-develop.vigour.io"
-        },
-        "player": {
-          "debug": false,
-          "web": "http://player.mtvnn.com/html5player/development/player.js"
         },
         "regionOverride": "NO"
       },
