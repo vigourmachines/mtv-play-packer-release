@@ -36,8 +36,8 @@
         "title": "Premium (mensuel)"
       },
       "singlePass": {
-        "body": null,
-        "title": null
+        "body": "En cliquant 'Continuer' vous louez cette épisode pour",
+        "title": "Débloquer une épisode"
       },
       "yearlyPass": {
         "body": "En appuyant sur Continuer, vous achèterez un abonnement annuel pour",
@@ -228,7 +228,7 @@
     "workingOnIt": "Nous travaillons très dur pour vous amener vos chaînes MTV favorites, où que vous soyez.",
     "advertisement": "Publicité",
     "age": "Âge",
-    "backlink": null,
+    "backlink": "Retour à MTV",
     "buyPremium": "Acheter un Pass Premium",
     "cellphone": "Téléphone",
     "Connection": "Veuillez vérifier votre connexion internet.",
