@@ -291,7 +291,7 @@
           "debug": false,
           "web": "http://player.mtvnn.com/html5player/development/player.js"
         },
-        "regionOverride": "DE"
+        "regionOverride": "NO"
       },
       "master": {
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
