@@ -29,18 +29,18 @@
       "perMonth": "miesięcznie",
       "perYear": "rocznie",
       "getMore": "Odblokuj wszystkie odcinki i kanały telewizyjne dostępne w MTV Play!",
-      "buyMonth": "Konto premium 1,99 euro/miesiąc",
-      "buyYear": "Konto premium 19,99 euro/rok",
+      "buyMonth": "Konto premium (miesięcznie) za",
+      "buyYear": "Konto premium (rocznie) za",
       "monthlyPass": {
-        "body": "Klikając przycisk kontynuuj, wykupisz miesięczny abonament za 1,99 euro.",
+        "body": "Klikając przycisk kontynuuj, wykupisz miesięczny abonament za",
         "title": "Konto premium (miesięczne)"
       },
       "singlePass": {
-        "body": null,
-        "title": null
+        "body": "Klikając przycisk dalej wypożyczysz ten odcinek za",
+        "title": "Odblokuj odcinek"
       },
       "yearlyPass": {
-        "body": "Klikając przycisk kontynuuj, wykupisz roczny abonament za 19,99 euro.",
+        "body": "Klikając przycisk kontynuuj, wykupisz roczny abonament za",
         "title": "Konto premium (roczne)"
       }
     },
@@ -229,6 +229,7 @@
     "advertisement": "reklama",
     "age": "Wybierz wiek",
     "backlink": null,
+    "backlink": "Wróć do MTV",
     "buyPremium": "Kup konto premium",
     "cellphone": "Telefon",
     "Connection": "Wystąpił problem z połączeniem. Spróbuj ponownie później lub sprawdź swój dostęp do sieci.",
@@ -236,6 +237,7 @@
     "countdown": "Wideo rozpocznie sie po odtworzeniu reklamy.",
     "desktopText": "Komputer",
     "extras": null,
+    "extras": "Dodatki",
     "gender": "Wybierz płeć",
     "invalidEntry": "Niewłaściwy wpis, sprawdź jego treść.",
     "legalContainer": "Obowiązują nasze warunki użytkowania. Kontynuując, zgadzasz się, że po rozpoczęciu transmisji zakupu nie będzie można anulować.",
@@ -284,7 +286,7 @@
       "remotePlaybackTitle": "Zdalne odtwarzanie"
     },
     "signInTOS": "Tworząc konto, zgadzasz się na nasze:",
-    "specials": null,
+    "specials": "Bonus",
     "spotlight": "Spotlight",
     "swipeup": "Przesuń do góry",
     "tabletText": "Tablet",
@@ -292,7 +294,7 @@
     "trial": "48-godzinny okres próbny konta premium",
     "trialActive": "48-godzinny okres próbny aktywny",
     "tvLogin": "Pobierz naszą aplikację mobilną na telefon lub tablet i zaloguj się lub ulepsz konto. ",
-    "unlockPrice": "Odblokuj za €",
+    "unlockPrice": "Odblokuj na 48 godzin ",
     "untitled": "Bez nazwy",
     "upgradeFromPhone": "Sięgnij po telefon!",
     "verifyEmail": {
