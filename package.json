@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.68",
+  "version": "1.2.75",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -50,7 +50,8 @@
       "CH",
       "PL",
       "RO",
-      "BE"
+      "BE",
+      "NO"
     ],
     "geo": "https://wwwmtvplay-a.akamaihd.net/geo/",
     "development": {
@@ -65,7 +66,8 @@
       "pl",
       "ro",
       "it",
-      "fr"
+      "fr",
+      "no"
     ],
     "mtvmobile": [
       "de",
@@ -108,7 +110,7 @@
     "player": {
       "debug": false,
       "web": "http://player.mtvnn.com/html5player/production/player.js",
-      "settings": {
+      "settings":  {
         "domain": "mtv",
         "tld": "de",
         "localization": {
@@ -116,13 +118,24 @@
           "country": "DE"
         },
         "ads": {
+          "autoSID": false,
+          "context": null,
+          "defaultAssetID": 41349526,
+          "defaults": {
+            "interval": 0
+          },
           "enabled": true,
           "engine": "Freewheel",
+          "fallbackID": 41349526,
+          "midroll_intervals": {
+            "longer_than_15": null,
+            "longer_than_20": null,
+            "longer_than_30": null
+          },
           "networkID": 174975,
           "profileID": "174975:MTVNE_live_HTML5",
-          "viralSID": "mtvplaytv/test",
-          "defaultAssetID": 41349526,
-          "server": "http://2ab7f.v.fwmrm.net/ad/p/1"
+          "server": "http://2ab7f.v.fwmrm.net/ad/p/1",
+          "viralSID": "mtvplaytv/test"
         },
         "controls": false,
         "blankVideo": "http://player.mtvnn.com/codebase/blank.m4v",
@@ -142,17 +155,22 @@
       "url": "https://wwwmtvplay-a.akamaihd.net/",
       "domain": "http://mtvplay.tv",
       "assets": {
-        "index.html":true,
-        "bundle.js":true,
-        "bundle.css":true,
         "build.html": true,
         "build.js": true,
         "build.css": true,
+        "bundle.css": true,
+        "fonts.css":true,
+        "fonts":"*",
+        "fonts.css": true,
+        "fonts": "*",
         "img": "*",
         "assets": "*",
-        "fonts": "*",
-        "fonts.css": true,
-        "translations":"*"
+        "translations": "*",
+        "cast": "*",
+        "cast.html": true,
+        "xhr": "*",
+        "googleebecff275dd42f4a.html": true,
+        "google2c4a46fac7686373.html": true
       },
       "transforms": {
         "build.js": [
@@ -197,20 +215,14 @@
           "button": false
         },
         "cloud": "http://mtvtest.dev.vigour.io:80",
-        "player": {
-          "debug": false,
-          "web": "http://player.mtvnn.com/html5player/staging/player.js",
-          "settings": {
-            "ads": {
-              "enabled": true,
-              "viralSID": "production"
-            }
-          }
-        },
         "packer": {
           "domain": "http://staging.packer.mtv.vigour.io"
         },
-        "regionOverride": "DE"
+        "player": {
+          "debug": false,
+          "web": "http://player.mtvnn.com/html5player/staging/player.js"
+        },
+        "regionOverride": "NO"
       },
       "demo": {
         "api": {
@@ -253,9 +265,20 @@
         "regionOverride": "DE"
       },
       "production": {
+        "protected":["no"],
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
         "omniture": "viaviamtvplay",
+        "player": {
+          "debug": false,
+          "web": "http://player.mtvnn.com/html5player/production/player.js",
+          "settings": {
+            "ads": {
+              "enabled": true,
+              "viralSID": "production"
+            }
+          }
+        },
         "development": {
           "button": false
         }
@@ -268,7 +291,11 @@
         "packer": {
           "domain": "http://mtv-develop.vigour.io"
         },
-        "regionOverride": "DE"
+        "player": {
+          "debug": false,
+          "web": "http://player.mtvnn.com/html5player/development/player.js"
+        },
+        "regionOverride": "NO"
       },
       "master": {
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
@@ -285,8 +312,7 @@
     "socket-port": 9000,
     "no-auto-reload": false,
     "no-package": false,
-    "bundle": "./",
-    "build": "./",
+    "build": "./build.html",
     "browserify": {
       "transforms": [{
         "path": "package-branch-config",
@@ -298,9 +324,9 @@
     "less": {
       "options": {}
     },
-    "smaps": true,
-    "source-maps": true,
-    "remote-logging": true,
+    "smaps": false,
+    "source-maps": false,
+    "remote-logging": false,
     "require-paths": {}
   }
 }

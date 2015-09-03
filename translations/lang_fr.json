@@ -29,18 +29,18 @@
       "perMonth": "par mois",
       "perYear": "par an",
       "getMore": "Accédez à tous les épisodes et chaînes TV offerts par MTV Play !",
-      "buyMonth": "Premium (mensuel) pour 2,99 €",
-      "buyYear": "Premium (annuel) pour 29,99 €",
+      "buyMonth": "Premium (mensuel) pour",
+      "buyYear": "Premium (annuel) pour",
       "monthlyPass": {
-        "body": "En appuyant sur Continuer, vous achèterez un abonnement mensuel pour 2,99 €.",
+        "body": "En appuyant sur Continuer, vous achèterez un abonnement mensuel pour",
         "title": "Premium (mensuel)"
       },
       "singlePass": {
-        "body": null,
-        "title": null
+        "body": "En cliquant 'Continuer' vous louez cette épisode pour",
+        "title": "Débloquer une épisode"
       },
       "yearlyPass": {
-        "body": "En appuyant sur Continuer, vous achèterez un abonnement annuel pour 29,99 €.",
+        "body": "En appuyant sur Continuer, vous achèterez un abonnement annuel pour",
         "title": "Premium (annuel)"
       }
     },
@@ -217,6 +217,9 @@
       },
       "ro": {
         "title": "Romana"
+      },
+      "no": {
+        "title": "Norsk"
       }
     },
     "connectWith": "Se connecter avec",
@@ -225,14 +228,14 @@
     "workingOnIt": "Nous travaillons très dur pour vous amener vos chaînes MTV favorites, où que vous soyez.",
     "advertisement": "Publicité",
     "age": "Âge",
-    "backlink": null,
+    "backlink": "Retour à MTV",
     "buyPremium": "Acheter un Pass Premium",
     "cellphone": "Téléphone",
     "Connection": "Veuillez vérifier votre connexion internet.",
     "continue": "Continuer",
     "countdown": "Lancement de votre vidéo après cette publicité.",
     "desktopText": "Ordinateur",
-    "extras": null,
+    "extras": "Suppléments",
     "gender": "Sexe",
     "invalidEntry": "Erreur. Corrigez vos informations.",
     "legalContainer": "Nos conditions d'utilisation s'appliquent. En améliorant votre compte, vous acceptez que vous ne pourrez pas annuler votre achat une fois la livraison commencée.",
@@ -281,7 +284,7 @@
       "remotePlaybackTitle": "Lecture à distance"
     },
     "signInTOS": "En vous connectant, vous acceptez nos :",
-    "specials": null,
+    "specials": "Spéciaux",
     "spotlight": "À la une",
     "swipeup": "Voir en grand !",
     "tabletText": "Tablette",
@@ -289,7 +292,7 @@
     "trial": "Essai Premium de 48 h",
     "trialActive": "Essai Premium de 48 h actif",
     "tvLogin": "Téléchargez notre appli mobile sur votre téléphone ou tablette pour vous connecter ou améliorer votre compte. ",
-    "unlockPrice": "Débloquer pour €",
+    "unlockPrice": "Débloquer pour ",
     "untitled": "Sans titre",
     "upgradeFromPhone": "Prenez votre téléphone !",
     "verifyEmail": {
