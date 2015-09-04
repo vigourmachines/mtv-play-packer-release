@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.74",
+  "version": "1.2.75",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -101,6 +101,7 @@
     },
     "epg": "https://wwwmtvplay-a.akamaihd.net/xhr/index.html",
     "img": "https://imgmtvplay-a.akamaihd.net",
+    "imgOrigin": "http://images.mtvnn.com/",
     "api": {
       "type": "production",
       "url": "https://utt.mtvnn.com/",
@@ -220,7 +221,13 @@
         },
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/staging/player.js"
+          "web": "http://player.mtvnn.com/html5player/staging/player.js",
+          "settings": {
+            "ads": {
+              "enabled": true,
+              "viralSID": "production"
+            }
+          }
         },
         "regionOverride": "NO"
       },
@@ -233,7 +240,7 @@
         "development": {
           "button": false
         },
-        "cloud": "http://178.162.206.183:10004",
+        "cloud": "http://demohub.dev.vigour.io:80",
         "regionOverride": "DE",
         "player": {
           "debug": false,
@@ -284,6 +291,20 @@
         }
       },
       "develop": {
+        "cloud": "http://mtvtest.dev.vigour.io:80",
+        "facebook": {
+          "id": "720547754665171"
+        },
+        "packer": {
+          "domain": "http://mtv-develop.vigour.io"
+        },
+        "player": {
+          "debug": false,
+          "web": "http://player.mtvnn.com/html5player/development/player.js"
+        },
+        "regionOverride": "NO"
+      },
+      "img-to-url": {
         "cloud": "http://mtvtest.dev.vigour.io:80",
         "facebook": {
           "id": "720547754665171"
