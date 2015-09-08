@@ -211,6 +211,10 @@
     },
     "branches": {
       "staging": {
+        "api": {
+          "type": "staging",
+          "url": "http://utt-staging.mtvnn.com/"
+        },
         "omniture": "vianorthtestweb",
         "development": {
           "button": false
@@ -221,13 +225,7 @@
         },
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/staging/player.js",
-          "settings": {
-            "ads": {
-              "enabled": true,
-              "viralSID": "production"
-            }
-          }
+          "web": "http://player.mtvnn.com/html5player/staging/player.js"
         },
         "regionOverride": "NO"
       },
