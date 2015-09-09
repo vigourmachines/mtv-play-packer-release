@@ -119,6 +119,7 @@
           "country": "DE"
         },
         "ads": {
+          "ad_playpostrolls":true,
           "autoSID": false,
           "context": null,
           "defaultAssetID": 41349526,
