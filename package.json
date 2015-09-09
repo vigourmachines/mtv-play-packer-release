@@ -112,6 +112,7 @@
       "debug": false,
       "web": "http://player.mtvnn.com/html5player/production/player.js",
       "settings":  {
+        "ad_playpostrolls":true,
         "domain": "mtv",
         "tld": "de",
         "localization": {
@@ -119,7 +120,6 @@
           "country": "DE"
         },
         "ads": {
-          "ad_playpostrolls":true,
           "autoSID": false,
           "context": null,
           "defaultAssetID": 41349526,
