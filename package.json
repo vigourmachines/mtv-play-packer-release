@@ -271,7 +271,6 @@
         "regionOverride": "DE"
       },
       "production": {
-        "protected":["no"],
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
         "omniture": "viaviamtvplay",
