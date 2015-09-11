@@ -35,6 +35,7 @@
         "body": "By pressing continue you buy a monthly subscription for",
         "title": "Premium (Month)"
       },
+      "operator": "Free Operator Upgrade",
       "singlePass": {
         "body": "By pressing continue you rent this episode for",
         "title": "Unlock Episode"
@@ -120,7 +121,8 @@
         "facebook": "Register with Facebook",
         "twitter": "Register with Twitter",
         "email": "Register with e-mail",
-        "already": "Sorry, this e-mail is already taken!"
+        "already": "Sorry, this e-mail is already taken!",
+        "operator": "Operator registration"
       },
       "invalid": {
         "email": "Please enter a valid e-mail.",
@@ -262,6 +264,14 @@
     "next": "next",
     "noDescription": "No description available.",
     "noEPG": "No guide available",
+    "operator": {
+      "authenticate": "Please authenticate...",
+      "choose": "Choose Operator",
+      "deals": "Operator Deals",
+      "register": "Please register...",
+      "registerPlay": "Please register an MTV Play account",
+      "select": "Please select operator"
+    },
     "or": "or",
     "phoneUpgradeTitle": "Use our mobile app to upgrade!",
     "ppv": "Rent single episode",
@@ -295,6 +305,7 @@
     "unlockPrice": "48h Rental for ",
     "untitled": "Untitled",
     "upgradeFromPhone": "Grab your phone!",
+    "username": "Username",
     "verifyEmail": {
       "subtitle": "We've sent you an email.",
       "title": "Please verify your account"

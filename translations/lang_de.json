@@ -35,6 +35,7 @@
         "body": "Mit einem Tap auf \"Weiter\" kaufst du ein Monatsabo für",
         "title": "Premium (Monat)"
       },
+      "operator": null,
       "singlePass": {
         "body": "Mit \"weiter\" leihst du diese Episode für",
         "title": "Episode freischalten"
@@ -120,7 +121,8 @@
         "facebook": "Mit Facebook registrieren",
         "twitter": "Mit Twitter registrieren",
         "email": "Mit E-Mail registrieren",
-        "already": "Sorry, diese E-Mail ist vergeben!"
+        "already": "Sorry, diese E-Mail ist vergeben!",
+        "operator": null
       },
       "invalid": {
         "email": "Bitte gib eine gültige E-Mail ein.",
@@ -262,6 +264,14 @@
     "next": "weiter",
     "noDescription": "Keine Beschreibung verfügbar",
     "noEPG": "Kein Programm verfügbar",
+    "operator": {
+      "authenticate": null,
+      "choose": null,
+      "deals": null,
+      "register": null,
+      "registerPlay": null,
+      "select": null
+    },
     "or": "oder",
     "phoneUpgradeTitle": "Upgrade mit unserer App.",
     "ppv": "Episode leihen",
@@ -295,6 +305,7 @@
     "unlockPrice": "48 Stunden leihen für ",
     "untitled": "Kein Titel",
     "upgradeFromPhone": "Nimm dein Smartphone!",
+    "username": null,
     "verifyEmail": {
       "subtitle": "Wir haben dir eine E-Mail geschickt.",
       "title": "Bitte bestätige dein Konto"

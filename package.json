@@ -112,6 +112,7 @@
       "debug": false,
       "web": "http://player.mtvnn.com/html5player/production/player.js",
       "settings":  {
+        "ad_playpostrolls":true,
         "domain": "mtv",
         "tld": "de",
         "localization": {
@@ -270,7 +271,6 @@
         "regionOverride": "DE"
       },
       "production": {
-        "protected":["no"],
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
         "omniture": "viaviamtvplay",
