@@ -289,7 +289,7 @@
         }
       },
       "develop": {
-        "cloud": "http://mtvtest.dev.vigour.io:80",
+        "cloud": "production",
         "facebook": {
           "id": "720547754665171"
         },
@@ -299,8 +299,7 @@
         "player": {
           "debug": false,
           "web": "http://player.mtvnn.com/html5player/development/player.js"
-        },
-        "regionOverride": "NO"
+        }
       },
       "img-to-url": {
         "cloud": "http://mtvtest.dev.vigour.io:80",
