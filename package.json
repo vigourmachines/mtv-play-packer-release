@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.75",
+  "version": "1.2.76",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -276,7 +276,7 @@
         "omniture": "viaviamtvplay",
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/production/player.js",
+          "web": "http://player.mtvnn.com/html5player/production/player.js?1",
           "settings": {
             "ads": {
               "enabled": true,
@@ -289,7 +289,7 @@
         }
       },
       "develop": {
-        "cloud": "http://mtvtest.dev.vigour.io:80",
+        "cloud": "production",
         "facebook": {
           "id": "720547754665171"
         },
@@ -299,8 +299,7 @@
         "player": {
           "debug": false,
           "web": "http://player.mtvnn.com/html5player/development/player.js"
-        },
-        "regionOverride": "NO"
+        }
       },
       "img-to-url": {
         "cloud": "http://mtvtest.dev.vigour.io:80",
