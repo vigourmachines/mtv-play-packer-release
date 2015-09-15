@@ -35,6 +35,7 @@
         "body": "Se premi Continua, procederai all'acquisto di un abbonamento mensile per",
         "title": "Premium (mensile)"
       },
+      "operator": null,
       "singlePass": {
         "body": "Premendo continua si affitta questo episodio per",
         "title": "Sbloccare episodio"
@@ -120,7 +121,8 @@
         "facebook": "Registrati con Facebook",
         "twitter": "Registrati con Twitter",
         "email": "Registrati con l'e-mail",
-        "already": "Purtroppo questa e-mail è già in uso!"
+        "already": "Purtroppo questa e-mail è già in uso!",
+        "operator": null
       },
       "invalid": {
         "email": "Inserisci un'e-mail valida.",
@@ -262,6 +264,14 @@
     "next": "avanti",
     "noDescription": "Nessuna descrizione.",
     "noEPG": "Nessuna guida disponibile",
+    "operator": {
+      "authenticate": null,
+      "choose": null,
+      "deals": null,
+      "register": null,
+      "registerPlay": null,
+      "select": null
+    },
     "or": "o",
     "phoneUpgradeTitle": "Fai l'upgrade con la nostra app!",
     "ppv": "Noleggia episodio singolo",
@@ -295,6 +305,7 @@
     "unlockPrice": "Sblocca per ",
     "untitled": "Senza titolo",
     "upgradeFromPhone": "Prendi il telefono!",
+    "username": null,
     "verifyEmail": {
       "subtitle": "Ti abbiamo inviato un messaggio.",
       "title": "Verifica l'account"
