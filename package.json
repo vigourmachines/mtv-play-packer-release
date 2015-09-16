@@ -301,7 +301,13 @@
         },
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/development/player.js"
+          "web": "http://player.mtvnn.com/html5player/development/player.js",
+          "settings": {
+            "ads": {
+              "enabled": true,
+              "viralSID": "production"
+            }
+          }
         }
       },
       "img-to-url": {
