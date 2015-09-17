@@ -41,7 +41,7 @@
   "homepage": "https://github.com/vigour-io/mtv-play",
   "vigour": {
     "ga": "UA-43955457-3",
-    "hashUrl": false,
+    "hashUrl": true,
     "defaultRegion": false,
     "regionOverride": false,
     "availableRegions": [
