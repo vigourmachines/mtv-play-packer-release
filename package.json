@@ -211,6 +211,9 @@
       }
     },
     "branches": {
+      "hrefs": {
+        "regionOverride": "NO"
+      },
       "staging": {
         "api": {
           "type": "staging",
