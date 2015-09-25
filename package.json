@@ -301,7 +301,7 @@
         },
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/development/player.js"
+          "web": "http://player.mtvnn.com/html5player/development/player.js?bust=1"
         }
       },
       "img-to-url": {
