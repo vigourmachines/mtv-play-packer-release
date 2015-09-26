@@ -305,6 +305,9 @@
         }
       },
       "operator-flow": {
+        "development": {
+          "button": false
+        },
         "api": {
           "type": "staging",
           "url": "http://utt-staging.mtvnn.com/"
