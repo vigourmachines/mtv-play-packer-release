@@ -310,6 +310,16 @@
           "web": "http://player.mtvnn.com/html5player/development/player.js"
         }
       },
+      "operator-flow": {
+        "development": {
+          "button": false
+        },
+        "api": {
+          "type": "staging",
+          "url": "http://utt-staging.mtvnn.com/"
+        },
+        "cloud": "http://mtv-hub.dev.vigour.io:80"
+      },
       "cookie-wall": {
         "hashUrl": true,
         "cloud": "http://mtv-hub.dev.vigour.io:80",
