@@ -172,7 +172,8 @@
         "cast.html": true,
         "xhr": "*",
         "googleebecff275dd42f4a.html": true,
-        "google2c4a46fac7686373.html": true
+        "google2c4a46fac7686373.html": true,
+        "sitemap.xml": true
       },
       "transforms": {
         "build.js": [
@@ -211,7 +212,12 @@
       }
     },
     "branches": {
-      "hrefs": {
+      "sitemaps": {
+        "api": {
+          "type": "staging",
+          "url": "http://utt-staging.mtvnn.com/"
+        },
+        "cloud": "http://localhost:10001",
         "regionOverride": "NO"
       },
       "staging": {
@@ -301,7 +307,7 @@
         },
         "player": {
           "debug": false,
-          "web": "http://origin-player.mtvnn.com/html5player/development/player.js"
+          "web": "http://player.mtvnn.com/html5player/development/player.js"
         }
       },
       "img-to-url": {
