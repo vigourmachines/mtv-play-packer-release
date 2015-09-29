@@ -152,6 +152,27 @@
       "id": "709421825777638",
       "web": "https://connect.facebook.net/de_DE/sdk.js"
     },
+    "wrapper": {
+      "assets": {
+        "build.html": true,
+        "build.js": true,
+        "build.css": true,
+        "bundle.css": true,
+        "fonts.css":true,
+        "fonts":"*",
+        "fonts.css": true,
+        "fonts": "*",
+        "img": "*",
+        "assets": "*",
+        "translations": "*",
+        "cast": "*",
+        "cast.html": true,
+        "xhr": "*",
+        "googleebecff275dd42f4a.html": true,
+        "google2c4a46fac7686373.html": true,
+        "sitemap.xml": true
+      }
+    },
     "packer": {
       "language": "https://wwwmtvplay-a.akamaihd.net/translations/",
       "url": "https://wwwmtvplay-a.akamaihd.net/",
