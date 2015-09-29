@@ -298,7 +298,7 @@
         }
       },
       "develop": {
-        "cloud": "production",
+        "cloud": "http://mtv-hub.dev.vigour.io:80",
         "facebook": {
           "id": "720547754665171"
         },
@@ -308,6 +308,10 @@
         "player": {
           "debug": false,
           "web": "http://player.mtvnn.com/html5player/development/player.js"
+        },
+        "api": {
+          "type": "staging",
+          "url": "http://utt-staging.mtvnn.com/"
         }
       },
       "operator-flow": {
