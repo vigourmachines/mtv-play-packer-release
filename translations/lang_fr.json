@@ -35,7 +35,7 @@
         "body": "En appuyant sur Continuer, vous achèterez un abonnement mensuel pour",
         "title": "Premium (mensuel)"
       },
-      "operator": null,
+      "operator": "Free with your Operator",
       "singlePass": {
         "body": "En cliquant 'Continuer' vous louez cette épisode pour",
         "title": "Débloquer une épisode"
@@ -122,7 +122,7 @@
         "twitter": "Inscription avec Twitter",
         "email": "Inscription avec adresse e-mail",
         "already": "Désolé, cette adresse est déjà utilisée !",
-        "operator": null
+        "operator": "Operator registration"
       },
       "invalid": {
         "email": "Veuillez entrer une adresse e-mail valide.",
@@ -235,6 +235,11 @@
     "cellphone": "Téléphone",
     "Connection": "Veuillez vérifier votre connexion internet.",
     "continue": "Continuer",
+    "cookieBar": {
+      "close": "Deze melding verbergen",
+      "link": "Meer info",
+      "text": "MTV Play maakt gebruik van cookies"
+    },
     "countdown": "Lancement de votre vidéo après cette publicité.",
     "desktopText": "Ordinateur",
     "extras": "Suppléments",
@@ -265,12 +270,13 @@
     "noDescription": "Aucune description disponible.",
     "noEPG": "Aucun guide disponible",
     "operator": {
-      "authenticate": null,
-      "choose": null,
-      "deals": null,
-      "register": null,
-      "registerPlay": null,
-      "select": null
+      "authenticate": "Please authenticate...",
+      "choose": "Choose Operator",
+      "deals": "Available Operators",
+      "future": "Upgrading with this operator is possible from ",
+      "register": "Please register...",
+      "registerPlay": "Please register an MTV Play account",
+      "select": "Please select your operator"
     },
     "or": "ou",
     "phoneUpgradeTitle": "Utilisez notre appli mobile pour mettre à niveau votre compte !",
@@ -305,7 +311,7 @@
     "unlockPrice": "Débloquer pour ",
     "untitled": "Sans titre",
     "upgradeFromPhone": "Prenez votre téléphone !",
-    "username": null,
+    "username": "Username",
     "verifyEmail": {
       "subtitle": "Nous vous avons envoyé un e-mail.",
       "title": "Validez votre compte"

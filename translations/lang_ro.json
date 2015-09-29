@@ -235,6 +235,11 @@
     "cellphone": "Mobil",
     "Connection": "Te rugam sa-ti verifici conexiunea la internet.",
     "continue": "Continuare",
+    "cookieBar": {
+      "close": null,
+      "link": null,
+      "text": null
+    },
     "countdown": "Video-ul tău va fi redat după această reclamă.",
     "desktopText": "PC",
     "extras": "Extras",
@@ -268,6 +273,7 @@
       "authenticate": null,
       "choose": null,
       "deals": null,
+      "future": null,
       "register": null,
       "registerPlay": null,
       "select": null

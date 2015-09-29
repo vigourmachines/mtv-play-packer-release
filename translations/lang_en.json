@@ -35,7 +35,7 @@
         "body": "By pressing continue you buy a monthly subscription for",
         "title": "Premium (Month)"
       },
-      "operator": "Free Operator Upgrade",
+      "operator": "Free with your Operator",
       "singlePass": {
         "body": "By pressing continue you rent this episode for",
         "title": "Unlock Episode"
@@ -235,6 +235,11 @@
     "cellphone": "Phone",
     "Connection": "Please check your internet connection.",
     "continue": "Continue",
+    "cookieBar": {
+      "close": "Close",
+      "link": "More information",
+      "text": "This website uses cookies to enhance your user experience. By using our website, you consent to our use of cookies in accordance with the terms of the cookie policy."
+    },
     "countdown": "Your video will play after this ad.",
     "desktopText": "Computer",
     "extras": "Extras",
@@ -267,10 +272,11 @@
     "operator": {
       "authenticate": "Please authenticate...",
       "choose": "Choose Operator",
-      "deals": "Operator Deals",
+      "deals": "Available Operators",
+      "future": "Upgrading with this operator is possible from ",
       "register": "Please register...",
       "registerPlay": "Please register an MTV Play account",
-      "select": "Please select operator"
+      "select": "Please select your operator"
     },
     "or": "or",
     "phoneUpgradeTitle": "Use our mobile app to upgrade!",
