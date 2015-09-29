@@ -225,19 +225,19 @@
           "type": "staging",
           "url": "http://utt-staging.mtvnn.com/"
         },
+        "cloud": "http://mtv-hub.dev.vigour.io:80",
+        "regionOverride":"NL",
         "omniture": "vianorthtestweb",
         "development": {
           "button": false
         },
-        "cloud": "http://mtvtest.dev.vigour.io:80",
         "packer": {
-          "domain": "http://staging.packer.mtv.vigour.io"
+          "domain": "http://mtv-staging.vigour.io"
         },
         "player": {
           "debug": false,
           "web": "http://player.mtvnn.com/html5player/staging/player.js"
-        },
-        "regionOverride": "NO"
+        }
       },
       "demo": {
         "api": {
@@ -312,7 +312,8 @@
         "api": {
           "type": "staging",
           "url": "http://utt-staging.mtvnn.com/"
-        }
+        },
+        "regionOverride":"NL"
       },
       "operator-flow": {
         "development": {
