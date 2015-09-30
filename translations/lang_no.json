@@ -122,7 +122,7 @@
         "twitter": "Registrer deg med Twitter",
         "email": "Registrer deg med e-post",
         "already": "Beklager, e-posten er allerede i bruk!",
-        "operator": "Operator registration"
+        "operator": "Free with your Operator"
       },
       "invalid": {
         "email": "Oppgi en gyldig e-post.",
@@ -270,12 +270,12 @@
     "noDescription": "Ingen beskrivelse tilgjengelig.",
     "noEPG": "Ingen veiledning tilgjengelig",
     "operator": {
-      "authenticate": "Please authenticate...",
+      "authenticate": "Please enter your Operator credentials to upgrade to premium access.",
       "choose": "Choose Operator",
-      "deals": "Available Operators",
+      "deals": "Choose Operator",
       "future": "Upgrading with this operator is possible from ",
-      "register": "Please register...",
-      "registerPlay": "Please register an MTV Play account",
+      "register": "Please register an MTV Play account first",
+      "registerPlay": "Please register an MTV Play account first",
       "select": "Please select your operator"
     },
     "or": "eller",
