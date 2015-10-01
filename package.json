@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.52",
+  "version": "1.2.76",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vigour-io/mtv-play",
-    "branch": "newvigour"
+    "url": "https://github.com/vigour-io/mtv-play"
   },
   "keywords": [
     "multiscreen",
@@ -22,14 +21,17 @@
     "js"
   ],
   "dependencies": {
-    "zepto-browserify": "x",
-    "monotonic-timestamp": "0.0.9",
-    "vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#dev",
     "lodash": "3.2.0",
-    "promise": "6.1.0"
+    "monotonic-timestamp": "0.0.9",
+    "package-branch-config": "^1.2.2",
+    "promise": "6.1.0",
+    "through2": "^2.0.0",
+    "vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay",
+    "zepto-browserify": "x"
   },
   "devDependencies": {
-    "vigour-dev-tools": "git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master"
+    "vigour-dev-tools": "git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master",
+    "vigour-packer-server": "git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"
   },
   "author": "Jim de Beer",
   "license": "other",
@@ -48,13 +50,14 @@
       "CH",
       "PL",
       "RO",
-      "BE"
+      "BE",
+      "NO"
     ],
     "geo": "https://wwwmtvplay-a.akamaihd.net/geo/",
     "development": {
       "button": true
     },
-    "cloud": "http://178.162.206.183:10002",
+    "cloud": "http://mtv-hub.dev.vigour.io:80",
     "othercloud": "http://localhost:10001",
     "languages": [
       "en",
@@ -63,7 +66,8 @@
       "pl",
       "ro",
       "it",
-      "fr"
+      "fr",
+      "no"
     ],
     "mtvmobile": [
       "de",
@@ -82,7 +86,7 @@
       "ro": 40,
       "nl": 31
     },
-    "dictionary": "http://dev.packer.mtv.vigour.io/translations/lang_$language.json",
+    "dictionary": "http://mtv-staging.vigour.io/translations/lang_$language.json",
     "webtranslateit": {
       "files": {
         "de": 374130,
@@ -97,54 +101,99 @@
     },
     "epg": "https://wwwmtvplay-a.akamaihd.net/xhr/index.html",
     "img": "https://imgmtvplay-a.akamaihd.net",
+    "imgOrigin": "http://images.mtvnn.com/",
     "api": {
+      "type": "production",
+      "url": "https://utt.mtvnn.com/",
       "acceptHeader": "application/json",
-      "type": "staging",
-      "url": "http://utt-staging.mtvnn.com/",
       "key": "4e99c9381b74354fbae9f468497912f0"
     },
     "player": {
-      "debug": true,
-      "web": "http://origin-player.mtvnn.com/html5player/development/player.js",
-      "settings": {
+      "debug": false,
+      "web": "http://player.mtvnn.com/html5player/production/player.js",
+      "settings":  {
+        "ad_playpostrolls":true,
         "domain": "mtv",
         "tld": "de",
         "localization": {
           "language": "de",
           "country": "DE"
         },
-        "controls": false,
-        "blankVideo": "http://player.mtvnn.com/codebase/blank.m4v",
-        "simulcastApiKey": "c153f28d950ae49a",
         "ads": {
+          "autoSID": false,
+          "context": null,
+          "defaultAssetID": 41349526,
+          "defaults": {
+            "interval": 0
+          },
           "enabled": true,
           "engine": "Freewheel",
+          "fallbackID": 41349526,
+          "midroll_intervals": {
+            "longer_than_15": null,
+            "longer_than_20": null,
+            "longer_than_30": null
+          },
           "networkID": 174975,
           "profileID": "174975:MTVNE_live_HTML5",
-          "viralSID": "mtvplaytv/test",
-          "defaultAssetID": 41349526,
-          "server": "http://2ab7f.v.fwmrm.net/ad/p/1"
-        }
+          "server": "http://2ab7f.v.fwmrm.net/ad/p/1",
+          "viralSID": "mtvplaytv/test"
+        },
+        "controls": false,
+        "blankVideo": "http://player.mtvnn.com/codebase/blank.m4v",
+        "simulcastApiKey": "c153f28d950ae49a"
       }
     },
     "chromecast": {
-      "id": "131DED4D",
+      "id": "30C914C1",
       "web": "https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"
     },
     "facebook": {
       "id": "709421825777638",
       "web": "https://connect.facebook.net/de_DE/sdk.js"
     },
-    "packer": {
-      "language": "https://wwwmtvplay-a.akamaihd.net/translations/",
-      "url": "https://wwwmtvplay-a.akamaihd.net/",
-      "domain": "http://localhost:8080",
+    "wrapper": {
       "assets": {
         "build.html": true,
         "build.js": true,
         "build.css": true,
+        "bundle.css": true,
+        "fonts.css":true,
+        "fonts":"*",
+        "fonts.css": true,
+        "fonts": "*",
         "img": "*",
-        "assets": "*"
+        "assets": "*",
+        "translations": "*",
+        "cast": "*",
+        "cast.html": true,
+        "xhr": "*",
+        "googleebecff275dd42f4a.html": true,
+        "google2c4a46fac7686373.html": true,
+        "sitemap.xml": true
+      }
+    },
+    "packer": {
+      "language": "https://wwwmtvplay-a.akamaihd.net/translations/",
+      "url": "https://wwwmtvplay-a.akamaihd.net/",
+      "domain": "http://mtvplay.tv",
+      "assets": {
+        "build.html": true,
+        "build.js": true,
+        "build.css": true,
+        "bundle.css": true,
+        "fonts.css":true,
+        "fonts":"*",
+        "fonts": "*",
+        "img": "*",
+        "assets": "*",
+        "translations": "*",
+        "cast": "*",
+        "cast.html": true,
+        "xhr": "*",
+        "googleebecff275dd42f4a.html": true,
+        "google2c4a46fac7686373.html": true,
+        "sitemap.xml": true
       },
       "transforms": {
         "build.js": [
@@ -183,38 +232,12 @@
       }
     },
     "branches": {
-      "staging": {
-        "omniture": "vianorthtestweb",
-        "development": {
-          "button": false
+      "sitemaps": {
+        "api": {
+          "type": "staging",
+          "url": "http://utt-staging.mtvnn.com/"
         },
-        "cloud": "http://178.162.206.183:10001",
-        "player": {
-          "debug": false,
-          "web": "http://player.mtvnn.com/html5player/staging/player.js",
-          "settings": {
-            "ads": {
-              "enabled": true,
-              "viralSID": "production"
-            }
-          }
-        },
-        "packer": {
-          "domain": "http://staging.packer.mtv.vigour.io"
-        },
-        "regionOverride": "DE"
-      },
-      "youzi-dev": {
-        "player": {
-          "settings": {
-            "ads": {}
-          }
-        },
-        "facebook": {
-          "id": "720547754665171"
-        },
-        "cloud": "http://178.162.206.183:10001",
-        "regionOverride": "DE"
+        "cloud": "http://localhost:10001"
       },
       "demo": {
         "api": {
@@ -225,7 +248,7 @@
         "development": {
           "button": false
         },
-        "cloud": "http://178.162.206.183:10004",
+        "cloud": "http://demohub.dev.vigour.io:80",
         "regionOverride": "DE",
         "player": {
           "debug": false,
@@ -240,35 +263,14 @@
           "domain": "http://demo.packer.mtv.vigour.io"
         }
       },
-      "master": {
-        "development": {
-          "button": false
-        },
-        "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
-        "cloud": "production",
-        "player": {
-          "debug": false,
-          "web": "http://player.mtvnn.com/html5player/production/player.js",
-          "settings": {
-            "ads": {
-              "enabled": false
-            }
-          }
-        },
-        "packer": {
-          "domain": "http://master.packer.mtv.vigour.io"
-        }
-      },
-      "jim": {
-        "cloud": "ws://localhost:10001"
-      },
-      "shawn-dev": {
-        "facebook": {
-          "id": "720547754665171"
-        },
-        "regionOverride": "DE"
-      },
       "dev": {
+        "mtvmobile": [
+          "de",
+          "ch",
+          "ro",
+          "nl"
+        ],
+        "cloud": "http://mtv-hub.dev.vigour.io:80",
         "facebook": {
           "id": "720547754665171"
         },
@@ -277,50 +279,112 @@
         },
         "regionOverride": "DE"
       },
-      "newvigour": {
-        "cloud": "http://52.8.40.195:80",
-        "regionOverride": "DE",
-        "facebook": {
-          "id": "720547754665171"
+      "production": {
+        "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
+        "cloud": "production",
+        "omniture": "viaviamtvplay",
+        "player": {
+          "debug": false,
+          "web": "http://player.mtvnn.com/html5player/production/player.js?1",
+          "settings": {
+            "ads": {
+              "enabled": true,
+              "viralSID": "production"
+            }
+          }
+        },
+        "development": {
+          "button": false
         }
       },
-      "production": {
-        "api": {
-          "type": "production",
-          "url": "https://utt.mtvnn.com/"
+      "develop": {
+        "cloud": "http://mtvtest.dev.vigour.io:80",
+        "facebook": {
+          "id": "720547754665171"
         },
+        "packer": {
+          "domain": "http://mtv-develop.vigour.io"
+        },
+        "player": {
+          "debug": false,
+          "web": "http://player.mtvnn.com/html5player/development/player.js"
+        },
+        "api": {
+          "type": "staging",
+          "url": "http://utt-staging.mtvnn.com/"
+        }
+      },
+      "operator-flow": {
+        "development": {
+          "button": false
+        },
+        "api": {
+          "type": "staging",
+          "url": "http://utt-staging.mtvnn.com/"
+        },
+        "cloud": "http://mtv-hub.dev.vigour.io:80"
+      },
+      "staging": {
+        "api": {
+          "type": "staging",
+          "url": "http://utt-staging.mtvnn.com/"
+        },
+        "cloud": "http://mtvtest.dev.vigour.io:80",
+        "omniture": "vianorthtestweb",
+        "development": {
+          "button": false
+        },
+        "packer": {
+          "domain": "http://mtv-staging.vigour.io"
+        },
+        "player": {
+          "debug": false,
+          "web": "http://player.mtvnn.com/html5player/staging/player.js"
+        }
+      },
+      "cookie-wall": {
+        "hashUrl": true,
+        "cloud": "http://mtv-hub.dev.vigour.io:80",
+        "facebook": {
+          "id": "720547754665171"
+        },
+        "packer": {
+          "domain": "http://mtv-develop.vigour.io"
+        },
+        "player": {
+          "debug": false,
+          "web": "http://player.mtvnn.com/html5player/development/player.js"
+        }
+      },
+      "master": {
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
         "omniture": "viaviamtvplay",
         "development": {
           "button": false
-        },
-        "packer": {
-          "domain": "http://mtvplay.tv"
-        },
-        "player": {
-          "debug": false,
-          "web": "http://player.mtvnn.com/html5player/production/player.js",
-          "settings": {
-            "ads": {
-              "viralSID": "production"
-            }
-          }
         }
       }
     }
   },
   "gaston": {
-    "browserify": {
-      "transforms": [
-        {
-          "path": "vigour-js/util/inform-transform",
-          "options": {
-            "global": "false"
-          }
-        }
-      ]
+    "port": 8080,
+    "socket-port": 9000,
+    "no-auto-reload": false,
+    "no-package": false,
+    "build": "./build.html",
+    "less": {
+      "options": {}
     },
-    "less": {}
+    "smaps": false,
+    "source-maps": true,
+    "remote-logging": false,
+    "require-paths": {},
+    "transforms": [{
+      "package-branch-config": {
+        "section": "vigour"
+      }
+    }],
+    "package":true,
+    "index-path":"index.html"
   }
 }

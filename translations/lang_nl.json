@@ -1,0 +1,447 @@
+{
+  "text": {
+    "all": "Alle",
+    "error": "Oeps, er is een fout opgetreden!",
+    "cancel": "Annuleren",
+    "about": "Informatie",
+    "available": "Beschikbare apparaten",
+    "done": "Klaar",
+    "email": "E-mail",
+    "every": "Elke",
+    "imprint": "Impressum",
+    "learnMore": "Meer informatie",
+    "free": "Gratis",
+    "verifytaken": "Dit nummer wordt al door een ander account gebruikt.",
+    "mtvMobile": "MTV Mobile",
+    "min": "Min",
+    "visit": "Bezoek",
+    "episode": "Aflevering",
+    "episodes": "Afleveringen",
+    "success": "Succes!",
+    "oops": "Oeps!",
+    "warning": "Waarschuwing!",
+    "purchase": {
+      "allPremiumFeatures": "Krijg toegang tot alles wat MTV Play te bieden heeft!",
+      "connectInfo": "Registreer je nu en krijg 48 uur lang volledige toegang! We willen dat je kunt zien wat we te bieden hebben, dus de eerste twee dagen zijn voor onze rekening! Daarna ontvang je automatisch een gratis account. Zonder stiekeme abonnementskosten. Echt waar!",
+      "didYouKnow": "Ken je alle andere voordelen die je hebt als je klant bij MTV Mobile bent? Bekijk ze eens!",
+      "freeWithMTV": "Gratis met MTV Mobile",
+      "goPremium": "Ga voor Premium",
+      "perMonth": "per maand",
+      "perYear": "per jaar",
+      "getMore": "Ontgrendel alle afleveringen en tv-kanalen die MTV Play te bieden heeft!",
+      "buyMonth": "Premium (maand) voor",
+      "buyYear": "Premium (jaar) voor",
+      "monthlyPass": {
+        "body": "Door op Doorgaan te drukken, koop je een maandabonnement voor",
+        "title": "Premium (maand)"
+      },
+      "operator": "Free with your Operator",
+      "singlePass": {
+        "body": "Door op volgende te drukken koop je deze aflevering voor",
+        "title": "Koop aflevering"
+      },
+      "yearlyPass": {
+        "body": "Door op Doorgaan te drukken, koop je een jaarabonnement voor",
+        "title": "Premium (jaar)"
+      }
+    },
+    "hoorayMobileTitle": "Upgraden is gelukt!",
+    "hoorayUpgradedText": "Welkom bij MTV Play Premium! We zijn blij dat je er bent. Als je vragen hebt over de app, kijk dan eens bij de sectie Frequently Asked Questions (FAQ). Als je er niet uitkomt, dan kun je contact opnemen met onze helden van de ondersteuning via helpme@mtvplay.tv. Zij weten bijna altijd wel een oplossing.",
+    "upgrade": "Upgraden",
+    "upgradedMessage": "Geüpgraded",
+    "upgrading": "Bezig met upgraden...",
+    "upgradePremium": "Naar Premium upgraden",
+    "hoorayPremium": "Premium sinds",
+    "mobilePurchased": "Premium met MTV Mobile",
+    "episodePurchased": "Gekochte aflevering",
+    "premium": "Premium",
+    "purchaseHistory": "Aankoopgeschiedenis",
+    "rental": "48 uur huren. ",
+    "enterYourNumber": "Als je klant van MTV Mobile bent, kun je op eenvoudige wijze alle afleveringen en tv-kanalen ontgrendelen. Kies je land en vul om te beginnen je telefoonnummer in.",
+    "verify": "Bevestigen",
+    "verifyMobile": "Als je klant van MTV Mobile bent, kun je op eenvoudige wijze alle afleveringen en tv-kanalen ontgrendelen. Kies je land en vul om te beginnen je telefoonnummer in.",
+    "verifying": "Bezig met bevestigen...",
+    "verifyfail": "Helaas, dat is geen geldig MTV Mobile-nummer. ",
+    "verifysuccess": "We hebben je een sms gestuurd.",
+    "nav": {
+      "discover": "Ontdek",
+      "allShows": "Alle series",
+      "channels": "Kanalen",
+      "shows": "Shows",
+      "television": "TV",
+      "settings": "Instellingen"
+    },
+    "privacy": "Privacybeleid",
+    "profile": "Profiel",
+    "mtvPlay": "MTV Play",
+    "onTv": "Op tv",
+    "needToRegister": "Registreer je of meld je aan. ",
+    "easyRegister": "Maak je geen zorgen, registreren is eenvoudig. We doen er zelfs 48 uur Premiumtoegang bij! En we doen niets oneerlijks met je gegevens. Erewoord! ",
+    "new": "Nieuw",
+    "newEpisodes": "Alle nieuwe afleveringen",
+    "newPassword": "Vul nieuw wachtwoord in",
+    "newReleases": "Nieuwe releases",
+    "favoriteAdded": "Toegevoegd aan favorieten",
+    "favoriteRemoved": "Verwijderd uit favorieten",
+    "favorites": "Favorieten",
+    "noFavos": "Favoriete series die direct en eenvoudig toegankelijk zijn.",
+    "nowOnTv": "Nu op tv",
+    "now": "Nu",
+    "pause": "Pauze",
+    "play": "Spelen",
+    "progress": "Voortgang",
+    "pullBack": "Terughalen",
+    "recommended": "Aanbevolen",
+    "showsYouWatch": "Verder kijken",
+    "search": "Zoeken",
+    "season": "Seizoen",
+    "seasons": "Seizoenen",
+    "topShows": "Topseries",
+    "screenAvailable": "Groot scherm beschikbaar!",
+    "devices": "Apparaten",
+    "watchBigger": "Op het grote scherm bekijken!",
+    "watchBig": "Installeer de app op een ander apparaat of ga naar mtvplay.tv en meld je aan met dezelfde account. Dit apparaat zal hier te zien zijn, waarna je het kunt verbinden. Je kunt nu het verbonden apparaat bedienen en je video's op een groot scherm bekijken.",
+    "noDevicesTitle": "Geen apparaten? Geen probleem!",
+    "noDevices": "Je kunt op twee manieren met een ander apparaat verbinden. Door je aan te melden op een tweede apparaat of op mtvplay.tv. Je kunt ook je Chromecast of Apple TV in hetzelfde netwerk opstarten.",
+    "playingOn": "Speelt op",
+    "account": {
+      "signin": {
+        "title": "Aanmelden",
+        "facebook": "Aanmelden met Facebook",
+        "twitter": "Aanmelden met Twitter",
+        "email": "Aanmelden met e-mail",
+        "wrong": "Controleer je gegevens!",
+        "success": "Welkom terug!",
+        "facebookError": "Facebook inloggen mislukt"
+      },
+      "logout": "Afmelden",
+      "signup": {
+        "title": "Registreren",
+        "confirm": "Bevestig je account",
+        "facebook": "Registreren met Facebook",
+        "twitter": "Registreren met Twitter",
+        "email": "Registreren met e-mail",
+        "already": "Helaas, dit e-mailadres wordt al gebruikt!",
+        "operator": "Operator registration"
+      },
+      "invalid": {
+        "email": "Vul een geldig e-mail adres in.",
+        "password": "Je wachtwoord moet minimaal uit 6 tekens bestaan.",
+        "cellphone": "Controleer of je telefoonnummer klopt en dat je het goede land gekozen hebt."
+      },
+      "forgot": {
+        "title": "Wachtwoord vergeten?",
+        "wrong": "Controleer of je e-mailadres klopt.",
+        "success": "We hebben je een e-mail gestuurd. "
+      },
+      "change": {
+        "email": "E-mailadres wijzigen",
+        "password": "Wachtwoord wijzigen",
+        "success": "Je wachtwoord is gewijzigd!"
+      },
+      "passwordReset": "Nieuw wachtwoord bevestigen",
+      "passwordResetError": "Vul een geldig wachtwoord in!",
+      "purchaseError": "Ugrade mislukt. Probeer het nog eens.",
+      "verifyEmailError": "We konden je account niet verifiëren",
+      "verifyEmailSuccess": {
+        "subtitle": "Je bent nu aangemeld.",
+        "title": "Account geverifieerd!"
+      }
+    },
+    "enterName": "Vul je naam in.",
+    "password": "Wachtwoord",
+    "noMatchPassword": "Wachtwoorden komen niet overeen.",
+    "noPassword": "Vul een wachtwoord in.",
+    "noRepeatPassword": "Vul je wachtwoord nog eens in.",
+    "chooseTelCode": "Kies een land",
+    "settings": {
+      "languages": {
+        "title": "Kies je taal",
+        "subtitle": "Taal wijzigen."
+      }
+    },
+    "name": "Naam",
+    "phonenumber": "Telefoonnummer",
+    "repeatPassword": "Herhaal het wachtwoord",
+    "terms": "Algemene voorwaarden",
+    "termsOfService": "Door je te registreren stem je in met onze:",
+    "shareFacebook": "Delen op Facebook",
+    "shareTwitter": "Delen op Twitter",
+    "shareEmail": "Delen via e-mail",
+    "share": "Delen",
+    "shareEpisode": "Aflevering delen",
+    "tellMe": "Meer informatie",
+    "countries": {
+      "be": {
+        "tel": "+32",
+        "title": "België"
+      },
+      "de": {
+        "tel": "+49",
+        "title": "Duitsland"
+      },
+      "nl": {
+        "tel": "+31",
+        "title": "Nederland"
+      },
+      "pl": {
+        "tel": "+48",
+        "title": "Polen"
+      },
+      "ro": {
+        "tel": "+40",
+        "title": "Roemenië"
+      },
+      "ch": {
+        "tel": "+41",
+        "title": "Zwitserland"
+      }
+    },
+    "language": "Taal",
+    "languages": {
+      "nl": {
+        "title": "Nederlands"
+      },
+      "de": {
+        "title": "Deutsch"
+      },
+      "en": {
+        "title": "English"
+      },
+      "pl": {
+        "title": "Polski"
+      },
+      "it": {
+        "title": "Italiano"
+      },
+      "fr": {
+        "title": "Français"
+      },
+      "ro": {
+        "title": "Romana"
+      },
+      "no": {
+        "title": "Norsk"
+      }
+    },
+    "connectWith": "Verbinden met",
+    "alreadyPurchased": "Je hebt dit al gekocht.",
+    "workInProgress": "WERK IN UITVOERING!",
+    "workingOnIt": "We werken er hard aan om je je favoriete MTV-kanalen aan te kunnen bieden, waar je ook bent.",
+    "advertisement": "Advertentie",
+    "age": "Kies leeftijd",
+    "backlink": "Terug naar MTV",
+    "buyPremium": "Premium Pass kopen",
+    "cellphone": "Telefoon",
+    "Connection": "Controleer je internetverbinding.",
+    "continue": "Doorgaan",
+    "cookieBar": {
+      "close": "Deze melding verbergen",
+      "link": "Meer info",
+      "text": "MTV Play maakt gebruik van cookies"
+    },
+    "countdown": "Je video begint na de reclame.",
+    "desktopText": "Computer",
+    "extras": "Extra",
+    "gender": "Kies geslacht",
+    "invalidEntry": "Niet juist ingevuld, gaarne corrigeren.",
+    "legalContainer": "Onze gebruiksvoorwaarden zijn van toepassing. Door te upgraden erken je en stem je ermee in dat je je aankoop niet kunt annuleren zodra de levering begonnen is.",
+    "lockedEpisode": "Aflevering huren (48u)",
+    "lockedEpisodeDescription": "Huur deze aflevering voor 48 uur.",
+    "login": {
+      "tvSubtitle": "Om  vergrendelde content te kunnen bekijken, dien je onze mobiele app te downloaden. In de app kun je je vervolgens registreren, aanmelden en upgraden naar een Premium-account. Je kunt dan ook verbinding maken met deze tv en deze  bedienen.",
+      "tvTitle": "Aanmelden met je telefoon"
+    },
+    "mailHelp": {
+      "body": "Om je zo goed mogelijk te kunnen helpen, willen we graag het e-mailadres weten waarmee je aangemeld bent, het land waar je bent, de naam van je apparaat en de versie van de app waar je problemen mee hebt. ",
+      "title": "Er is iets wat je moet weten over MTV Play."
+    },
+    "mailShare": {
+      "body": "Heb je dit al gezien? Ga kijken op MTV Play!",
+      "title": "Er is iets dat je moet bekijken op MTV Play."
+    },
+    "mobileUpgrade": "Gebruik mobiele app om te upgraden!",
+    "mobileUpgradeInfo": "Helaas kun je op onze website geen Premium Pass kopen. Maar maak je geen zorgen, daar hebben we onze mobiele apps voor. Pak je iOS-, Android- of Windows Phone-apparaat en haal MTV Play op in de store. ",
+    "newAccount": "Welkom! Je kunt je nu aanmelden. ",
+    "newPasswordConfirm": "Wachtwoord bevestigen",
+    "newsletterSubtitle": "We zullen je nooit spam sturen!",
+    "newsletterTitle": "Nieuwsbrief",
+    "next": "volgende",
+    "noDescription": "Geen omschrijving beschikbaar",
+    "noEPG": "Geen gids beschikbaar",
+    "operator": {
+      "authenticate": "Please authenticate...",
+      "choose": "Choose Operator",
+      "deals": "Available Operators",
+      "future": "Upgrading with this operator is possible from ",
+      "register": "Please register...",
+      "registerPlay": "Please register an MTV Play account",
+      "select": "Please select your operator"
+    },
+    "or": "of",
+    "phoneUpgradeTitle": "Gebruik onze mobiele app om te upgraden!",
+    "ppv": "Eén aflevering huren",
+    "premiumUser": "Premium-gebruiker",
+    "promotion": "Promotie",
+    "purchaseHistoryText": "Hieronder vind je een overzicht van al je vorige aankopen.",
+    "recieveMainScreen": "Druk op deze knop op je verbonden apparaat om je video hier te bekijken. ",
+    "recieveSecondScreen": "Selecteer dit apparaat in je apparatenoverzicht om je video hier te kunnen bekijken. ",
+    "register": {
+      "redirectSubtitle": "We hebben je account geregistreerd en je voor 48 uur naar Premium geüpgraded! Ga terug naar je mobiele app en veel plezier! ",
+      "redirectTeleport": "Terug naar de app!",
+      "redirectTitle": "Account geverifieerd."
+    },
+    "returnTap": "Tik om door te gaan",
+    "roadblock": "Upgrade",
+    "rotateDevice": "Draai je apparaat",
+    "seconds": "seconden",
+    "sender": {
+      "remotePlaybackSubtitle": "Deze video speelt nu op het verbonden scherm.",
+      "remotePlaybackTitle": "Op afstand afspelen"
+    },
+    "signInTOS": "Door je aan te melden stem je in met onze:",
+    "specials": "Specials",
+    "spotlight": "Spotlight",
+    "swipeup": "Omhoog vegen",
+    "tabletText": "Tablet",
+    "thisDevice": "Dit apparaat",
+    "trial": "48 uur Premium proberen",
+    "trialActive": "48 uur Premiumprobeerperiode actief",
+    "tvLogin": "Download onze mobiele app op je telefoon of tablet om je aan te melden of te upgraden. ",
+    "unlockPrice": "Ontgrendelen voor ",
+    "untitled": "Naamloos",
+    "upgradeFromPhone": "Pak je telefoon!",
+    "username": "Username",
+    "verifyEmail": {
+      "subtitle": "We hebben je een e-mail gestuurd.",
+      "title": "Bevestig je account"
+    },
+    "versionAvailable": "Nieuwe versie beschikbaar"
+  },
+  "settings": {
+    "connectivity": "Verbinding",
+    "connectivitySub": "3G/4G-streaming instellen",
+    "connectivityDescription": "Standaard streamt MTV video's via Wi-Fi en mobiele netwerken (3G/4G). Je provider kan extra kosten rekenen voor streamen via mobiele netwerken.",
+    "verifyMobile": "Upgraden met MTV Mobile",
+    "verifyMobileSub": "Bevestig je telefoonnummer voor Premiumtoegang.",
+    "about": "Over MTV Mobile",
+    "aboutSub": "Meer informatie over MTV Mobile!",
+    "help": "FAQ",
+    "helpSub": "Veelgestelde vragen",
+    "feedback": "Help",
+    "feedbackSub": "Neem contact op met ons ondersteuningsteam.",
+    "disableCellular": {
+      "subtitle": "Je kunt video's bekijken via 3G/4G",
+      "title": "3G/4G is ingeschakeld"
+    },
+    "disableNewsletter": {
+      "subtitle": "Je ontvangt geen nieuwsbrieven meer",
+      "title": "Nieuwsbrief uitzetten"
+    },
+    "enableCellular": {
+      "subtitle": "Je kunt geen video's bekijken via 3G/4G",
+      "title": "3G/4G is uitgeschakeld"
+    },
+    "enableNewsletter": {
+      "subtitle": "Abonneren op onze nieuwsbrief.",
+      "title": "Nieuwsbrief"
+    },
+    "intro": "Introductie opnieuw afspelen",
+    "introSub": "Bekijk onze introductie nog eens",
+    "newsletter": {
+      "body": "We zullen je gegevens nooit delen met derden. "
+    }
+  },
+  "intro": {
+    "welcome": {
+      "title": "Welkom",
+      "body": "MTV Play is de beste manier om al je favoriete MTV-shows te bekijken, waar je ook bent. "
+    },
+    "devices": {
+      "title": "MTV Play is overal!",
+      "body": "We hebben apps voor telefoons, tablets, SMART tv's en browsers, dus je kunt je shows overal bekijken!"
+    },
+    "connect": {
+      "title": "Schermen verbinden!",
+      "body": "Je kunt je op twee apparaten of meer aanmelden voor een rijke ervaring op meerdere schermen. "
+    },
+    "free": {
+      "body": "Registreer je of meld je aan om te beginnen!",
+      "button": "Aan de slag"
+    },
+    "mobile": {
+      "body": "MTV Mobile-klanten krijgen onbeperkt Premiumtoegang tot alle content!",
+      "button": "Ja, ik heb MTV Mobile",
+      "title": "Maar eerst, heb je MTV Mobile?"
+    },
+    "register": {
+      "body": "Je 48 uur gratis Premiumtoegang begint onmiddellijk.",
+      "title": "Registreer je of meld je aan om te kijken!"
+    }
+  },
+  "button": {
+    "exitfullscreen": "Volledig scherm afsluiten",
+    "skip": "Overslaan"
+  },
+  "cancel": "Annuleren",
+  "connect": {
+    "active": "Je bent verbonden met",
+    "lost": "Probeer opnieuw te verbinden...",
+    "waiting": "Wacht op apparaat..."
+  },
+  "install": "Installeren",
+  "modal": {
+    "connectedText": {
+      "body": "Veeg video's naar dit apparaat!",
+      "misc": "Je bent verbonden",
+      "title": "Verbonden met"
+    },
+    "videoUnavailable": {
+      "subtitle": "Deze show is in dit land niet beschikbaar. ",
+      "title": "Momenteel niet beschikbaar"
+    },
+    "warning": {
+      "cellular": {
+        "subtitle": "Zet 3G/4G-streaming aan in het instellingenmenu.",
+        "title": "3G/4G afspelen uitgeschakeld."
+      },
+      "invalid": "Deze link is ongeldig!",
+      "unabletoverify": "Mobiel nummer bevestigen mislukt."
+    }
+  },
+  "notnow": "Niet nu",
+  "ok": "Oké",
+  "options": {
+    "age": {
+      "0": {
+        "text": "Jonger dan 18"
+      },
+      "1": {
+        "text": "18 t/m 21"
+      },
+      "2": {
+        "text": "Ouder dan 21"
+      }
+    },
+    "gender": {
+      "0": {
+        "text": "Vrouw"
+      },
+      "1": {
+        "text": "Man"
+      },
+      "2": {
+        "text": "Overig"
+      }
+    }
+  },
+  "share": {
+    "failed": "Delen mislukt. ",
+    "success": "Gedeeld!"
+  },
+  "singleEpisodePurchased": "Huren gelukt.",
+  "tex": {
+    "buyPremiumPhoneButton": "Premium Pass kopen"
+  },
+  "verifyemail": "E-mail bevestigen"
+}
