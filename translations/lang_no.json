@@ -35,7 +35,7 @@
         "body": "Ved å trykke på fortsett kjøper du et månedsabonnement for",
         "title": "Premium (måned)"
       },
-      "operator": null,
+      "operator": "Free with your Operator",
       "singlePass": {
         "body": "Ved å trykke på fortsett leie du denne episoden for",
         "title": "Lås opp episoden"
@@ -122,7 +122,7 @@
         "twitter": "Registrer deg med Twitter",
         "email": "Registrer deg med e-post",
         "already": "Beklager, e-posten er allerede i bruk!",
-        "operator": null
+        "operator": "Free with your Operator"
       },
       "invalid": {
         "email": "Oppgi en gyldig e-post.",
@@ -235,6 +235,11 @@
     "cellphone": "Telefon",
     "Connection": "Kontroller Internett-tilkoblingen din.",
     "continue": "Fortsett",
+    "cookieBar": {
+      "close": "Close",
+      "link": "Mer informasjon",
+      "text": "Denne siden benytter cookies for å bedre din brukeropplevelse. Ved å fortsette å bruke denne websiden aksepterer du vår bruk av cookies."
+    },
     "countdown": "Videoen din spilles av etter denne annonsen.",
     "desktopText": "Datamaskin",
     "extras": "Ekstra",
@@ -265,12 +270,13 @@
     "noDescription": "Ingen beskrivelse tilgjengelig.",
     "noEPG": "Ingen veiledning tilgjengelig",
     "operator": {
-      "authenticate": null,
-      "choose": null,
-      "deals": null,
-      "register": null,
-      "registerPlay": null,
-      "select": null
+      "authenticate": "Please enter your Operator credentials to upgrade to premium access.",
+      "choose": "Choose Operator",
+      "deals": "Choose Operator",
+      "future": "Upgrading with this operator is possible from ",
+      "register": "Please register an MTV Play account first",
+      "registerPlay": "Please register an MTV Play account first",
+      "select": "Please select your operator"
     },
     "or": "eller",
     "phoneUpgradeTitle": "Bruk mobilappen vår for å oppgradere!",
@@ -305,7 +311,7 @@
     "unlockPrice": "48 leie for ",
     "untitled": "Uten navn",
     "upgradeFromPhone": "Finn frem telefonen!",
-    "username": null,
+    "username": "Username",
     "verifyEmail": {
       "subtitle": "Vi har sendt deg en e-post.",
       "title": "Bekreft kontoen din"
