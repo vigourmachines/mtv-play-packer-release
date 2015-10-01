@@ -157,21 +157,12 @@
         "build.html": true,
         "build.js": true,
         "build.css": true,
-        "bundle.css": true,
         "fonts.css":true,
         "fonts":"*",
-        "fonts.css": true,
         "fonts": "*",
         "img": "*",
         "assets": "*",
-        "translations": "*",
-        "cast": "*",
-        "cast.html": true,
-        "xhr": "*",
-        "googleebecff275dd42f4a.html": true,
-        "google2c4a46fac7686373.html": true,
-        "sitemap.xml": true,
-        "sitemap.xsl": true
+        "translations": "*"
       }
     },
     "packer": {
@@ -194,7 +185,8 @@
         "xhr": "*",
         "googleebecff275dd42f4a.html": true,
         "google2c4a46fac7686373.html": true,
-        "sitemap.xml": true
+        "sitemap.xml": true,
+        "sitemap.xsl": true
       },
       "transforms": {
         "build.js": [
