@@ -185,8 +185,7 @@
         "xhr": "*",
         "googleebecff275dd42f4a.html": true,
         "google2c4a46fac7686373.html": true,
-        "sitemap.xml": true,
-        "sitemap.xsl": true
+        "sitemap.xml": true
       },
       "transforms": {
         "build.js": [
@@ -360,32 +359,12 @@
     }
   },
   "gaston": {
-    "port": 8080,
-    "socket-port": 9000,
-    "no-auto-reload": false,
-    "no-package": false,
-    "build": "./build.html",
-    "browserify": {
-      "transforms": [{
-        "path": "package-branch-config",
-        "options": {
-          "section": "vigour"
-        }
-      }]
-    },
-    "less": {
-      "options": {}
-    },
-    "smaps": false,
-    "source-maps": true,
-    "remote-logging": false,
-    "require-paths": {},
-    "transforms": [{
-      "path": "package-branch-config",
-      "options": {
-        "section": "vigour"
+    "transforms": {
+      "package-branch-config": {
+        "section": "vigour"  
       }
-    }],
+    },
+    "source-maps": true,
     "package":true,
     "index-path":"index.html"
   }
