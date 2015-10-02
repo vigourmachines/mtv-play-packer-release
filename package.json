@@ -1,11 +1,12 @@
 {
   "name": "mtv-play",
-  "version": "1.2.76",
+  "version": "1.2.77",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
     "start": "gaston -d",
     "test": "test/test.js",
+    "build": "gaston build -s ./index.js -o . -i",
     "release": "packer -r -c package.json,.package.json"
   },
   "repository": {
@@ -30,7 +31,6 @@
     "zepto-browserify": "x"
   },
   "devDependencies": {
-    "vigour-dev-tools": "git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master",
     "vigour-packer-server": "git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"
   },
   "author": "Jim de Beer",
@@ -111,8 +111,8 @@
     "player": {
       "debug": false,
       "web": "http://player.mtvnn.com/html5player/production/player.js",
-      "settings":  {
-        "ad_playpostrolls":true,
+      "settings": {
+        "ad_playpostrolls": true,
         "domain": "mtv",
         "tld": "de",
         "localization": {
@@ -157,20 +157,11 @@
         "build.html": true,
         "build.js": true,
         "build.css": true,
-        "bundle.css": true,
-        "fonts.css":true,
-        "fonts":"*",
         "fonts.css": true,
         "fonts": "*",
         "img": "*",
         "assets": "*",
-        "translations": "*",
-        "cast": "*",
-        "cast.html": true,
-        "xhr": "*",
-        "googleebecff275dd42f4a.html": true,
-        "google2c4a46fac7686373.html": true,
-        "sitemap.xml": true
+        "translations": "*"
       }
     },
     "packer": {
@@ -182,8 +173,7 @@
         "build.js": true,
         "build.css": true,
         "bundle.css": true,
-        "fonts.css":true,
-        "fonts":"*",
+        "fonts.css": true,
         "fonts": "*",
         "img": "*",
         "assets": "*",
@@ -339,7 +329,13 @@
         },
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/staging/player.js"
+          "web": "http://player.mtvnn.com/html5player/staging/player.js",
+          "settings ": {
+            "ads": {
+              "enabled": true,
+              "viralSID": "production"
+            }
+          }
         }
       },
       "cookie-wall": {
@@ -367,33 +363,13 @@
     }
   },
   "gaston": {
-    "port": 8080,
-    "socket-port": 9000,
-    "no-auto-reload": false,
-    "no-package": false,
-    "build": "./build.html",
-    "browserify": {
-      "transforms": [{
-        "path": "package-branch-config",
-        "options": {
-          "section": "vigour"
-        }
-      }]
-    },
-    "less": {
-      "options": {}
-    },
-    "smaps": false,
-    "source-maps": true,
-    "remote-logging": false,
-    "require-paths": {},
-    "transforms": [{
-      "path": "package-branch-config",
-      "options": {
+    "transforms": {
+      "package-branch-config": {
         "section": "vigour"
       }
-    }],
-    "package":true,
-    "index-path":"index.html"
+    },
+    "source-maps": true,
+    "package": true,
+    "index-path": "index.html"
   }
 }
