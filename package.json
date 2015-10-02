@@ -329,8 +329,8 @@
         },
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/staging/player.js",
-          "settings ": {
+          "web": "http://player.mtvnn.com/html5player/production/player.js?1",
+          "settings": {
             "ads": {
               "enabled": true,
               "viralSID": "production"
