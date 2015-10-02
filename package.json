@@ -6,6 +6,7 @@
   "scripts": {
     "start": "gaston -d",
     "test": "test/test.js",
+    "build": "gaston build -s ./index.js -o . -i",
     "release": "packer -r -c package.json,.package.json"
   },
   "repository": {
@@ -30,7 +31,6 @@
     "zepto-browserify": "x"
   },
   "devDependencies": {
-    "vigour-dev-tools": "git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master",
     "vigour-packer-server": "git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"
   },
   "author": "Jim de Beer",
@@ -111,8 +111,8 @@
     "player": {
       "debug": false,
       "web": "http://player.mtvnn.com/html5player/production/player.js",
-      "settings":  {
-        "ad_playpostrolls":true,
+      "settings": {
+        "ad_playpostrolls": true,
         "domain": "mtv",
         "tld": "de",
         "localization": {
@@ -157,8 +157,7 @@
         "build.html": true,
         "build.js": true,
         "build.css": true,
-        "fonts.css":true,
-        "fonts":"*",
+        "fonts.css": true,
         "fonts": "*",
         "img": "*",
         "assets": "*",
@@ -174,8 +173,7 @@
         "build.js": true,
         "build.css": true,
         "bundle.css": true,
-        "fonts.css":true,
-        "fonts":"*",
+        "fonts.css": true,
         "fonts": "*",
         "img": "*",
         "assets": "*",
@@ -361,7 +359,7 @@
   "gaston": {
     "transforms": {
       "package-branch-config": {
-        "section": "vigour"  
+        "section": "vigour"
       }
     },
     "source-maps": true,
