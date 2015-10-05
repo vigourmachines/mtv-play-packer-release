@@ -35,6 +35,7 @@
         "body": "Mit einem Tap auf \"Weiter\" kaufst du ein Monatsabo für",
         "title": "Premium (Monat)"
       },
+      "operator": "Gratis mit MTV Mobile",
       "singlePass": {
         "body": "Mit \"weiter\" leihst du diese Episode für",
         "title": "Episode freischalten"
@@ -120,7 +121,8 @@
         "facebook": "Mit Facebook registrieren",
         "twitter": "Mit Twitter registrieren",
         "email": "Mit E-Mail registrieren",
-        "already": "Sorry, diese E-Mail ist vergeben!"
+        "already": "Sorry, diese E-Mail ist vergeben!",
+        "operator": "Registrierung mit Partner"
       },
       "invalid": {
         "email": "Bitte gib eine gültige E-Mail ein.",
@@ -233,6 +235,11 @@
     "cellphone": "Smartphone",
     "Connection": "Bitte überprüfe deine Internetverbindung",
     "continue": "Weiter",
+    "cookieBar": {
+      "close": "Schließen",
+      "link": "Mehr Infos",
+      "text": "Diese Website verwendet Cookies, um Dein Surferlebnis zu verbessern. Durch die weitere Nutzung der Website stimmst Du der Verwendung von Cookies zu."
+    },
     "countdown": "Dein Video startet nach der Werbung.",
     "desktopText": "Computer",
     "extras": "Extras",
@@ -262,6 +269,15 @@
     "next": "weiter",
     "noDescription": "Keine Beschreibung verfügbar",
     "noEPG": "Kein Programm verfügbar",
+    "operator": {
+      "authenticate": "Gib deine Zugangsdaten ein",
+      "choose": "Wähle deinen Anbieter",
+      "deals": "Verfügbare Partner",
+      "future": "Ein Upgrade mit diesem Partner ist verfügbar ab dem ",
+      "register": "Bitte registriere dich",
+      "registerPlay": "Bitte registriere ein MTV Play Konto",
+      "select": "Bitte wähle deinen Anbieter"
+    },
     "or": "oder",
     "phoneUpgradeTitle": "Upgrade mit unserer App.",
     "ppv": "Episode leihen",
@@ -295,6 +311,7 @@
     "unlockPrice": "48 Stunden leihen für ",
     "untitled": "Kein Titel",
     "upgradeFromPhone": "Nimm dein Smartphone!",
+    "username": "Benutzername",
     "verifyEmail": {
       "subtitle": "Wir haben dir eine E-Mail geschickt.",
       "title": "Bitte bestätige dein Konto"

@@ -1,11 +1,12 @@
 {
   "name": "mtv-play",
-  "version": "1.2.75",
+  "version": "1.2.77",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
     "start": "gaston -d",
     "test": "test/test.js",
+    "build": "gaston build -s ./index.js -o . -i",
     "release": "packer -r -c package.json,.package.json"
   },
   "repository": {
@@ -30,7 +31,6 @@
     "zepto-browserify": "x"
   },
   "devDependencies": {
-    "vigour-dev-tools": "git+ssh://git@github.com:vigour-io/vigour-dev-tools.git#master",
     "vigour-packer-server": "git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"
   },
   "author": "Jim de Beer",
@@ -86,7 +86,7 @@
       "ro": 40,
       "nl": 31
     },
-    "dictionary": "http://mtv-develop.vigour.io/translations/lang_$language.json",
+    "dictionary": "http://mtv-staging.vigour.io/translations/lang_$language.json",
     "webtranslateit": {
       "files": {
         "de": 374130,
@@ -101,6 +101,7 @@
     },
     "epg": "https://wwwmtvplay-a.akamaihd.net/xhr/index.html",
     "img": "https://imgmtvplay-a.akamaihd.net",
+    "imgOrigin": "http://images.mtvnn.com/",
     "api": {
       "type": "production",
       "url": "https://utt.mtvnn.com/",
@@ -110,7 +111,8 @@
     "player": {
       "debug": false,
       "web": "http://player.mtvnn.com/html5player/production/player.js",
-      "settings":  {
+      "settings": {
+        "ad_playpostrolls": true,
         "domain": "mtv",
         "tld": "de",
         "localization": {
@@ -150,6 +152,18 @@
       "id": "709421825777638",
       "web": "https://connect.facebook.net/de_DE/sdk.js"
     },
+    "wrapper": {
+      "assets": {
+        "build.html": true,
+        "build.js": true,
+        "build.css": true,
+        "fonts.css": true,
+        "fonts": "*",
+        "img": "*",
+        "assets": "*",
+        "translations": "*"
+      }
+    },
     "packer": {
       "language": "https://wwwmtvplay-a.akamaihd.net/translations/",
       "url": "https://wwwmtvplay-a.akamaihd.net/",
@@ -159,8 +173,6 @@
         "build.js": true,
         "build.css": true,
         "bundle.css": true,
-        "fonts.css":true,
-        "fonts":"*",
         "fonts.css": true,
         "fonts": "*",
         "img": "*",
@@ -170,7 +182,8 @@
         "cast.html": true,
         "xhr": "*",
         "googleebecff275dd42f4a.html": true,
-        "google2c4a46fac7686373.html": true
+        "google2c4a46fac7686373.html": true,
+        "sitemap.xml": true
       },
       "transforms": {
         "build.js": [
@@ -209,20 +222,12 @@
       }
     },
     "branches": {
-      "staging": {
-        "omniture": "vianorthtestweb",
-        "development": {
-          "button": false
+      "sitemaps": {
+        "api": {
+          "type": "staging",
+          "url": "http://utt-staging.mtvnn.com/"
         },
-        "cloud": "http://mtvtest.dev.vigour.io:80",
-        "packer": {
-          "domain": "http://staging.packer.mtv.vigour.io"
-        },
-        "player": {
-          "debug": false,
-          "web": "http://player.mtvnn.com/html5player/staging/player.js"
-        },
-        "regionOverride": "NO"
+        "cloud": "http://localhost:10001"
       },
       "demo": {
         "api": {
@@ -233,7 +238,7 @@
         "development": {
           "button": false
         },
-        "cloud": "http://demohub.dev.vigour.io:80",
+        "cloud": "production",
         "regionOverride": "DE",
         "player": {
           "debug": false,
@@ -265,13 +270,12 @@
         "regionOverride": "DE"
       },
       "production": {
-        "protected":["no"],
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
         "omniture": "viaviamtvplay",
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/production/player.js",
+          "web": "http://player.mtvnn.com/html5player/production/player.js?1",
           "settings": {
             "ads": {
               "enabled": true,
@@ -295,7 +299,52 @@
           "debug": false,
           "web": "http://player.mtvnn.com/html5player/development/player.js"
         },
-        "regionOverride": "NO"
+        "api": {
+          "type": "staging",
+          "url": "http://utt-staging.mtvnn.com/"
+        }
+      },
+      "operator-flow": {
+        "development": {
+          "button": false
+        },
+        "api": {
+          "type": "staging",
+          "url": "http://utt-staging.mtvnn.com/"
+        },
+        "cloud": "http://mtv-hub.dev.vigour.io:80"
+      },
+      "staging": {
+        "api": {
+          "type": "staging",
+          "url": "http://utt-staging.mtvnn.com/"
+        },
+        "cloud": "http://mtvtest.dev.vigour.io:80",
+        "omniture": "vianorthtestweb",
+        "development": {
+          "button": false
+        },
+        "packer": {
+          "domain": "http://mtv-staging.vigour.io"
+        },
+        "player": {
+          "debug": false,
+          "web": "http://player.mtvnn.com/html5player/staging/player.js"
+        }
+      },
+      "cookie-wall": {
+        "hashUrl": true,
+        "cloud": "http://mtv-hub.dev.vigour.io:80",
+        "facebook": {
+          "id": "720547754665171"
+        },
+        "packer": {
+          "domain": "http://mtv-develop.vigour.io"
+        },
+        "player": {
+          "debug": false,
+          "web": "http://player.mtvnn.com/html5player/development/player.js"
+        }
       },
       "master": {
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
@@ -308,25 +357,13 @@
     }
   },
   "gaston": {
-    "port": 8080,
-    "socket-port": 9000,
-    "no-auto-reload": false,
-    "no-package": false,
-    "build": "./build.html",
-    "browserify": {
-      "transforms": [{
-        "path": "package-branch-config",
-        "options": {
-          "section": "vigour"
-        }
-      }]
+    "transforms": {
+      "package-branch-config": {
+        "section": "vigour"
+      }
     },
-    "less": {
-      "options": {}
-    },
-    "smaps": false,
-    "source-maps": false,
-    "remote-logging": false,
-    "require-paths": {}
+    "source-maps": true,
+    "package":true,
+    "index-path":"index.html"
   }
 }

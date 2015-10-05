@@ -35,6 +35,7 @@
         "body": "By pressing continue you buy a monthly subscription for",
         "title": "Premium (Month)"
       },
+      "operator": "Free with your Operator",
       "singlePass": {
         "body": "By pressing continue you rent this episode for",
         "title": "Unlock Episode"
@@ -120,7 +121,8 @@
         "facebook": "Register with Facebook",
         "twitter": "Register with Twitter",
         "email": "Register with e-mail",
-        "already": "Sorry, this e-mail is already taken!"
+        "already": "Sorry, this e-mail is already taken!",
+        "operator": "Free with your Operator"
       },
       "invalid": {
         "email": "Please enter a valid e-mail.",
@@ -233,6 +235,11 @@
     "cellphone": "Phone",
     "Connection": "Please check your internet connection.",
     "continue": "Continue",
+    "cookieBar": {
+      "close": "Close",
+      "link": "More information",
+      "text": "This website uses cookies to enhance your user experience. By using our website, you consent to our use of cookies in accordance with the terms of the cookie policy."
+    },
     "countdown": "Your video will play after this ad.",
     "desktopText": "Computer",
     "extras": "Extras",
@@ -262,6 +269,15 @@
     "next": "next",
     "noDescription": "No description available.",
     "noEPG": "No guide available",
+    "operator": {
+      "authenticate": "Please enter your Operator credentials to upgrade to premium access.",
+      "choose": "Choose Operator",
+      "deals": "Choose Operator",
+      "future": "Upgrading with this operator is possible from ",
+      "register": "Please register an MTV Play account first",
+      "registerPlay": "Please register an MTV Play account first",
+      "select": "Please select your operator"
+    },
     "or": "or",
     "phoneUpgradeTitle": "Use our mobile app to upgrade!",
     "ppv": "Rent single episode",
@@ -295,6 +311,7 @@
     "unlockPrice": "48h Rental for ",
     "untitled": "Untitled",
     "upgradeFromPhone": "Grab your phone!",
+    "username": "Username",
     "verifyEmail": {
       "subtitle": "We've sent you an email.",
       "title": "Please verify your account"

@@ -35,6 +35,7 @@
         "body": "Door op Doorgaan te drukken, koop je een maandabonnement voor",
         "title": "Premium (maand)"
       },
+      "operator": "Free with your Operator",
       "singlePass": {
         "body": "Door op volgende te drukken koop je deze aflevering voor",
         "title": "Koop aflevering"
@@ -120,7 +121,8 @@
         "facebook": "Registreren met Facebook",
         "twitter": "Registreren met Twitter",
         "email": "Registreren met e-mail",
-        "already": "Helaas, dit e-mailadres wordt al gebruikt!"
+        "already": "Helaas, dit e-mailadres wordt al gebruikt!",
+        "operator": "Operator registration"
       },
       "invalid": {
         "email": "Vul een geldig e-mail adres in.",
@@ -233,6 +235,11 @@
     "cellphone": "Telefoon",
     "Connection": "Controleer je internetverbinding.",
     "continue": "Doorgaan",
+    "cookieBar": {
+      "close": "Deze melding verbergen",
+      "link": "Meer info",
+      "text": "MTV Play maakt gebruik van cookies"
+    },
     "countdown": "Je video begint na de reclame.",
     "desktopText": "Computer",
     "extras": "Extra",
@@ -262,6 +269,15 @@
     "next": "volgende",
     "noDescription": "Geen omschrijving beschikbaar",
     "noEPG": "Geen gids beschikbaar",
+    "operator": {
+      "authenticate": "Please authenticate...",
+      "choose": "Choose Operator",
+      "deals": "Available Operators",
+      "future": "Upgrading with this operator is possible from ",
+      "register": "Please register...",
+      "registerPlay": "Please register an MTV Play account",
+      "select": "Please select your operator"
+    },
     "or": "of",
     "phoneUpgradeTitle": "Gebruik onze mobiele app om te upgraden!",
     "ppv": "Eén aflevering huren",
@@ -295,6 +311,7 @@
     "unlockPrice": "Ontgrendelen voor ",
     "untitled": "Naamloos",
     "upgradeFromPhone": "Pak je telefoon!",
+    "username": "Username",
     "verifyEmail": {
       "subtitle": "We hebben je een e-mail gestuurd.",
       "title": "Bevestig je account"

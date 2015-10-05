@@ -35,6 +35,7 @@
         "body": "Klikając przycisk kontynuuj, wykupisz miesięczny abonament za",
         "title": "Konto premium (miesięczne)"
       },
+      "operator": "Free with your Operator",
       "singlePass": {
         "body": "Klikając przycisk dalej wypożyczysz ten odcinek za",
         "title": "Odblokuj odcinek"
@@ -120,7 +121,8 @@
         "facebook": "Utwórz konto przez Facebook",
         "twitter": "Utwórz konto przez Twitter",
         "email": "Utwórz konto przez e-mail",
-        "already": "Niestety podany adres e-mail jest już zajęty!"
+        "already": "Niestety podany adres e-mail jest już zajęty!",
+        "operator": "Operator registration"
       },
       "invalid": {
         "email": "Podaj poprawny adres e-mail.",
@@ -228,15 +230,18 @@
     "workingOnIt": "Cieżko pracujemy, aby Twoje ulubione kanały MTV były dostępne wszędzie tam, gdzie jesteś.",
     "advertisement": "reklama",
     "age": "Wybierz wiek",
-    "backlink": null,
     "backlink": "Wróć do MTV",
     "buyPremium": "Kup konto premium",
     "cellphone": "Telefon",
     "Connection": "Wystąpił problem z połączeniem. Spróbuj ponownie później lub sprawdź swój dostęp do sieci.",
     "continue": "Kontynuuj",
+    "cookieBar": {
+      "close": "Close",
+      "link": "Tutaj",
+      "text": "Ta strona internetowa może zostawiać na Twoim urządzeniu pliki cookies, m.in. w celu optymalizacji wyświetleń tej strony internetowej na Twoim urządzeniu. Korzystając ze strony wyrażasz zgodę na użycie plików cookies. Więcej informacji o cookies znajduje się."
+    },
     "countdown": "Wideo rozpocznie sie po odtworzeniu reklamy.",
     "desktopText": "Komputer",
-    "extras": null,
     "extras": "Dodatki",
     "gender": "Wybierz płeć",
     "invalidEntry": "Niewłaściwy wpis, sprawdź jego treść.",
@@ -264,6 +269,15 @@
     "next": "dalej",
     "noDescription": "Brak opisu",
     "noEPG": "Brak przewodnika",
+    "operator": {
+      "authenticate": "Please authenticate...",
+      "choose": "Choose Operator",
+      "deals": "Available Operators",
+      "future": "Upgrading with this operator is possible from ",
+      "register": "Please register...",
+      "registerPlay": "Please register an MTV Play account",
+      "select": "Please select your operator"
+    },
     "or": "lub",
     "phoneUpgradeTitle": "Ulepsz konto za pomocą naszej aplikacji mobilnej!",
     "ppv": "Wypożycz pojedynczy odcinek",
@@ -297,6 +311,7 @@
     "unlockPrice": "Odblokuj na 48 godzin ",
     "untitled": "Bez nazwy",
     "upgradeFromPhone": "Sięgnij po telefon!",
+    "username": "Username",
     "verifyEmail": {
       "subtitle": "Wysłaliśmy Ci wiadomość e-mail z linkiem potwierdzającym",
       "title": "Proszę potwierdzić konto"

@@ -35,6 +35,7 @@
         "body": "Apasand butonul Continuare vei cumpara un abonament lunar cu €2.99.",
         "title": "Premium (o luna)"
       },
+      "operator": null,
       "singlePass": {
         "body": "By pressing continue you rent this episode for",
         "title": "Unlock Episode"
@@ -120,7 +121,8 @@
         "facebook": "Inregistreaza-te prin Facebook",
         "twitter": "Inregistreaza-te prin Twitter",
         "email": "Inregistreaza-te prin e-mail",
-        "already": "Ne pare rau, acest e-mail este deja inregistrat!"
+        "already": "Ne pare rau, acest e-mail este deja inregistrat!",
+        "operator": null
       },
       "invalid": {
         "email": "Te rugam sa introduci o adresa de e-mail valida.",
@@ -233,6 +235,11 @@
     "cellphone": "Mobil",
     "Connection": "Te rugam sa-ti verifici conexiunea la internet.",
     "continue": "Continuare",
+    "cookieBar": {
+      "close": null,
+      "link": null,
+      "text": null
+    },
     "countdown": "Video-ul tău va fi redat după această reclamă.",
     "desktopText": "PC",
     "extras": "Extras",
@@ -262,6 +269,15 @@
     "next": "inainte",
     "noDescription": "Nicio descriere disponibila",
     "noEPG": "Descriere indisponibila",
+    "operator": {
+      "authenticate": null,
+      "choose": null,
+      "deals": null,
+      "future": null,
+      "register": null,
+      "registerPlay": null,
+      "select": null
+    },
     "or": "sau",
     "phoneUpgradeTitle": "Foloseste aplicatia mobila pentru a upgrada",
     "ppv": "Inchiriaza un singur episod",
@@ -295,6 +311,7 @@
     "unlockPrice": "Deblochează pentru €",
     "untitled": "Fara titlu",
     "upgradeFromPhone": "Ia-ti telefonul!",
+    "username": null,
     "verifyEmail": {
       "subtitle": "Ti-am trimis un e-mail.",
       "title": "Te rugam sa-ti verifici contul"
