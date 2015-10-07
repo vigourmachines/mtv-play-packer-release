@@ -164,6 +164,7 @@
         "translations": "*"
       }
     },
+    "fburl":"http://play.mtvutt.com/",
     "packer": {
       "language": "https://wwwmtvplay-a.akamaihd.net/translations/",
       "url": "https://wwwmtvplay-a.akamaihd.net/",
@@ -329,7 +330,7 @@
         },
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/production/player.js?1",
+          "web": "http://player.mtvnn.com/html5player/staging/player.js",
           "settings": {
             "ads": {
               "enabled": true,
