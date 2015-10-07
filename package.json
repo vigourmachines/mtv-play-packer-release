@@ -164,6 +164,7 @@
         "translations": "*"
       }
     },
+    "fburl":"http://www.mtvplay.tv/",
     "packer": {
       "language": "https://wwwmtvplay-a.akamaihd.net/translations/",
       "url": "https://wwwmtvplay-a.akamaihd.net/",
