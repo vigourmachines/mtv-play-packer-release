@@ -31,7 +31,7 @@
     "zepto-browserify": "x"
   },
   "devDependencies": {
-    "ferry": "git+ssh://git@github.com:vigour-io/ferry.git#master"
+    "vigour-packer-server": "git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"
   },
   "author": "Jim de Beer",
   "license": "other",
@@ -164,7 +164,6 @@
         "translations": "*"
       }
     },
-    "fburl":"http://play.mtvutt.com/",
     "packer": {
       "language": "https://wwwmtvplay-a.akamaihd.net/translations/",
       "url": "https://wwwmtvplay-a.akamaihd.net/",
@@ -328,9 +327,10 @@
         "packer": {
           "domain": "http://mtv-staging.vigour.io"
         },
+        "regionOverride":"PL",
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/staging/player.js",
+          "web": "http://player.mtvnn.com/html5player/production/player.js?1",
           "settings": {
             "ads": {
               "enabled": true,
