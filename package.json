@@ -164,7 +164,6 @@
         "translations": "*"
       }
     },
-    "fburl":"http://play.mtvutt.com/",
     "packer": {
       "language": "https://wwwmtvplay-a.akamaihd.net/translations/",
       "url": "https://wwwmtvplay-a.akamaihd.net/",
