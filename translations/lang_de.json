@@ -228,7 +228,7 @@
     "alreadyPurchased": "Das hast du schon gekauft.",
     "workInProgress": "IN ARBEIT!",
     "workingOnIt": "Wir arbeiten intensiv daran, dir deine Lieblings-MTV-Kanäle überall anbieten zu können.",
-    "advertisement": "",
+    "advertisement": "Mehr erfahren",
     "age": "Wähle dein Alter",
     "backlink": "Zurück zu MTV",
     "buyPremium": "Premium Pass kaufen",
@@ -274,6 +274,7 @@
       "choose": "Wähle deinen Anbieter",
       "deals": "Verfügbare Partner",
       "future": "Ein Upgrade mit diesem Partner ist verfügbar ab dem ",
+      "help": null,
       "register": "Bitte registriere dich",
       "registerPlay": "Bitte registriere ein MTV Play Konto",
       "select": "Bitte wähle deinen Anbieter"
