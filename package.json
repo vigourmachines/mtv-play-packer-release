@@ -31,7 +31,7 @@
     "zepto-browserify": "x"
   },
   "devDependencies": {
-    "vigour-packer-server": "git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"
+    "ferry": "git+ssh://git@github.com:vigour-io/ferry.git#master"
   },
   "author": "Jim de Beer",
   "license": "other",
