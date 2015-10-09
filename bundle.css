@@ -1662,6 +1662,43 @@ input:invalid {
 .ui-search.focus .placeholder {
   display: none;
 }
+/* file: /Users/youzi/dev/mtv-play/components/second/channel/style.less */
+.second-channel > div {
+  display: inline-block;
+  vertical-align: top;
+}
+.second-channel > .information {
+  margin-left: 80px;
+  color: #f9f9f9;
+}
+.second-channel .ui-img {
+  margin-bottom: 20px;
+}
+.second-channel .subtitle {
+  font-family: OpenSansBold;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+.second-channel > .cover {
+  margin-left: 80px;
+  display: inline-table;
+}
+.second-channel .overlay {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  background-image: radial-gradient(circle at top right, rgba(20, 20, 20, 0.5), #141414, #141414);
+}
+.second-channel .message {
+  color: #f9f9f9;
+  font-size: 36px;
+  width: 280px;
+  display: inline-block;
+}
+.second-channel .swipeicon {
+  font-size: 64px;
+  margin-bottom: 40px;
+}
 /* file: /Users/youzi/dev/mtv-play/components/second/episode/style.less */
 .second-episode > div {
   display: inline-block;
@@ -1704,43 +1741,6 @@ input:invalid {
 .not-touch .second-episode .ui-img {
   margin-bottom: 20px;
 }
-/* file: /Users/youzi/dev/mtv-play/components/second/channel/style.less */
-.second-channel > div {
-  display: inline-block;
-  vertical-align: top;
-}
-.second-channel > .information {
-  margin-left: 80px;
-  color: #f9f9f9;
-}
-.second-channel .ui-img {
-  margin-bottom: 20px;
-}
-.second-channel .subtitle {
-  font-family: OpenSansBold;
-  font-size: 24px;
-  text-transform: capitalize;
-}
-.second-channel > .cover {
-  margin-left: 80px;
-  display: inline-table;
-}
-.second-channel .overlay {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  background-image: radial-gradient(circle at top right, rgba(20, 20, 20, 0.5), #141414, #141414);
-}
-.second-channel .message {
-  color: #f9f9f9;
-  font-size: 36px;
-  width: 280px;
-  display: inline-block;
-}
-.second-channel .swipeicon {
-  font-size: 64px;
-  margin-bottom: 40px;
-}
 /* file: /Users/youzi/dev/mtv-play/components/second/show/style.less */
 .second-show {
   white-space: nowrap;
@@ -1758,55 +1758,6 @@ input:invalid {
   white-space: normal;
   vertical-align: top;
   margin-left: 80px;
-}
-/* file: /Users/youzi/dev/mtv-play/components/second/shows/style.less */
-.second-shows {
-  height: 100%;
-  width: 100%;
-}
-.second-shows > .grid {
-  margin-left: 10px;
-}
-.second-shows .grid-item {
-  display: inline-block;
-  vertical-align: top;
-}
-.second-shows > .search {
-  position: absolute;
-  display: table;
-  top: 0;
-  height: 100%;
-  width: 100%;
-}
-.second-shows .searchholder {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-}
-.second-shows .searchicon {
-  display: inline;
-  font-size: 80px;
-  vertical-align: middle;
-  margin-left: 2px;
-}
-.second-shows .searchbox {
-  display: inline-block;
-  background-color: #f2f2f2;
-  padding-bottom: 5px;
-  max-width: 90%;
-  -webkit-border-radius: 2px 2px 0px 0px;
-  -moz-border-radius: 2px 2px 0px 0px;
-  border-radius: 2px 2px 0px 0px;
-  min-height: 80px;
-  line-height: 80px;
-  font-size: 48px;
-  color: #3A1A58;
-  border-bottom: 5px solid #EE255C;
-  -webkit-transition: opacity 0.3s ease-out;
-  -moz-transition: opacity 0.3s ease-out;
-  -ms-transition: opacity 0.3s ease-out;
-  -o-transition: opacity 0.3s ease-out;
-  transition: opacity 0.3s ease-out;
 }
 /* file: /Users/youzi/dev/mtv-play/components/second/channels/style.less */
 .second-channels {
@@ -1858,6 +1809,55 @@ input:invalid {
 }
 .second-channels .information .epg .bar {
   margin: 20px 0px 20px 0px;
+}
+/* file: /Users/youzi/dev/mtv-play/components/second/shows/style.less */
+.second-shows {
+  height: 100%;
+  width: 100%;
+}
+.second-shows > .grid {
+  margin-left: 10px;
+}
+.second-shows .grid-item {
+  display: inline-block;
+  vertical-align: top;
+}
+.second-shows > .search {
+  position: absolute;
+  display: table;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+.second-shows .searchholder {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.second-shows .searchicon {
+  display: inline;
+  font-size: 80px;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+.second-shows .searchbox {
+  display: inline-block;
+  background-color: #f2f2f2;
+  padding-bottom: 5px;
+  max-width: 90%;
+  -webkit-border-radius: 2px 2px 0px 0px;
+  -moz-border-radius: 2px 2px 0px 0px;
+  border-radius: 2px 2px 0px 0px;
+  min-height: 80px;
+  line-height: 80px;
+  font-size: 48px;
+  color: #3A1A58;
+  border-bottom: 5px solid #EE255C;
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  -ms-transition: opacity 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
 }
 /* file: /Users/youzi/dev/mtv-play/components/second/discover/style.less */
 .second-discover {
@@ -2179,6 +2179,40 @@ a {
 .desktop .ui-icon.favorited {
   color: #FDCD2F !important;
 }
+/* file: /Users/youzi/dev/mtv-play/components/player/volume/style.less */
+.player-volume {
+  display: inline-block;
+}
+.player-volume > div {
+  display: inline-block;
+  margin-right: 6px;
+  margin-top: 4px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 1px;
+}
+.player-volume > div .nested {
+  background-color: #FFEB00;
+  height: 100%;
+  width: 100%;
+}
+.player-volume > div:hover {
+  margin-top: 0;
+}
+.fullscreen-player .player-volume > div {
+  height: 32px;
+  width: 4px;
+}
+.fullscreen-player .player-volume > div:hover {
+  height: 36px;
+}
+.windowed-player .player-volume > div {
+  height: 23px;
+  width: 2px;
+}
+.windowed-player .player-volume > div:hover {
+  height: 27px;
+}
 /* file: /Users/youzi/dev/mtv-play/components/player/controls/style.less */
 .player-controls {
   height: 100%;
@@ -2220,40 +2254,6 @@ a {
 .phone .player-controls .seekbar {
   left: 58px;
   right: 58px;
-}
-/* file: /Users/youzi/dev/mtv-play/components/player/volume/style.less */
-.player-volume {
-  display: inline-block;
-}
-.player-volume > div {
-  display: inline-block;
-  margin-right: 6px;
-  margin-top: 4px;
-  overflow: hidden;
-  background-color: #ffffff;
-  border-radius: 1px;
-}
-.player-volume > div .nested {
-  background-color: #FFEB00;
-  height: 100%;
-  width: 100%;
-}
-.player-volume > div:hover {
-  margin-top: 0;
-}
-.fullscreen-player .player-volume > div {
-  height: 32px;
-  width: 4px;
-}
-.fullscreen-player .player-volume > div:hover {
-  height: 36px;
-}
-.windowed-player .player-volume > div {
-  height: 23px;
-  width: 2px;
-}
-.windowed-player .player-volume > div:hover {
-  height: 27px;
 }
 /* file: /Users/youzi/dev/mtv-play/components/item/style.less */
 .ui-item {
@@ -2811,55 +2811,6 @@ a {
 .not-phone .mini-player .clickable {
   background-color: #3A1A58;
 }
-/* file: /Users/youzi/dev/mtv-play/components/first/switcher/style.less */
-.first-switcher {
-  width: 100%;
-  position: relative;
-}
-.first-switcher .first-loader {
-  height: 100%;
-  width: 100%;
-  display: table;
-  text-align: center;
-}
-.first-switcher .first-loader .loadicon {
-  display: table-cell;
-  vertical-align: middle;
-  font-size: 64px;
-  color: #DBCEDB;
-}
-.touch .first-switcher > div {
-  position: absolute;
-  width: 100%;
-  min-height: 100%;
-  background-color: #F8EFF8;
-  -webkit-transition: opacity 0.2s ease-out;
-  -moz-transition: opacity 0.2s ease-out;
-  -ms-transition: opacity 0.2s ease-out;
-  -o-transition: opacity 0.2s ease-out;
-  transition: opacity 0.2s ease-out;
-}
-.windows.touch .first-switcher > div {
-  -ms-transition: opacity 0.2s ease-out 0.1s, -ms-transform 0.2s ease-out;
-  transition: opacity 0.2s ease-out 0.1s, transform 0.2s ease-out;
-}
-.desktop .first-switcher .first-loader {
-  margin: 0 !important;
-}
-.desktop .first-switcher > div {
-  margin: 30px auto 90px auto;
-  max-width: 1385px;
-  min-width: 1060px;
-  border-left: 50px solid #fafafa;
-  border-right: 50px solid #fafafa;
-}
-.touch .first-switcher {
-  background-color: #F8EFF8;
-}
-.tv .first-switcher {
-  background-color: #231331;
-  overflow: hidden;
-}
 /* file: /Users/youzi/dev/mtv-play/components/first/notification/style.less */
 .first-notification {
   position: absolute;
@@ -2948,6 +2899,55 @@ a {
 .desktop .first-notification .ui-item .righticon > span {
   margin-right: 15px;
   padding-right: 15px;
+}
+/* file: /Users/youzi/dev/mtv-play/components/first/switcher/style.less */
+.first-switcher {
+  width: 100%;
+  position: relative;
+}
+.first-switcher .first-loader {
+  height: 100%;
+  width: 100%;
+  display: table;
+  text-align: center;
+}
+.first-switcher .first-loader .loadicon {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 64px;
+  color: #DBCEDB;
+}
+.touch .first-switcher > div {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background-color: #F8EFF8;
+  -webkit-transition: opacity 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out;
+  -ms-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+.windows.touch .first-switcher > div {
+  -ms-transition: opacity 0.2s ease-out 0.1s, -ms-transform 0.2s ease-out;
+  transition: opacity 0.2s ease-out 0.1s, transform 0.2s ease-out;
+}
+.desktop .first-switcher .first-loader {
+  margin: 0 !important;
+}
+.desktop .first-switcher > div {
+  margin: 30px auto 90px auto;
+  max-width: 1385px;
+  min-width: 1060px;
+  border-left: 50px solid #fafafa;
+  border-right: 50px solid #fafafa;
+}
+.touch .first-switcher {
+  background-color: #F8EFF8;
+}
+.tv .first-switcher {
+  background-color: #231331;
+  overflow: hidden;
 }
 /* file: /Users/youzi/dev/mtv-play/components/first/menu/style.less */
 .cast .loader {
@@ -3516,26 +3516,25 @@ x:-o-prefocus,
   border-radius: 0px 0px 2px 2px;
 }
 .popup-window .profile .button.operatorPremium {
+  display: table;
+  padding: 0;
+  height: 52px;
+  width: 100%;
+  overflow: hidden;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.popup-window .profile .button.operatorPremium .left {
+  background-color: #EE255C;
+  color: #ffffff;
+  display: table-cell;
+  vertical-align: middle;
+}
+.popup-window .profile .button.operatorPremium .right {
   background-color: #5D4078;
   color: #FFEB00;
-}
-.popup-window .operatorSponsor {
-  text-align: center;
-  margin: 15px;
-  color: #AC99B9;
-  font-size: 13px;
-}
-.popup-window .operatorSponsor .operatorLogo {
-  margin-left: 10px;
-  width: 52px;
-  height: 52px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: inline-block;
+  display: table-cell;
   vertical-align: middle;
 }
 .popup-window .profile .blocks {
