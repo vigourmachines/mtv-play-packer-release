@@ -157,6 +157,7 @@
         "build.html": true,
         "build.js": true,
         "build.css": true,
+        "bundle.css": true,
         "fonts.css": true,
         "fonts": "*",
         "img": "*",
@@ -298,7 +299,13 @@
         },
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/development/player.js"
+          "web": "http://player.mtvnn.com/html5player/development/player.js",
+          "settings": {
+            "ads": {
+              "enabled": true,
+              "viralSID": "production"
+            }
+          }
         },
         "api": {
           "type": "staging",
@@ -369,7 +376,7 @@
         "section": "vigour"
       }
     },
-    "source-maps": true,
+    "source-maps": false,
     "package": true,
     "index-path": "index.html"
   }
