@@ -302,8 +302,7 @@
           "web": "http://player.mtvnn.com/html5player/development/player.js",
           "settings": {
             "ads": {
-              "enabled": true,
-              "viralSID": "production"
+              "enabled": true
             }
           }
         },
