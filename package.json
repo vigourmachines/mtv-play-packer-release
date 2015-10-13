@@ -323,7 +323,6 @@
         "cloud": "http://mtv-hub.dev.vigour.io:80"
       },
       "staging": {
-        "regionOverride":"NO",
         "api": {
           "type": "staging",
           "url": "http://utt-staging.mtvnn.com/"
