@@ -272,6 +272,10 @@
     "operator": {
       "authenticate": null,
       "choose": null,
+      "credentials": {
+        "used": null,
+        "wrong": null
+      },
       "deals": null,
       "future": null,
       "help": null,
