@@ -272,9 +272,13 @@
     "operator": {
       "authenticate": "Vennligst tast inn din distributørs brukernavn og passord for å oppgradere til premium",
       "choose": "Velg distributør",
+      "credentials": {
+        "used": "These credentials are used by too many MTV Play accounts already.",
+        "wrong": "Your credentials are invalid or used by too many MTV Play accounts already."
+      },
       "deals": "Velg distributør",
       "future": "Oppgradering med denne distributøren vil være tilgjengelig fra ",
-      "help": null,
+      "help": "If your credential don't work, please contact ",
       "register": "Vennligst registrer en MTV Play konto først",
       "registerPlay": "Vennligst registrer en MTV Play konto først",
       "select": "Vennligst velg din distributør"

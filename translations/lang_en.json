@@ -272,6 +272,10 @@
     "operator": {
       "authenticate": "Please enter your Operator credentials to upgrade to premium access.",
       "choose": "Choose Operator",
+      "credentials": {
+        "used": "These credentials are used by too many MTV Play accounts already.",
+        "wrong": "Your credentials are invalid or used by too many MTV Play accounts already."
+      },
       "deals": "Choose Operator",
       "future": "Upgrading with this operator is possible from ",
       "help": "If your credential don't work, please contact ",

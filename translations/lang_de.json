@@ -272,9 +272,13 @@
     "operator": {
       "authenticate": "Gib deine Zugangsdaten ein",
       "choose": "Wähle deinen Anbieter",
+      "credentials": {
+        "used": "Diese Daten werden bereits von zu vielen MTV Play Konten benutzt.",
+        "wrong": "Diese Daten existieren nicht oder werden bereits von zu vielen MTV Play Konten benutzt."
+      },
       "deals": "Verfügbare Partner",
       "future": "Ein Upgrade mit diesem Partner ist verfügbar ab dem ",
-      "help": null,
+      "help": "Falls dein Account nicht funktioniert, wende dich bitte direkt an ",
       "register": "Bitte registriere dich",
       "registerPlay": "Bitte registriere ein MTV Play Konto",
       "select": "Bitte wähle deinen Anbieter"
