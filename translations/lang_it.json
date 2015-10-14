@@ -272,6 +272,10 @@
     "operator": {
       "authenticate": "Please authenticate...",
       "choose": "Choose Operator",
+      "credentials": {
+        "used": null,
+        "wrong": null
+      },
       "deals": "Available Operators",
       "future": "Upgrading with this operator is possible from ",
       "help": null,
