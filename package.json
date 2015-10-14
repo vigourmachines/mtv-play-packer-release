@@ -378,6 +378,7 @@
     },
     "source-maps": false,
     "package": true,
-    "index-path": "index.html"
+    "index-path": "index.html",
+    "es5": true
   }
 }
