@@ -22,7 +22,9 @@
     "js"
   ],
   "dependencies": {
+    "autolinker": "^0.18.1",
     "lodash": "3.2.0",
+    "markdown": "^0.5.0",
     "monotonic-timestamp": "0.0.9",
     "package-branch-config": "^1.2.2",
     "promise": "6.1.0",
@@ -160,7 +162,7 @@
         "translations": "*"
       }
     },
-    "fburl":"http://play.mtvutt.com/",
+    "fburl": "http://play.mtvutt.com/",
     "packer": {
       "language": "https://wwwmtvplay-a.akamaihd.net/translations/",
       "url": "https://wwwmtvplay-a.akamaihd.net/",
@@ -269,7 +271,7 @@
         }
       },
       "develop": {
-        "regionOverride":"PL",
+        "regionOverride": "PL",
         "cloud": "production",
         "facebook": {
           "id": "720547754665171"
