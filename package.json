@@ -49,7 +49,6 @@
       "NL",
       "CH",
       "PL",
-      "RO",
       "BE",
       "NO"
     ],
@@ -64,15 +63,13 @@
       "de",
       "nl",
       "pl",
-      "ro",
       "it",
       "fr",
       "no"
     ],
     "mtvmobile": [
       "de",
-      "ch",
-      "ro"
+      "ch"
     ],
     "roles": [
       "free",
@@ -83,7 +80,6 @@
     "countrycodes": {
       "de": 49,
       "ch": 41,
-      "ro": 40,
       "nl": 31
     },
     "dictionary": "http://mtv-staging.vigour.io/translations/lang_$language.json",
@@ -93,7 +89,6 @@
         "en": 374126,
         "nl": 374128,
         "pl": 374129,
-        "ro": 374131,
         "fr": 404562,
         "it": 404563
       },
@@ -254,22 +249,6 @@
         "packer": {
           "domain": "http://demo.packer.mtv.vigour.io"
         }
-      },
-      "dev": {
-        "mtvmobile": [
-          "de",
-          "ch",
-          "ro",
-          "nl"
-        ],
-        "cloud": "http://mtv-hub.dev.vigour.io:80",
-        "facebook": {
-          "id": "720547754665171"
-        },
-        "packer": {
-          "domain": "http://dev.packer.mtv.vigour.io"
-        },
-        "regionOverride": "DE"
       },
       "production": {
         "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
