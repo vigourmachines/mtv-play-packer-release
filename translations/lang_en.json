@@ -228,7 +228,7 @@
     "alreadyPurchased": "You have already bought this.",
     "workInProgress": "WORK IN PROGRESS!",
     "workingOnIt": "We are working very hard to bring you your favorite MTV channels wherever you are.",
-    "advertisement": "Advertisement",
+    "advertisement": "Learn More",
     "age": "Select Age",
     "backlink": "Back to MTV",
     "buyPremium": "Buy Premium Pass",
@@ -272,8 +272,13 @@
     "operator": {
       "authenticate": "Please enter your Operator credentials to upgrade to premium access.",
       "choose": "Choose Operator",
+      "credentials": {
+        "used": "These credentials are used by too many MTV Play accounts already.",
+        "wrong": "Your credentials are invalid or used by too many MTV Play accounts already."
+      },
       "deals": "Choose Operator",
       "future": "Upgrading with this operator is possible from ",
+      "help": "If your credential don't work, please contact ",
       "register": "Please register an MTV Play account first",
       "registerPlay": "Please register an MTV Play account first",
       "select": "Please select your operator"

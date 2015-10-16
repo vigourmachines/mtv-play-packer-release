@@ -228,7 +228,7 @@
     "alreadyPurchased": "Je hebt dit al gekocht.",
     "workInProgress": "WERK IN UITVOERING!",
     "workingOnIt": "We werken er hard aan om je je favoriete MTV-kanalen aan te kunnen bieden, waar je ook bent.",
-    "advertisement": "Advertentie",
+    "advertisement": "Meer leren",
     "age": "Kies leeftijd",
     "backlink": "Terug naar MTV",
     "buyPremium": "Premium Pass kopen",
@@ -272,8 +272,13 @@
     "operator": {
       "authenticate": "Please authenticate...",
       "choose": "Choose Operator",
+      "credentials": {
+        "used": "These credentials are used by too many MTV Play accounts already.",
+        "wrong": "Your credentials are invalid or used by too many MTV Play accounts already."
+      },
       "deals": "Available Operators",
       "future": "Upgrading with this operator is possible from ",
+      "help": "If your credential don't work, please contact ",
       "register": "Please register...",
       "registerPlay": "Please register an MTV Play account",
       "select": "Please select your operator"

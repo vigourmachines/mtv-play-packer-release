@@ -272,8 +272,13 @@
     "operator": {
       "authenticate": "Please authenticate...",
       "choose": "Choose Operator",
+      "credentials": {
+        "used": null,
+        "wrong": null
+      },
       "deals": "Available Operators",
       "future": "Upgrading with this operator is possible from ",
+      "help": null,
       "register": "Please register...",
       "registerPlay": "Please register an MTV Play account",
       "select": "Please select your operator"
