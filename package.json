@@ -271,7 +271,8 @@
         }
       },
       "develop": {
-        "cloud": "http://mtvtest.dev.vigour.io:80",
+        "regionOverride": "PL",
+        "cloud": "production",
         "facebook": {
           "id": "720547754665171"
         },
@@ -345,6 +346,9 @@
     "source-maps": false,
     "package": true,
     "index-path": "index.html",
-    "es5": true
+    "es5": true,
+    "aliasify": {
+      "vigour-js": "node_modules/vigour-js"
+    }
   }
 }
