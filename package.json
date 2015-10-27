@@ -194,6 +194,9 @@
         ],
         "build.css": [
           "rebase"
+        ],
+        "build.html": [
+          "meta"
         ]
       },
       "main": "build.js",
