@@ -35,7 +35,7 @@
         "body": "Ved å trykke på fortsett kjøper du et månedsabonnement for",
         "title": "Premium (måned)"
       },
-      "operator": null,
+      "operator": "Gratis med din distributør",
       "singlePass": {
         "body": "Ved å trykke på fortsett leie du denne episoden for",
         "title": "Lås opp episoden"
@@ -122,7 +122,7 @@
         "twitter": "Registrer deg med Twitter",
         "email": "Registrer deg med e-post",
         "already": "Beklager, e-posten er allerede i bruk!",
-        "operator": null
+        "operator": "Gratis med din distributør"
       },
       "invalid": {
         "email": "Oppgi en gyldig e-post.",
@@ -228,13 +228,18 @@
     "alreadyPurchased": "Du har allerede kjøpt dette.",
     "workInProgress": "UNDER BEARBEIDELSE!",
     "workingOnIt": "Vi jobber veldig hardt for å gi deg favorittkanalene dine fra MTV – uansett hvor du er.",
-    "advertisement": "Annonse",
+    "advertisement": "Learn More",
     "age": "Velg alder",
     "backlink": "Tilbake til MTV",
     "buyPremium": "Kjøp premiumpass",
     "cellphone": "Telefon",
     "Connection": "Kontroller Internett-tilkoblingen din.",
     "continue": "Fortsett",
+    "cookieBar": {
+      "close": "Close",
+      "link": "Mer informasjon",
+      "text": "Denne siden benytter cookies for å bedre din brukeropplevelse. Ved å fortsette å bruke denne websiden aksepterer du vår bruk av cookies."
+    },
     "countdown": "Videoen din spilles av etter denne annonsen.",
     "desktopText": "Datamaskin",
     "extras": "Ekstra",
@@ -265,12 +270,18 @@
     "noDescription": "Ingen beskrivelse tilgjengelig.",
     "noEPG": "Ingen veiledning tilgjengelig",
     "operator": {
-      "authenticate": null,
-      "choose": null,
-      "deals": null,
-      "register": null,
-      "registerPlay": null,
-      "select": null
+      "authenticate": "Vennligst tast inn din distributørs brukernavn og passord for å oppgradere til premium",
+      "choose": "Velg distributør",
+      "credentials": {
+        "used": "These credentials are used by too many MTV Play accounts already.",
+        "wrong": "Your credentials are invalid or used by too many MTV Play accounts already."
+      },
+      "deals": "Velg distributør",
+      "future": "Oppgradering med denne distributøren vil være tilgjengelig fra ",
+      "help": "If your credential don't work, please contact ",
+      "register": "Vennligst registrer en MTV Play konto først",
+      "registerPlay": "Vennligst registrer en MTV Play konto først",
+      "select": "Vennligst velg din distributør"
     },
     "or": "eller",
     "phoneUpgradeTitle": "Bruk mobilappen vår for å oppgradere!",
@@ -305,7 +316,7 @@
     "unlockPrice": "48 leie for ",
     "untitled": "Uten navn",
     "upgradeFromPhone": "Finn frem telefonen!",
-    "username": null,
+    "username": "Brukernavn",
     "verifyEmail": {
       "subtitle": "Vi har sendt deg en e-post.",
       "title": "Bekreft kontoen din"

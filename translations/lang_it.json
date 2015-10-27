@@ -35,7 +35,7 @@
         "body": "Se premi Continua, procederai all'acquisto di un abbonamento mensile per",
         "title": "Premium (mensile)"
       },
-      "operator": null,
+      "operator": "Free with your Operator",
       "singlePass": {
         "body": "Premendo continua si affitta questo episodio per",
         "title": "Sbloccare episodio"
@@ -122,7 +122,7 @@
         "twitter": "Registrati con Twitter",
         "email": "Registrati con l'e-mail",
         "already": "Purtroppo questa e-mail è già in uso!",
-        "operator": null
+        "operator": "Operator registration"
       },
       "invalid": {
         "email": "Inserisci un'e-mail valida.",
@@ -235,6 +235,11 @@
     "cellphone": "Telefono",
     "Connection": "Assicurati di essere connesso a Internet.",
     "continue": "Continua",
+    "cookieBar": {
+      "close": "Close",
+      "link": "More information",
+      "text": "This website uses cookies to enhance your user experience. By using our website, you consent to our use of cookies in accordance with the terms of the cookie policy."
+    },
     "countdown": "Il video apparirà dopo l'annuncio.",
     "desktopText": "Computer",
     "extras": "Extras",
@@ -265,12 +270,18 @@
     "noDescription": "Nessuna descrizione.",
     "noEPG": "Nessuna guida disponibile",
     "operator": {
-      "authenticate": null,
-      "choose": null,
-      "deals": null,
-      "register": null,
-      "registerPlay": null,
-      "select": null
+      "authenticate": "Please authenticate...",
+      "choose": "Choose Operator",
+      "credentials": {
+        "used": null,
+        "wrong": null
+      },
+      "deals": "Available Operators",
+      "future": "Upgrading with this operator is possible from ",
+      "help": null,
+      "register": "Please register...",
+      "registerPlay": "Please register an MTV Play account",
+      "select": "Please select your operator"
     },
     "or": "o",
     "phoneUpgradeTitle": "Fai l'upgrade con la nostra app!",
@@ -305,7 +316,7 @@
     "unlockPrice": "Sblocca per ",
     "untitled": "Senza titolo",
     "upgradeFromPhone": "Prendi il telefono!",
-    "username": null,
+    "username": "Username",
     "verifyEmail": {
       "subtitle": "Ti abbiamo inviato un messaggio.",
       "title": "Verifica l'account"

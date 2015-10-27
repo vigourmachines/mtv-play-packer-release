@@ -35,7 +35,7 @@
         "body": "Door op Doorgaan te drukken, koop je een maandabonnement voor",
         "title": "Premium (maand)"
       },
-      "operator": null,
+      "operator": "Free with your Operator",
       "singlePass": {
         "body": "Door op volgende te drukken koop je deze aflevering voor",
         "title": "Koop aflevering"
@@ -122,7 +122,7 @@
         "twitter": "Registreren met Twitter",
         "email": "Registreren met e-mail",
         "already": "Helaas, dit e-mailadres wordt al gebruikt!",
-        "operator": null
+        "operator": "Operator registration"
       },
       "invalid": {
         "email": "Vul een geldig e-mail adres in.",
@@ -228,13 +228,18 @@
     "alreadyPurchased": "Je hebt dit al gekocht.",
     "workInProgress": "WERK IN UITVOERING!",
     "workingOnIt": "We werken er hard aan om je je favoriete MTV-kanalen aan te kunnen bieden, waar je ook bent.",
-    "advertisement": "Advertentie",
+    "advertisement": "Meer leren",
     "age": "Kies leeftijd",
     "backlink": "Terug naar MTV",
     "buyPremium": "Premium Pass kopen",
     "cellphone": "Telefoon",
     "Connection": "Controleer je internetverbinding.",
     "continue": "Doorgaan",
+    "cookieBar": {
+      "close": "Deze melding verbergen",
+      "link": "Meer info",
+      "text": "MTV Play maakt gebruik van cookies"
+    },
     "countdown": "Je video begint na de reclame.",
     "desktopText": "Computer",
     "extras": "Extra",
@@ -265,12 +270,18 @@
     "noDescription": "Geen omschrijving beschikbaar",
     "noEPG": "Geen gids beschikbaar",
     "operator": {
-      "authenticate": null,
-      "choose": null,
-      "deals": null,
-      "register": null,
-      "registerPlay": null,
-      "select": null
+      "authenticate": "Please authenticate...",
+      "choose": "Choose Operator",
+      "credentials": {
+        "used": "These credentials are used by too many MTV Play accounts already.",
+        "wrong": "Your credentials are invalid or used by too many MTV Play accounts already."
+      },
+      "deals": "Available Operators",
+      "future": "Upgrading with this operator is possible from ",
+      "help": "If your credential don't work, please contact ",
+      "register": "Please register...",
+      "registerPlay": "Please register an MTV Play account",
+      "select": "Please select your operator"
     },
     "or": "of",
     "phoneUpgradeTitle": "Gebruik onze mobiele app om te upgraden!",
@@ -305,7 +316,7 @@
     "unlockPrice": "Ontgrendelen voor ",
     "untitled": "Naamloos",
     "upgradeFromPhone": "Pak je telefoon!",
-    "username": null,
+    "username": "Username",
     "verifyEmail": {
       "subtitle": "We hebben je een e-mail gestuurd.",
       "title": "Bevestig je account"

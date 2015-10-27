@@ -35,7 +35,7 @@
         "body": "Mit einem Tap auf \"Weiter\" kaufst du ein Monatsabo für",
         "title": "Premium (Monat)"
       },
-      "operator": null,
+      "operator": "Gratis mit MTV Mobile",
       "singlePass": {
         "body": "Mit \"weiter\" leihst du diese Episode für",
         "title": "Episode freischalten"
@@ -122,7 +122,7 @@
         "twitter": "Mit Twitter registrieren",
         "email": "Mit E-Mail registrieren",
         "already": "Sorry, diese E-Mail ist vergeben!",
-        "operator": null
+        "operator": "Registrierung mit Partner"
       },
       "invalid": {
         "email": "Bitte gib eine gültige E-Mail ein.",
@@ -228,13 +228,18 @@
     "alreadyPurchased": "Das hast du schon gekauft.",
     "workInProgress": "IN ARBEIT!",
     "workingOnIt": "Wir arbeiten intensiv daran, dir deine Lieblings-MTV-Kanäle überall anbieten zu können.",
-    "advertisement": "",
+    "advertisement": "Mehr erfahren",
     "age": "Wähle dein Alter",
     "backlink": "Zurück zu MTV",
     "buyPremium": "Premium Pass kaufen",
     "cellphone": "Smartphone",
     "Connection": "Bitte überprüfe deine Internetverbindung",
     "continue": "Weiter",
+    "cookieBar": {
+      "close": "Schließen",
+      "link": "Mehr Infos",
+      "text": "Diese Website verwendet Cookies, um Dein Surferlebnis zu verbessern. Durch die weitere Nutzung der Website stimmst Du der Verwendung von Cookies zu."
+    },
     "countdown": "Dein Video startet nach der Werbung.",
     "desktopText": "Computer",
     "extras": "Extras",
@@ -265,12 +270,18 @@
     "noDescription": "Keine Beschreibung verfügbar",
     "noEPG": "Kein Programm verfügbar",
     "operator": {
-      "authenticate": null,
-      "choose": null,
-      "deals": null,
-      "register": null,
-      "registerPlay": null,
-      "select": null
+      "authenticate": "Gib deine Zugangsdaten ein",
+      "choose": "Wähle deinen Anbieter",
+      "credentials": {
+        "used": "Diese Daten werden bereits von zu vielen MTV Play Konten benutzt.",
+        "wrong": "Diese Daten existieren nicht oder werden bereits von zu vielen MTV Play Konten benutzt."
+      },
+      "deals": "Verfügbare Partner",
+      "future": "Ein Upgrade mit diesem Partner ist verfügbar ab dem ",
+      "help": "Falls dein Account nicht funktioniert, wende dich bitte direkt an ",
+      "register": "Bitte registriere dich",
+      "registerPlay": "Bitte registriere ein MTV Play Konto",
+      "select": "Bitte wähle deinen Anbieter"
     },
     "or": "oder",
     "phoneUpgradeTitle": "Upgrade mit unserer App.",
@@ -305,7 +316,7 @@
     "unlockPrice": "48 Stunden leihen für ",
     "untitled": "Kein Titel",
     "upgradeFromPhone": "Nimm dein Smartphone!",
-    "username": null,
+    "username": "Benutzername",
     "verifyEmail": {
       "subtitle": "Wir haben dir eine E-Mail geschickt.",
       "title": "Bitte bestätige dein Konto"
