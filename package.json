@@ -275,7 +275,7 @@
         }
       },
       "develop": {
-        "cloud": "mtv-hub.dev.vigour.io",
+        "cloud": "http://mtv-hub.dev.vigour.io:80",
         "facebook": {
           "id": "720547754665171"
         },
