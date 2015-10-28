@@ -275,8 +275,7 @@
         }
       },
       "develop": {
-        "regionOverride": "PL",
-        "cloud": "production",
+        "cloud": "mtv-hub.dev.vigour.io",
         "facebook": {
           "id": "720547754665171"
         },
