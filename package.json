@@ -84,7 +84,7 @@
       "ch": 41,
       "nl": 31
     },
-    "dictionary": "http://mtv-staging.vigour.io/translations/lang_$language.json",
+    "dictionary": "http://mtv-develop.vigour.io/translations/lang_$language.json",
     "webtranslateit": {
       "files": {
         "de": 374130,
@@ -182,7 +182,8 @@
         "xhr": "*",
         "googleebecff275dd42f4a.html": true,
         "google2c4a46fac7686373.html": true,
-        "sitemap.xml": true
+        "sitemap.xml": true,
+        "meta": "*"
       },
       "transforms": {
         "build.js": [
@@ -193,6 +194,9 @@
         ],
         "build.css": [
           "rebase"
+        ],
+        "build.html": [
+          "meta"
         ]
       },
       "main": "build.js",
@@ -271,8 +275,8 @@
         }
       },
       "develop": {
-        "regionOverride": "PL",
-        "cloud": "production",
+        "imgOrigin": "http://staging.riptide.mtvnn.com/",
+        "cloud": "http://mtv-hub.dev.vigour.io:80",
         "facebook": {
           "id": "720547754665171"
         },
@@ -304,11 +308,13 @@
         "cloud": "http://mtv-hub.dev.vigour.io:80"
       },
       "staging": {
+        "regionOverride":"NL",
+        "imgOrigin": "http://staging.riptide.mtvnn.com/",
         "api": {
           "type": "staging",
           "url": "http://utt-staging.mtvnn.com/"
         },
-        "cloud": "http://mtvtest.dev.vigour.io:80",
+        "cloud": "http://mtv-hub.dev.vigour.io:80",
         "omniture": "vianorthtestweb",
         "development": {
           "button": false
@@ -325,20 +331,6 @@
               "viralSID": "production"
             }
           }
-        }
-      },
-      "cookie-wall": {
-        "hashUrl": true,
-        "cloud": "http://mtv-hub.dev.vigour.io:80",
-        "facebook": {
-          "id": "720547754665171"
-        },
-        "packer": {
-          "domain": "http://mtv-develop.vigour.io"
-        },
-        "player": {
-          "debug": false,
-          "web": "http://player.mtvnn.com/html5player/development/player.js"
         }
       },
       "master": {
@@ -360,6 +352,9 @@
     "source-maps": false,
     "package": true,
     "index-path": "index.html",
-    "es5": true
+    "es5": true,
+    "aliasify": {
+      "vigour-js": "node_modules/vigour-js"
+    }
   }
 }

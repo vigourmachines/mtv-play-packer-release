@@ -1,0 +1,11 @@
+{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "publisher": {
+      "@type": "Organization",
+      "name": "MTV"
+    },
+    "name": "Channels | MTV Play",
+    "url": "http://www.mtvplay.tv/channels",
+    "description": "Get the latest slate of new MTV Shows Jersey Shore, Teen Wolf, Teen Mom and reality TV classics such as Punk'd and The Hills."
+}

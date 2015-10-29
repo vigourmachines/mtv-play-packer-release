@@ -1,0 +1,11 @@
+{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "publisher": {
+      "@type": "Organization",
+      "name": "MTV"
+    },
+    "name": "Discover | MTV Play",
+    "url": "http://www.mtvplay.tv/discover",
+    "description": "You’re a fan of Awkward, Geordie Shore, Faking It or any other MTV show? Then MTV Play may become your new happy place."
+}
