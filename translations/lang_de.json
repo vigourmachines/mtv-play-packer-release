@@ -233,6 +233,7 @@
     "backlink": "Zurück zu MTV",
     "buyPremium": "Premium Pass kaufen",
     "cellphone": "Smartphone",
+    "comingSoon": null,
     "Connection": "Bitte überprüfe deine Internetverbindung",
     "continue": "Weiter",
     "cookieBar": {
@@ -246,6 +247,92 @@
     },
     "countdown": "Dein Video startet nach der Werbung.",
     "desktopText": "Computer",
+    "discover": {
+      "be": {
+        "row1": {
+          "free": "Neu",
+          "premium": "Neu"
+        },
+        "row2": {
+          "free": "Empfohlen",
+          "premium": "Empfohlen"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "ch": {
+        "row1": {
+          "free": "Neu",
+          "premium": "Neu"
+        },
+        "row2": {
+          "free": "Empfohlen",
+          "premium": "Empfohlen"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "de": {
+        "row1": {
+          "free": "Neu",
+          "premium": "Neu"
+        },
+        "row2": {
+          "free": "Empfohlen",
+          "premium": "Empfohlen"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "nl": {
+        "row1": {
+          "free": "Neu",
+          "premium": "Neu"
+        },
+        "row2": {
+          "free": "Empfohlen",
+          "premium": "Empfohlen"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "no": {
+        "row1": {
+          "free": "Neu",
+          "premium": "Neu"
+        },
+        "row2": {
+          "free": "Empfohlen",
+          "premium": "Empfohlen"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "pl": {
+        "row1": {
+          "free": "Neu",
+          "premium": "Neu"
+        },
+        "row2": {
+          "free": "Empfohlen",
+          "premium": "Empfohlen"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      }
+    },
     "extras": "Extras",
     "gender": "Wähle dein Geschlecht",
     "invalidEntry": "Ungültige Eingabe.",
@@ -273,6 +360,10 @@
     "next": "weiter",
     "noDescription": "Keine Beschreibung verfügbar",
     "noEPG": "Kein Programm verfügbar",
+    "notAvailable": {
+      "text": null,
+      "title": null
+    },
     "operator": {
       "authenticate": "Gib deine Zugangsdaten ein",
       "choose": "Wähle deinen Anbieter",

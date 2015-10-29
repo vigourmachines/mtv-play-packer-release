@@ -233,6 +233,7 @@
     "backlink": "Terug naar MTV",
     "buyPremium": "Premium Pass kopen",
     "cellphone": "Telefoon",
+    "comingSoon": null,
     "Connection": "Controleer je internetverbinding.",
     "continue": "Doorgaan",
     "cookieBar": {
@@ -246,6 +247,92 @@
     },
     "countdown": "Je video begint na de reclame.",
     "desktopText": "Computer",
+    "discover": {
+      "be": {
+        "row1": {
+          "free": "Nieuwe releases",
+          "premium": "Nieuwe releases"
+        },
+        "row2": {
+          "free": "Aanbevolen",
+          "premium": "Aanbevolen"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "ch": {
+        "row1": {
+          "free": "Nieuwe releases",
+          "premium": "Nieuwe releases"
+        },
+        "row2": {
+          "free": "Aanbevolen",
+          "premium": "Aanbevolen"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "de": {
+        "row1": {
+          "free": "Nieuwe releases",
+          "premium": "Nieuwe releases"
+        },
+        "row2": {
+          "free": "Aanbevolen",
+          "premium": "Aanbevolen"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "nl": {
+        "row1": {
+          "free": "Nieuwe releases",
+          "premium": "Nieuwe releases"
+        },
+        "row2": {
+          "free": "Aanbevolen",
+          "premium": "Aanbevolen"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "no": {
+        "row1": {
+          "free": "Nieuwe releases",
+          "premium": "Nieuwe releases"
+        },
+        "row2": {
+          "free": "Aanbevolen",
+          "premium": "Aanbevolen"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "pl": {
+        "row1": {
+          "free": "Nieuwe releases",
+          "premium": "Nieuwe releases"
+        },
+        "row2": {
+          "free": "Aanbevolen",
+          "premium": "Aanbevolen"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      }
+    },
     "extras": "Extra",
     "gender": "Kies geslacht",
     "invalidEntry": "Niet juist ingevuld, gaarne corrigeren.",
@@ -273,6 +360,10 @@
     "next": "volgende",
     "noDescription": "Geen omschrijving beschikbaar",
     "noEPG": "Geen gids beschikbaar",
+    "notAvailable": {
+      "text": null,
+      "title": null
+    },
     "operator": {
       "authenticate": "Please authenticate...",
       "choose": "Choose Operator",

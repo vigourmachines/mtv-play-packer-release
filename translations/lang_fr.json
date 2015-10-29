@@ -233,6 +233,7 @@
     "backlink": "Retour à MTV",
     "buyPremium": "Acheter un Pass Premium",
     "cellphone": "Téléphone",
+    "comingSoon": null,
     "Connection": "Veuillez vérifier votre connexion internet.",
     "continue": "Continuer",
     "cookieBar": {
@@ -246,6 +247,92 @@
     },
     "countdown": "Lancement de votre vidéo après cette publicité.",
     "desktopText": "Ordinateur",
+    "discover": {
+      "be": {
+        "row1": {
+          "free": "Nouveautés",
+          "premium": "Nouveautés"
+        },
+        "row2": {
+          "free": "Recommandé",
+          "premium": "Recommandé"
+        },
+        "row3": {
+          "free": "Gratuit",
+          "premium": "Gratuit"
+        }
+      },
+      "ch": {
+        "row1": {
+          "free": "Nouveautés",
+          "premium": "Nouveautés"
+        },
+        "row2": {
+          "free": "Recommandé",
+          "premium": "Recommandé"
+        },
+        "row3": {
+          "free": "Gratuit",
+          "premium": "Gratuit"
+        }
+      },
+      "de": {
+        "row1": {
+          "free": "Nouveautés",
+          "premium": "Nouveautés"
+        },
+        "row2": {
+          "free": "Recommandé",
+          "premium": "Recommandé"
+        },
+        "row3": {
+          "free": "Gratuit",
+          "premium": "Gratuit"
+        }
+      },
+      "nl": {
+        "row1": {
+          "free": "Nouveautés",
+          "premium": "Nouveautés"
+        },
+        "row2": {
+          "free": "Recommandé",
+          "premium": "Recommandé"
+        },
+        "row3": {
+          "free": "Gratuit",
+          "premium": "Gratuit"
+        }
+      },
+      "no": {
+        "row1": {
+          "free": "Nouveautés",
+          "premium": "Nouveautés"
+        },
+        "row2": {
+          "free": "Recommandé",
+          "premium": "Recommandé"
+        },
+        "row3": {
+          "free": "Gratuit",
+          "premium": "Gratuit"
+        }
+      },
+      "pl": {
+        "row1": {
+          "free": "Nouveautés",
+          "premium": "Nouveautés"
+        },
+        "row2": {
+          "free": "Recommandé",
+          "premium": "Recommandé"
+        },
+        "row3": {
+          "free": "Gratuit",
+          "premium": "Gratuit"
+        }
+      }
+    },
     "extras": "Suppléments",
     "gender": "Sexe",
     "invalidEntry": "Erreur. Corrigez vos informations.",
@@ -273,6 +360,10 @@
     "next": "suivant",
     "noDescription": "Aucune description disponible.",
     "noEPG": "Aucun guide disponible",
+    "notAvailable": {
+      "text": null,
+      "title": null
+    },
     "operator": {
       "authenticate": "Please authenticate...",
       "choose": "Choose Operator",

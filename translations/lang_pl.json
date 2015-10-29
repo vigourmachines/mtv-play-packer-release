@@ -233,6 +233,7 @@
     "backlink": "Wróć do MTV",
     "buyPremium": "Kup konto premium",
     "cellphone": "Telefon",
+    "comingSoon": null,
     "Connection": "Wystąpił problem z połączeniem. Spróbuj ponownie później lub sprawdź swój dostęp do sieci.",
     "continue": "Kontynuuj",
     "cookieBar": {
@@ -246,6 +247,92 @@
     },
     "countdown": "Wideo rozpocznie sie po odtworzeniu reklamy.",
     "desktopText": "Komputer",
+    "discover": {
+      "be": {
+        "row1": {
+          "free": "Premiery",
+          "premium": "Premiery"
+        },
+        "row2": {
+          "free": "Polecane",
+          "premium": "Polecane"
+        },
+        "row3": {
+          "free": "Darmowe",
+          "premium": "Darmowe"
+        }
+      },
+      "ch": {
+        "row1": {
+          "free": "Premiery",
+          "premium": "Premiery"
+        },
+        "row2": {
+          "free": "Polecane",
+          "premium": "Polecane"
+        },
+        "row3": {
+          "free": "Darmowe",
+          "premium": "Darmowe"
+        }
+      },
+      "de": {
+        "row1": {
+          "free": "Premiery",
+          "premium": "Premiery"
+        },
+        "row2": {
+          "free": "Polecane",
+          "premium": "Polecane"
+        },
+        "row3": {
+          "free": "Darmowe",
+          "premium": "Darmowe"
+        }
+      },
+      "nl": {
+        "row1": {
+          "free": "Premiery",
+          "premium": "Premiery"
+        },
+        "row2": {
+          "free": "Polecane",
+          "premium": "Polecane"
+        },
+        "row3": {
+          "free": "Darmowe",
+          "premium": "Darmowe"
+        }
+      },
+      "no": {
+        "row1": {
+          "free": "Premiery",
+          "premium": "Premiery"
+        },
+        "row2": {
+          "free": "Polecane",
+          "premium": "Polecane"
+        },
+        "row3": {
+          "free": "Darmowe",
+          "premium": "Darmowe"
+        }
+      },
+      "pl": {
+        "row1": {
+          "free": "Premiery",
+          "premium": "Premiery"
+        },
+        "row2": {
+          "free": "Polecane",
+          "premium": "Polecane"
+        },
+        "row3": {
+          "free": "Darmowe",
+          "premium": "Darmowe"
+        }
+      }
+    },
     "extras": "Dodatki",
     "gender": "Wybierz płeć",
     "invalidEntry": "Niewłaściwy wpis, sprawdź jego treść.",
@@ -273,6 +360,10 @@
     "next": "dalej",
     "noDescription": "Brak opisu",
     "noEPG": "Brak przewodnika",
+    "notAvailable": {
+      "text": null,
+      "title": null
+    },
     "operator": {
       "authenticate": "Please authenticate...",
       "choose": "Choose Operator",
