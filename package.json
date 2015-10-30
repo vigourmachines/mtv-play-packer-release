@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.80",
+  "version": "1.2.81",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -308,13 +308,12 @@
         "cloud": "http://mtv-hub.dev.vigour.io:80"
       },
       "staging": {
-        "regionOverride":"NL",
         "imgOrigin": "http://staging.riptide.mtvnn.com/",
         "api": {
           "type": "staging",
           "url": "http://utt-staging.mtvnn.com/"
         },
-        "cloud": "http://mtv-hub.dev.vigour.io:80",
+        "cloud": "http://mtvtest.dev.vigour.io:80",
         "omniture": "vianorthtestweb",
         "development": {
           "button": false
@@ -348,6 +347,9 @@
       "package-branch-config": {
         "section": "vigour"
       }
+    },
+    "less-options":{
+      "strictMath":true
     },
     "source-maps": false,
     "package": true,
