@@ -1,202 +1,249 @@
 <!doctype html>
 <html>
+
 <head>
-<title>MTV Play</title>
+  <title>MTV Play</title>
 
- <meta property="og:url" content="http://play.mtvutt.com/" />
- <meta property="og:title" content="MTV Play" />
- <meta property="og:image" content="http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png" />
+  <meta property="og:url" content="http://play.mtvutt.com/" />
+  <meta property="og:title" content="MTV Play" />
+  <meta property="og:image" content="http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png" />
 
-<!-- Favicon madness -->
-<link rel="apple-touch-icon" type="image/x-icon" sizes="57x57" href="img/branding/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/branding/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/branding/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/branding/apple-touch-icon-144x144.png">
-<link rel="apple-touch-icon" type="image/x-icon" sizes="60x60" href="img/branding/apple-touch-icon-60x60.png">
-<link rel="apple-touch-icon" type="image/x-icon" sizes="120x120" href="img/branding/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" type="image/x-icon" sizes="76x76" href="img/branding/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" type="image/x-icon" sizes="152x152" href="img/branding/apple-touch-icon-152x152.png">
-<link rel="apple-touch-icon" type="image/x-icon" sizes="180x180" href="img/branding/apple-touch-icon-180x180.png">
-<link rel="icon" type="image/png" href="img/branding/favicon-192x192.png" sizes="192x192">
-<link rel="icon" type="image/png" href="img/branding/favicon-160x160.png" sizes="160x160">
-<link rel="icon" type="image/png" href="img/branding/favicon-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="img/branding/favicon-16x16.png" sizes="16x16">
-<link rel="icon" type="image/png" href="img/branding/favicon-32x32.png" sizes="32x32">
-<meta name="msapplication-TileColor" content="#3a1a58">
-<meta name="msapplication-TileImage" content="/mstile-144x144.png">
-<!-- End of favicon madness -->
+  <!-- Favicon madness -->
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="57x57" href="img/branding/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/branding/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/branding/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/branding/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="60x60" href="img/branding/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="120x120" href="img/branding/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="76x76" href="img/branding/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="152x152" href="img/branding/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="180x180" href="img/branding/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="img/branding/favicon-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="img/branding/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="img/branding/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="img/branding/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="img/branding/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#3a1a58">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <!-- End of favicon madness -->
 
-<meta name="application-name" content="MTV Play">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-<link href="build.css" rel="stylesheet" type="text/css">
-<link href="fonts.css" rel="stylesheet" type="text/css">
-<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-<meta name="apple-mobile-web-app-title" content="Vigour Video">
+  <meta name="application-name" content="MTV Play">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link href="build.css" rel="stylesheet" type="text/css">
+  <link href="fonts.css" rel="stylesheet" type="text/css">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-title" content="Vigour Video">
+  <script type='text/javascript'>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function() {
+      var gads = document.createElement('script');
+      gads.async = true;
+      gads.type = 'text/javascript';
+      var useSSL = 'https:' == document.location.protocol;
+      gads.src = (useSSL ? 'https:' : 'http:') +
+        '//www.googletagservices.com/tag/js/gpt.js';
+      var node = document.getElementsByTagName('script')[0];
+      node.parentNode.insertBefore(gads, node);
+    })();
+  </script>
 </head>
 <body>
 
-    <style type="text/css" id="reloadStyles">
-      @-webkit-keyframes fadeInUp {
-        0%   {
-          opacity: 0;
-          -webkit-transform: translate3d(0, 60px, 0);
-        }
-        80% {
-          opacity: 0.8;
-          -webkit-transform: translate3d(0, 0, 0);
-        }
-        100% {
-          opacity: 1;
-        }
+  <style type="text/css" id="reloadStyles">
+    @-webkit-keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 60px, 0);
       }
-      @-moz-keyframes fadeInUp {
-        0%   {
-          opacity: 0;
-          -moz-transform: translate3d(0, 60px, 0);
-        }
-        80% {
-          opacity: 0.8;
-          -moz-transform: translate3d(0, 0, 0);
-        }
-        100% {
-          opacity: 1;
-        }
+      80% {
+        opacity: 0.8;
+        -webkit-transform: translate3d(0, 0, 0);
       }
-      @-o-keyframes fadeInUp {
-        0%   {
-          opacity: 0;
-          -o-transform: translate3d(0, 60px, 0);
-        }
-        80% {
-          opacity: 0.8;
-          -o-transform: translate3d(0, 0, 0);
-        }
-        100% {
-          opacity: 1;
-        }
+      100% {
+        opacity: 1;
       }
-      @keyframes fadeInUp {
-        0%   {
-          opacity: 0;
-          transform: translate3d(0, 60px, 0);
-        }
-        80% {
-          opacity: 0.8;
-          transform: translate3d(0, 0, 0);
-        }
-        100% {
-          opacity: 1;
-        }
-      }
+    }
 
-      @-webkit-keyframes fadeInDown {
-        0%   {
-          opacity: 0;
-          -webkit-transform: translate3d(0, -60px, 0);
-        }
-        80% {
-          opacity: 0.8;
-          -webkit-transform: translate3d(0, 0, 0);
-        }
-        100% {
-          opacity: 1;
-        }
+    @-moz-keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        -moz-transform: translate3d(0, 60px, 0);
       }
-      @-moz-keyframes fadeInDown {
-        0%   {
-          opacity: 0;
-          -moz-transform: translate3d(0, -60px, 0);
-        }
-        80% {
-          opacity: 0.8;
-          -moz-transform: translate3d(0, 0, 0);
-        }
-        100% {
-          opacity: 1;
-        }
+      80% {
+        opacity: 0.8;
+        -moz-transform: translate3d(0, 0, 0);
       }
-      @-o-keyframes fadeInDown {
-        0%   {
-          opacity: 0;
-          -o-transform: translate3d(0, -60px, 0);
-        }
-        80% {
-          opacity: 0.8;
-          -o-transform: translate3d(0, 0, 0);
-        }
-        100% {
-          opacity: 1;
-        }
+      100% {
+        opacity: 1;
       }
-      @keyframes fadeInDown {
-        0%   {
-          opacity: 0;
-          transform: translate3d(0, -60px, 0);
-        }
-        80% {
-          opacity: 0.8;
-          transform: translate3d(0, 0, 0);
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-      html {
-        height: 100%;
-      }
-      body {
-        background: -webkit-radial-gradient(circle, #3A1A58, #231331);
-        background: -moz-radial-gradient(circle, #3A1A58, #231331);
-        background: -ms-radial-gradient(circle, #3A1A58, #231331);
-        margin:0;
-        padding:0;
-      }
-      #middle {
-        left:50%;
-        margin-left: -60px;
-        position: absolute;
-        height: 120px;
-        width: 120px;
-      }
-      #loaderIcon {
-        height: 120px;
-        width: 120px;
-        -webkit-animation: fadeInDown 0.4s 1 ease-out; /* Safari 4+ */
-        -moz-animation:    fadeInDown 0.4s 1 ease-out; /* Fx 5+ */
-        -o-animation:      fadeInDown 0.4s 1 ease-out; /* Opera 12+ */
-        animation:         fadeInDown 0.4s 1 ease-out; /* IE 10+, Fx 29+ */
-      }
-    </style>
+    }
 
-    <div id="middle">
-      <img id="loaderIcon" src="img/branding/logo.png" title="MTV Play" alt="MTV Play" />
-    </div>
-
-
-    <script id="loaderScript" type="text/javascript">
-
-      var packerLoader = document.getElementById('loader')
-        , middle = document.getElementById('middle')
-        , loggedin = localStorage.getItem('userToken')
-
-      if(middle) middle.style.top = (window.innerHeight/2)-90+'px'
-      window.upadateRdy = 0
-      window.packerUpdateLoader = function(cnt,total) {
-        window.upadateRdy = cnt
-        if(loggedin) total++
-        packerLoader.style.width = cnt/total*120+'px'
+    @-o-keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        -o-transform: translate3d(0, 60px, 0);
       }
-      window.clearPackerLoader = function() {
-        var middle = document.getElementById('middle')
-        if(middle) middle.parentNode.removeChild(middle)
-        window.packerUpdateLoader = null
-        window.clearPackerLoader = null
-        window.upadateRdy = null
+      80% {
+        opacity: 0.8;
+        -o-transform: translate3d(0, 0, 0);
       }
+      100% {
+        opacity: 1;
+      }
+    }
 
-    </script>
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translate3d(0, 60px, 0);
+      }
+      80% {
+        opacity: 0.8;
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        opacity: 1;
+      }
+    }
 
-<script src="build.js" type="text/javascript"></script>
+    @-webkit-keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -60px, 0);
+      }
+      80% {
+        opacity: 0.8;
+        -webkit-transform: translate3d(0, 0, 0);
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @-moz-keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        -moz-transform: translate3d(0, -60px, 0);
+      }
+      80% {
+        opacity: 0.8;
+        -moz-transform: translate3d(0, 0, 0);
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @-o-keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        -o-transform: translate3d(0, -60px, 0);
+      }
+      80% {
+        opacity: 0.8;
+        -o-transform: translate3d(0, 0, 0);
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+      }
+      80% {
+        opacity: 0.8;
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      background: -webkit-radial-gradient(circle, #3A1A58, #231331);
+      background: -moz-radial-gradient(circle, #3A1A58, #231331);
+      background: -ms-radial-gradient(circle, #3A1A58, #231331);
+      margin: 0;
+      padding: 0;
+    }
+
+    #middle {
+      left: 50%;
+      margin-left: -60px;
+      position: absolute;
+      height: 120px;
+      width: 120px;
+    }
+
+    #loaderIcon {
+      height: 120px;
+      width: 120px;
+      -webkit-animation: fadeInDown 0.4s 1 ease-out;
+      /* Safari 4+ */
+      -moz-animation: fadeInDown 0.4s 1 ease-out;
+      /* Fx 5+ */
+      -o-animation: fadeInDown 0.4s 1 ease-out;
+      /* Opera 12+ */
+      animation: fadeInDown 0.4s 1 ease-out;
+      /* IE 10+, Fx 29+ */
+    }
+  </style>
+
+  <div id="middle">
+    <img id="loaderIcon" src="img/branding/logo.png" title="MTV Play" alt="MTV Play" />
+  </div>
+
+
+  <script id="loaderScript" type="text/javascript">
+    var packerLoader = document.getElementById('loader'),
+      middle = document.getElementById('middle'),
+      loggedin = localStorage.getItem('userToken')
+
+    if (middle) middle.style.top = (window.innerHeight / 2) - 90 + 'px'
+    window.upadateRdy = 0
+    window.packerUpdateLoader = function(cnt, total) {
+      window.upadateRdy = cnt
+      if (loggedin) total++
+        packerLoader.style.width = cnt / total * 120 + 'px'
+    }
+    window.clearPackerLoader = function() {
+      var middle = document.getElementById('middle')
+      if (middle) middle.parentNode.removeChild(middle)
+      window.packerUpdateLoader = null
+      window.clearPackerLoader = null
+      window.upadateRdy = null
+    }
+  </script>
+  <script type="text/javascript">
+    var n_pbt = "";
+    var nuggtg = encodeURIComponent("");
+    var nuggn = 187535816;
+    var nuggsid = 1864594024;
+    var nugghost = "//mtv.nuggad.net";
+    document.write('<scr' + 'ipt type="text/javascript" src="' + nugghost + '/javascripts/nuggad-ls.js"></scr' + 'ipt>');
+  </script>
+  <script type="text/javascript">
+    nuggad.init({
+      "rptn-url": nugghost
+    }, function(api) {
+      api.rc({
+        "nuggn": nuggn,
+        "nuggsid": nuggsid,
+        "nuggtg": nuggtg
+      });
+    })
+  </script>
+  <script src="https://script.ioam.de/iam.js" type="text/javascript"></script>
+  <script src="build.js" type="text/javascript"></script>
 </body>
+
 </html>

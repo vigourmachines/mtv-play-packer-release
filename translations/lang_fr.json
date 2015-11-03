@@ -233,15 +233,106 @@
     "backlink": "Retour à MTV",
     "buyPremium": "Acheter un Pass Premium",
     "cellphone": "Téléphone",
+    "comingSoon": null,
     "Connection": "Veuillez vérifier votre connexion internet.",
     "continue": "Continuer",
     "cookieBar": {
       "close": "Deze melding verbergen",
       "link": "Meer info",
+      "nl": {
+        "text": "We maken een onderscheid tussen functionele cookies en cookies voor het beheer van webstatistieken, advertenties en social media. MTV maakt gebruik van functionele en analytische cookies om inzicht te krijgen in de werking en effectiviteit van haar websites. De daarmee verzamelde gegevens worden niet gebruikt om activiteiten van individuele gebruikers te volgen. De advertentie en social media cookies van derden verzamelen mogelijk gegevens ook buiten de website(s) van MTV. Door hiernaast op akkoord te klikken of door gebruik te blijven maken van deze website, geef je toestemming voor het plaatsen van cookies bij bezoek aan de website(s) van MTV. Meer weten over deze cookies? Klik dan hiernaast op “meer informatie tonen”.",
+        "title": "MTV maakt gebruik van cookies."
+      },
       "text": "MTV Play maakt gebruik van cookies"
     },
     "countdown": "Lancement de votre vidéo après cette publicité.",
     "desktopText": "Ordinateur",
+    "discover": {
+      "be": {
+        "row1": {
+          "free": "Nouveautés",
+          "premium": "Nouveautés"
+        },
+        "row2": {
+          "free": "Recommandé",
+          "premium": "Recommandé"
+        },
+        "row3": {
+          "free": "Gratuit",
+          "premium": "Gratuit"
+        }
+      },
+      "ch": {
+        "row1": {
+          "free": "Nouveautés",
+          "premium": "Nouveautés"
+        },
+        "row2": {
+          "free": "Recommandé",
+          "premium": "Recommandé"
+        },
+        "row3": {
+          "free": "Gratuit",
+          "premium": "Gratuit"
+        }
+      },
+      "de": {
+        "row1": {
+          "free": "Nouveautés",
+          "premium": "Nouveautés"
+        },
+        "row2": {
+          "free": "Recommandé",
+          "premium": "Recommandé"
+        },
+        "row3": {
+          "free": "Gratuit",
+          "premium": "Gratuit"
+        }
+      },
+      "nl": {
+        "row1": {
+          "free": "Nouveautés",
+          "premium": "Nouveautés"
+        },
+        "row2": {
+          "free": "Recommandé",
+          "premium": "Recommandé"
+        },
+        "row3": {
+          "free": "Gratuit",
+          "premium": "Gratuit"
+        }
+      },
+      "no": {
+        "row1": {
+          "free": "Nouveautés",
+          "premium": "Nouveautés"
+        },
+        "row2": {
+          "free": "Recommandé",
+          "premium": "Recommandé"
+        },
+        "row3": {
+          "free": "Gratuit",
+          "premium": "Gratuit"
+        }
+      },
+      "pl": {
+        "row1": {
+          "free": "Nouveautés",
+          "premium": "Nouveautés"
+        },
+        "row2": {
+          "free": "Recommandé",
+          "premium": "Recommandé"
+        },
+        "row3": {
+          "free": "Gratuit",
+          "premium": "Gratuit"
+        }
+      }
+    },
     "extras": "Suppléments",
     "gender": "Sexe",
     "invalidEntry": "Erreur. Corrigez vos informations.",
@@ -269,6 +360,10 @@
     "next": "suivant",
     "noDescription": "Aucune description disponible.",
     "noEPG": "Aucun guide disponible",
+    "notAvailable": {
+      "text": null,
+      "title": null
+    },
     "operator": {
       "authenticate": "Please authenticate...",
       "choose": "Choose Operator",

@@ -233,15 +233,106 @@
     "backlink": "Back to MTV",
     "buyPremium": "Buy Premium Pass",
     "cellphone": "Phone",
+    "comingSoon": "Coming Soon",
     "Connection": "Please check your internet connection.",
     "continue": "Continue",
     "cookieBar": {
       "close": "Close",
       "link": "More information",
+      "nl": {
+        "text": "We maken een onderscheid tussen functionele cookies en cookies voor het beheer van webstatistieken, advertenties en social media. MTV maakt gebruik van functionele en analytische cookies om inzicht te krijgen in de werking en effectiviteit van haar websites. De daarmee verzamelde gegevens worden niet gebruikt om activiteiten van individuele gebruikers te volgen. De advertentie en social media cookies van derden verzamelen mogelijk gegevens ook buiten de website(s) van MTV. Door hiernaast op akkoord te klikken of door gebruik te blijven maken van deze website, geef je toestemming voor het plaatsen van cookies bij bezoek aan de website(s) van MTV. Meer weten over deze cookies? Klik dan hiernaast op “meer informatie tonen”.",
+        "title": "MTV maakt gebruik van cookies."
+      },
       "text": "This website uses cookies to enhance your user experience. By using our website, you consent to our use of cookies in accordance with the terms of the cookie policy."
     },
     "countdown": "Your video will play after this ad.",
     "desktopText": "Computer",
+    "discover": {
+      "be": {
+        "row1": {
+          "free": "New",
+          "premium": "New"
+        },
+        "row2": {
+          "free": "Recommended",
+          "premium": "Recommended"
+        },
+        "row3": {
+          "free": "Free",
+          "premium": "Free"
+        }
+      },
+      "ch": {
+        "row1": {
+          "free": "New",
+          "premium": "New"
+        },
+        "row2": {
+          "free": "Recommended",
+          "premium": "Recommended"
+        },
+        "row3": {
+          "free": "Free",
+          "premium": "Free"
+        }
+      },
+      "de": {
+        "row1": {
+          "free": "New",
+          "premium": "New"
+        },
+        "row2": {
+          "free": "Recommended",
+          "premium": "Recommended"
+        },
+        "row3": {
+          "free": "Free",
+          "premium": "Free"
+        }
+      },
+      "nl": {
+        "row1": {
+          "free": "New",
+          "premium": "New"
+        },
+        "row2": {
+          "free": "Recommended",
+          "premium": "Recommended"
+        },
+        "row3": {
+          "free": "Free",
+          "premium": "Free"
+        }
+      },
+      "no": {
+        "row1": {
+          "free": "New",
+          "premium": "New"
+        },
+        "row2": {
+          "free": "Recommended",
+          "premium": "Recommended"
+        },
+        "row3": {
+          "free": "Free",
+          "premium": "Free"
+        }
+      },
+      "pl": {
+        "row1": {
+          "free": "New",
+          "premium": "New"
+        },
+        "row2": {
+          "free": "Recommended",
+          "premium": "Recommended"
+        },
+        "row3": {
+          "free": "Free",
+          "premium": "Free"
+        }
+      }
+    },
     "extras": "Extras",
     "gender": "Select Gender",
     "invalidEntry": "Invalid entry, please revise.",
@@ -269,6 +360,10 @@
     "next": "next",
     "noDescription": "No description available.",
     "noEPG": "No guide available",
+    "notAvailable": {
+      "text": "Unfortunately MTV play is not yet available in your country. If you believe an error has been made please contact us at:",
+      "title": "Thank you for your Interest."
+    },
     "operator": {
       "authenticate": "Please enter your Operator credentials to upgrade to premium access.",
       "choose": "Choose Operator",

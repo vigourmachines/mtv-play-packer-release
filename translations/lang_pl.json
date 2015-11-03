@@ -233,15 +233,106 @@
     "backlink": "Wróć do MTV",
     "buyPremium": "Kup konto premium",
     "cellphone": "Telefon",
+    "comingSoon": null,
     "Connection": "Wystąpił problem z połączeniem. Spróbuj ponownie później lub sprawdź swój dostęp do sieci.",
     "continue": "Kontynuuj",
     "cookieBar": {
       "close": "Close",
       "link": "Tutaj",
+      "nl": {
+        "text": "We maken een onderscheid tussen functionele cookies en cookies voor het beheer van webstatistieken, advertenties en social media. MTV maakt gebruik van functionele en analytische cookies om inzicht te krijgen in de werking en effectiviteit van haar websites. De daarmee verzamelde gegevens worden niet gebruikt om activiteiten van individuele gebruikers te volgen. De advertentie en social media cookies van derden verzamelen mogelijk gegevens ook buiten de website(s) van MTV. Door hiernaast op akkoord te klikken of door gebruik te blijven maken van deze website, geef je toestemming voor het plaatsen van cookies bij bezoek aan de website(s) van MTV. Meer weten over deze cookies? Klik dan hiernaast op “meer informatie tonen”.",
+        "title": "MTV maakt gebruik van cookies."
+      },
       "text": "Ta strona internetowa może zostawiać na Twoim urządzeniu pliki cookies, m.in. w celu optymalizacji wyświetleń tej strony internetowej na Twoim urządzeniu. Korzystając ze strony wyrażasz zgodę na użycie plików cookies. Więcej informacji o cookies znajduje się."
     },
     "countdown": "Wideo rozpocznie sie po odtworzeniu reklamy.",
     "desktopText": "Komputer",
+    "discover": {
+      "be": {
+        "row1": {
+          "free": "Premiery",
+          "premium": "Premiery"
+        },
+        "row2": {
+          "free": "Polecane",
+          "premium": "Polecane"
+        },
+        "row3": {
+          "free": "Darmowe",
+          "premium": "Darmowe"
+        }
+      },
+      "ch": {
+        "row1": {
+          "free": "Premiery",
+          "premium": "Premiery"
+        },
+        "row2": {
+          "free": "Polecane",
+          "premium": "Polecane"
+        },
+        "row3": {
+          "free": "Darmowe",
+          "premium": "Darmowe"
+        }
+      },
+      "de": {
+        "row1": {
+          "free": "Premiery",
+          "premium": "Premiery"
+        },
+        "row2": {
+          "free": "Polecane",
+          "premium": "Polecane"
+        },
+        "row3": {
+          "free": "Darmowe",
+          "premium": "Darmowe"
+        }
+      },
+      "nl": {
+        "row1": {
+          "free": "Premiery",
+          "premium": "Premiery"
+        },
+        "row2": {
+          "free": "Polecane",
+          "premium": "Polecane"
+        },
+        "row3": {
+          "free": "Darmowe",
+          "premium": "Darmowe"
+        }
+      },
+      "no": {
+        "row1": {
+          "free": "Premiery",
+          "premium": "Premiery"
+        },
+        "row2": {
+          "free": "Polecane",
+          "premium": "Polecane"
+        },
+        "row3": {
+          "free": "Darmowe",
+          "premium": "Darmowe"
+        }
+      },
+      "pl": {
+        "row1": {
+          "free": "Premiery",
+          "premium": "Premiery"
+        },
+        "row2": {
+          "free": "Polecane",
+          "premium": "Polecane"
+        },
+        "row3": {
+          "free": "Darmowe",
+          "premium": "Darmowe"
+        }
+      }
+    },
     "extras": "Dodatki",
     "gender": "Wybierz płeć",
     "invalidEntry": "Niewłaściwy wpis, sprawdź jego treść.",
@@ -269,6 +360,10 @@
     "next": "dalej",
     "noDescription": "Brak opisu",
     "noEPG": "Brak przewodnika",
+    "notAvailable": {
+      "text": null,
+      "title": null
+    },
     "operator": {
       "authenticate": "Please authenticate...",
       "choose": "Choose Operator",
