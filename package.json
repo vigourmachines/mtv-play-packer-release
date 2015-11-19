@@ -7,7 +7,7 @@
     "start": "gaston -d",
     "test": "test/test.js",
     "build": "gaston build -s ./index.js -o . -i",
-    "release": "packer -r -c package.json,.package.json"
+    "release": "ferry --release --mergeFiles '[\"/Users/shawn/Work/mtv-play/package.json\",\"/Users/shawn/Work/mtv-play/.package.json\"]'"
   },
   "repository": {
     "type": "git",
@@ -33,7 +33,7 @@
     "zepto-browserify": "x"
   },
   "devDependencies": {
-    "ferry": "git+ssh://git@github.com:vigour-io/ferry.git#master"
+    "vigour-ferry": "^3.0.0"
   },
   "author": "Jim de Beer",
   "license": "other",
@@ -166,7 +166,9 @@
     "packer": {
       "language": "https://wwwmtvplay-a.akamaihd.net/translations/",
       "url": "https://wwwmtvplay-a.akamaihd.net/",
-      "domain": "http://mtvplay.tv",
+      "domain": "http://mtvplay.tv"
+    },
+    "ferry": {
       "assets": {
         "build.html": true,
         "build.js": true,
