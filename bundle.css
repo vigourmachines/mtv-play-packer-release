@@ -1759,55 +1759,6 @@ input:invalid {
   vertical-align: top;
   margin-left: 80px;
 }
-/* file: /Users/ricksmit/dev/mtv-play/components/second/shows/style.less */
-.second-shows {
-  height: 100%;
-  width: 100%;
-}
-.second-shows > .grid {
-  margin-left: 10px;
-}
-.second-shows .grid-item {
-  display: inline-block;
-  vertical-align: top;
-}
-.second-shows > .search {
-  position: absolute;
-  display: table;
-  top: 0;
-  height: 100%;
-  width: 100%;
-}
-.second-shows .searchholder {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-}
-.second-shows .searchicon {
-  display: inline;
-  font-size: 80px;
-  vertical-align: middle;
-  margin-left: 2px;
-}
-.second-shows .searchbox {
-  display: inline-block;
-  background-color: #f2f2f2;
-  padding-bottom: 5px;
-  max-width: 90%;
-  -webkit-border-radius: 2px 2px 0px 0px;
-  -moz-border-radius: 2px 2px 0px 0px;
-  border-radius: 2px 2px 0px 0px;
-  min-height: 80px;
-  line-height: 80px;
-  font-size: 48px;
-  color: #3A1A58;
-  border-bottom: 5px solid #EE255C;
-  -webkit-transition: opacity 0.3s ease-out;
-  -moz-transition: opacity 0.3s ease-out;
-  -ms-transition: opacity 0.3s ease-out;
-  -o-transition: opacity 0.3s ease-out;
-  transition: opacity 0.3s ease-out;
-}
 /* file: /Users/ricksmit/dev/mtv-play/components/second/channels/style.less */
 .second-channels {
   margin-left: 80px;
@@ -1859,6 +1810,55 @@ input:invalid {
 .second-channels .information .epg .bar {
   margin: 20px 0px 20px 0px;
 }
+/* file: /Users/ricksmit/dev/mtv-play/components/second/shows/style.less */
+.second-shows {
+  height: 100%;
+  width: 100%;
+}
+.second-shows > .grid {
+  margin-left: 10px;
+}
+.second-shows .grid-item {
+  display: inline-block;
+  vertical-align: top;
+}
+.second-shows > .search {
+  position: absolute;
+  display: table;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+.second-shows .searchholder {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.second-shows .searchicon {
+  display: inline;
+  font-size: 80px;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+.second-shows .searchbox {
+  display: inline-block;
+  background-color: #f2f2f2;
+  padding-bottom: 5px;
+  max-width: 90%;
+  -webkit-border-radius: 2px 2px 0px 0px;
+  -moz-border-radius: 2px 2px 0px 0px;
+  border-radius: 2px 2px 0px 0px;
+  min-height: 80px;
+  line-height: 80px;
+  font-size: 48px;
+  color: #3A1A58;
+  border-bottom: 5px solid #EE255C;
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  -ms-transition: opacity 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
 /* file: /Users/ricksmit/dev/mtv-play/components/second/discover/style.less */
 .second-discover {
   white-space: nowrap;
@@ -1881,6 +1881,82 @@ input:invalid {
 }
 .bigPurp {
   background-color: #3A1A58;
+}
+/* file: /Users/ricksmit/dev/mtv-play/components/player/volume/style.less */
+.player-volume {
+  display: inline-block;
+}
+.player-volume > div {
+  display: inline-block;
+  margin-right: 6px;
+  margin-top: 4px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 1px;
+}
+.player-volume > div .nested {
+  background-color: #FFEB00;
+  height: 100%;
+  width: 100%;
+}
+.player-volume > div:hover {
+  margin-top: 0;
+}
+.fullscreen-player .player-volume > div {
+  height: 32px;
+  width: 4px;
+}
+.fullscreen-player .player-volume > div:hover {
+  height: 36px;
+}
+.windowed-player .player-volume > div {
+  height: 23px;
+  width: 2px;
+}
+.windowed-player .player-volume > div:hover {
+  height: 27px;
+}
+/* file: /Users/ricksmit/dev/mtv-play/components/player/controls/style.less */
+.player-controls {
+  height: 100%;
+}
+.player-controls .container {
+  padding: 1px;
+  position: relative;
+  height: 100%;
+}
+.player-controls .container > div {
+  position: absolute;
+  top: 0;
+}
+.player-controls .duration {
+  right: 0;
+}
+.player-controls .progress {
+  left: 0;
+}
+.player-controls .progress,
+.duration {
+  text-align: center;
+  line-height: 50px;
+}
+.player-controls .seekbar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  left: 80px;
+  right: 80px;
+}
+.not-phone .player-controls .progress,
+.not-phone .duration {
+  width: 80px;
+}
+.phone .player-controls .progress,
+.phone .duration {
+  width: 60px;
+}
+.phone .player-controls .seekbar {
+  left: 58px;
+  right: 58px;
 }
 /* file: /Users/ricksmit/dev/mtv-play/components/first/epg/style.less */
 .first-epg .list > div:first-child .border {
@@ -2178,82 +2254,6 @@ a {
 }
 .desktop .ui-icon.favorited {
   color: #FDCD2F !important;
-}
-/* file: /Users/ricksmit/dev/mtv-play/components/player/volume/style.less */
-.player-volume {
-  display: inline-block;
-}
-.player-volume > div {
-  display: inline-block;
-  margin-right: 6px;
-  margin-top: 4px;
-  overflow: hidden;
-  background-color: #ffffff;
-  border-radius: 1px;
-}
-.player-volume > div .nested {
-  background-color: #FFEB00;
-  height: 100%;
-  width: 100%;
-}
-.player-volume > div:hover {
-  margin-top: 0;
-}
-.fullscreen-player .player-volume > div {
-  height: 32px;
-  width: 4px;
-}
-.fullscreen-player .player-volume > div:hover {
-  height: 36px;
-}
-.windowed-player .player-volume > div {
-  height: 23px;
-  width: 2px;
-}
-.windowed-player .player-volume > div:hover {
-  height: 27px;
-}
-/* file: /Users/ricksmit/dev/mtv-play/components/player/controls/style.less */
-.player-controls {
-  height: 100%;
-}
-.player-controls .container {
-  padding: 1px;
-  position: relative;
-  height: 100%;
-}
-.player-controls .container > div {
-  position: absolute;
-  top: 0;
-}
-.player-controls .duration {
-  right: 0;
-}
-.player-controls .progress {
-  left: 0;
-}
-.player-controls .progress,
-.duration {
-  text-align: center;
-  line-height: 50px;
-}
-.player-controls .seekbar {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  left: 80px;
-  right: 80px;
-}
-.not-phone .player-controls .progress,
-.not-phone .duration {
-  width: 80px;
-}
-.phone .player-controls .progress,
-.phone .duration {
-  width: 60px;
-}
-.phone .player-controls .seekbar {
-  left: 58px;
-  right: 58px;
 }
 /* file: /Users/ricksmit/dev/mtv-play/components/item/style.less */
 .ui-item {
@@ -2554,125 +2554,6 @@ a {
   -o-transition: opacity 0.4s ease-out;
   transition: opacity 0.4s ease-out;
 }
-/* file: /Users/ricksmit/dev/mtv-play/components/first/watch/style.less */
-.first-watch {
-  color: #3A1A58;
-}
-.first-watch .title {
-  font-family: OpenSansBold;
-  font-size: 22px;
-}
-.first-watch .txt .title {
-  font-family: OpenSansBold;
-  font-size: 16px;
-}
-.first-watch > .media {
-  overflow: hidden;
-  width: 100%;
-}
-.first-watch > .media .subtitle {
-  font-size: 12px;
-  font-family: OpenSansRegular;
-  color: #AC99B9;
-}
-.first-watch .description {
-  margin-bottom: 80px;
-}
-.first-watch .share {
-  float: right;
-  padding: 15px;
-  margin: -15px;
-}
-.phone .first-watch {
-  height: 100%;
-}
-.phone .first-watch .description {
-  padding: 15px;
-  border-top: 1px solid #DBCEDB;
-}
-.phone .first-watch .header {
-  padding: 15px;
-}
-.tablet .first-watch .info {
-  border-left: 1px solid #DBCEDB;
-  display: table-cell;
-  width: 100%;
-}
-.tablet .first-watch .holder .info {
-  background-color: rgba(22, 22, 22, 0.5);
-}
-.tablet .first-watch .holder .info .title {
-  font-size: 22px;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-}
-.tablet .first-watch .holder .info .txt {
-  font-size: 16px;
-}
-.tablet .first-watch .favourite {
-  font-size: 36px;
-  margin-left: -8px;
-}
-.tablet .first-watch .header {
-  border-bottom: 1px solid #DBCEDB;
-  margin-bottom: 15px;
-}
-.desktop .first-watch .header {
-  border-bottom: 1px solid #DDD;
-  margin-bottom: 15px;
-}
-.desktop .first-watch > .margin {
-  width: 30px;
-}
-.desktop .first-watch > .pageheader {
-  display: table-caption;
-  padding-left: 50px;
-}
-.desktop .first-watch > .media {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  border: 1px solid #DDD;
-  background-color: #ffffff;
-}
-.desktop .first-watch .favourite {
-  font-size: 48px;
-  margin-top: -10px;
-  color: #AC99B9;
-}
-.desktop .first-watch .holder .info {
-  background-color: rgba(22, 22, 22, 0.5);
-}
-.desktop .first-watch .holder .info .title {
-  font-size: 22px;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-}
-.desktop .first-watch .holder .info .txt {
-  font-size: 16px;
-}
-.not-phone .first-watch {
-  display: table;
-}
-.not-phone .first-watch .info > div {
-  padding: 15px 15px;
-  -webkit-box-sizing: border-box;
-  /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;
-  /* Firefox, other Gecko */
-  box-sizing: border-box;
-  /* Opera/IE 8+ */
-}
-.not-phone .first-watch .favourite {
-  display: inline-block;
-  vertical-align: middle;
-}
-.not-phone .first-watch .header {
-  padding-bottom: 15px;
-}
-.not-phone .first-watch > .media {
-  display: table-cell;
-}
 /* file: /Users/ricksmit/dev/mtv-play/components/first/miniplayer/style.less */
 .mini-player {
   color: #ffffff;
@@ -2810,6 +2691,125 @@ a {
 }
 .not-phone .mini-player .clickable {
   background-color: #3A1A58;
+}
+/* file: /Users/ricksmit/dev/mtv-play/components/first/watch/style.less */
+.first-watch {
+  color: #3A1A58;
+}
+.first-watch .title {
+  font-family: OpenSansBold;
+  font-size: 22px;
+}
+.first-watch .txt .title {
+  font-family: OpenSansBold;
+  font-size: 16px;
+}
+.first-watch > .media {
+  overflow: hidden;
+  width: 100%;
+}
+.first-watch > .media .subtitle {
+  font-size: 12px;
+  font-family: OpenSansRegular;
+  color: #AC99B9;
+}
+.first-watch .description {
+  margin-bottom: 80px;
+}
+.first-watch .share {
+  float: right;
+  padding: 15px;
+  margin: -15px;
+}
+.phone .first-watch {
+  height: 100%;
+}
+.phone .first-watch .description {
+  padding: 15px;
+  border-top: 1px solid #DBCEDB;
+}
+.phone .first-watch .header {
+  padding: 15px;
+}
+.tablet .first-watch .info {
+  border-left: 1px solid #DBCEDB;
+  display: table-cell;
+  width: 100%;
+}
+.tablet .first-watch .holder .info {
+  background-color: rgba(22, 22, 22, 0.5);
+}
+.tablet .first-watch .holder .info .title {
+  font-size: 22px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.tablet .first-watch .holder .info .txt {
+  font-size: 16px;
+}
+.tablet .first-watch .favourite {
+  font-size: 36px;
+  margin-left: -8px;
+}
+.tablet .first-watch .header {
+  border-bottom: 1px solid #DBCEDB;
+  margin-bottom: 15px;
+}
+.desktop .first-watch .header {
+  border-bottom: 1px solid #DDD;
+  margin-bottom: 15px;
+}
+.desktop .first-watch > .margin {
+  width: 30px;
+}
+.desktop .first-watch > .pageheader {
+  display: table-caption;
+  padding-left: 50px;
+}
+.desktop .first-watch > .media {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #DDD;
+  background-color: #ffffff;
+}
+.desktop .first-watch .favourite {
+  font-size: 48px;
+  margin-top: -10px;
+  color: #AC99B9;
+}
+.desktop .first-watch .holder .info {
+  background-color: rgba(22, 22, 22, 0.5);
+}
+.desktop .first-watch .holder .info .title {
+  font-size: 22px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.desktop .first-watch .holder .info .txt {
+  font-size: 16px;
+}
+.not-phone .first-watch {
+  display: table;
+}
+.not-phone .first-watch .info > div {
+  padding: 15px 15px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+.not-phone .first-watch .favourite {
+  display: inline-block;
+  vertical-align: middle;
+}
+.not-phone .first-watch .header {
+  padding-bottom: 15px;
+}
+.not-phone .first-watch > .media {
+  display: table-cell;
 }
 /* file: /Users/ricksmit/dev/mtv-play/components/first/switcher/style.less */
 .first-switcher {

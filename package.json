@@ -6,6 +6,7 @@
   "scripts": {
     "start": "gaston -d",
     "test": "test/test.js",
+    "bundle": "gaston bundle -s ./index.js -o . -i",
     "build": "gaston build -s ./index.js -o . -i",
     "release": "ferry --release --mergeFiles '[\"/Users/ricksmit/dev/mtv-play/package.json\",\"/Users/ricksmit/dev/mtv-play/.package.json\"]'"
   },
