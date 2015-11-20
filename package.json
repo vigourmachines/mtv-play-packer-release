@@ -7,7 +7,7 @@
     "start": "gaston -d",
     "test": "test/test.js",
     "build": "gaston build -s ./index.js -o . -i",
-    "release": "./node_modules/.bin/ferry --release --mergeFiles '[\"./package.json\",\"./.package.json\"]'"
+    "release": "cp build.css bundle.css && ./node_modules/.bin/ferry --release --mergeFiles '[\"./package.json\",\"./.package.json\"]'"
   },
   "repository": {
     "type": "git",
