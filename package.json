@@ -8,7 +8,7 @@
     "test": "test/test.js",
     "bundle": "gaston bundle -s ./index.js -o . -i",
     "build": "gaston build -s ./index.js -o . -i",
-    "release": "ferry --release --mergeFiles '[\"/Users/ricksmit/dev/mtv-play/package.json\",\"/Users/ricksmit/dev/mtv-play/.package.json\"]'"
+    "release": "npm run bundle && npm run build && ferry --release --mergeFiles '[\"/Users/ricksmit/dev/mtv-play/package.json\",\"/Users/ricksmit/dev/mtv-play/.package.json\"]'"
   },
   "repository": {
     "type": "git",
