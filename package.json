@@ -7,7 +7,7 @@
     "start": "gaston -d",
     "test": "test/test.js",
     "build": "gaston build -s ./index.js -o . -i",
-    "release": "ferry --release --mergeFiles '[\"/Users/shawn/Work/mtv-play/package.json\",\"/Users/shawn/Work/mtv-play/.package.json\"]'"
+    "release": "./node_modules/.bin/ferry --release --mergeFiles '[\"/Users/shawn/Work/mtv-play/package.json\",\"/Users/shawn/Work/mtv-play/.package.json\"]'"
   },
   "repository": {
     "type": "git",
