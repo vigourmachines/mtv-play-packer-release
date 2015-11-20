@@ -6,9 +6,8 @@
   "scripts": {
     "start": "gaston -d",
     "test": "test/test.js",
-    "bundle": "gaston bundle -s ./index.js -o . -i",
     "build": "gaston build -s ./index.js -o . -i",
-    "release": "npm run bundle && npm run build && ferry --release --mergeFiles '[\"/Users/ricksmit/dev/mtv-play/package.json\",\"/Users/ricksmit/dev/mtv-play/.package.json\"]'"
+    "release": "ferry --release --mergeFiles '[\"/Users/shawn/Work/mtv-play/package.json\",\"/Users/shawn/Work/mtv-play/.package.json\"]'"
   },
   "repository": {
     "type": "git",
@@ -280,7 +279,7 @@
       },
       "develop": {
         "imgOrigin": "http://staging.riptide.mtvnn.com/",
-        "cloud": "http://mtvtest.dev.vigour.io:80",
+        "cloud": "http://mtv-hub.dev.vigour.io:80",
         "facebook": {
           "id": "720547754665171"
         },
@@ -352,8 +351,8 @@
         "section": "vigour"
       }
     },
-    "less-options":{
-      "strictMath":true
+    "less-options": {
+      "strictMath": true
     },
     "source-maps": false,
     "package": true,
