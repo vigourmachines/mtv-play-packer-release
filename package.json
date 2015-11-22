@@ -4,9 +4,9 @@
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
-    "start": "gaston -d",
     "test": "test/test.js",
     "build": "gaston build -s ./index.js -o . -i",
+    "ios": "npm run build && ./node_modules/.bin/wrapper build --native.selectedPlatforms ios",
     "release": "cp build.css bundle.css && ./node_modules/.bin/ferry --release --mergeFiles '[\"./package.json\",\"./.package.json\"]'"
   },
   "repository": {
@@ -29,7 +29,7 @@
     "package-branch-config": "^1.2.2",
     "promise": "6.1.0",
     "through2": "^2.0.0",
-    "vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay",
+    "old-vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay",
     "zepto-browserify": "x"
   },
   "devDependencies": {
@@ -359,7 +359,6 @@
     "index-path": "index.html",
     "es5": true,
     "aliasify": {
-      "vigour-js": "node_modules/vigour-js"
     }
   }
 }
