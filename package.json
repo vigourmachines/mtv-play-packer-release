@@ -4,10 +4,10 @@
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
-    "start": "gaston -d",
     "test": "test/test.js",
     "build": "gaston build -s ./index.js -o . -i",
-    "release": "packer -r -c package.json,.package.json"
+    "ios": "npm run build && ./node_modules/.bin/wrapper build --native.selectedPlatforms ios",
+    "release": "cp build.css bundle.css && ferry --release --mergeFiles '[\"./package.json\",\"./.package.json\"]'"
   },
   "repository": {
     "type": "git",
@@ -27,11 +27,12 @@
     "package-branch-config": "^1.2.2",
     "promise": "6.1.0",
     "through2": "^2.0.0",
-    "vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay",
+    "old-vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay",
     "zepto-browserify": "x"
   },
   "devDependencies": {
-    "vigour-packer-server": "git+ssh://git@github.com:vigour-io/vigour-packer-server.git#master"
+    "vigour-ferry": "^3.0.0",
+    "vigour-wrapper": "^2.0.1"
   },
   "author": "Jim de Beer",
   "license": "other",
@@ -167,7 +168,9 @@
     "packer": {
       "language": "https://wwwmtvplay-a.akamaihd.net/translations/",
       "url": "https://wwwmtvplay-a.akamaihd.net/",
-      "domain": "http://mtvplay.tv",
+      "domain": "http://mtvplay.tv"
+    },
+    "ferry": {
       "assets": {
         "build.html": true,
         "build.js": true,
