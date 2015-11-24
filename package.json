@@ -352,7 +352,6 @@
       }
     },
     "less-options": {
-      "strictMath": true
     },
     "source-maps": false,
     "package": true,
