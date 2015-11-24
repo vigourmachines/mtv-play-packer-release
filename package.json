@@ -33,6 +33,7 @@
     "zepto-browserify": "x"
   },
   "devDependencies": {
+    "vigour-wrapper": "^2.0.1",
     "vigour-ferry": "^3.0.0"
   },
   "author": "Jim de Beer",
