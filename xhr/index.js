@@ -1,1 +1,1 @@
-var iframe = require('vigour-js/browser/network/iframe')
+var iframe = require('old-vigour-js/browser/network/iframe')

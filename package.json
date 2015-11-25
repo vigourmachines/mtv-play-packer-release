@@ -1,13 +1,13 @@
 {
   "name": "mtv-play",
-  "version": "1.2.81",
+  "version": "1.2.82",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
-    "start": "gaston -d",
     "test": "test/test.js",
     "build": "gaston build -s ./index.js -o . -i",
-    "release": "packer -r -c package.json,.package.json"
+    "ios": "npm run build && ./node_modules/.bin/wrapper build --native.selectedPlatforms ios",
+    "release": "cp build.css bundle.css && ./node_modules/.bin/ferry --release --mergeFiles '[\"./package.json\",\"./.package.json\"]'"
   },
   "repository": {
     "type": "git",
@@ -29,11 +29,12 @@
     "package-branch-config": "^1.2.2",
     "promise": "6.1.0",
     "through2": "^2.0.0",
-    "vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay",
+    "old-vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay",
     "zepto-browserify": "x"
   },
   "devDependencies": {
-    "ferry": "git+ssh://git@github.com:vigour-io/ferry.git#master"
+    "vigour-wrapper": "^2.0.1",
+    "vigour-ferry": "^3.0.0"
   },
   "author": "Jim de Beer",
   "license": "other",
@@ -84,7 +85,7 @@
       "ch": 41,
       "nl": 31
     },
-    "dictionary": "http://mtv-staging.vigour.io/translations/lang_$language.json",
+    "dictionary": "http://mtv-develop.vigour.io/translations/lang_$language.json",
     "webtranslateit": {
       "files": {
         "de": 374130,
@@ -166,7 +167,9 @@
     "packer": {
       "language": "https://wwwmtvplay-a.akamaihd.net/translations/",
       "url": "https://wwwmtvplay-a.akamaihd.net/",
-      "domain": "http://mtvplay.tv",
+      "domain": "http://mtvplay.tv"
+    },
+    "ferry": {
       "assets": {
         "build.html": true,
         "build.js": true,
@@ -182,7 +185,9 @@
         "xhr": "*",
         "googleebecff275dd42f4a.html": true,
         "google2c4a46fac7686373.html": true,
-        "sitemap.xml": true
+        "sitemap.xml": true,
+        "robots.txt": true,
+        "meta": "*"
       },
       "transforms": {
         "build.js": [
@@ -193,6 +198,9 @@
         ],
         "build.css": [
           "rebase"
+        ],
+        "build.html": [
+          "meta"
         ]
       },
       "main": "build.js",
@@ -271,8 +279,8 @@
         }
       },
       "develop": {
-        "regionOverride": "PL",
-        "cloud": "production",
+        "imgOrigin": "http://staging.riptide.mtvnn.com/",
+        "cloud": "http://mtv-hub.dev.vigour.io:80",
         "facebook": {
           "id": "720547754665171"
         },
@@ -304,6 +312,7 @@
         "cloud": "http://mtv-hub.dev.vigour.io:80"
       },
       "staging": {
+        "imgOrigin": "http://staging.riptide.mtvnn.com/",
         "api": {
           "type": "staging",
           "url": "http://utt-staging.mtvnn.com/"
@@ -318,27 +327,13 @@
         },
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/staging/player.js",
+          "web": "http://player.mtvnn.com/html5player/production/player.js?2",
           "settings": {
             "ads": {
               "enabled": true,
               "viralSID": "production"
             }
           }
-        }
-      },
-      "cookie-wall": {
-        "hashUrl": true,
-        "cloud": "http://mtv-hub.dev.vigour.io:80",
-        "facebook": {
-          "id": "720547754665171"
-        },
-        "packer": {
-          "domain": "http://mtv-develop.vigour.io"
-        },
-        "player": {
-          "debug": false,
-          "web": "http://player.mtvnn.com/html5player/development/player.js"
         }
       },
       "master": {
@@ -357,9 +352,13 @@
         "section": "vigour"
       }
     },
+    "less-options": {
+    },
     "source-maps": false,
     "package": true,
     "index-path": "index.html",
-    "es5": true
+    "es5": true,
+    "aliasify": {
+    }
   }
 }

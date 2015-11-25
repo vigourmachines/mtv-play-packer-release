@@ -233,15 +233,106 @@
     "backlink": "Tilbake til MTV",
     "buyPremium": "Kjøp premiumpass",
     "cellphone": "Telefon",
+    "comingSoon": null,
     "Connection": "Kontroller Internett-tilkoblingen din.",
     "continue": "Fortsett",
     "cookieBar": {
       "close": "Close",
       "link": "Mer informasjon",
+      "nl": {
+        "text": "We maken een onderscheid tussen functionele cookies en cookies voor het beheer van webstatistieken, advertenties en social media. MTV maakt gebruik van functionele en analytische cookies om inzicht te krijgen in de werking en effectiviteit van haar websites. De daarmee verzamelde gegevens worden niet gebruikt om activiteiten van individuele gebruikers te volgen. De advertentie en social media cookies van derden verzamelen mogelijk gegevens ook buiten de website(s) van MTV. Door hiernaast op akkoord te klikken of door gebruik te blijven maken van deze website, geef je toestemming voor het plaatsen van cookies bij bezoek aan de website(s) van MTV. Meer weten over deze cookies? Klik dan hiernaast op “meer informatie tonen”.",
+        "title": "MTV maakt gebruik van cookies."
+      },
       "text": "Denne siden benytter cookies for å bedre din brukeropplevelse. Ved å fortsette å bruke denne websiden aksepterer du vår bruk av cookies."
     },
     "countdown": "Videoen din spilles av etter denne annonsen.",
     "desktopText": "Datamaskin",
+    "discover": {
+      "be": {
+        "row1": {
+          "free": "Nye utgivelser",
+          "premium": "Nye utgivelser"
+        },
+        "row2": {
+          "free": "Anbefalt",
+          "premium": "Anbefalt"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "ch": {
+        "row1": {
+          "free": "Nye utgivelser",
+          "premium": "Nye utgivelser"
+        },
+        "row2": {
+          "free": "Anbefalt",
+          "premium": "Anbefalt"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "de": {
+        "row1": {
+          "free": "Nye utgivelser",
+          "premium": "Nye utgivelser"
+        },
+        "row2": {
+          "free": "Anbefalt",
+          "premium": "Anbefalt"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "nl": {
+        "row1": {
+          "free": "Nye utgivelser",
+          "premium": "Nye utgivelser"
+        },
+        "row2": {
+          "free": "Anbefalt",
+          "premium": "Anbefalt"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "no": {
+        "row1": {
+          "free": "Nye utgivelser",
+          "premium": "Nye utgivelser"
+        },
+        "row2": {
+          "free": "Anbefalt",
+          "premium": "Anbefalt"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "pl": {
+        "row1": {
+          "free": "Nye utgivelser",
+          "premium": "Nye utgivelser"
+        },
+        "row2": {
+          "free": "Anbefalt",
+          "premium": "Anbefalt"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      }
+    },
     "extras": "Ekstra",
     "gender": "Velg kjønn",
     "invalidEntry": "Ugyldig oppføring. Vennligst kontroller den.",
@@ -269,6 +360,10 @@
     "next": "neste",
     "noDescription": "Ingen beskrivelse tilgjengelig.",
     "noEPG": "Ingen veiledning tilgjengelig",
+    "notAvailable": {
+      "text": null,
+      "title": null
+    },
     "operator": {
       "authenticate": "Vennligst tast inn din distributørs brukernavn og passord for å oppgradere til premium",
       "choose": "Velg distributør",
