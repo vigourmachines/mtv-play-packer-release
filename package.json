@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.82",
+  "version": "1.2.83",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -53,7 +53,8 @@
       "CH",
       "PL",
       "BE",
-      "NO"
+      "NO",
+      "AT"
     ],
     "geo": "https://wwwmtvplay-a.akamaihd.net/geo/",
     "development": {
