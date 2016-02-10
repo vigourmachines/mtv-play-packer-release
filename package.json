@@ -318,7 +318,7 @@
           "type": "staging",
           "url": "http://utt-staging.mtvnn.com/"
         },
-        "cloud": "http://mtvtest.dev.vigour.io:80",
+        "cloud": "production",
         "omniture": "vianorthtestweb",
         "development": {
           "button": false
