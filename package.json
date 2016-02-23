@@ -234,7 +234,7 @@
       "sitemaps": {
         "api": {
           "type": "staging",
-          "url": "http://utt-staging.mtvnn.com/"
+          "url": "https://utt-staging.mtvnn.com/"
         },
         "cloud": "http://localhost:10001"
       },
@@ -300,7 +300,7 @@
         },
         "api": {
           "type": "staging",
-          "url": "http://utt-staging.mtvnn.com/"
+          "url": "https://utt-staging.mtvnn.com/"
         }
       },
       "operator-flow": {
@@ -309,7 +309,7 @@
         },
         "api": {
           "type": "staging",
-          "url": "http://utt-staging.mtvnn.com/"
+          "url": "https://utt-staging.mtvnn.com/"
         },
         "cloud": "http://mtv-hub.dev.vigour.io:80"
       },
@@ -317,7 +317,7 @@
         "imgOrigin": "http://staging.riptide.mtvnn.com/",
         "api": {
           "type": "staging",
-          "url": "http://utt-staging.mtvnn.com/"
+          "url": "https://utt-staging.mtvnn.com/"
         },
         "cloud": "production",
         "omniture": "vianorthtestweb",
