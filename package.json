@@ -87,7 +87,7 @@
       "ch": 41,
       "nl": 31
     },
-    "dictionary": "http://mtv-develop.vigour.io/translations/lang_$language.json",
+    "dictionary": "https://mtv-develop.vigour.io/translations/lang_$language.json",
     "webtranslateit": {
       "files": {
         "de": 374130,
@@ -243,7 +243,7 @@
           "type": "production",
           "url": "https://utt.mtvnn.com/"
         },
-        "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
+        "dictionary": "https://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "development": {
           "button": false
         },
@@ -263,7 +263,7 @@
         }
       },
       "production": {
-        "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
+        "dictionary": "https://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
         "omniture": "viaviamtvplay",
         "player": {
@@ -339,7 +339,7 @@
         }
       },
       "master": {
-        "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
+        "dictionary": "https://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
         "omniture": "viaviamtvplay",
         "development": {
