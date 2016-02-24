@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "test/test.js",
-    "build": "gaston build -s ./index.js -o . -i",
+    "build": "gaston build -s ./index.js -o . -i && cd xhr && gaston build -s ./index.js -o . && rm build.css",
     "ios": "npm run build && ./node_modules/.bin/wrapper build --native.selectedPlatforms ios",
     "release": "cp build.css bundle.css && ./node_modules/.bin/ferry --release --mergeFiles '[\"./package.json\",\"./.package.json\"]'"
   },
@@ -325,7 +325,7 @@
           "button": false
         },
         "packer": {
-          "domain": "http://mtv-staging.vigour.io"
+          "domain": "https://mtv-staging.vigour.io"
         },
         "player": {
           "debug": false,
