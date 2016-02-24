@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "test/test.js",
-    "build": "gaston build -s ./index.js -o . -i",
+    "build": "gaston build -s ./index.js -o . -i && cd xhr && gaston build -s ./index.js -o . && cp build.js bundle.js && rm build.css",
     "ios": "npm run build && ./node_modules/.bin/wrapper build --native.selectedPlatforms ios",
     "release": "cp build.css bundle.css && ./node_modules/.bin/ferry --release --mergeFiles '[\"./package.json\",\"./.package.json\"]'"
   },
@@ -23,13 +23,14 @@
   ],
   "dependencies": {
     "autolinker": "^0.18.1",
+    "jquery": "^2.2.0",
     "lodash": "3.2.0",
     "markdown": "^0.5.0",
     "monotonic-timestamp": "0.0.9",
+    "old-vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay",
     "package-branch-config": "^1.2.2",
     "promise": "6.1.0",
     "through2": "^2.0.0",
-    "old-vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#mtvplay",
     "zepto-browserify": "x"
   },
   "devDependencies": {
@@ -86,7 +87,7 @@
       "ch": 41,
       "nl": 31
     },
-    "dictionary": "http://mtv-develop.vigour.io/translations/lang_$language.json",
+    "dictionary": "https://mtv-develop.vigour.io/translations/lang_$language.json",
     "webtranslateit": {
       "files": {
         "de": 374130,
@@ -233,7 +234,7 @@
       "sitemaps": {
         "api": {
           "type": "staging",
-          "url": "http://utt-staging.mtvnn.com/"
+          "url": "https://utt-staging.mtvnn.com/"
         },
         "cloud": "http://localhost:10001"
       },
@@ -242,7 +243,7 @@
           "type": "production",
           "url": "https://utt.mtvnn.com/"
         },
-        "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
+        "dictionary": "https://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "development": {
           "button": false
         },
@@ -262,7 +263,7 @@
         }
       },
       "production": {
-        "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
+        "dictionary": "https://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
         "omniture": "viaviamtvplay",
         "player": {
@@ -299,7 +300,7 @@
         },
         "api": {
           "type": "staging",
-          "url": "http://utt-staging.mtvnn.com/"
+          "url": "https://utt-staging.mtvnn.com/"
         }
       },
       "operator-flow": {
@@ -308,7 +309,7 @@
         },
         "api": {
           "type": "staging",
-          "url": "http://utt-staging.mtvnn.com/"
+          "url": "https://utt-staging.mtvnn.com/"
         },
         "cloud": "http://mtv-hub.dev.vigour.io:80"
       },
@@ -316,19 +317,19 @@
         "imgOrigin": "http://staging.riptide.mtvnn.com/",
         "api": {
           "type": "staging",
-          "url": "http://utt-staging.mtvnn.com/"
+          "url": "https://utt-staging.mtvnn.com/"
         },
-        "cloud": "http://mtvtest.dev.vigour.io:80",
+        "cloud": "production",
         "omniture": "vianorthtestweb",
         "development": {
           "button": false
         },
         "packer": {
-          "domain": "http://mtv-staging.vigour.io"
+          "domain": "https://mtv-staging.vigour.io"
         },
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/production/player.js?2",
+          "web": "http://player.mtvnn.com/html5player/staging/player.js?v=2",
           "settings": {
             "ads": {
               "enabled": true,
@@ -338,7 +339,7 @@
         }
       },
       "master": {
-        "dictionary": "http://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
+        "dictionary": "https://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
         "omniture": "viaviamtvplay",
         "development": {
@@ -353,13 +354,11 @@
         "section": "vigour"
       }
     },
-    "less-options": {
-    },
+    "less-options": {},
     "source-maps": false,
     "package": true,
     "index-path": "index.html",
     "es5": true,
-    "aliasify": {
-    }
+    "aliasify": {}
   }
 }
