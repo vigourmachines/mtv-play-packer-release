@@ -31,6 +31,10 @@
       "getMore": "Accédez à tous les épisodes et chaînes TV offerts par MTV Play !",
       "buyMonth": "Premium (mensuel) pour",
       "buyYear": "Premium (annuel) pour",
+      "description": {
+        "fire": null,
+        "tv": null
+      },
       "monthlyPass": {
         "body": "En appuyant sur Continuer, vous achèterez un abonnement mensuel pour",
         "title": "Premium (mensuel)"
@@ -235,6 +239,12 @@
     "cellphone": "Téléphone",
     "comingSoon": null,
     "Connection": "Veuillez vérifier votre connexion internet.",
+    "connect": {
+      "tv": {
+        "description": null,
+        "title": null
+      }
+    },
     "continue": "Continuer",
     "cookieBar": {
       "close": "Deze melding verbergen",
@@ -290,6 +300,7 @@
           "premium": "Gratuit"
         }
       },
+      "marquee": null,
       "nl": {
         "row1": {
           "free": "Nouveautés",
@@ -306,16 +317,16 @@
       },
       "no": {
         "row1": {
-          "free": "Nouveautés",
-          "premium": "Nouveautés"
+          "free": "New Episodes",
+          "premium": "New Episodes"
         },
         "row2": {
           "free": "Recommandé",
           "premium": "Recommandé"
         },
         "row3": {
-          "free": "Gratuit",
-          "premium": "Gratuit"
+          "free": "Top Clips",
+          "premium": "Top Clips"
         }
       },
       "pl": {
@@ -350,6 +361,21 @@
     "mailShare": {
       "body": "Vous avez vu ça ? Découvrez-le sur MTV Play !",
       "title": "Un bon truc à voir sur MTV Play."
+    },
+    "menu": {
+      "discover": {
+        "description": null
+      },
+      "register": {
+        "description": null,
+        "title": null
+      },
+      "shows": {
+        "description": null
+      },
+      "tv": {
+        "description": null
+      }
     },
     "mobileUpgrade": "Utilisez l'appli mobile pour mettre à niveau votre compte !",
     "mobileUpgradeInfo": "Vous ne pouvez malheureusement pas acheter de Pass Premium sur notre site Internet. Mais pas de panique : nos applis mobiles sont là pour ça. Prenez votre appareil iOS, Android ou Windows Phone, et téléchargez MTV Play depuis la boutique appropriée. ",
@@ -408,6 +434,11 @@
     "trial": "Essai Premium de 48 h",
     "trialActive": "Essai Premium de 48 h actif",
     "tvLogin": "Téléchargez notre appli mobile sur votre téléphone ou tablette pour vous connecter ou améliorer votre compte. ",
+    "tv": {
+      "register": {
+        "description": null
+      }
+    },
     "unlockPrice": "Débloquer pour ",
     "untitled": "Sans titre",
     "upgradeFromPhone": "Prenez votre téléphone !",
@@ -475,7 +506,6 @@
       "title": "Mais pour commencer, avez-vous MTV Mobile ?"
     },
     "register": {
-      "body": "Votre accès Premium gratuit de 48 h commence maintenant.",
       "title": "Inscrivez-vous ou connectez-vous pour regarder !"
     }
   },

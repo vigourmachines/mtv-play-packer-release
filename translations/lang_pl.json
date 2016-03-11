@@ -31,6 +31,10 @@
       "getMore": "Odblokuj wszystkie odcinki i kanały telewizyjne dostępne w MTV Play!",
       "buyMonth": "Konto premium (miesięcznie) za",
       "buyYear": "Konto premium (rocznie) za",
+      "description": {
+        "fire": null,
+        "tv": null
+      },
       "monthlyPass": {
         "body": "Klikając przycisk kontynuuj, wykupisz miesięczny abonament za",
         "title": "Konto premium (miesięczne)"
@@ -235,6 +239,12 @@
     "cellphone": "Telefon",
     "comingSoon": null,
     "Connection": "Wystąpił problem z połączeniem. Spróbuj ponownie później lub sprawdź swój dostęp do sieci.",
+    "connect": {
+      "tv": {
+        "description": null,
+        "title": null
+      }
+    },
     "continue": "Kontynuuj",
     "cookieBar": {
       "close": "Close",
@@ -290,6 +300,7 @@
           "premium": "Darmowe"
         }
       },
+      "marquee": null,
       "nl": {
         "row1": {
           "free": "Premiery",
@@ -306,16 +317,16 @@
       },
       "no": {
         "row1": {
-          "free": "Premiery",
-          "premium": "Premiery"
+          "free": "New Episodes",
+          "premium": "New Episodes"
         },
         "row2": {
-          "free": "Polecane",
-          "premium": "Polecane"
+          "free": "Featured",
+          "premium": "Featured"
         },
         "row3": {
-          "free": "Darmowe",
-          "premium": "Darmowe"
+          "free": "Top Clips",
+          "premium": "Top Clips"
         }
       },
       "pl": {
@@ -350,6 +361,21 @@
     "mailShare": {
       "body": "Widziałeś już ten materiał? Obejrz go na MTV Play!",
       "title": "Jest coś, co powinieneś wiedzieć na temat MTV Play."
+    },
+    "menu": {
+      "discover": {
+        "description": null
+      },
+      "register": {
+        "description": null,
+        "title": null
+      },
+      "shows": {
+        "description": null
+      },
+      "tv": {
+        "description": null
+      }
     },
     "mobileUpgrade": "Ulepsz konto za pomocą aplikacji mobilnej!",
     "mobileUpgradeInfo": "Niestety nie możesz wykupić dostępu do konta premium za pośrednictwem naszej witryny. Jednak bez obaw - po to stworzyliśmy nasze aplikacje mobilne. Sięgnij po urządzenie iOS, Android lub Windows Phone i pobierz aplikację MTV Play ze sklepu. ",
@@ -408,6 +434,11 @@
     "trial": "48-godzinny okres próbny konta premium",
     "trialActive": "48-godzinny okres próbny aktywny",
     "tvLogin": "Pobierz naszą aplikację mobilną na telefon lub tablet i zaloguj się lub ulepsz konto. ",
+    "tv": {
+      "register": {
+        "description": null
+      }
+    },
     "unlockPrice": "Odblokuj na 48 godzin ",
     "untitled": "Bez nazwy",
     "upgradeFromPhone": "Sięgnij po telefon!",
@@ -475,7 +506,6 @@
       "title": "Ale najpierw powiedz, czy posiadasz konto MTV Mobile?"
     },
     "register": {
-      "body": "Twój darmowy 48-godzinny okres próbny konta premium rozpocznie się natychmiast.",
       "title": "Utwórz konto lub zaloguj się, aby zacząć oglądać!"
     }
   },

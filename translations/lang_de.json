@@ -25,12 +25,16 @@
       "connectInfo": "Registriere dich jetzt und erhalte 48 Stunden lang vollen Zugriff! Danach wird dein Konto automatisch wieder auf \"Free\" zurückgestuft. Ganz ohne irgendwelche verborgene Abo-Gebühren. Versprochen!",
       "didYouKnow": "Kennst du schon alle anderen Vorteile für MTV Mobile-Kunden? Schau mal rein!",
       "freeWithMTV": "Gratis mit MTV Mobile",
-      "goPremium": "Werde Premium-Mitglied",
+      "goPremium": "Premium-Zugang",
       "perMonth": "pro Monat",
       "perYear": "pro Jahr",
       "getMore": "Schalte alle Folgen und TV-Kanäle frei!",
       "buyMonth": "Premium (Monat) für",
       "buyYear": "Premium (Jahr) für",
+      "description": {
+        "fire": "Schalte alle Episoden jeder Show und unsere Live TV-Kanäle frei. Und keine Sorge, falls du das erst mal ausprobieren möchtest: Auf Amazon-Geräten ist dein erster Monat kostenlos!",
+        "tv": "Schalte alle Episoden jeder Show und unsere Live TV-Kanäle frei."
+      },
       "monthlyPass": {
         "body": "Mit einem Tap auf \"Weiter\" kaufst du ein Monatsabo für",
         "title": "Premium (Monat)"
@@ -66,7 +70,7 @@
     "nav": {
       "discover": "Entdecken",
       "allShows": "Alle Shows A-Z",
-      "channels": "Kanäle",
+      "channels": "TV-Kanäle",
       "shows": "Sendungen",
       "television": "TV",
       "settings": "Einstellungen"
@@ -233,8 +237,14 @@
     "backlink": "Zurück zu MTV",
     "buyPremium": "Premium Pass kaufen",
     "cellphone": "Smartphone",
-    "comingSoon": null,
+    "comingSoon": "Nicht verfügbar",
     "Connection": "Bitte überprüfe deine Internetverbindung",
+    "connect": {
+      "tv": {
+        "description": "Um dich mit deinem Konto auf dem Fernseher zu verbinden, gib bitte den vierstelligen Code ein, der dort angezeigt wird. Siehst du keinen Code? Dann gehe bitte auf dein Profil ganz unten im Menü.",
+        "title": "Verbinde deinen Fernseher"
+      }
+    },
     "continue": "Weiter",
     "cookieBar": {
       "close": "Schließen",
@@ -290,6 +300,7 @@
           "premium": "Gratis"
         }
       },
+      "marquee": "Highlights",
       "nl": {
         "row1": {
           "free": "Neu",
@@ -306,16 +317,16 @@
       },
       "no": {
         "row1": {
-          "free": "Neu",
-          "premium": "Neu"
+          "free": "Neue Folgen",
+          "premium": "Neue Folgen"
         },
         "row2": {
-          "free": "Empfohlen",
-          "premium": "Empfohlen"
+          "free": "Highlights",
+          "premium": "Highlights"
         },
         "row3": {
-          "free": "Gratis",
-          "premium": "Gratis"
+          "free": "Die besten Clips",
+          "premium": "Die besten Clips"
         }
       },
       "pl": {
@@ -351,6 +362,21 @@
       "body": "Kennst du das schon? Wenn nicht nicht schau es dir unbedingt an!",
       "title": "Das solltest du dir auf jeden Fall ansehen!"
     },
+    "menu": {
+      "discover": {
+        "description": "Unsere aktuellen Highlights!"
+      },
+      "register": {
+        "description": "Um dich zu registrieren oder dich einzuloggen, gehe bitte auf [location of the login page] und gib den folgenden Code ein.",
+        "title": "Registrieren/Einloggen"
+      },
+      "shows": {
+        "description": "Alle Shows auf einen Blick."
+      },
+      "tv": {
+        "description": "Sieh dir unsere TV Kanäle an."
+      }
+    },
     "mobileUpgrade": "Upgrade mit unserer App.",
     "mobileUpgradeInfo": "Leider kannst du über unsere Webseite nicht upgraden. Aber keine Sorge, dafür gibt's ja unsere Apps. Nimm einfach dein iOS, Android oder Windows Phone-Gerät und lade dir MTV Play aus dem Store. ",
     "newAccount": "Willkommen! Du kannst dich jetzt einloggen. ",
@@ -361,8 +387,8 @@
     "noDescription": "Keine Beschreibung verfügbar",
     "noEPG": "Kein Programm verfügbar",
     "notAvailable": {
-      "text": null,
-      "title": null
+      "text": "Leider ist MTV Play aktuell nicht in deinem Land verfügbar. Falls du denkst, dass da was nicht stimmen kann, wende dich bitte an unser Support-Team:",
+      "title": "Danke für dein Interesse!"
     },
     "operator": {
       "authenticate": "Gib deine Zugangsdaten ein",
@@ -408,6 +434,11 @@
     "trial": "48 Stunden Premium Trial",
     "trialActive": "48 Stunden Testphase aktiv",
     "tvLogin": "Lade unsere App auf dein Smartphone oder Tablet um dich einzuloggen und dein Konto zu upgraden.",
+    "tv": {
+      "register": {
+        "description": "Bitte registriere dich oder logge dich mit deinem MTV Play Konto ein, wenn du schon eins hast."
+      }
+    },
     "unlockPrice": "48 Stunden leihen für ",
     "untitled": "Kein Titel",
     "upgradeFromPhone": "Nimm dein Smartphone!",
@@ -475,7 +506,6 @@
       "title": "Eins noch: Bist du MTV Mobile Kunde?"
     },
     "register": {
-      "body": "Deine 48 Stunden Premium starten sofort.",
       "title": "Registriere dich oder melde dich an, um loszulegen."
     }
   },
