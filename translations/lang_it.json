@@ -22,7 +22,6 @@
     "warning": "Avviso!",
     "purchase": {
       "allPremiumFeatures": "Ottieni l'accesso a tutti i contenuti di MTV Play!",
-      "connectInfo": "Registrati ora e ottieni l'accesso completo per 48 ore! Vogliamo che prima tu dia un'occhiata, quindi i primi due giorni te li regaliamo! Dopo passerai automaticamente a un account gratis, senza subdole quote di registrazione. Promesso!",
       "didYouKnow": "Conosci tutti gli altri vantaggi di essere un cliente di MTV Mobile? Vieni a dare un'occhiata!",
       "freeWithMTV": "Gratis con MTV Mobile",
       "goPremium": "Diventa Premium",
@@ -31,6 +30,10 @@
       "getMore": "Sblocca tutti gli episodi e i canali TV offerti da MTV Play!",
       "buyMonth": "Premium (mensile) a",
       "buyYear": "Premium (annuale) a",
+      "description": {
+        "fire": null,
+        "tv": null
+      },
       "monthlyPass": {
         "body": "Se premi Continua, procederai all'acquisto di un abbonamento mensile per",
         "title": "Premium (mensile)"
@@ -65,7 +68,7 @@
     "verifysuccess": "Ti abbiamo inviato un SMS.",
     "nav": {
       "discover": "Scopri",
-      "allShows": "Tutti i programmi",
+      "allShows": "Programmi",
       "channels": "Canali",
       "shows": "Programmi",
       "television": "TV",
@@ -235,6 +238,13 @@
     "cellphone": "Telefono",
     "comingSoon": null,
     "Connection": "Assicurati di essere connesso a Internet.",
+    "connect": {
+      "tv": {
+        "code": null,
+        "description": null,
+        "title": null
+      }
+    },
     "continue": "Continua",
     "cookieBar": {
       "close": "Close",
@@ -290,6 +300,7 @@
           "premium": "Gratis"
         }
       },
+      "marquee": null,
       "nl": {
         "row1": {
           "free": "Nuove uscite",
@@ -306,30 +317,30 @@
       },
       "no": {
         "row1": {
-          "free": "Nuove uscite",
-          "premium": "Nuove uscite"
+          "free": "New Episodes",
+          "premium": "New Episodes"
         },
         "row2": {
-          "free": "Consigliati",
-          "premium": "Consigliati"
+          "free": "Featured",
+          "premium": "Featured"
         },
         "row3": {
-          "free": "Gratis",
-          "premium": "Gratis"
+          "free": "Top Clips",
+          "premium": "Top Clips"
         }
       },
       "pl": {
         "row1": {
-          "free": "Nuove uscite",
-          "premium": "Nuove uscite"
+          "free": "For Free",
+          "premium": "Warsaw Shore"
         },
         "row2": {
-          "free": "Consigliati",
-          "premium": "Consigliati"
+          "free": "Premiers",
+          "premium": "Premiers"
         },
         "row3": {
-          "free": "Gratis",
-          "premium": "Gratis"
+          "free": "Recommended",
+          "premium": "Recommended"
         }
       }
     },
@@ -350,6 +361,22 @@
     "mailShare": {
       "body": "L'hai già visto? Guardalo su MTV Play!",
       "title": "C'è una cosa che devi guardare su MTV Play."
+    },
+    "menu": {
+      "discover": {
+        "description": null
+      },
+      "register": {
+        "description": null,
+        "loggedin": null,
+        "title": null
+      },
+      "shows": {
+        "description": null
+      },
+      "tv": {
+        "description": null
+      }
     },
     "mobileUpgrade": "Usa la nostra app per fare l'upgrade!",
     "mobileUpgradeInfo": "Purtroppo non puoi acquistare il Premium Pass nel nostro sito web, ma non ti preoccupare, perché è a questo che serve la nostra app per dispositivi mobili. Scegli la versione (iOS, Android o Windows Phone) e scarica MTV Play dallo store. ",
@@ -408,6 +435,11 @@
     "trial": "Prova Premium per 48h",
     "trialActive": "Premium attivo per 48h",
     "tvLogin": "Scarica la nostra app per dispositivi mobili sul telefono o il tablet per accedere o fare l'upgrade. ",
+    "tv": {
+      "register": {
+        "description": null
+      }
+    },
     "unlockPrice": "Sblocca per ",
     "untitled": "Senza titolo",
     "upgradeFromPhone": "Prendi il telefono!",
@@ -475,7 +507,6 @@
       "title": "Ehi, ma ce l'hai MTV Mobile?"
     },
     "register": {
-      "body": "L'accesso Premium gratuito di 48h inizierà subito.",
       "title": "Registrati o accedi per guardare!"
     }
   },
