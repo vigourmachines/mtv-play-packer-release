@@ -22,7 +22,6 @@
     "warning": "Achtung!",
     "purchase": {
       "allPremiumFeatures": "Erhalte Zugriff auf sämtliche MTV Play-Inhalte!",
-      "connectInfo": "Registriere dich jetzt und erhalte 48 Stunden lang vollen Zugriff! Danach wird dein Konto automatisch wieder auf \"Free\" zurückgestuft. Ganz ohne irgendwelche verborgene Abo-Gebühren. Versprochen!",
       "didYouKnow": "Kennst du schon alle anderen Vorteile für MTV Mobile-Kunden? Schau mal rein!",
       "freeWithMTV": "Gratis mit MTV Mobile",
       "goPremium": "Premium-Zugang",
@@ -241,6 +240,7 @@
     "Connection": "Bitte überprüfe deine Internetverbindung",
     "connect": {
       "tv": {
+        "code": "Vierstelliger Code",
         "description": "Um dich mit deinem Konto auf dem Fernseher zu verbinden, gib bitte den vierstelligen Code ein, der dort angezeigt wird. Siehst du keinen Code? Dann gehe bitte auf dein Profil ganz unten im Menü.",
         "title": "Verbinde deinen Fernseher"
       }
@@ -331,16 +331,16 @@
       },
       "pl": {
         "row1": {
-          "free": "Neu",
-          "premium": "Neu"
+          "free": "Gratis",
+          "premium": "Warsaw Shore"
         },
         "row2": {
-          "free": "Empfohlen",
-          "premium": "Empfohlen"
+          "free": "Premieren",
+          "premium": "Premieren"
         },
         "row3": {
-          "free": "Gratis",
-          "premium": "Gratis"
+          "free": "Empfohlen",
+          "premium": "Empfohlen"
         }
       }
     },
@@ -368,6 +368,7 @@
       },
       "register": {
         "description": "Um dich zu registrieren oder dich einzuloggen, gehe bitte auf [location of the login page] und gib den folgenden Code ein.",
+        "loggedin": "Eingeloggt als",
         "title": "Registrieren/Einloggen"
       },
       "shows": {

@@ -22,7 +22,6 @@
     "warning": "Advarsel!",
     "purchase": {
       "allPremiumFeatures": "Få tilgang til alt MTV Play har å tilby!",
-      "connectInfo": "Registrer deg nå og få premiumtilgang til alle programmene i 48 timer! Etterpå går du automatisk over til en gratiskonto. Uten liten tekst. Vi lover!",
       "didYouKnow": "Har du fått med deg alle fordelene ved å være MTV Mobile-kunde? Ta en titt!",
       "freeWithMTV": "Gratis med MTV Mobile",
       "goPremium": "Bli premiummedlem",
@@ -80,7 +79,7 @@
     "mtvPlay": "MTV Play",
     "onTv": "På TV",
     "needToRegister": "Logg på eller registrer deg. ",
-    "easyRegister": "Slapp av, det er enkelt å registrere seg. Vi gir deg til og med 48 timer med premiumtilgang for alle programmene! Og vi gjør ikke noe uærlig med informasjonen din. Hånda på hjertet! ",
+    "easyRegister": "Slapp av, det er enkelt å registrere seg. Og vi gjør ikke noe uærlig med informasjonen din. Hånda på hjertet! ",
     "new": "Nytt",
     "newEpisodes": "Alle nye episoder",
     "newPassword": "Oppgi nytt passord",
@@ -241,6 +240,7 @@
     "Connection": "Kontroller Internett-tilkoblingen din.",
     "connect": {
       "tv": {
+        "code": null,
         "description": null,
         "title": null
       }
@@ -331,16 +331,16 @@
       },
       "pl": {
         "row1": {
+          "free": "Gratis",
+          "premium": "Warsaw Shore"
+        },
+        "row2": {
           "free": "Nye utgivelser",
           "premium": "Nye utgivelser"
         },
-        "row2": {
+        "row3": {
           "free": "Anbefalt",
           "premium": "Anbefalt"
-        },
-        "row3": {
-          "free": "Gratis",
-          "premium": "Gratis"
         }
       }
     },
@@ -368,6 +368,7 @@
       },
       "register": {
         "description": null,
+        "loggedin": null,
         "title": null
       },
       "shows": {
@@ -413,7 +414,7 @@
     "recieveMainScreen": "Trykk på denne knappen på den tilkoblede enheten din for å se videoen her. ",
     "recieveSecondScreen": "Velg denne enheten fra enhetslisten din for å kunne se videoen her. ",
     "register": {
-      "redirectSubtitle": "Vi har registrert kontoen din og oppgradert deg til premiummedlem i 48 timer! Gå tilbake til mobilappen og kos deg. ",
+      "redirectSubtitle": "Vi har registrert kontoen din! Gå tilbake til mobilappen og kos deg. ",
       "redirectTeleport": "Tilbake til appen!",
       "redirectTitle": "Kontoen er bekreftet!"
     },

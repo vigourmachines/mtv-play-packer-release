@@ -22,7 +22,6 @@
     "warning": "Avviso!",
     "purchase": {
       "allPremiumFeatures": "Ottieni l'accesso a tutti i contenuti di MTV Play!",
-      "connectInfo": "Registrati ora e ottieni l'accesso completo per 48 ore! Vogliamo che prima tu dia un'occhiata, quindi i primi due giorni te li regaliamo! Dopo passerai automaticamente a un account gratis, senza subdole quote di registrazione. Promesso!",
       "didYouKnow": "Conosci tutti gli altri vantaggi di essere un cliente di MTV Mobile? Vieni a dare un'occhiata!",
       "freeWithMTV": "Gratis con MTV Mobile",
       "goPremium": "Diventa Premium",
@@ -241,6 +240,7 @@
     "Connection": "Assicurati di essere connesso a Internet.",
     "connect": {
       "tv": {
+        "code": null,
         "description": null,
         "title": null
       }
@@ -331,16 +331,16 @@
       },
       "pl": {
         "row1": {
-          "free": "Nuove uscite",
-          "premium": "Nuove uscite"
+          "free": "For Free",
+          "premium": "Warsaw Shore"
         },
         "row2": {
-          "free": "Consigliati",
-          "premium": "Consigliati"
+          "free": "Premiers",
+          "premium": "Premiers"
         },
         "row3": {
-          "free": "Gratis",
-          "premium": "Gratis"
+          "free": "Recommended",
+          "premium": "Recommended"
         }
       }
     },
@@ -368,6 +368,7 @@
       },
       "register": {
         "description": null,
+        "loggedin": null,
         "title": null
       },
       "shows": {

@@ -22,7 +22,6 @@
     "warning": "Atentie!",
     "purchase": {
       "allPremiumFeatures": "Obtine acces la tot ce-ti poate oferi MTV Play!",
-      "connectInfo": "Vrem sa-ti poti face o parere clara despre ce avem de oferit, asa ca primele doua zile ti le facem cadou! Apoi treci automat pe un cont gratuit, fara abonamente mascate. Promitem!",
       "didYouKnow": "Afla aici ce beneficii primesti daca devii client MTV Mobile!",
       "freeWithMTV": "Gratuit cu MTV Mobile",
       "goPremium": "Fii client Premium",
@@ -241,6 +240,7 @@
     "Connection": "Te rugam sa-ti verifici conexiunea la internet.",
     "connect": {
       "tv": {
+        "code": null,
         "description": null,
         "title": null
       }
@@ -368,6 +368,7 @@
       },
       "register": {
         "description": null,
+        "loggedin": null,
         "title": null
       },
       "shows": {

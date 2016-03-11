@@ -22,7 +22,6 @@
     "warning": "Warning!",
     "purchase": {
       "allPremiumFeatures": "Get access to everything MTV Play has to offer!",
-      "connectInfo": "Register now and get premium acces to all shows for 48 hours! Afterwards you automatically default to a free account. Without sneaky subscription fees. Pinky promise!",
       "didYouKnow": "Did you know about all the other advantages of being an MTV Mobile customer? Check them out!",
       "freeWithMTV": "Free with MTV Mobile",
       "goPremium": "Go premium",
@@ -241,6 +240,7 @@
     "Connection": "Please check your internet connection.",
     "connect": {
       "tv": {
+        "code": "4 Digit Code",
         "description": "To connect your account to the TV, please enter the four digit code on your TV screen. If you don’t see the code, please navigate to the profile icon on the bottom of the menu.",
         "title": "Connect to your TV"
       }
@@ -331,16 +331,16 @@
       },
       "pl": {
         "row1": {
-          "free": "New",
-          "premium": "New"
+          "free": "For Free",
+          "premium": "Warsaw Shore"
         },
         "row2": {
-          "free": "Recommended",
-          "premium": "Recommended"
+          "free": "Premiers",
+          "premium": "Premiers"
         },
         "row3": {
-          "free": "Free",
-          "premium": "Free"
+          "free": "Recommended",
+          "premium": "Recommended"
         }
       }
     },
@@ -368,6 +368,7 @@
       },
       "register": {
         "description": "To register or sign in, please visit [location of the login page] and enter the four digit code below.",
+        "loggedin": "Logged in as",
         "title": "Register/Sign in"
       },
       "shows": {

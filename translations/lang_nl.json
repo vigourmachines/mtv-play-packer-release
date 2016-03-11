@@ -22,7 +22,6 @@
     "warning": "Waarschuwing!",
     "purchase": {
       "allPremiumFeatures": "Krijg toegang tot alles wat MTV Play te bieden heeft!",
-      "connectInfo": "Registreer je nu en krijg 48 uur lang volledige toegang! We willen dat je kunt zien wat we te bieden hebben, dus de eerste twee dagen zijn voor onze rekening! Daarna ontvang je automatisch een gratis account. Zonder stiekeme abonnementskosten. Echt waar!",
       "didYouKnow": "Ken je alle andere voordelen die je hebt als je klant bij MTV Mobile bent? Bekijk ze eens!",
       "freeWithMTV": "Gratis met MTV Mobile",
       "goPremium": "Ga voor Premium",
@@ -241,6 +240,7 @@
     "Connection": "Controleer je internetverbinding.",
     "connect": {
       "tv": {
+        "code": null,
         "description": null,
         "title": null
       }
@@ -331,16 +331,16 @@
       },
       "pl": {
         "row1": {
-          "free": "Nieuwe releases",
-          "premium": "Nieuwe releases"
+          "free": "For Free",
+          "premium": "Warsaw Shore"
         },
         "row2": {
-          "free": "Aanbevolen",
-          "premium": "Aanbevolen"
+          "free": "Premiers",
+          "premium": "Premiers"
         },
         "row3": {
-          "free": "Gratis",
-          "premium": "Gratis"
+          "free": "Recommended",
+          "premium": "Recommended"
         }
       }
     },
@@ -368,6 +368,7 @@
       },
       "register": {
         "description": null,
+        "loggedin": null,
         "title": null
       },
       "shows": {
