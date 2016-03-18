@@ -268,7 +268,7 @@
         "omniture": "viaviamtvplay",
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/production/player.js?2",
+          "web": "http://player.mtvnn.com/html5player/production/player.js?3",
           "settings": {
             "ads": {
               "enabled": true,
