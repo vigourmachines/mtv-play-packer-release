@@ -22,7 +22,6 @@
     "warning": "Uwaga!",
     "purchase": {
       "allPremiumFeatures": "Uzyskaj dostęp do pełnej zawartości MTV Play!",
-      "connectInfo": "Zarejestruj się już teraz, a uzyskasz pełny dostęp na 48 godzin! Chcemy, aby każdy mógł spróbować naszych usług, więc pierwsze dwa dni są bezpłatne! Po upływie tego okresu konto automatycznie przejdzie w tryb bezpłatny. Bez żadnych ukrytych opłat. Słowo honoru!",
       "didYouKnow": "Czy znasz wszystkie korzyści płynące z bycia klientem MTV Mobile? Sprawdź je!",
       "freeWithMTV": "Bezpłatne z MTV Mobile",
       "goPremium": "Załóż konto premium",
@@ -31,6 +30,10 @@
       "getMore": "Odblokuj wszystkie odcinki i kanały telewizyjne dostępne w MTV Play!",
       "buyMonth": "Konto premium (miesięcznie) za",
       "buyYear": "Konto premium (rocznie) za",
+      "description": {
+        "fire": null,
+        "tv": null
+      },
       "monthlyPass": {
         "body": "Klikając przycisk kontynuuj, wykupisz miesięczny abonament za",
         "title": "Konto premium (miesięczne)"
@@ -76,7 +79,7 @@
     "mtvPlay": "MTV Play",
     "onTv": "W telewizji",
     "needToRegister": "Utwórz konto lub zaloguj się. ",
-    "easyRegister": "Bez obaw, rejestracja jest prosta. Dorzucamy nawet 48 godzin darmowego dostępu do konta premium! Nie wykorzystamy podanych danych w nieuczciwy sposób. Słowo honoru! ",
+    "easyRegister": "Bez obaw, rejestracja jest prosta. Nie wykorzystamy podanych danych w nieuczciwy sposób. Słowo honoru! ",
     "new": "Nowy",
     "newEpisodes": "Wszystkie nowe odcinki",
     "newPassword": "Podaj nowe hasło",
@@ -235,6 +238,13 @@
     "cellphone": "Telefon",
     "comingSoon": null,
     "Connection": "Wystąpił problem z połączeniem. Spróbuj ponownie później lub sprawdź swój dostęp do sieci.",
+    "connect": {
+      "tv": {
+        "code": null,
+        "description": null,
+        "title": null
+      }
+    },
     "continue": "Kontynuuj",
     "cookieBar": {
       "close": "Close",
@@ -290,6 +300,7 @@
           "premium": "Darmowe"
         }
       },
+      "marquee": null,
       "nl": {
         "row1": {
           "free": "Premiery",
@@ -306,30 +317,30 @@
       },
       "no": {
         "row1": {
-          "free": "Premiery",
-          "premium": "Premiery"
+          "free": "New Episodes",
+          "premium": "New Episodes"
         },
         "row2": {
-          "free": "Polecane",
-          "premium": "Polecane"
+          "free": "Featured",
+          "premium": "Featured"
         },
         "row3": {
-          "free": "Darmowe",
-          "premium": "Darmowe"
+          "free": "Top Clips",
+          "premium": "Top Clips"
         }
       },
       "pl": {
         "row1": {
+          "free": "Darmowe",
+          "premium": "Warsaw Shore"
+        },
+        "row2": {
           "free": "Premiery",
           "premium": "Premiery"
         },
-        "row2": {
+        "row3": {
           "free": "Polecane",
           "premium": "Polecane"
-        },
-        "row3": {
-          "free": "Darmowe",
-          "premium": "Darmowe"
         }
       }
     },
@@ -350,6 +361,22 @@
     "mailShare": {
       "body": "Widziałeś już ten materiał? Obejrz go na MTV Play!",
       "title": "Jest coś, co powinieneś wiedzieć na temat MTV Play."
+    },
+    "menu": {
+      "discover": {
+        "description": null
+      },
+      "register": {
+        "description": null,
+        "loggedin": null,
+        "title": null
+      },
+      "shows": {
+        "description": null
+      },
+      "tv": {
+        "description": null
+      }
     },
     "mobileUpgrade": "Ulepsz konto za pomocą aplikacji mobilnej!",
     "mobileUpgradeInfo": "Niestety nie możesz wykupić dostępu do konta premium za pośrednictwem naszej witryny. Jednak bez obaw - po to stworzyliśmy nasze aplikacje mobilne. Sięgnij po urządzenie iOS, Android lub Windows Phone i pobierz aplikację MTV Play ze sklepu. ",
@@ -387,7 +414,7 @@
     "recieveMainScreen": "Naciśnij przycisk na połączonym urządzeniu, aby obejrzeć film tutaj. ",
     "recieveSecondScreen": "Wybierz to urządzenie z listy urządzeń, aby obejrzeć na nim film. ",
     "register": {
-      "redirectSubtitle": "Utworzyliśmy Twoje konto i udostępniliśmy Ci opcję premium na 48 godzin. Baw się dobrze korzystając z aplikacji.",
+      "redirectSubtitle": "Utworzyliśmy Twoje konto. Baw się dobrze korzystając z aplikacji. ",
       "redirectTeleport": "Powrót do aplikacji!",
       "redirectTitle": "Zweryfikowano konto!"
     },
@@ -408,6 +435,11 @@
     "trial": "48-godzinny okres próbny konta premium",
     "trialActive": "48-godzinny okres próbny aktywny",
     "tvLogin": "Pobierz naszą aplikację mobilną na telefon lub tablet i zaloguj się lub ulepsz konto. ",
+    "tv": {
+      "register": {
+        "description": null
+      }
+    },
     "unlockPrice": "Odblokuj na 48 godzin ",
     "untitled": "Bez nazwy",
     "upgradeFromPhone": "Sięgnij po telefon!",
@@ -475,7 +507,6 @@
       "title": "Ale najpierw powiedz, czy posiadasz konto MTV Mobile?"
     },
     "register": {
-      "body": "Twój darmowy 48-godzinny okres próbny konta premium rozpocznie się natychmiast.",
       "title": "Utwórz konto lub zaloguj się, aby zacząć oglądać!"
     }
   },

@@ -22,7 +22,6 @@
     "warning": "Advarsel!",
     "purchase": {
       "allPremiumFeatures": "Få tilgang til alt MTV Play har å tilby!",
-      "connectInfo": "Registrer deg nå og få premiumtilgang til alle programmene i 48 timer! Etterpå går du automatisk over til en gratiskonto. Uten liten tekst. Vi lover!",
       "didYouKnow": "Har du fått med deg alle fordelene ved å være MTV Mobile-kunde? Ta en titt!",
       "freeWithMTV": "Gratis med MTV Mobile",
       "goPremium": "Bli premiummedlem",
@@ -31,6 +30,10 @@
       "getMore": "Lås opp alle episodene og TV-kanalene MTV Play har å by på!",
       "buyMonth": "Premium (måned) for",
       "buyYear": "Premium (år) for",
+      "description": {
+        "fire": null,
+        "tv": null
+      },
       "monthlyPass": {
         "body": "Ved å trykke på fortsett kjøper du et månedsabonnement for",
         "title": "Premium (måned)"
@@ -76,11 +79,11 @@
     "mtvPlay": "MTV Play",
     "onTv": "På TV",
     "needToRegister": "Logg på eller registrer deg. ",
-    "easyRegister": "Slapp av, det er enkelt å registrere seg. Vi gir deg til og med 48 timer med premiumtilgang for alle programmene! Og vi gjør ikke noe uærlig med informasjonen din. Hånda på hjertet! ",
+    "easyRegister": "Slapp av, det er enkelt å registrere seg. Og vi gjør ikke noe uærlig med informasjonen din. Hånda på hjertet! ",
     "new": "Nytt",
     "newEpisodes": "Alle nye episoder",
     "newPassword": "Oppgi nytt passord",
-    "newReleases": "Nye utgivelser",
+    "newReleases": "Nyeste Episode",
     "favoriteAdded": "Lagt til i Favoritter",
     "favoriteRemoved": "Fjernet fra Favoritter",
     "favorites": "Favoritter",
@@ -91,7 +94,7 @@
     "play": "Spill av",
     "progress": "Fremgang",
     "pullBack": "Hent video",
-    "recommended": "Anbefalt",
+    "recommended": "Utvalgte",
     "showsYouWatch": "Fortsett å se",
     "search": "Søk",
     "season": "Sesong",
@@ -235,6 +238,13 @@
     "cellphone": "Telefon",
     "comingSoon": null,
     "Connection": "Kontroller Internett-tilkoblingen din.",
+    "connect": {
+      "tv": {
+        "code": null,
+        "description": null,
+        "title": null
+      }
+    },
     "continue": "Fortsett",
     "cookieBar": {
       "close": "Close",
@@ -290,6 +300,7 @@
           "premium": "Gratis"
         }
       },
+      "marquee": null,
       "nl": {
         "row1": {
           "free": "Nye utgivelser",
@@ -306,30 +317,30 @@
       },
       "no": {
         "row1": {
-          "free": "Nye utgivelser",
-          "premium": "Nye utgivelser"
+          "free": "Nyeste episoder",
+          "premium": "Nyeste episoder"
         },
         "row2": {
-          "free": "Anbefalt",
-          "premium": "Anbefalt"
+          "free": "Utvalgte",
+          "premium": "Utvalgte"
         },
         "row3": {
-          "free": "Gratis",
-          "premium": "Gratis"
+          "free": "Nye Klipp",
+          "premium": "Nye Klipp"
         }
       },
       "pl": {
         "row1": {
+          "free": "Gratis",
+          "premium": "Warsaw Shore"
+        },
+        "row2": {
           "free": "Nye utgivelser",
           "premium": "Nye utgivelser"
         },
-        "row2": {
+        "row3": {
           "free": "Anbefalt",
           "premium": "Anbefalt"
-        },
-        "row3": {
-          "free": "Gratis",
-          "premium": "Gratis"
         }
       }
     },
@@ -350,6 +361,22 @@
     "mailShare": {
       "body": "Har du sett dette ennå? Sjekk det på MTV Play!",
       "title": "Det er noe du burde sjekke på MTV Play."
+    },
+    "menu": {
+      "discover": {
+        "description": null
+      },
+      "register": {
+        "description": null,
+        "loggedin": null,
+        "title": null
+      },
+      "shows": {
+        "description": null
+      },
+      "tv": {
+        "description": null
+      }
     },
     "mobileUpgrade": "Bruk mobilappen for å oppgradere!",
     "mobileUpgradeInfo": "Dessverre kan du ikke kjøpe Premium Pass på nettsiden vår. Men ta det med ro – det er derfor vi har mobilapper. Det er bare å finne frem iOS-, Android- eller Windows Phone-enheten din og laste ned MTV Play fra butikken. ",
@@ -387,7 +414,7 @@
     "recieveMainScreen": "Trykk på denne knappen på den tilkoblede enheten din for å se videoen her. ",
     "recieveSecondScreen": "Velg denne enheten fra enhetslisten din for å kunne se videoen her. ",
     "register": {
-      "redirectSubtitle": "Vi har registrert kontoen din og oppgradert deg til premiummedlem i 48 timer! Gå tilbake til mobilappen og kos deg. ",
+      "redirectSubtitle": "Vi har registrert kontoen din! Gå tilbake til mobilappen og kos deg. ",
       "redirectTeleport": "Tilbake til appen!",
       "redirectTitle": "Kontoen er bekreftet!"
     },
@@ -408,6 +435,11 @@
     "trial": "48 timer premiumprøve",
     "trialActive": "48 timer premiumprøve aktiv",
     "tvLogin": "Last ned mobilappen til telefonen eller nettbrettet for å logge på eller oppgradere. ",
+    "tv": {
+      "register": {
+        "description": null
+      }
+    },
     "unlockPrice": "48 leie for ",
     "untitled": "Uten navn",
     "upgradeFromPhone": "Finn frem telefonen!",
@@ -475,7 +507,6 @@
       "title": "Bare en ting først: Har du MTV Mobile?"
     },
     "register": {
-      "body": "Dine 48 timer med premiumtilgang starter med en gang.",
       "title": "Registrer deg eller logg på for å begynne å se!"
     }
   },

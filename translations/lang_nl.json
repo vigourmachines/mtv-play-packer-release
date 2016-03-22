@@ -22,7 +22,6 @@
     "warning": "Waarschuwing!",
     "purchase": {
       "allPremiumFeatures": "Krijg toegang tot alles wat MTV Play te bieden heeft!",
-      "connectInfo": "Registreer je nu en krijg 48 uur lang volledige toegang! We willen dat je kunt zien wat we te bieden hebben, dus de eerste twee dagen zijn voor onze rekening! Daarna ontvang je automatisch een gratis account. Zonder stiekeme abonnementskosten. Echt waar!",
       "didYouKnow": "Ken je alle andere voordelen die je hebt als je klant bij MTV Mobile bent? Bekijk ze eens!",
       "freeWithMTV": "Gratis met MTV Mobile",
       "goPremium": "Ga voor Premium",
@@ -31,6 +30,10 @@
       "getMore": "Ontgrendel alle afleveringen en tv-kanalen die MTV Play te bieden heeft!",
       "buyMonth": "Premium (maand) voor",
       "buyYear": "Premium (jaar) voor",
+      "description": {
+        "fire": null,
+        "tv": null
+      },
       "monthlyPass": {
         "body": "Door op Doorgaan te drukken, koop je een maandabonnement voor",
         "title": "Premium (maand)"
@@ -235,6 +238,13 @@
     "cellphone": "Telefoon",
     "comingSoon": null,
     "Connection": "Controleer je internetverbinding.",
+    "connect": {
+      "tv": {
+        "code": null,
+        "description": null,
+        "title": null
+      }
+    },
     "continue": "Doorgaan",
     "cookieBar": {
       "close": "Akkoord",
@@ -290,6 +300,7 @@
           "premium": "Gratis"
         }
       },
+      "marquee": null,
       "nl": {
         "row1": {
           "free": "Nieuwe releases",
@@ -314,22 +325,22 @@
           "premium": "Aanbevolen"
         },
         "row3": {
-          "free": "Gratis",
-          "premium": "Gratis"
+          "free": "Top Clips",
+          "premium": "Top Clips"
         }
       },
       "pl": {
         "row1": {
-          "free": "Nieuwe releases",
-          "premium": "Nieuwe releases"
+          "free": "For Free",
+          "premium": "Warsaw Shore"
         },
         "row2": {
-          "free": "Aanbevolen",
-          "premium": "Aanbevolen"
+          "free": "Premiers",
+          "premium": "Premiers"
         },
         "row3": {
-          "free": "Gratis",
-          "premium": "Gratis"
+          "free": "Recommended",
+          "premium": "Recommended"
         }
       }
     },
@@ -350,6 +361,22 @@
     "mailShare": {
       "body": "Heb je dit al gezien? Ga kijken op MTV Play!",
       "title": "Er is iets dat je moet bekijken op MTV Play."
+    },
+    "menu": {
+      "discover": {
+        "description": null
+      },
+      "register": {
+        "description": null,
+        "loggedin": null,
+        "title": null
+      },
+      "shows": {
+        "description": null
+      },
+      "tv": {
+        "description": null
+      }
     },
     "mobileUpgrade": "Gebruik mobiele app om te upgraden!",
     "mobileUpgradeInfo": "Helaas kun je op onze website geen Premium Pass kopen. Maar maak je geen zorgen, daar hebben we onze mobiele apps voor. Pak je iOS-, Android- of Windows Phone-apparaat en haal MTV Play op in de store. ",
@@ -408,6 +435,11 @@
     "trial": "48 uur Premium proberen",
     "trialActive": "48 uur Premiumprobeerperiode actief",
     "tvLogin": "Download onze mobiele app op je telefoon of tablet om je aan te melden of te upgraden. ",
+    "tv": {
+      "register": {
+        "description": null
+      }
+    },
     "unlockPrice": "Ontgrendelen voor ",
     "untitled": "Naamloos",
     "upgradeFromPhone": "Pak je telefoon!",
@@ -475,7 +507,6 @@
       "title": "Maar eerst, heb je MTV Mobile?"
     },
     "register": {
-      "body": "Je 48 uur gratis Premiumtoegang begint onmiddellijk.",
       "title": "Registreer je of meld je aan om te kijken!"
     }
   },

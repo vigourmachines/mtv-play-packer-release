@@ -22,7 +22,6 @@
     "warning": "Warning!",
     "purchase": {
       "allPremiumFeatures": "Get access to everything MTV Play has to offer!",
-      "connectInfo": "Register now and get premium acces to all shows for 48 hours! Afterwards you automatically default to a free account. Without sneaky subscription fees. Pinky promise!",
       "didYouKnow": "Did you know about all the other advantages of being an MTV Mobile customer? Check them out!",
       "freeWithMTV": "Free with MTV Mobile",
       "goPremium": "Go premium",
@@ -31,6 +30,10 @@
       "getMore": "Unlock all the episodes and TV channels MTV Play has to offer!",
       "buyMonth": "Premium (Month) for",
       "buyYear": "Premium (Year) for",
+      "description": {
+        "fire": "Get access to every episode of all our shows plus our TV Channels. And don’t worry, if you want to try this first. On Amazon devices your first month is completely for free.",
+        "tv": "Get access to every episode of all our shows plus our TV Channels."
+      },
       "monthlyPass": {
         "body": "By pressing continue you buy a monthly subscription for",
         "title": "Premium (Month)"
@@ -233,8 +236,15 @@
     "backlink": "Back to MTV",
     "buyPremium": "Buy Premium Pass",
     "cellphone": "Phone",
-    "comingSoon": "Coming Soon",
+    "comingSoon": "Not available",
     "Connection": "Please check your internet connection.",
+    "connect": {
+      "tv": {
+        "code": "4 Digit Code",
+        "description": "To connect your account to the TV, please enter the four digit code on your TV screen. If you don’t see the code, please navigate to the profile icon on the bottom of the menu.",
+        "title": "Connect to your TV"
+      }
+    },
     "continue": "Continue",
     "cookieBar": {
       "close": "Close",
@@ -290,6 +300,7 @@
           "premium": "Free"
         }
       },
+      "marquee": "Spotlight",
       "nl": {
         "row1": {
           "free": "New",
@@ -306,30 +317,30 @@
       },
       "no": {
         "row1": {
-          "free": "New",
-          "premium": "New"
+          "free": "New Episodes",
+          "premium": "New Episodes"
         },
         "row2": {
-          "free": "Recommended",
-          "premium": "Recommended"
+          "free": "Featured",
+          "premium": "Featured"
         },
         "row3": {
-          "free": "Free",
-          "premium": "Free"
+          "free": "Top Clips",
+          "premium": "Top Clips"
         }
       },
       "pl": {
         "row1": {
-          "free": "New",
-          "premium": "New"
+          "free": "For Free",
+          "premium": "Warsaw Shore"
         },
         "row2": {
-          "free": "Recommended",
-          "premium": "Recommended"
+          "free": "Premiers",
+          "premium": "Premiers"
         },
         "row3": {
-          "free": "Free",
-          "premium": "Free"
+          "free": "Recommended",
+          "premium": "Recommended"
         }
       }
     },
@@ -351,8 +362,24 @@
       "body": "Have you seen this yet? Check it out on MTV Play!",
       "title": "There's something you need to check out on MTV Play."
     },
+    "menu": {
+      "discover": {
+        "description": "Find out what’s new!"
+      },
+      "register": {
+        "description": "To register or sign in, please visit [location of the login page] and enter the four digit code below.",
+        "loggedin": "Logged in as",
+        "title": "Register/Sign in"
+      },
+      "shows": {
+        "description": "Browse through all our shows."
+      },
+      "tv": {
+        "description": "Watch our live TV channels."
+      }
+    },
     "mobileUpgrade": "Use Mobile App to Upgrade!",
-    "mobileUpgradeInfo": "Unfortunately you can't buy a Premium Pass on our website. But don't worry, that's what our mobile apps are for. Just pick up your iOS, Android or Windows Phone device and get MTV Play from the store. ",
+    "mobileUpgradeInfo": "Unfortunately you can't buy a Premium Pass on our website. But don't worry, that's what our mobile apps are for. Just pick up your iOS or Android device and get MTV Play from the store. ",
     "newAccount": "Welcome! You can now sign in. ",
     "newPasswordConfirm": "Confirm Password",
     "newsletterSubtitle": "We will never send you spam!",
@@ -408,6 +435,11 @@
     "trial": "48 Hours Premium Trial",
     "trialActive": "48hr Premium trial active",
     "tvLogin": "Download our mobile app to your phone or tablet to log in or upgrade. ",
+    "tv": {
+      "register": {
+        "description": "Please register an account or sign in with your MTV Play credentials, if you already have an account."
+      }
+    },
     "unlockPrice": "48h Rental for ",
     "untitled": "Untitled",
     "upgradeFromPhone": "Grab your phone!",
@@ -458,8 +490,8 @@
       "body": "MTV Play is the best way to watch all your favorite MTV shows wherever you are. "
     },
     "devices": {
-      "title": "MTV Play is everywhere!",
-      "body": "We have apps on Phones, Tablets, Smart TVs and your Browser so you can watch your shows anywhere!"
+      "title": "MTV Play is Everywhere!",
+      "body": "We have apps for Phones, Tablets, Smart TVs and your Browser so you can watch your shows anywhere!"
     },
     "connect": {
       "title": "Connect Screens!",
@@ -475,7 +507,6 @@
       "title": "But first, do you have MTV Mobile?"
     },
     "register": {
-      "body": "Your free 48 hours of Premium access start right away.",
       "title": "Register or sign in to start watching!"
     }
   },
