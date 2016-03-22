@@ -1,11 +1,12 @@
 {
   "name": "mtv-play",
-  "version": "1.2.84",
+  "version": "1.2.86",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
     "test": "test/test.js",
-    "build": "gaston build -s ./index.js -o . -i && cd xhr && gaston build -s ./index.js -o . && cp build.js bundle.js",
+    "build": "gaston build -s ./index.js -o . -i && cd xhr && gaston build -s ./index.js -o . && cp build.js bundle.js && rm build.css",
+    "bundle": "gaston bundle -s ./index.js -o . -i",
     "ios": "npm run build && ./node_modules/.bin/wrapper build --native.selectedPlatforms ios",
     "release": "cp build.css bundle.css && ./node_modules/.bin/ferry --release --mergeFiles '[\"./package.json\",\"./.package.json\"]'"
   },
@@ -268,7 +269,7 @@
         "omniture": "viaviamtvplay",
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/production/player.js?3",
+          "web": "http://player.mtvnn.com/html5player/production/player.js?2",
           "settings": {
             "ads": {
               "enabled": true,
@@ -283,6 +284,7 @@
       "develop": {
         "imgOrigin": "http://staging.riptide.mtvnn.com/",
         "cloud": "http://mtv-hub.dev.vigour.io:80",
+        "regionOverride": "DE",
         "facebook": {
           "id": "720547754665171"
         },
@@ -291,10 +293,10 @@
         },
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/development/player.js",
+          "web": "http://player.mtvnn.com/html5player/production/player.js?v=2",
           "settings": {
             "ads": {
-              "enabled": true
+              "enabled": false
             }
           }
         },
