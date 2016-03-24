@@ -296,7 +296,7 @@
           "web": "http://player.mtvnn.com/html5player/production/player.js?v=2",
           "settings": {
             "ads": {
-              "enabled": false
+              "enabled": true
             }
           }
         },
