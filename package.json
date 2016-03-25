@@ -113,6 +113,7 @@
       "debug": false,
       "web": "http://player.mtvnn.com/html5player/production/player.js",
       "settings": {
+        "homadURL": "/homad/config.json",
         "ad_playpostrolls": true,
         "domain": "mtv",
         "tld": "de",
@@ -186,6 +187,7 @@
         "cast": "*",
         "cast.html": true,
         "xhr": "*",
+        "homad": "*",
         "googleebecff275dd42f4a.html": true,
         "google2c4a46fac7686373.html": true,
         "sitemap.xml": true,
