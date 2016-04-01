@@ -323,7 +323,7 @@
           "type": "staging",
           "url": "https://utt-staging.mtvnn.com/"
         },
-        "cloud": "production",
+        "cloud": "http://mtv-hub-staging.dev.vigour.io:80",
         "omniture": "vianorthtestweb",
         "development": {
           "button": false
