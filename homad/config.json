@@ -1,0 +1,11 @@
+{
+  "enabled": true,
+  "server": [
+    "http://[hash].1.damoh.mtvplay.tv/",
+    "http://[hash].2.damoh.mtvplay.tv/",
+    "http://[hash].3.damoh.mtvplay.tv/"
+  ],
+  "alias": "tvmtvplay2ab7fvfwmrmnet",
+  "adpath": "",
+  "config": "http://homad-global-configs-eu-fra.schneevonmorgen.com.s3.amazonaws.com/www.mtvplay.tv/config.json"
+}
