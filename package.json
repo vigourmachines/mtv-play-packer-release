@@ -337,7 +337,7 @@
           "settings": {
             "ads": {
               "enabled": true,
-              "viralSID": "production"
+              "viralSID": "staging"
             }
           }
         }
