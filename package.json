@@ -337,7 +337,7 @@
           "settings": {
             "ads": {
               "enabled": true,
-              "viralSID": "staging"
+              "viralSID": "mtvplaytv/test"
             }
           }
         }
