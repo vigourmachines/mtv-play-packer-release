@@ -1952,47 +1952,6 @@ a {
   vertical-align: top;
   display: table-cell;
 }
-/* file: /Users/renancarvalho/Documents/showtime/mtv-play/components/first/favourite/style.less */
-.ui-icon.favorited {
-  color: #FFEB00 !important;
-}
-.desktop .ui-icon.favorited {
-  color: #FDCD2F !important;
-}
-/* file: /Users/renancarvalho/Documents/showtime/mtv-play/components/player/volume/style.less */
-.player-volume {
-  display: inline-block;
-}
-.player-volume > div {
-  display: inline-block;
-  margin-right: 6px;
-  margin-top: 4px;
-  overflow: hidden;
-  background-color: #ffffff;
-  border-radius: 1px;
-}
-.player-volume > div .nested {
-  background-color: #FFEB00;
-  height: 100%;
-  width: 100%;
-}
-.player-volume > div:hover {
-  margin-top: 0;
-}
-.fullscreen-player .player-volume > div {
-  height: 32px;
-  width: 4px;
-}
-.fullscreen-player .player-volume > div:hover {
-  height: 36px;
-}
-.windowed-player .player-volume > div {
-  height: 23px;
-  width: 2px;
-}
-.windowed-player .player-volume > div:hover {
-  height: 27px;
-}
 /* file: /Users/renancarvalho/Documents/showtime/mtv-play/components/player/controls/style.less */
 .player-controls {
   height: 100%;
@@ -2034,6 +1993,47 @@ a {
 .phone .player-controls .seekbar {
   left: 58px;
   right: 58px;
+}
+/* file: /Users/renancarvalho/Documents/showtime/mtv-play/components/first/favourite/style.less */
+.ui-icon.favorited {
+  color: #FFEB00 !important;
+}
+.desktop .ui-icon.favorited {
+  color: #FDCD2F !important;
+}
+/* file: /Users/renancarvalho/Documents/showtime/mtv-play/components/player/volume/style.less */
+.player-volume {
+  display: inline-block;
+}
+.player-volume > div {
+  display: inline-block;
+  margin-right: 6px;
+  margin-top: 4px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 1px;
+}
+.player-volume > div .nested {
+  background-color: #FFEB00;
+  height: 100%;
+  width: 100%;
+}
+.player-volume > div:hover {
+  margin-top: 0;
+}
+.fullscreen-player .player-volume > div {
+  height: 32px;
+  width: 4px;
+}
+.fullscreen-player .player-volume > div:hover {
+  height: 36px;
+}
+.windowed-player .player-volume > div {
+  height: 23px;
+  width: 2px;
+}
+.windowed-player .player-volume > div:hover {
+  height: 27px;
 }
 /* file: /Users/renancarvalho/Documents/showtime/mtv-play/components/second/episode/style.less */
 .second-episode > div {
@@ -2183,29 +2183,6 @@ a {
 .second-channels .information .epg .bar {
   margin: 20px 0px 20px 0px;
 }
-/* file: /Users/renancarvalho/Documents/showtime/mtv-play/components/second/discover/style.less */
-.second-discover {
-  white-space: nowrap;
-}
-.second-discover > div {
-  display: inline-block;
-  white-space: normal;
-  vertical-align: top;
-  margin-left: 80px;
-}
-.second-discover .holder {
-  overflow: hidden;
-}
-.second-discover .roll {
-  white-space: nowrap;
-}
-.second-discover .roll > div {
-  display: inline-block;
-  background-size: cover;
-}
-.bigPurp {
-  background-color: #3A1A58;
-}
 /* file: /Users/renancarvalho/Documents/showtime/mtv-play/components/second/shows/style.less */
 .second-shows {
   height: 100%;
@@ -2254,6 +2231,29 @@ a {
   -ms-transition: opacity 0.3s ease-out;
   -o-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
+}
+/* file: /Users/renancarvalho/Documents/showtime/mtv-play/components/second/discover/style.less */
+.second-discover {
+  white-space: nowrap;
+}
+.second-discover > div {
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+  margin-left: 80px;
+}
+.second-discover .holder {
+  overflow: hidden;
+}
+.second-discover .roll {
+  white-space: nowrap;
+}
+.second-discover .roll > div {
+  display: inline-block;
+  background-size: cover;
+}
+.bigPurp {
+  background-color: #3A1A58;
 }
 /* file: /Users/renancarvalho/Documents/showtime/mtv-play/components/item/style.less */
 .ui-item {
@@ -4978,69 +4978,6 @@ body {
 select {
   cursor: pointer !important;
 }
-/* file: /Users/renancarvalho/Documents/showtime/mtv-play/components/rotate-message/style.less */
-@-webkit-keyframes rotate {
-  0% {
-    -webkit-transform: rotate(-90deg);
-  }
-  100% {
-    -webkit-transform: rotate(0deg);
-  }
-}
-@-moz-keyframes rotate {
-  0% {
-    -moz-transform: rotate(-90deg);
-  }
-  100% {
-    -moz-transform: rotate(0deg);
-  }
-}
-@-o-keyframes rotate {
-  0% {
-    -o-transform: rotate(-90deg);
-  }
-  100% {
-    -o-transform: rotate(0deg);
-  }
-}
-@keyframes rotate {
-  0% {
-    transform: rotate(-90deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-.rotate-message {
-  background-color: #3A1A58;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  display: table;
-  text-align: center;
-}
-.rotate-message .holder {
-  display: table-cell;
-  vertical-align: middle;
-}
-.rotate-message .icon {
-  color: #EE255C;
-  font-size: 128px;
-  line-height: 128px;
-  -webkit-animation: rotate 2s infinite;
-  /* Safari 4+ */
-  -moz-animation: rotate 2s infinite;
-  /* Fx 5+ */
-  -o-animation: rotate 2s infinite;
-  /* Opera 12+ */
-  animation: rotate 2s infinite;
-  /* IE 10+, Fx 29+ */
-}
-.rotate-message .message {
-  line-height: 36px;
-  color: #ffffff;
-}
 /* file: /Users/renancarvalho/Documents/showtime/mtv-play/components/cookiebar/style.less */
 .cookie-bar {
   -webkit-box-sizing: border-box;
@@ -5157,6 +5094,69 @@ select {
 .desktop .cookie-bar .cookie-button:hover,
 .desktop .cookie-bar-nl .cookie-button:hover {
   background-color: #3A1A58;
+  color: #ffffff;
+}
+/* file: /Users/renancarvalho/Documents/showtime/mtv-play/components/rotate-message/style.less */
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(-90deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+@-moz-keyframes rotate {
+  0% {
+    -moz-transform: rotate(-90deg);
+  }
+  100% {
+    -moz-transform: rotate(0deg);
+  }
+}
+@-o-keyframes rotate {
+  0% {
+    -o-transform: rotate(-90deg);
+  }
+  100% {
+    -o-transform: rotate(0deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.rotate-message {
+  background-color: #3A1A58;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: table;
+  text-align: center;
+}
+.rotate-message .holder {
+  display: table-cell;
+  vertical-align: middle;
+}
+.rotate-message .icon {
+  color: #EE255C;
+  font-size: 128px;
+  line-height: 128px;
+  -webkit-animation: rotate 2s infinite;
+  /* Safari 4+ */
+  -moz-animation: rotate 2s infinite;
+  /* Fx 5+ */
+  -o-animation: rotate 2s infinite;
+  /* Opera 12+ */
+  animation: rotate 2s infinite;
+  /* IE 10+, Fx 29+ */
+}
+.rotate-message .message {
+  line-height: 36px;
   color: #ffffff;
 }
 /* file: /Users/renancarvalho/Documents/showtime/mtv-play/components/switcher/style.less */
