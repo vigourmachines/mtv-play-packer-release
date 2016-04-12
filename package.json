@@ -233,9 +233,9 @@
         "single": "mtvplay_single_purchase"
       },
       "amazon": {
-        "monthly": "com.mtvplay.web.sub.month",
-        "yearly": "com.mtvplay.web.sub.year",
-        "single": "com.mtvplay.web.episode"
+        "monthly": "com.mtvplay.app.sub.month",
+        "yearly": "com.mtvplay.app.sub.year",
+        "single": "com.mtvplay.app.episode"
       }
     },
     "branches": {
