@@ -1,770 +1,4 @@
-require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/renancarvalho/Documents/showtime/gaston/node_modules/browser-resolve/empty.js":[function(require,module,exports){
-
-},{}],"/Users/renancarvalho/Documents/showtime/gaston/node_modules/browserify/lib/_empty.js":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/gaston/node_modules/browser-resolve/empty.js"][0].apply(exports,arguments)
-},{}],"/Users/renancarvalho/Documents/showtime/gaston/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
-if (typeof Object.create === 'function') {
-  // implementation from standard node.js 'util' module
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    ctor.prototype = Object.create(superCtor.prototype, {
-      constructor: {
-        value: ctor,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
-  };
-} else {
-  // old school shim for old browsers
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    var TempCtor = function () {}
-    TempCtor.prototype = superCtor.prototype
-    ctor.prototype = new TempCtor()
-    ctor.prototype.constructor = ctor
-  }
-}
-
-},{}],"/Users/renancarvalho/Documents/showtime/gaston/node_modules/os-browserify/browser.js":[function(require,module,exports){
-exports.endianness = function () { return 'LE' };
-
-exports.hostname = function () {
-    if (typeof location !== 'undefined') {
-        return location.hostname
-    }
-    else return '';
-};
-
-exports.loadavg = function () { return [] };
-
-exports.uptime = function () { return 0 };
-
-exports.freemem = function () {
-    return Number.MAX_VALUE;
-};
-
-exports.totalmem = function () {
-    return Number.MAX_VALUE;
-};
-
-exports.cpus = function () { return [] };
-
-exports.type = function () { return 'Browser' };
-
-exports.release = function () {
-    if (typeof navigator !== 'undefined') {
-        return navigator.appVersion;
-    }
-    return '';
-};
-
-exports.networkInterfaces
-= exports.getNetworkInterfaces
-= function () { return {} };
-
-exports.arch = function () { return 'javascript' };
-
-exports.platform = function () { return 'browser' };
-
-exports.tmpdir = exports.tmpDir = function () {
-    return '/tmp';
-};
-
-exports.EOL = '\n';
-
-},{}],"/Users/renancarvalho/Documents/showtime/gaston/node_modules/process/browser.js":[function(require,module,exports){
-// shim for using process in browser
-
-var process = module.exports = {};
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
-    } else {
-        queueIndex = -1;
-    }
-    if (queue.length) {
-        drainQueue();
-    }
-}
-
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = setTimeout(cleanUpNextTick);
-    draining = true;
-
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
-            }
-        }
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    clearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
-    }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        setTimeout(drainQueue, 0);
-    }
-};
-
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() { return 0; };
-
-},{}],"/Users/renancarvalho/Documents/showtime/gaston/node_modules/util/support/isBufferBrowser.js":[function(require,module,exports){
-module.exports = function isBuffer(arg) {
-  return arg && typeof arg === 'object'
-    && typeof arg.copy === 'function'
-    && typeof arg.fill === 'function'
-    && typeof arg.readUInt8 === 'function';
-}
-},{}],"/Users/renancarvalho/Documents/showtime/gaston/node_modules/util/util.js":[function(require,module,exports){
-(function (process,global){
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-var formatRegExp = /%[sdj%]/g;
-exports.format = function(f) {
-  if (!isString(f)) {
-    var objects = [];
-    for (var i = 0; i < arguments.length; i++) {
-      objects.push(inspect(arguments[i]));
-    }
-    return objects.join(' ');
-  }
-
-  var i = 1;
-  var args = arguments;
-  var len = args.length;
-  var str = String(f).replace(formatRegExp, function(x) {
-    if (x === '%%') return '%';
-    if (i >= len) return x;
-    switch (x) {
-      case '%s': return String(args[i++]);
-      case '%d': return Number(args[i++]);
-      case '%j':
-        try {
-          return JSON.stringify(args[i++]);
-        } catch (_) {
-          return '[Circular]';
-        }
-      default:
-        return x;
-    }
-  });
-  for (var x = args[i]; i < len; x = args[++i]) {
-    if (isNull(x) || !isObject(x)) {
-      str += ' ' + x;
-    } else {
-      str += ' ' + inspect(x);
-    }
-  }
-  return str;
-};
-
-
-// Mark that a method should not be used.
-// Returns a modified function which warns once by default.
-// If --no-deprecation is set, then it is a no-op.
-exports.deprecate = function(fn, msg) {
-  // Allow for deprecating things in the process of starting up.
-  if (isUndefined(global.process)) {
-    return function() {
-      return exports.deprecate(fn, msg).apply(this, arguments);
-    };
-  }
-
-  if (process.noDeprecation === true) {
-    return fn;
-  }
-
-  var warned = false;
-  function deprecated() {
-    if (!warned) {
-      if (process.throwDeprecation) {
-        throw new Error(msg);
-      } else if (process.traceDeprecation) {
-        console.trace(msg);
-      } else {
-        console.error(msg);
-      }
-      warned = true;
-    }
-    return fn.apply(this, arguments);
-  }
-
-  return deprecated;
-};
-
-
-var debugs = {};
-var debugEnviron;
-exports.debuglog = function(set) {
-  if (isUndefined(debugEnviron))
-    debugEnviron = process.env.NODE_DEBUG || '';
-  set = set.toUpperCase();
-  if (!debugs[set]) {
-    if (new RegExp('\\b' + set + '\\b', 'i').test(debugEnviron)) {
-      var pid = process.pid;
-      debugs[set] = function() {
-        var msg = exports.format.apply(exports, arguments);
-        console.error('%s %d: %s', set, pid, msg);
-      };
-    } else {
-      debugs[set] = function() {};
-    }
-  }
-  return debugs[set];
-};
-
-
-/**
- * Echos the value of a value. Trys to print the value out
- * in the best way possible given the different types.
- *
- * @param {Object} obj The object to print out.
- * @param {Object} opts Optional options object that alters the output.
- */
-/* legacy: obj, showHidden, depth, colors*/
-function inspect(obj, opts) {
-  // default options
-  var ctx = {
-    seen: [],
-    stylize: stylizeNoColor
-  };
-  // legacy...
-  if (arguments.length >= 3) ctx.depth = arguments[2];
-  if (arguments.length >= 4) ctx.colors = arguments[3];
-  if (isBoolean(opts)) {
-    // legacy...
-    ctx.showHidden = opts;
-  } else if (opts) {
-    // got an "options" object
-    exports._extend(ctx, opts);
-  }
-  // set default options
-  if (isUndefined(ctx.showHidden)) ctx.showHidden = false;
-  if (isUndefined(ctx.depth)) ctx.depth = 2;
-  if (isUndefined(ctx.colors)) ctx.colors = false;
-  if (isUndefined(ctx.customInspect)) ctx.customInspect = true;
-  if (ctx.colors) ctx.stylize = stylizeWithColor;
-  return formatValue(ctx, obj, ctx.depth);
-}
-exports.inspect = inspect;
-
-
-// http://en.wikipedia.org/wiki/ANSI_escape_code#graphics
-inspect.colors = {
-  'bold' : [1, 22],
-  'italic' : [3, 23],
-  'underline' : [4, 24],
-  'inverse' : [7, 27],
-  'white' : [37, 39],
-  'grey' : [90, 39],
-  'black' : [30, 39],
-  'blue' : [34, 39],
-  'cyan' : [36, 39],
-  'green' : [32, 39],
-  'magenta' : [35, 39],
-  'red' : [31, 39],
-  'yellow' : [33, 39]
-};
-
-// Don't use 'blue' not visible on cmd.exe
-inspect.styles = {
-  'special': 'cyan',
-  'number': 'yellow',
-  'boolean': 'yellow',
-  'undefined': 'grey',
-  'null': 'bold',
-  'string': 'green',
-  'date': 'magenta',
-  // "name": intentionally not styling
-  'regexp': 'red'
-};
-
-
-function stylizeWithColor(str, styleType) {
-  var style = inspect.styles[styleType];
-
-  if (style) {
-    return '\u001b[' + inspect.colors[style][0] + 'm' + str +
-           '\u001b[' + inspect.colors[style][1] + 'm';
-  } else {
-    return str;
-  }
-}
-
-
-function stylizeNoColor(str, styleType) {
-  return str;
-}
-
-
-function arrayToHash(array) {
-  var hash = {};
-
-  array.forEach(function(val, idx) {
-    hash[val] = true;
-  });
-
-  return hash;
-}
-
-
-function formatValue(ctx, value, recurseTimes) {
-  // Provide a hook for user-specified inspect functions.
-  // Check that value is an object with an inspect function on it
-  if (ctx.customInspect &&
-      value &&
-      isFunction(value.inspect) &&
-      // Filter out the util module, it's inspect function is special
-      value.inspect !== exports.inspect &&
-      // Also filter out any prototype objects using the circular check.
-      !(value.constructor && value.constructor.prototype === value)) {
-    var ret = value.inspect(recurseTimes, ctx);
-    if (!isString(ret)) {
-      ret = formatValue(ctx, ret, recurseTimes);
-    }
-    return ret;
-  }
-
-  // Primitive types cannot have properties
-  var primitive = formatPrimitive(ctx, value);
-  if (primitive) {
-    return primitive;
-  }
-
-  // Look up the keys of the object.
-  var keys = Object.keys(value);
-  var visibleKeys = arrayToHash(keys);
-
-  if (ctx.showHidden) {
-    keys = Object.getOwnPropertyNames(value);
-  }
-
-  // IE doesn't make error fields non-enumerable
-  // http://msdn.microsoft.com/en-us/library/ie/dww52sbt(v=vs.94).aspx
-  if (isError(value)
-      && (keys.indexOf('message') >= 0 || keys.indexOf('description') >= 0)) {
-    return formatError(value);
-  }
-
-  // Some type of object without properties can be shortcutted.
-  if (keys.length === 0) {
-    if (isFunction(value)) {
-      var name = value.name ? ': ' + value.name : '';
-      return ctx.stylize('[Function' + name + ']', 'special');
-    }
-    if (isRegExp(value)) {
-      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
-    }
-    if (isDate(value)) {
-      return ctx.stylize(Date.prototype.toString.call(value), 'date');
-    }
-    if (isError(value)) {
-      return formatError(value);
-    }
-  }
-
-  var base = '', array = false, braces = ['{', '}'];
-
-  // Make Array say that they are Array
-  if (isArray(value)) {
-    array = true;
-    braces = ['[', ']'];
-  }
-
-  // Make functions say that they are functions
-  if (isFunction(value)) {
-    var n = value.name ? ': ' + value.name : '';
-    base = ' [Function' + n + ']';
-  }
-
-  // Make RegExps say that they are RegExps
-  if (isRegExp(value)) {
-    base = ' ' + RegExp.prototype.toString.call(value);
-  }
-
-  // Make dates with properties first say the date
-  if (isDate(value)) {
-    base = ' ' + Date.prototype.toUTCString.call(value);
-  }
-
-  // Make error with message first say the error
-  if (isError(value)) {
-    base = ' ' + formatError(value);
-  }
-
-  if (keys.length === 0 && (!array || value.length == 0)) {
-    return braces[0] + base + braces[1];
-  }
-
-  if (recurseTimes < 0) {
-    if (isRegExp(value)) {
-      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
-    } else {
-      return ctx.stylize('[Object]', 'special');
-    }
-  }
-
-  ctx.seen.push(value);
-
-  var output;
-  if (array) {
-    output = formatArray(ctx, value, recurseTimes, visibleKeys, keys);
-  } else {
-    output = keys.map(function(key) {
-      return formatProperty(ctx, value, recurseTimes, visibleKeys, key, array);
-    });
-  }
-
-  ctx.seen.pop();
-
-  return reduceToSingleString(output, base, braces);
-}
-
-
-function formatPrimitive(ctx, value) {
-  if (isUndefined(value))
-    return ctx.stylize('undefined', 'undefined');
-  if (isString(value)) {
-    var simple = '\'' + JSON.stringify(value).replace(/^"|"$/g, '')
-                                             .replace(/'/g, "\\'")
-                                             .replace(/\\"/g, '"') + '\'';
-    return ctx.stylize(simple, 'string');
-  }
-  if (isNumber(value))
-    return ctx.stylize('' + value, 'number');
-  if (isBoolean(value))
-    return ctx.stylize('' + value, 'boolean');
-  // For some reason typeof null is "object", so special case here.
-  if (isNull(value))
-    return ctx.stylize('null', 'null');
-}
-
-
-function formatError(value) {
-  return '[' + Error.prototype.toString.call(value) + ']';
-}
-
-
-function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
-  var output = [];
-  for (var i = 0, l = value.length; i < l; ++i) {
-    if (hasOwnProperty(value, String(i))) {
-      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
-          String(i), true));
-    } else {
-      output.push('');
-    }
-  }
-  keys.forEach(function(key) {
-    if (!key.match(/^\d+$/)) {
-      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
-          key, true));
-    }
-  });
-  return output;
-}
-
-
-function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
-  var name, str, desc;
-  desc = Object.getOwnPropertyDescriptor(value, key) || { value: value[key] };
-  if (desc.get) {
-    if (desc.set) {
-      str = ctx.stylize('[Getter/Setter]', 'special');
-    } else {
-      str = ctx.stylize('[Getter]', 'special');
-    }
-  } else {
-    if (desc.set) {
-      str = ctx.stylize('[Setter]', 'special');
-    }
-  }
-  if (!hasOwnProperty(visibleKeys, key)) {
-    name = '[' + key + ']';
-  }
-  if (!str) {
-    if (ctx.seen.indexOf(desc.value) < 0) {
-      if (isNull(recurseTimes)) {
-        str = formatValue(ctx, desc.value, null);
-      } else {
-        str = formatValue(ctx, desc.value, recurseTimes - 1);
-      }
-      if (str.indexOf('\n') > -1) {
-        if (array) {
-          str = str.split('\n').map(function(line) {
-            return '  ' + line;
-          }).join('\n').substr(2);
-        } else {
-          str = '\n' + str.split('\n').map(function(line) {
-            return '   ' + line;
-          }).join('\n');
-        }
-      }
-    } else {
-      str = ctx.stylize('[Circular]', 'special');
-    }
-  }
-  if (isUndefined(name)) {
-    if (array && key.match(/^\d+$/)) {
-      return str;
-    }
-    name = JSON.stringify('' + key);
-    if (name.match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/)) {
-      name = name.substr(1, name.length - 2);
-      name = ctx.stylize(name, 'name');
-    } else {
-      name = name.replace(/'/g, "\\'")
-                 .replace(/\\"/g, '"')
-                 .replace(/(^"|"$)/g, "'");
-      name = ctx.stylize(name, 'string');
-    }
-  }
-
-  return name + ': ' + str;
-}
-
-
-function reduceToSingleString(output, base, braces) {
-  var numLinesEst = 0;
-  var length = output.reduce(function(prev, cur) {
-    numLinesEst++;
-    if (cur.indexOf('\n') >= 0) numLinesEst++;
-    return prev + cur.replace(/\u001b\[\d\d?m/g, '').length + 1;
-  }, 0);
-
-  if (length > 60) {
-    return braces[0] +
-           (base === '' ? '' : base + '\n ') +
-           ' ' +
-           output.join(',\n  ') +
-           ' ' +
-           braces[1];
-  }
-
-  return braces[0] + base + ' ' + output.join(', ') + ' ' + braces[1];
-}
-
-
-// NOTE: These type checking functions intentionally don't use `instanceof`
-// because it is fragile and can be easily faked with `Object.create()`.
-function isArray(ar) {
-  return Array.isArray(ar);
-}
-exports.isArray = isArray;
-
-function isBoolean(arg) {
-  return typeof arg === 'boolean';
-}
-exports.isBoolean = isBoolean;
-
-function isNull(arg) {
-  return arg === null;
-}
-exports.isNull = isNull;
-
-function isNullOrUndefined(arg) {
-  return arg == null;
-}
-exports.isNullOrUndefined = isNullOrUndefined;
-
-function isNumber(arg) {
-  return typeof arg === 'number';
-}
-exports.isNumber = isNumber;
-
-function isString(arg) {
-  return typeof arg === 'string';
-}
-exports.isString = isString;
-
-function isSymbol(arg) {
-  return typeof arg === 'symbol';
-}
-exports.isSymbol = isSymbol;
-
-function isUndefined(arg) {
-  return arg === void 0;
-}
-exports.isUndefined = isUndefined;
-
-function isRegExp(re) {
-  return isObject(re) && objectToString(re) === '[object RegExp]';
-}
-exports.isRegExp = isRegExp;
-
-function isObject(arg) {
-  return typeof arg === 'object' && arg !== null;
-}
-exports.isObject = isObject;
-
-function isDate(d) {
-  return isObject(d) && objectToString(d) === '[object Date]';
-}
-exports.isDate = isDate;
-
-function isError(e) {
-  return isObject(e) &&
-      (objectToString(e) === '[object Error]' || e instanceof Error);
-}
-exports.isError = isError;
-
-function isFunction(arg) {
-  return typeof arg === 'function';
-}
-exports.isFunction = isFunction;
-
-function isPrimitive(arg) {
-  return arg === null ||
-         typeof arg === 'boolean' ||
-         typeof arg === 'number' ||
-         typeof arg === 'string' ||
-         typeof arg === 'symbol' ||  // ES6 symbol
-         typeof arg === 'undefined';
-}
-exports.isPrimitive = isPrimitive;
-
-exports.isBuffer = require('./support/isBuffer');
-
-function objectToString(o) {
-  return Object.prototype.toString.call(o);
-}
-
-
-function pad(n) {
-  return n < 10 ? '0' + n.toString(10) : n.toString(10);
-}
-
-
-var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
-              'Oct', 'Nov', 'Dec'];
-
-// 26 Feb 16:19:34
-function timestamp() {
-  var d = new Date();
-  var time = [pad(d.getHours()),
-              pad(d.getMinutes()),
-              pad(d.getSeconds())].join(':');
-  return [d.getDate(), months[d.getMonth()], time].join(' ');
-}
-
-
-// log is just a thin wrapper to console.log that prepends a timestamp
-exports.log = function() {
-  console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
-};
-
-
-/**
- * Inherit the prototype methods from one constructor into another.
- *
- * The Function.prototype.inherits from lang.js rewritten as a standalone
- * function (not on Function.prototype). NOTE: If this file is to be loaded
- * during bootstrapping this function needs to be rewritten using some native
- * functions as prototype setup using normal JavaScript does not work as
- * expected during bootstrapping (see mirror.js in r114903).
- *
- * @param {function} ctor Constructor function which needs to inherit the
- *     prototype.
- * @param {function} superCtor Constructor function to inherit prototype from.
- */
-exports.inherits = require('inherits');
-
-exports._extend = function(origin, add) {
-  // Don't do anything if add isn't an object
-  if (!add || !isObject(add)) return origin;
-
-  var keys = Object.keys(add);
-  var i = keys.length;
-  while (i--) {
-    origin[keys[i]] = add[keys[i]];
-  }
-  return origin;
-};
-
-function hasOwnProperty(obj, prop) {
-  return Object.prototype.hasOwnProperty.call(obj, prop);
-}
-
-}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":"/Users/renancarvalho/Documents/showtime/gaston/node_modules/util/support/isBufferBrowser.js","_process":"/Users/renancarvalho/Documents/showtime/gaston/node_modules/process/browser.js","inherits":"/Users/renancarvalho/Documents/showtime/gaston/node_modules/inherits/inherits_browser.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/email.js":[function(require,module,exports){
+require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/youzi/dev/mtv-play/api/email.js":[function(require,module,exports){
 var Value = require('old-vigour-js/value')
 var config = require('old-vigour-js/util/config')
 var cases = require('old-vigour-js/browser/cases')
@@ -835,7 +69,7 @@ module.exports = exports = new Value({
   }
 })
 
-},{"old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/facebook/index.js":[function(require,module,exports){
+},{"old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/facebook/index.js":[function(require,module,exports){
 var Value = require('old-vigour-js/value')
 var config = require('old-vigour-js/util/config')
 var defer = require('old-vigour-js/value/flags/process')
@@ -895,7 +129,7 @@ exports._name = 'facebook'
 require('./login')
 require('./share')
 
-},{"./login":"/Users/renancarvalho/Documents/showtime/mtv-play/api/facebook/login.js","./share":"/Users/renancarvalho/Documents/showtime/mtv-play/api/facebook/share.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js","old-vigour-js/value/flags/process":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/facebook/login.js":[function(require,module,exports){
+},{"./login":"/Users/youzi/dev/mtv-play/api/facebook/login.js","./share":"/Users/youzi/dev/mtv-play/api/facebook/share.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js","old-vigour-js/value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/api/facebook/login.js":[function(require,module,exports){
 var Value = require( 'old-vigour-js/value' )
 var config = require( 'old-vigour-js/util/config' )
 var util = require( 'old-vigour-js/util' )
@@ -968,7 +202,7 @@ facebook.val = {
     }
   }
 }
-},{"./index.js":"/Users/renancarvalho/Documents/showtime/mtv-play/api/facebook/index.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/network/url":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/url.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/facebook/share.js":[function(require,module,exports){
+},{"./index.js":"/Users/youzi/dev/mtv-play/api/facebook/index.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/url.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/facebook/share.js":[function(require,module,exports){
 var Value = require( 'old-vigour-js/value' )
 var config = require( 'old-vigour-js/util/config' )
 var util = require( 'old-vigour-js/util' )
@@ -1096,7 +330,7 @@ if( !!window.cordova ) {
   } )()
 }
 
-},{"./index.js":"/Users/renancarvalho/Documents/showtime/mtv-play/api/facebook/index.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/network/url":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/url.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/index.js":[function(require,module,exports){
+},{"./index.js":"/Users/youzi/dev/mtv-play/api/facebook/index.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/url.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/index.js":[function(require,module,exports){
 exports.login = require('./login')
 exports.verify = require('./verify')
 exports.register = require('./register')
@@ -1112,8 +346,40 @@ exports.url = require('./url')
 exports.player = require('./player')
 exports.price = require('./purchase/pricing')
 exports.operator = require('./operator')
+exports.info = require('./info')
 
-},{"./email":"/Users/renancarvalho/Documents/showtime/mtv-play/api/email.js","./facebook":"/Users/renancarvalho/Documents/showtime/mtv-play/api/facebook/index.js","./login":"/Users/renancarvalho/Documents/showtime/mtv-play/api/login.js","./mobile":"/Users/renancarvalho/Documents/showtime/mtv-play/api/mobile.js","./network":"/Users/renancarvalho/Documents/showtime/mtv-play/api/network.js","./operator":"/Users/renancarvalho/Documents/showtime/mtv-play/api/operator.js","./password":"/Users/renancarvalho/Documents/showtime/mtv-play/api/password.js","./player":"/Users/renancarvalho/Documents/showtime/mtv-play/api/player.js","./purchase":"/Users/renancarvalho/Documents/showtime/mtv-play/api/purchase/index.js","./purchase/pricing":"/Users/renancarvalho/Documents/showtime/mtv-play/api/purchase/pricing.js","./receipt":"/Users/renancarvalho/Documents/showtime/mtv-play/api/receipt.js","./register":"/Users/renancarvalho/Documents/showtime/mtv-play/api/register.js","./url":"/Users/renancarvalho/Documents/showtime/mtv-play/api/url.js","./user":"/Users/renancarvalho/Documents/showtime/mtv-play/api/user.js","./verify":"/Users/renancarvalho/Documents/showtime/mtv-play/api/verify.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/login.js":[function(require,module,exports){
+},{"./email":"/Users/youzi/dev/mtv-play/api/email.js","./facebook":"/Users/youzi/dev/mtv-play/api/facebook/index.js","./info":"/Users/youzi/dev/mtv-play/api/info.js","./login":"/Users/youzi/dev/mtv-play/api/login.js","./mobile":"/Users/youzi/dev/mtv-play/api/mobile.js","./network":"/Users/youzi/dev/mtv-play/api/network.js","./operator":"/Users/youzi/dev/mtv-play/api/operator.js","./password":"/Users/youzi/dev/mtv-play/api/password.js","./player":"/Users/youzi/dev/mtv-play/api/player.js","./purchase":"/Users/youzi/dev/mtv-play/api/purchase/index.js","./purchase/pricing":"/Users/youzi/dev/mtv-play/api/purchase/pricing.js","./receipt":"/Users/youzi/dev/mtv-play/api/receipt.js","./register":"/Users/youzi/dev/mtv-play/api/register.js","./url":"/Users/youzi/dev/mtv-play/api/url.js","./user":"/Users/youzi/dev/mtv-play/api/user.js","./verify":"/Users/youzi/dev/mtv-play/api/verify.js"}],"/Users/youzi/dev/mtv-play/api/info.js":[function(require,module,exports){
+var config = require('old-vigour-js/util/config')
+var Value = require('old-vigour-js/value')
+var url = config.api.url
+
+window.TEST = module.exports = exports = new Value({
+  episode_pass_available: 0,
+  ajax: {
+    url: function () {
+      // todo make this an internal part of ajax defer --- add to the defer tempars and compare there
+      // TODO: add from - self
+      var val = this._val instanceof Value ? this._val : this
+      if (typeof val.val === 'string') {
+        var str = url + 'api/v1/utt_info/c153f28d950ae49a/' + val.val + '.json'
+        this._cached = val.val
+        return str
+      }
+    },
+    defer: function (update, args, err, data) {
+      if (data.country_info) {
+        for (var i in data.country_info) {
+          if (this[i]) {
+            this[i].val = data.country_info[i]
+          }
+        }
+      }
+      update()
+    }
+  }
+})
+
+},{"old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/login.js":[function(require,module,exports){
 var config = require('old-vigour-js/util/config')
 var Value = require('old-vigour-js/value')
 var util = require('./util')
@@ -1174,7 +440,7 @@ module.exports = exports = new Value({
 // TODO: get rid of this temp fix
 exports._name = '_mtvlogin'
 
-},{"./util":"/Users/renancarvalho/Documents/showtime/mtv-play/api/util.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js","old-vigour-js/value/flags/process":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/mobile.js":[function(require,module,exports){
+},{"./util":"/Users/youzi/dev/mtv-play/api/util.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js","old-vigour-js/value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/api/mobile.js":[function(require,module,exports){
 var config = require('old-vigour-js/util/config')
 var Value = require('old-vigour-js/value')
 var util = require('./util')
@@ -1271,7 +537,7 @@ module.exports = exports = new Value({
   }
 })
 
-},{"./util":"/Users/renancarvalho/Documents/showtime/mtv-play/api/util.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/network.js":[function(require,module,exports){
+},{"./util":"/Users/youzi/dev/mtv-play/api/util.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/network.js":[function(require,module,exports){
 var Value = require('old-vigour-js/value')
 
 module.exports = exports = new Value()
@@ -1286,7 +552,7 @@ if (!!window.cordova) {
   }, false)
 }
 
-},{"old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/operator.js":[function(require,module,exports){
+},{"old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/operator.js":[function(require,module,exports){
 var config = require('old-vigour-js/util/config')
 var Value = require('old-vigour-js/value')
 var app = require('old-vigour-js/app')
@@ -1371,7 +637,7 @@ exports.upgrade = new Value({
   }
 })
 
-},{"./util":"/Users/renancarvalho/Documents/showtime/mtv-play/api/util.js","old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/password.js":[function(require,module,exports){
+},{"./util":"/Users/youzi/dev/mtv-play/api/util.js","old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/password.js":[function(require,module,exports){
 var config = require( 'old-vigour-js/util/config' )
 var Value = require( 'old-vigour-js/value' )
 var util = require( './util' )
@@ -1440,7 +706,7 @@ module.exports = exports = new Value( {
 //control.resetToken 
 exports._name = 'password'
 
-},{"./util":"/Users/renancarvalho/Documents/showtime/mtv-play/api/util.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/player.js":[function(require,module,exports){
+},{"./util":"/Users/youzi/dev/mtv-play/api/util.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/player.js":[function(require,module,exports){
 var config = require('old-vigour-js/util/config')
 var Value = require('old-vigour-js/value')
 var playerApi
@@ -1483,7 +749,7 @@ module.exports = exports = new Value({
   }
 })
 
-},{"jquery":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/jquery/dist/jquery.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/purchase/index.js":[function(require,module,exports){
+},{"jquery":"/Users/youzi/dev/mtv-play/node_modules/jquery/dist/jquery.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/purchase/index.js":[function(require,module,exports){
 var config = require('old-vigour-js/util/config')
 var Value = require('old-vigour-js/value')
 var util = require('../util')
@@ -1676,7 +942,7 @@ module.exports = exports = new Value({
 
 exports._name = 'purchase'
 
-},{"../util":"/Users/renancarvalho/Documents/showtime/mtv-play/api/util.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/purchase/pricing.js":[function(require,module,exports){
+},{"../util":"/Users/youzi/dev/mtv-play/api/util.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/purchase/pricing.js":[function(require,module,exports){
 var cases = require('old-vigour-js/browser/cases')
 var app = require('old-vigour-js/app')
 var config = require('old-vigour-js/util/config')
@@ -1872,7 +1138,7 @@ exports.yearly = new Value(
   }
 })
 
-},{"old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/receipt.js":[function(require,module,exports){
+},{"old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/receipt.js":[function(require,module,exports){
 var config = require('old-vigour-js/util/config')
 var Value = require('old-vigour-js/value')
 var util = require('./util')
@@ -2046,7 +1312,7 @@ if (cases.native) {
   finish()
 }
 
-},{"./util":"/Users/renancarvalho/Documents/showtime/mtv-play/api/util.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/util/encode64.js":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/encode64.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/register.js":[function(require,module,exports){
+},{"./util":"/Users/youzi/dev/mtv-play/api/util.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/util/encode64.js":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/encode64.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/register.js":[function(require,module,exports){
 var config = require('old-vigour-js/util/config')
 var Value = require('old-vigour-js/value')
 var cases = require('old-vigour-js/browser/cases')
@@ -2107,7 +1373,7 @@ module.exports = exports = new Value({
 
 exports._name = 'register'
 
-},{"./util":"/Users/renancarvalho/Documents/showtime/mtv-play/api/util.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/context.js":[function(require,module,exports){
+},{"./util":"/Users/youzi/dev/mtv-play/api/util.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/context.js":[function(require,module,exports){
 var map = require( './map' )
 var ua = require( 'old-vigour-js/browser/ua' )
 var config = require( 'old-vigour-js/util/config' )
@@ -2197,7 +1463,7 @@ module.exports = function context( title, pageView, franchise ) {
 
 }
 
-},{"./map":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/map.js","./omniture":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/omniture.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/dataform.js":[function(require,module,exports){
+},{"./map":"/Users/youzi/dev/mtv-play/api/tracking/map.js","./omniture":"/Users/youzi/dev/mtv-play/api/tracking/omniture.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/dataform.js":[function(require,module,exports){
 var ajax = require( 'old-vigour-js/browser/network/ajax' );
 var postpone = require( 'old-vigour-js/browser/events/util' ).postpone;
 require( './ga' )
@@ -2253,7 +1519,7 @@ exports.sendEvent = sendEvent;
 exports.setUserid = setUserid;
 exports.setDimension = setDimension;
 
-},{"./ga":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/ga.js","old-vigour-js/browser/events/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/util.js","old-vigour-js/browser/network/ajax":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/ajax.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/dfp.js":[function(require,module,exports){
+},{"./ga":"/Users/youzi/dev/mtv-play/api/tracking/ga.js","old-vigour-js/browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/util.js","old-vigour-js/browser/network/ajax":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/ajax.js"}],"/Users/youzi/dev/mtv-play/api/tracking/dfp.js":[function(require,module,exports){
 var cases = require('old-vigour-js/browser/cases')
 var googletag = window.googletag
 
@@ -2366,7 +1632,7 @@ module.exports = function (page) {
   }
 }
 
-},{"old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/ga.js":[function(require,module,exports){
+},{"old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/ga.js":[function(require,module,exports){
 var cases = require( 'old-vigour-js/browser/cases' );
 
 ( function( i, s, o, g, r, a, m ) {
@@ -2393,7 +1659,7 @@ if( !cases.native ) {
 
 module.exports = window.ga
 
-},{"old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/index.js":[function(require,module,exports){
+},{"old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/index.js":[function(require,module,exports){
 var omniture = require('./omniture')
 var postpone = require('old-vigour-js/browser/events/util').postpone
 var ua = require('old-vigour-js/browser/ua')
@@ -2613,7 +1879,7 @@ exports.pageView = postpone(function (obj) {
     nuggad.sendData()
   }
 
-  if ( !cases.isUpgraded || !cases.hasMobile ) {
+  if ( !cases.$isUpgraded.val || !cases.$hasMobile.val ) {
     if (window && window.googletag) {
       window.googletag.pubads().updateCorrelator()
       window.googletag.pubads().refresh()
@@ -2641,7 +1907,7 @@ cases.$isLoggedIn.on(function () {
   }
 })
 
-},{"../../app/user":"/Users/renancarvalho/Documents/showtime/mtv-play/app/user.js","./context":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/context.js","./dataform":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/dataform.js","./dfp":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/dfp.js","./infoOnline":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/infoOnline.js","./map":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/map.js","./nuggad":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/nuggad.js","./omniture":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/omniture.js","./pagename":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/pagename.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/util.js","old-vigour-js/browser/network/ajax":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/ajax.js","old-vigour-js/browser/network/url":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/url.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/infoOnline.js":[function(require,module,exports){
+},{"../../app/user":"/Users/youzi/dev/mtv-play/app/user.js","./context":"/Users/youzi/dev/mtv-play/api/tracking/context.js","./dataform":"/Users/youzi/dev/mtv-play/api/tracking/dataform.js","./dfp":"/Users/youzi/dev/mtv-play/api/tracking/dfp.js","./infoOnline":"/Users/youzi/dev/mtv-play/api/tracking/infoOnline.js","./map":"/Users/youzi/dev/mtv-play/api/tracking/map.js","./nuggad":"/Users/youzi/dev/mtv-play/api/tracking/nuggad.js","./omniture":"/Users/youzi/dev/mtv-play/api/tracking/omniture.js","./pagename":"/Users/youzi/dev/mtv-play/api/tracking/pagename.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/util.js","old-vigour-js/browser/network/ajax":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/ajax.js","old-vigour-js/browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/url.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/infoOnline.js":[function(require,module,exports){
 var cases = require('old-vigour-js/browser/cases')
 var app = require('old-vigour-js/app')
 
@@ -2695,7 +1961,7 @@ exports.sendData = function (page, videoStart) {
   }
 }
 
-},{"old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/lib/AppMeasurement.js":[function(require,module,exports){
+},{"old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/api/tracking/lib/AppMeasurement.js":[function(require,module,exports){
 /*
  ============== DO NOT ALTER ANYTHING BELOW THIS LINE ! ===============
 
@@ -2765,7 +2031,7 @@ window.AppMeasurement = AppMeasurement;
 
 
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/map.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/api/tracking/map.js":[function(require,module,exports){
 /*  0 = sprop, 1 = evar */
 exports.vars = {
   branch: [ 13, 13 ],
@@ -2862,7 +2128,7 @@ exports.weekDays = [ 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'fr
 
   */
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/nuggad.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/api/tracking/nuggad.js":[function(require,module,exports){
 exports.initialize = function () {
   var script = document.createElement('script')
   script.onerror = function(err) {
@@ -2900,13 +2166,13 @@ exports.sendData = function () {
   // })
 }
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/omniture.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/api/tracking/omniture.js":[function(require,module,exports){
 var omni = require('./lib/AppMeasurement.js')
 var map = require('./map')
 
 module.exports = new AppMeasurement()
 
-},{"./lib/AppMeasurement.js":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/lib/AppMeasurement.js","./map":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/map.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/pagename.js":[function(require,module,exports){
+},{"./lib/AppMeasurement.js":"/Users/youzi/dev/mtv-play/api/tracking/lib/AppMeasurement.js","./map":"/Users/youzi/dev/mtv-play/api/tracking/map.js"}],"/Users/youzi/dev/mtv-play/api/tracking/pagename.js":[function(require,module,exports){
 var omniture = require('./omniture')
 var postpone = require('old-vigour-js/browser/events/util').postpone
 var ua = require('old-vigour-js/browser/ua')
@@ -2979,7 +2245,7 @@ module.exports = function pagename(current) {
   }
 }
 
-},{"./context":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/context.js","./map":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/map.js","./omniture":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/omniture.js","old-vigour-js/browser/events/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/util.js","old-vigour-js/browser/network/url":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/url.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/url.js":[function(require,module,exports){
+},{"./context":"/Users/youzi/dev/mtv-play/api/tracking/context.js","./map":"/Users/youzi/dev/mtv-play/api/tracking/map.js","./omniture":"/Users/youzi/dev/mtv-play/api/tracking/omniture.js","old-vigour-js/browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/util.js","old-vigour-js/browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/url.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/url.js":[function(require,module,exports){
 var Value = require('old-vigour-js/value')
 var cases = require('old-vigour-js/browser/cases')
 
@@ -3022,7 +2288,7 @@ module.exports = exports = new Value({
 
 exports._name = '_urlApi'
 
-},{"old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/user.js":[function(require,module,exports){
+},{"old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/user.js":[function(require,module,exports){
 var config = require('old-vigour-js/util/config')
 var Value = require('old-vigour-js/value') // all process flags
 var url = config.api.url
@@ -3082,7 +2348,7 @@ exports.role.poll.on(function (val) {
 
 exports._name = 'userApi'
 
-},{"old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/util.js":[function(require,module,exports){
+},{"old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/api/util.js":[function(require,module,exports){
 var config = require('old-vigour-js/util/config')
 var errors = {
   emailExists: 'Email has already been taken',
@@ -3121,7 +2387,7 @@ exports.findError = function (data) {
   return 'invalid'
 }
 
-},{"old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/api/verify.js":[function(require,module,exports){
+},{"old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/api/verify.js":[function(require,module,exports){
 var config = require('old-vigour-js/util/config')
 var Value = require('old-vigour-js/value') // all process flags
 var util = require('./util')
@@ -3150,7 +2416,7 @@ module.exports = exports = new Value({
 
 exports._name = 'verify'
 
-},{"./util":"/Users/renancarvalho/Documents/showtime/mtv-play/api/util.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/app/config.js":[function(require,module,exports){
+},{"./util":"/Users/youzi/dev/mtv-play/api/util.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/config.js":[function(require,module,exports){
 module.exports = exports = require('old-vigour-js/util/config')
 
 var util = require('old-vigour-js/util')
@@ -3211,7 +2477,7 @@ if (!cases.native) {
   exports.hashUrl = false
 }
 
-},{"old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/app/index.js":[function(require,module,exports){
+},{"old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/index.js":[function(require,module,exports){
 var app = module.exports = require('old-vigour-js/app')
   .inject(
     require('old-vigour-js/app/content'),
@@ -3313,7 +2579,6 @@ app.operators = new Obj({})
 app.region.on(function () {
   var region = app.region.val
   if (typeof region === 'string') {
-
     var country = app.country || app.region.val
     if (!country || !~config.availableRegions.indexOf(country.toUpperCase())) {
       cases.$allowPlayback.val = false
@@ -3373,6 +2638,13 @@ api.user.val = {
   newsletter: user.accept_newsletter
 }
 
+/* ------------  single purchase ------------  */
+cases.$hasEpisodePass = new Value({
+  val: api.info.episode_pass_available
+})
+
+api.info.val = app.region
+
 /* ------------  login ------------  */
 require('./login')
 
@@ -3397,7 +2669,7 @@ require('./tracking')
 /* ------------ app init ------------ */
 require('./init')
 
-},{"../api":"/Users/renancarvalho/Documents/showtime/mtv-play/api/index.js","./config":"/Users/renancarvalho/Documents/showtime/mtv-play/app/config.js","./init":"/Users/renancarvalho/Documents/showtime/mtv-play/app/init.js","./intro":"/Users/renancarvalho/Documents/showtime/mtv-play/app/intro.js","./localisation":"/Users/renancarvalho/Documents/showtime/mtv-play/app/localisation.js","./login":"/Users/renancarvalho/Documents/showtime/mtv-play/app/login.js","./playback":"/Users/renancarvalho/Documents/showtime/mtv-play/app/playback.js","./popup":"/Users/renancarvalho/Documents/showtime/mtv-play/app/popup.js","./register":"/Users/renancarvalho/Documents/showtime/mtv-play/app/register.js","./share":"/Users/renancarvalho/Documents/showtime/mtv-play/app/share.js","./tracking":"/Users/renancarvalho/Documents/showtime/mtv-play/app/tracking.js","./upgrade":"/Users/renancarvalho/Documents/showtime/mtv-play/app/upgrade.js","./user":"/Users/renancarvalho/Documents/showtime/mtv-play/app/user.js","./util":"/Users/renancarvalho/Documents/showtime/mtv-play/app/util.js","old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/content":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/content.js","old-vigour-js/app/user":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/index.js","old-vigour-js/browser/animation/frame":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/frame.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/app/init.js":[function(require,module,exports){
+},{"../api":"/Users/youzi/dev/mtv-play/api/index.js","./config":"/Users/youzi/dev/mtv-play/app/config.js","./init":"/Users/youzi/dev/mtv-play/app/init.js","./intro":"/Users/youzi/dev/mtv-play/app/intro.js","./localisation":"/Users/youzi/dev/mtv-play/app/localisation.js","./login":"/Users/youzi/dev/mtv-play/app/login.js","./playback":"/Users/youzi/dev/mtv-play/app/playback.js","./popup":"/Users/youzi/dev/mtv-play/app/popup.js","./register":"/Users/youzi/dev/mtv-play/app/register.js","./share":"/Users/youzi/dev/mtv-play/app/share.js","./tracking":"/Users/youzi/dev/mtv-play/app/tracking.js","./upgrade":"/Users/youzi/dev/mtv-play/app/upgrade.js","./user":"/Users/youzi/dev/mtv-play/app/user.js","./util":"/Users/youzi/dev/mtv-play/app/util.js","old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/content":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/content.js","old-vigour-js/app/user":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/index.js","old-vigour-js/browser/animation/frame":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/frame.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/init.js":[function(require,module,exports){
 var app = require('old-vigour-js/app')
 var user = app.user
 var cases = app.cases
@@ -3491,7 +2763,7 @@ app.region
     if (cases.touch) app.node.style.backgroundColor = 'black'
   })
 
-},{"../components/password":"/Users/renancarvalho/Documents/showtime/mtv-play/components/password/index.js","./config":"/Users/renancarvalho/Documents/showtime/mtv-play/app/config.js","old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","promise":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/promise/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/app/intro.js":[function(require,module,exports){
+},{"../components/password":"/Users/youzi/dev/mtv-play/components/password/index.js","./config":"/Users/youzi/dev/mtv-play/app/config.js","old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","promise":"/Users/youzi/dev/mtv-play/node_modules/promise/index.js"}],"/Users/youzi/dev/mtv-play/app/intro.js":[function(require,module,exports){
 var app = module.exports = require( 'old-vigour-js/app' )
 var cases = app.cases
 
@@ -3506,7 +2778,7 @@ if( cases.native && !localStorage.getItem( 'haveSeenIntro' ) ) {
   } )
 }
 
-},{"old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/app/localisation.js":[function(require,module,exports){
+},{"old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js"}],"/Users/youzi/dev/mtv-play/app/localisation.js":[function(require,module,exports){
 var app = require('old-vigour-js/app')
 var config = app.config = require('./config')
 var dictionary = require('old-vigour-js/app/dictionary')
@@ -3520,7 +2792,7 @@ app.dictionary = dictionary
 var regionOverride = config.regionOverride
 if (regionOverride) {
   if (regionOverride === 'url') {
-    var regions = ['CH', 'BE', 'DE', 'NO', 'NL', 'PL']
+    var regions = config.availableRegions
     var href = window.location.href
     var regionat = href.indexOf('r=')
     regionOverride = href.slice(regionat + 2, regionat + 4)
@@ -3579,7 +2851,7 @@ app.localDictionary = new Value({
     if (country && region !== country) {
       region = 'en'
     }
-    if(region === 'CH' || region === 'AT'){
+    if (region === 'CH' || region === 'AT') {
       region = 'de'
     }
     if (region) {
@@ -3595,7 +2867,7 @@ app.localDictionary = new Value({
   val: app.region
 })
 
-},{"./config":"/Users/renancarvalho/Documents/showtime/mtv-play/app/config.js","old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/app/login.js":[function(require,module,exports){
+},{"./config":"/Users/youzi/dev/mtv-play/app/config.js","old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/login.js":[function(require,module,exports){
 var config = require('./config')
 var cases = require('old-vigour-js/browser/cases')
 var app = require('old-vigour-js/app/')
@@ -3710,7 +2982,7 @@ api.facebook.login
   })
   .loading.on(app.loading)
 
-},{"../api":"/Users/renancarvalho/Documents/showtime/mtv-play/api/index.js","./config":"/Users/renancarvalho/Documents/showtime/mtv-play/app/config.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/app/playback.js":[function(require,module,exports){
+},{"../api":"/Users/youzi/dev/mtv-play/api/index.js","./config":"/Users/youzi/dev/mtv-play/app/config.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/app/playback.js":[function(require,module,exports){
 var app = require('old-vigour-js/app')
 var config = app.config = require('./config')
 var Value = require('old-vigour-js/value')
@@ -3866,7 +3138,7 @@ if (config.player && config.player.settings.ads.viralSID === 'production') {
   }
 }
 
-},{"./config":"/Users/renancarvalho/Documents/showtime/mtv-play/app/config.js","old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/app/popup.js":[function(require,module,exports){
+},{"./config":"/Users/youzi/dev/mtv-play/app/config.js","old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/popup.js":[function(require,module,exports){
 var app = require( 'old-vigour-js/app' )
 var cases = app.cases
 
@@ -3888,7 +3160,7 @@ app.popup.val = {
   }
 }
 
-},{"old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/app/register.js":[function(require,module,exports){
+},{"old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js"}],"/Users/youzi/dev/mtv-play/app/register.js":[function(require,module,exports){
 var config = require('./config')
 var app = require('old-vigour-js/app/')
 var user = app.user
@@ -4028,7 +3300,7 @@ app.url.params
     }
   })
 
-},{"../api":"/Users/renancarvalho/Documents/showtime/mtv-play/api/index.js","./config":"/Users/renancarvalho/Documents/showtime/mtv-play/app/config.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/app/share.js":[function(require,module,exports){
+},{"../api":"/Users/youzi/dev/mtv-play/api/index.js","./config":"/Users/youzi/dev/mtv-play/app/config.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/app/share.js":[function(require,module,exports){
 var config = require('./config')
 var dictionary = require('old-vigour-js/app/dictionary')
 var app = require('old-vigour-js/app/')
@@ -4093,7 +3365,7 @@ api.email.share.val = {
   }
 }
 
-},{"../api":"/Users/renancarvalho/Documents/showtime/mtv-play/api/index.js","./config":"/Users/renancarvalho/Documents/showtime/mtv-play/app/config.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/app/spotlight.js":[function(require,module,exports){
+},{"../api":"/Users/youzi/dev/mtv-play/api/index.js","./config":"/Users/youzi/dev/mtv-play/app/config.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js"}],"/Users/youzi/dev/mtv-play/app/spotlight.js":[function(require,module,exports){
 var config = require( 'old-vigour-js/util/config' )
 var app = require( 'old-vigour-js/app/' )
 var Value = require( 'old-vigour-js/value' )
@@ -4171,7 +3443,7 @@ exports.map = {
 
 exports.val = user.role
 
-},{"old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/app/tracking.js":[function(require,module,exports){
+},{"old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/tracking.js":[function(require,module,exports){
 /*
   TODO: still missing events
   , enable3g:10
@@ -4378,7 +3650,7 @@ app.playing.on(function ( val ) {
 
 // popup
 
-},{"../api":"/Users/renancarvalho/Documents/showtime/mtv-play/api/index.js","../api/tracking":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/index.js","../api/tracking/dataform":"/Users/renancarvalho/Documents/showtime/mtv-play/api/tracking/dataform.js","./index":"/Users/renancarvalho/Documents/showtime/mtv-play/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/app/upgrade.js":[function(require,module,exports){
+},{"../api":"/Users/youzi/dev/mtv-play/api/index.js","../api/tracking":"/Users/youzi/dev/mtv-play/api/tracking/index.js","../api/tracking/dataform":"/Users/youzi/dev/mtv-play/api/tracking/dataform.js","./index":"/Users/youzi/dev/mtv-play/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/upgrade.js":[function(require,module,exports){
 var config = require('./config')
 var app = require('old-vigour-js/app/')
 var user = app.user
@@ -4554,7 +3826,7 @@ api.operator.upgrade.on('success', function () {
   })
   .loading.on(app.loading)
 
-},{"../api":"/Users/renancarvalho/Documents/showtime/mtv-play/api/index.js","./config":"/Users/renancarvalho/Documents/showtime/mtv-play/app/config.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/app/user.js":[function(require,module,exports){
+},{"../api":"/Users/youzi/dev/mtv-play/api/index.js","./config":"/Users/youzi/dev/mtv-play/app/config.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/app/user.js":[function(require,module,exports){
 var app = require('old-vigour-js/app')
 var cases = app.cases
 var Value = require('old-vigour-js/value')
@@ -4721,7 +3993,7 @@ cases.$isReceiver.on(function () {
   }
 })
 
-},{"./spotlight":"/Users/renancarvalho/Documents/showtime/mtv-play/app/spotlight.js","old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/user/multiscreen":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/multiscreen/index.js","old-vigour-js/app/user/multiscreen/cast":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/multiscreen/cast/index.js","old-vigour-js/app/user/navigation":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/navigation.js","old-vigour-js/app/user/token":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/token.js","old-vigour-js/app/user/url":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/url.js","old-vigour-js/app/user/usage":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/usage.js","old-vigour-js/browser/network/url":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/url.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/app/util.js":[function(require,module,exports){
+},{"./spotlight":"/Users/youzi/dev/mtv-play/app/spotlight.js","old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/user/multiscreen":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/multiscreen/index.js","old-vigour-js/app/user/multiscreen/cast":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/multiscreen/cast/index.js","old-vigour-js/app/user/navigation":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/navigation.js","old-vigour-js/app/user/token":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/token.js","old-vigour-js/app/user/url":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/url.js","old-vigour-js/app/user/usage":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/usage.js","old-vigour-js/browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/url.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/app/util.js":[function(require,module,exports){
 var app = require('old-vigour-js/app/'),
   cases = require('old-vigour-js/browser/cases'),
   playIcon = cases.phone ? 'play' : 'playAlt'
@@ -4745,9 +4017,9 @@ exports.access = function (access, media) {
   return accesAllowed ? playIcon : 'lockedContent'
 }
 
-},{"old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/common.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/gaston/node_modules/browser-resolve/empty.js"][0].apply(exports,arguments)
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/index.js":[function(require,module,exports){
+},{"old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/common.less":[function(require,module,exports){
+
+},{}],"/Users/youzi/dev/mtv-play/components/ad/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('old-vigour-js/app/ui/element')
@@ -4796,10 +4068,10 @@ exports.Interstitial = new Element({
   }
 }).Class
 
-},{"./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/style.less","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/style.less":[function(require,module,exports){
+},{"./style.less":"/Users/youzi/dev/mtv-play/components/ad/style.less","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/ad/style.less":[function(require,module,exports){
 require('../../common.less');
 
-},{"../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/button/index.js":[function(require,module,exports){
+},{"../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/button/index.js":[function(require,module,exports){
 require( './style.less' )
 
 var Element = require( 'old-vigour-js/app/ui/element' )
@@ -4831,9 +4103,9 @@ switcher.extend( {
 
 exports.Switcher = switcher.Class
 
-},{"../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/button/style.less","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/button/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
-},{"../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/cookiebar/index.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/button/style.less","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/components/button/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
+},{"../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/cookiebar/index.js":[function(require,module,exports){
 require('./style.less')
 
 var app = require('old-vigour-js/app')
@@ -5016,9 +4288,9 @@ module.exports = new Element({
   }
 }).Class
 
-},{"../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/cookiebar/style.less","old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/cookiebar/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
-},{"../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/epg_temp.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/cookiebar/style.less","old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/cookiebar/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
+},{"../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/epg_temp.js":[function(require,module,exports){
 var Data = require('old-vigour-js/data')
 var app = require('old-vigour-js/app/')
 var config = require('old-vigour-js/util/config')
@@ -5173,7 +4445,7 @@ function returnLink(i) {
   return ['mtvData', app.region.val, app.language.val, 'channels', i].join('.')
 }
 
-},{"old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/network/ajax":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/ajax.js","old-vigour-js/data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/channels/index.js":[function(require,module,exports){
+},{"old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/network/ajax":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/ajax.js","old-vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/first/channels/index.js":[function(require,module,exports){
 var Element = require( 'old-vigour-js/app/ui/element' )
 var Overview = require( '../overview' )
 var Icon = require( '../../icon' )
@@ -5220,7 +4492,7 @@ module.exports = new Overview( {
   items: channelItems
 } ).Class
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../overview":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/overview/index.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/carousel.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../overview":"/Users/youzi/dev/mtv-play/components/first/overview/index.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/first/discover/carousel.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('old-vigour-js/app/ui/element')
@@ -5484,7 +4756,7 @@ function setPos(roll, newPos) {
   if (discoverdots && timer) autoRoll(roll)
 }
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","../../text":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/animation/frame":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/frame.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/discover/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/animation/frame":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/frame.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/first/discover/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('old-vigour-js/app/ui/element')
@@ -5538,7 +4810,7 @@ var base = new Element({
 
 module.exports = base.Class
 
-},{"../../ad":"/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/index.js","./carousel":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/carousel.js","./lists":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/lists.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/lists.js":[function(require,module,exports){
+},{"../../ad":"/Users/youzi/dev/mtv-play/components/ad/index.js","./carousel":"/Users/youzi/dev/mtv-play/components/first/discover/carousel.js","./lists":"/Users/youzi/dev/mtv-play/components/first/discover/lists.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/discover/style.less","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/discover/lists.js":[function(require,module,exports){
 var app = require('old-vigour-js/app/'),
   cases = require('old-vigour-js/browser/cases'),
   dictionary = require('old-vigour-js/app/dictionary'),
@@ -5892,10 +5164,10 @@ function linkClick() {
   // appData.current.from.val = link
 }
 
-},{"../../epg_temp":"/Users/renancarvalho/Documents/showtime/mtv-play/components/epg_temp.js","../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","../../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","../../text":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/index.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less":[function(require,module,exports){
+},{"../../epg_temp":"/Users/youzi/dev/mtv-play/components/epg_temp.js","../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/discover/style.less":[function(require,module,exports){
 require('../../../common.less');
 
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/epg/index.js":[function(require,module,exports){
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/first/epg/index.js":[function(require,module,exports){
 require( './style.less' )
 
 var Element = require( 'old-vigour-js/app/ui/element' )
@@ -6074,9 +5346,9 @@ exports.base.container.list.setSetting( {
   }
 } )
 
-},{"../../epg_temp":"/Users/renancarvalho/Documents/showtime/mtv-play/components/epg_temp.js","../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","../../player/seekbar":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/seekbar/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/epg/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/epg/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/favourite/index.js":[function(require,module,exports){
+},{"../../epg_temp":"/Users/youzi/dev/mtv-play/components/epg_temp.js","../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../../player/seekbar":"/Users/youzi/dev/mtv-play/components/player/seekbar/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/epg/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/components/first/epg/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/first/favourite/index.js":[function(require,module,exports){
 require( './style.less' )
 
 var Icon = require( '../../icon' )
@@ -6114,9 +5386,9 @@ module.exports = new Icon( {
   }
 } ).Class
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/favourite/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/favourite/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/favourite/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/favourite/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/first/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -6625,7 +5897,7 @@ if (cases.tv) {
 
 }
 
-},{"../ad":"/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/index.js","../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../loader":"/Users/renancarvalho/Documents/showtime/mtv-play/components/loader/index.js","../player":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/index.js","../popup":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/index.js","./menu":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/menu/index.js","./miniplayer":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/miniplayer/index.js","./notification":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/notification/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/style.less","./switcher":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/switcher/index.js","./tv":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/index.js","./watch":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/watch/index.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/util.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/menu/casticon.js":[function(require,module,exports){
+},{"../ad":"/Users/youzi/dev/mtv-play/components/ad/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../loader":"/Users/youzi/dev/mtv-play/components/loader/index.js","../player":"/Users/youzi/dev/mtv-play/components/player/index.js","../popup":"/Users/youzi/dev/mtv-play/components/popup/index.js","./menu":"/Users/youzi/dev/mtv-play/components/first/menu/index.js","./miniplayer":"/Users/youzi/dev/mtv-play/components/first/miniplayer/index.js","./notification":"/Users/youzi/dev/mtv-play/components/first/notification/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/style.less","./switcher":"/Users/youzi/dev/mtv-play/components/first/switcher/index.js","./tv":"/Users/youzi/dev/mtv-play/components/first/tv/index.js","./watch":"/Users/youzi/dev/mtv-play/components/first/watch/index.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/util.js"}],"/Users/youzi/dev/mtv-play/components/first/menu/casticon.js":[function(require,module,exports){
 var Element = require( 'old-vigour-js/app/ui/element' )
 var Item = require( '../../item' )
 var Img = require( '../../img' )
@@ -6684,7 +5956,7 @@ module.exports = exports = new Element( {
     loader: new Loader.Simple()
   }
 } ).Class
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","../../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","../../loader":"/Users/renancarvalho/Documents/showtime/mtv-play/components/loader/index.js","../../text":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/index.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/menu/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../../loader":"/Users/youzi/dev/mtv-play/components/loader/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/first/menu/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('old-vigour-js/app/ui/element')
@@ -7266,9 +6538,9 @@ exports.Topmenu.base.define({
   }
 })
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../../text":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/index.js","./casticon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/menu/casticon.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/menu/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/menu/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/miniplayer/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","./casticon":"/Users/youzi/dev/mtv-play/components/first/menu/casticon.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/menu/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/menu/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/first/miniplayer/index.js":[function(require,module,exports){
 require( './style.less' )
 
 var Icon = require( '../../icon' )
@@ -7464,9 +6736,9 @@ module.exports = new Element( {
   }
 } ).Class
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","../../player/controls":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/controls/index.js","../../player/volume":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/volume/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/miniplayer/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/miniplayer/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/notification/config.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../player/controls":"/Users/youzi/dev/mtv-play/components/player/controls/index.js","../../player/volume":"/Users/youzi/dev/mtv-play/components/player/volume/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/miniplayer/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/miniplayer/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/first/notification/config.js":[function(require,module,exports){
 module.exports = {
   timeout: 10000,
   map:
@@ -7820,7 +7092,7 @@ module.exports = {
   }
 }
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/notification/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/components/first/notification/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Icon = require('../../icon')
@@ -7980,9 +7252,9 @@ module.exports = new Switcher({
   }
 }).Class
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","./config":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/notification/config.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/notification/style.less","old-vigour-js/app/ui/switcher":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/notification/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/overview/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","./config":"/Users/youzi/dev/mtv-play/components/first/notification/config.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/notification/style.less","old-vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/notification/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/first/overview/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('old-vigour-js/app/ui/element')
@@ -8008,7 +7280,7 @@ exports.Items = new Element({
 
 exports.Item = Item
 
-},{"../../ad":"/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/index.js","./item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/overview/item.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/overview/style.less","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/overview/item.js":[function(require,module,exports){
+},{"../../ad":"/Users/youzi/dev/mtv-play/components/ad/index.js","./item":"/Users/youzi/dev/mtv-play/components/first/overview/item.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/overview/style.less","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/first/overview/item.js":[function(require,module,exports){
 require( './style.less' )
 
 var app = require( 'old-vigour-js/app/' )
@@ -8147,9 +7419,9 @@ if( !cases.touch ) {
   } ).Class
 }
 
-},{"../../epg_temp":"/Users/renancarvalho/Documents/showtime/mtv-play/components/epg_temp.js","../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","../../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","../../player/seekbar":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/seekbar/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/overview/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/overview/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/seasons/index.js":[function(require,module,exports){
+},{"../../epg_temp":"/Users/youzi/dev/mtv-play/components/epg_temp.js","../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../../player/seekbar":"/Users/youzi/dev/mtv-play/components/player/seekbar/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/overview/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/overview/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/first/seasons/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -8425,9 +7697,9 @@ module.exports = new Element( {
   }
 } ).Class
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","../../text":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/index.js","../favourite":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/favourite/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/seasons/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/seasons/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/show/cover.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","../favourite":"/Users/youzi/dev/mtv-play/components/first/favourite/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/seasons/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/seasons/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/first/show/cover.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -8493,7 +7765,7 @@ var cover = new Img( {
 
 module.exports = exports = cover
 
-},{"../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","../../text":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/index.js","../favourite":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/favourite/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/show/style.less","./switcher":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/show/switcher.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/show/index.js":[function(require,module,exports){
+},{"../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","../favourite":"/Users/youzi/dev/mtv-play/components/first/favourite/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/show/style.less","./switcher":"/Users/youzi/dev/mtv-play/components/first/show/switcher.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/show/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -8718,7 +7990,7 @@ if( cases.phone ) {
   module.exports = require( '../watch' )
 }
 
-},{"../../player":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/index.js","../favourite":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/favourite/index.js","../overview/item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/overview/item.js","../watch":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/watch/index.js","./cover":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/show/cover.js","./list":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/show/list.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/show/style.less","./switcher":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/show/switcher.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/show/list.js":[function(require,module,exports){
+},{"../../player":"/Users/youzi/dev/mtv-play/components/player/index.js","../favourite":"/Users/youzi/dev/mtv-play/components/first/favourite/index.js","../overview/item":"/Users/youzi/dev/mtv-play/components/first/overview/item.js","../watch":"/Users/youzi/dev/mtv-play/components/first/watch/index.js","./cover":"/Users/youzi/dev/mtv-play/components/first/show/cover.js","./list":"/Users/youzi/dev/mtv-play/components/first/show/list.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/show/style.less","./switcher":"/Users/youzi/dev/mtv-play/components/first/show/switcher.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/index.js"}],"/Users/youzi/dev/mtv-play/components/first/show/list.js":[function(require,module,exports){
 var cases = require('old-vigour-js/browser/cases')
 var Element = require('old-vigour-js/app/ui/element')
 var app = require('old-vigour-js/app/')
@@ -8849,7 +8121,7 @@ var list = new Element({
 
 module.exports = exports = list.Class
 
-},{"../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","../../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/show/seasons.js":[function(require,module,exports){
+},{"../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../item":"/Users/youzi/dev/mtv-play/components/item/index.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/show/seasons.js":[function(require,module,exports){
 var cases = require( 'old-vigour-js/browser/cases' )
 var events = require( 'old-vigour-js/browser/events' )
 var Element = require( 'old-vigour-js/app/ui/element' )
@@ -8900,9 +8172,9 @@ module.exports = new Element( {
   }
 } )
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/show/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/show/switcher.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/index.js"}],"/Users/youzi/dev/mtv-play/components/first/show/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/first/show/switcher.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -9194,7 +8466,7 @@ exports.set = function (switcher, data, index) {
   }
 }
 
-},{"./list":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/show/list.js","./seasons":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/show/seasons.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/show/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/shows/index.js":[function(require,module,exports){
+},{"./list":"/Users/youzi/dev/mtv-play/components/first/show/list.js","./seasons":"/Users/youzi/dev/mtv-play/components/first/show/seasons.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/show/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/index.js"}],"/Users/youzi/dev/mtv-play/components/first/shows/index.js":[function(require,module,exports){
 var Overview = require('../overview')
 var cases = require('old-vigour-js/browser/cases')
 var Icon = require('../../icon')
@@ -9411,9 +8683,9 @@ function getHighlight(holdersize, totalsize, scrollpos, datakeys) {
   return datakeys.slice(index, end).join('.')
 }
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../../text/search":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/search.js","../overview":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/overview/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/element/properties/collection/display":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/collection/display.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
-},{"../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/switcher/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../text/search":"/Users/youzi/dev/mtv-play/components/text/search.js","../overview":"/Users/youzi/dev/mtv-play/components/first/overview/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/element/properties/collection/display":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/collection/display.js"}],"/Users/youzi/dev/mtv-play/components/first/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
+},{"../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/first/switcher/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -9539,7 +8811,7 @@ function backFallback() {
   this.on.page.$userOrigin = typeof this.on.page.val === 'string' ? this.on.page.val : 'discover'
 }
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","./media":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/switcher/media.js","./page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/switcher/page.js","./show":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/switcher/show.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/switcher/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/app/ui/switcher":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js","old-vigour-js/app/ui/switcher/transitions":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/switcher/transitions.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/switcher/media.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./media":"/Users/youzi/dev/mtv-play/components/first/switcher/media.js","./page":"/Users/youzi/dev/mtv-play/components/first/switcher/page.js","./show":"/Users/youzi/dev/mtv-play/components/first/switcher/show.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/switcher/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js","old-vigour-js/app/ui/switcher/transitions":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/switcher/transitions.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/switcher/media.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -9674,7 +8946,7 @@ exports.setStatus = function (switcher, mediadata) {
   switcher.current = isEpisode ? 'episode' : 'channel'
 }
 
-},{"../watch":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/watch/index.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/switcher/page.js":[function(require,module,exports){
+},{"../watch":"/Users/youzi/dev/mtv-play/components/first/watch/index.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/switcher/page.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -9777,7 +9049,7 @@ module.exports = function (update) { // discover / shows / channels
   update()
 }
 
-},{"../channels":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/channels/index.js","../discover":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/index.js","../shows":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/shows/index.js","old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/switcher/show.js":[function(require,module,exports){
+},{"../channels":"/Users/youzi/dev/mtv-play/components/first/channels/index.js","../discover":"/Users/youzi/dev/mtv-play/components/first/discover/index.js","../shows":"/Users/youzi/dev/mtv-play/components/first/shows/index.js","old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/switcher/show.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -9900,9 +9172,9 @@ if( cases.phone ) {
   }
 }
 
-},{"../show":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/show/index.js","./media":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/switcher/media.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/switcher/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/grid.js":[function(require,module,exports){
+},{"../show":"/Users/youzi/dev/mtv-play/components/first/show/index.js","./media":"/Users/youzi/dev/mtv-play/components/first/switcher/media.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/switcher/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/first/tv/grid.js":[function(require,module,exports){
 require( './style.less' )
 
 var Element = require( 'old-vigour-js/app/ui/element' )
@@ -10100,7 +9372,7 @@ var Grid = module.exports = exports = new Element( {
 exports.Row = Row
 exports.Item = Item
 
-},{"../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/index.js":[function(require,module,exports){
+},{"../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/tv/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -10254,7 +9526,7 @@ function range( amount, val ) {
   return Math.ceil( amount / val ) * val
 }
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","./message":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/message.js","./page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/page.js","./show":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/show.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/app/ui/switcher":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js","old-vigour-js/app/ui/switcher/transitions":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/switcher/transitions.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/message.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./message":"/Users/youzi/dev/mtv-play/components/first/tv/message.js","./page":"/Users/youzi/dev/mtv-play/components/first/tv/page.js","./show":"/Users/youzi/dev/mtv-play/components/first/tv/show.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js","old-vigour-js/app/ui/switcher/transitions":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/switcher/transitions.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/message.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -10271,7 +9543,7 @@ module.exports = new Element( {
   }
 } ).Class
 
-},{"old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/page.js":[function(require,module,exports){
+},{"old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/page.js":[function(require,module,exports){
 var Element = require( 'old-vigour-js/app/ui/element' )
 var Grid = require( './grid' )
 var app = require( 'old-vigour-js/app/' )
@@ -10373,7 +9645,7 @@ module.exports = exports = function( update, args ) {
 
 }
 
-},{"./grid":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/grid.js","./row/channel":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/row/channel.js","./row/page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/row/page.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/data/selection":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/selection.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/row/channel.js":[function(require,module,exports){
+},{"./grid":"/Users/youzi/dev/mtv-play/components/first/tv/grid.js","./row/channel":"/Users/youzi/dev/mtv-play/components/first/tv/row/channel.js","./row/page":"/Users/youzi/dev/mtv-play/components/first/tv/row/page.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/data/selection":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/selection.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/row/channel.js":[function(require,module,exports){
 var Element = require( 'old-vigour-js/app/ui/element' )
 var app = require( 'old-vigour-js/app/' )
 var dictionary = require( 'old-vigour-js/app/dictionary' )
@@ -10551,7 +9823,7 @@ module.exports = exports = new elements.BasicRowView( {
   }
 } ).Class
 
-},{"../../../epg_temp":"/Users/renancarvalho/Documents/showtime/mtv-play/components/epg_temp.js","../../../player/seekbar":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/seekbar/index.js","./elements":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/row/elements.js","./item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/row/item.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/row/elements.js":[function(require,module,exports){
+},{"../../../epg_temp":"/Users/youzi/dev/mtv-play/components/epg_temp.js","../../../player/seekbar":"/Users/youzi/dev/mtv-play/components/player/seekbar/index.js","./elements":"/Users/youzi/dev/mtv-play/components/first/tv/row/elements.js","./item":"/Users/youzi/dev/mtv-play/components/first/tv/row/item.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/row/elements.js":[function(require,module,exports){
 var Element = require( 'old-vigour-js/app/ui/element' )
 var app = require( 'old-vigour-js/app/' )
 var dictionary = require( 'old-vigour-js/app/dictionary' )
@@ -10690,7 +9962,7 @@ exports.RowView = new BasicRowView( {
   }
 } ).Class
 
-},{"old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/row/item.js":[function(require,module,exports){
+},{"old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/row/item.js":[function(require,module,exports){
 var Element = require( 'old-vigour-js/app/ui/element' )
 var Img = require( '../../../img' )
 var app = require( 'old-vigour-js/app/' )
@@ -10902,7 +10174,7 @@ var Item = module.exports = new Img( {
   }
 } ).Class
 
-},{"../../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/row/page.js":[function(require,module,exports){
+},{"../../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/row/page.js":[function(require,module,exports){
 var Element = require( 'old-vigour-js/app/ui/element' )
 var Img = require( '../../../img' )
 var app = require( 'old-vigour-js/app/' )
@@ -11008,7 +10280,7 @@ var pageRow = module.exports = exports = new elements.RowView( {
   }
 } ).Class
 
-},{"../../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","./elements":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/row/elements.js","./item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/row/item.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/row/show.js":[function(require,module,exports){
+},{"../../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","./elements":"/Users/youzi/dev/mtv-play/components/first/tv/row/elements.js","./item":"/Users/youzi/dev/mtv-play/components/first/tv/row/item.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/row/show.js":[function(require,module,exports){
 var Element = require( 'old-vigour-js/app/ui/element' )
 var app = require( 'old-vigour-js/app/' )
 var dictionary = require( 'old-vigour-js/app/dictionary' )
@@ -11127,7 +10399,7 @@ var showRow = module.exports = exports = new elements.RowView( {
   }
 } ).Class
 
-},{"./elements":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/row/elements.js","./item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/row/item.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/animation/raf":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","old-vigour-js/object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/show.js":[function(require,module,exports){
+},{"./elements":"/Users/youzi/dev/mtv-play/components/first/tv/row/elements.js","./item":"/Users/youzi/dev/mtv-play/components/first/tv/row/item.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","old-vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/show.js":[function(require,module,exports){
 var Element = require( 'old-vigour-js/app/ui/element' )
 var Data = require( 'old-vigour-js/data' )
   .inject( require( 'old-vigour-js/data/selection' ) )
@@ -11176,9 +10448,9 @@ module.exports = function( update, args ) {
 
 }
 
-},{"./row/show":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/row/show.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/data/selection":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/selection.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/tv/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/watch/index.js":[function(require,module,exports){
+},{"./row/show":"/Users/youzi/dev/mtv-play/components/first/tv/row/show.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/data/selection":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/selection.js"}],"/Users/youzi/dev/mtv-play/components/first/tv/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/first/watch/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('old-vigour-js/app/ui/element')
@@ -11507,9 +10779,9 @@ module.exports = new Element({
 }).Class
 
 
-},{"../../ad":"/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/index.js","../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../../player":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/index.js","../../text":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/index.js","../epg":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/epg/index.js","../favourite":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/favourite/index.js","../menu":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/menu/index.js","../seasons":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/seasons/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/watch/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/app/ui/switcher":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/watch/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js":[function(require,module,exports){
+},{"../../ad":"/Users/youzi/dev/mtv-play/components/ad/index.js","../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../player":"/Users/youzi/dev/mtv-play/components/player/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","../epg":"/Users/youzi/dev/mtv-play/components/first/epg/index.js","../favourite":"/Users/youzi/dev/mtv-play/components/first/favourite/index.js","../menu":"/Users/youzi/dev/mtv-play/components/first/menu/index.js","../seasons":"/Users/youzi/dev/mtv-play/components/first/seasons/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/first/watch/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/first/watch/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/icon/index.js":[function(require,module,exports){
 require( './style.less' )
 
 var Element = require( 'old-vigour-js/app/ui/element' )
@@ -11600,9 +10872,9 @@ icon.extend( {
 module.exports = exports = icon.Class
 exports.map = map
 
-},{"./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/style.less","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/gaston/node_modules/browser-resolve/empty.js"][0].apply(exports,arguments)
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js":[function(require,module,exports){
+},{"./style.less":"/Users/youzi/dev/mtv-play/components/icon/style.less","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/icon/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/common.less"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/img/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('old-vigour-js/app/ui/element')
@@ -11791,9 +11063,9 @@ function range( width, height, val ) {
   }
 }
 
-},{"./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/animation/frame":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/frame.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
-},{"../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js":[function(require,module,exports){
+},{"./style.less":"/Users/youzi/dev/mtv-play/components/img/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/animation/frame":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/frame.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/img/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
+},{"../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/item/index.js":[function(require,module,exports){
 
 require('./style.less')
 
@@ -11980,9 +11252,9 @@ exports.Switcher = new exports.IconRightSub( {
   } )
 } ).Class
 
-},{"../button":"/Users/renancarvalho/Documents/showtime/mtv-play/components/button/index.js","../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","../text":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
-},{"../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/loader/index.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../text":"/Users/youzi/dev/mtv-play/components/text/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/item/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/item/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
+},{"../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/loader/index.js":[function(require,module,exports){
 require( './style.less' )
 
 var Sprite = require( 'old-vigour-js/app/ui/sprite' )
@@ -12028,9 +11300,9 @@ if( !cases.ios && !cases.desktop ) {
   } ).Class
 }
 
-},{"./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/loader/style.less","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/app/ui/sprite":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/sprite/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/loader/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/gaston/node_modules/browser-resolve/empty.js"][0].apply(exports,arguments)
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/password/index.js":[function(require,module,exports){
+},{"./style.less":"/Users/youzi/dev/mtv-play/components/loader/style.less","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/app/ui/sprite":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/sprite/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/loader/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/common.less"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/password/index.js":[function(require,module,exports){
 require( './style.less' )
 
 var Element = require( 'old-vigour-js/app/ui/element' )
@@ -12056,9 +11328,9 @@ module.exports = new Element( {
 	}
 } ).Class
 
-},{"./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/password/style.less","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/password/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
-},{"../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/backdrop.js":[function(require,module,exports){
+},{"./style.less":"/Users/youzi/dev/mtv-play/components/password/style.less","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/password/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
+},{"../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/player/backdrop.js":[function(require,module,exports){
 require( './style.less' )
 
 var app = require( 'old-vigour-js/app' )
@@ -12101,7 +11373,7 @@ module.exports = new Element( {
   }
 } ).Class
 
-},{"../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/style.less","old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/controls/index.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../img":"/Users/youzi/dev/mtv-play/components/img/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/player/style.less","old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/player/controls/index.js":[function(require,module,exports){
 require( './style.less' )
 
 var Element = require( 'old-vigour-js/app/ui/element' )
@@ -12140,9 +11412,9 @@ module.exports = new Element( {
   }
 } ).Class
 
-},{"../seekbar":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/seekbar/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/controls/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/element/video/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/video/util.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/controls/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/index.js":[function(require,module,exports){
+},{"../seekbar":"/Users/youzi/dev/mtv-play/components/player/seekbar/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/player/controls/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/element/video/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/video/util.js"}],"/Users/youzi/dev/mtv-play/components/player/controls/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/player/index.js":[function(require,module,exports){
 require('./style.less')
 
 var app = require('old-vigour-js/app/')
@@ -12582,7 +11854,7 @@ exports.Holder = new Element({
   })
 }).Class
 
-},{"./backdrop":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/backdrop.js","./overlay":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/overlay/index.js","./phone-fullscreen":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/phone-fullscreen.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/style.less","./video":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/video/index.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/animation/raf":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/overlay/index.js":[function(require,module,exports){
+},{"./backdrop":"/Users/youzi/dev/mtv-play/components/player/backdrop.js","./overlay":"/Users/youzi/dev/mtv-play/components/player/overlay/index.js","./phone-fullscreen":"/Users/youzi/dev/mtv-play/components/player/phone-fullscreen.js","./style.less":"/Users/youzi/dev/mtv-play/components/player/style.less","./video":"/Users/youzi/dev/mtv-play/components/player/video/index.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/player/overlay/index.js":[function(require,module,exports){
 var app = require('old-vigour-js/app/')
 var cases = require('old-vigour-js/browser/cases')
 var Element = require('old-vigour-js/app/ui/element')
@@ -12853,7 +12125,7 @@ module.exports = new PointerElement({
   }
 }).Class
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","../controls":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/controls/index.js","../volume":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/volume/index.js","./play":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/overlay/play.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/overlay/play.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../controls":"/Users/youzi/dev/mtv-play/components/player/controls/index.js","../volume":"/Users/youzi/dev/mtv-play/components/player/volume/index.js","./play":"/Users/youzi/dev/mtv-play/components/player/overlay/play.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/player/overlay/play.js":[function(require,module,exports){
 var Icon = require( '../../icon' ),
   cases = require( 'old-vigour-js/browser/cases' ),
   app = require( 'old-vigour-js/app/' )
@@ -12916,7 +12188,7 @@ exports.base.define( {
 
 */
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/phone-fullscreen.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/player/phone-fullscreen.js":[function(require,module,exports){
 var app = require('old-vigour-js/app/')
 var cases = require('old-vigour-js/browser/cases')
 
@@ -12993,7 +12265,7 @@ exports.exit = function () {
   fullscreen.call(this, true)
 }
 
-},{"old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/players/viacom.js":[function(require,module,exports){
+},{"old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/player/players/viacom.js":[function(require,module,exports){
 var ua = require('old-vigour-js/browser/ua')
 var _ios = ua.platform === 'ios'
 var app = require('old-vigour-js/app/')
@@ -13226,7 +12498,7 @@ exports.src = function (val) {
   }
 }
 
-},{"old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/element/video/html5":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/video/html5.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/seekbar/index.js":[function(require,module,exports){
+},{"old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/element/video/html5":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/video/html5.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/player/seekbar/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require( 'old-vigour-js/app/ui/element' )
@@ -13322,11 +12594,11 @@ var seekbar = new Element({
 
 module.exports = exports = seekbar.Class
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/seekbar/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/element/video/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/video/util.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/seekbar/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
-},{"../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/video/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/player/seekbar/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/element/video/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/video/util.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/components/player/seekbar/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/player/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
+},{"../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/player/video/index.js":[function(require,module,exports){
 var app = require( 'old-vigour-js/app/' )
 var cases = require( 'old-vigour-js/browser/cases' )
 var Video = require( 'old-vigour-js/browser/element/video' )
@@ -13445,7 +12717,7 @@ function getOverlay() {
   return this._overlay || ( this._overlay = this.parent && this.parent.overlay )
 }
 
-},{"../players/viacom":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/players/viacom.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/element/video":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/video/index.js","old-vigour-js/browser/events/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/util.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/volume/index.js":[function(require,module,exports){
+},{"../players/viacom":"/Users/youzi/dev/mtv-play/components/player/players/viacom.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/element/video":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/video/index.js","old-vigour-js/browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/util.js"}],"/Users/youzi/dev/mtv-play/components/player/volume/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require( 'old-vigour-js/app/ui/element' )
@@ -13493,9 +12765,9 @@ while (five--) volume.add(new Element({
 
 module.exports = volume.Class
 
-},{"./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/volume/style.less","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/volume/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/article.js":[function(require,module,exports){
+},{"./style.less":"/Users/youzi/dev/mtv-play/components/player/volume/style.less","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/components/player/volume/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/popup/article.js":[function(require,module,exports){
 // anim up op phone
 // anders scale en fade
 var Img = require('../img')
@@ -13539,7 +12811,7 @@ exports.Cookie = new exports({
     }
   }
 }).Class
-},{"../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","./page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/page.js","autolinker":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/autolinker/dist/Autolinker.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/auth.js":[function(require,module,exports){
+},{"../img":"/Users/youzi/dev/mtv-play/components/img/index.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","autolinker":"/Users/youzi/dev/mtv-play/node_modules/autolinker/dist/Autolinker.js"}],"/Users/youzi/dev/mtv-play/components/popup/auth.js":[function(require,module,exports){
 // anim up op phone
 // anders scale en fade
 var Element = require('old-vigour-js/app/ui/element')
@@ -14054,7 +13326,7 @@ exports.PasswordReset = new Input.Form({
   }
 }).Class
 
-},{"../button":"/Users/renancarvalho/Documents/showtime/mtv-play/components/button/index.js","../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","../text/input":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/input.js","./page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/buy.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../text/input":"/Users/youzi/dev/mtv-play/components/text/input.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/buy.js":[function(require,module,exports){
 // anim up op phone
 // anders scale en fade
 var Element = require('old-vigour-js/app/ui/element')
@@ -14120,7 +13392,7 @@ exports.Yearly = new exports({
   }
 }).Class
 
-},{"../button":"/Users/renancarvalho/Documents/showtime/mtv-play/components/button/index.js","old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/comingSoon.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/comingSoon.js":[function(require,module,exports){
 // anim up op phone
 // anders scale en fade
 
@@ -14156,7 +13428,7 @@ module.exports = exports = new Page({
   }
 }).Class
 
-},{"./page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/page.js","old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/devices.js":[function(require,module,exports){
+},{"./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/devices.js":[function(require,module,exports){
 var Element = require('old-vigour-js/app/ui/element')
 var util = require('old-vigour-js/util')
 var Icon = require('../icon')
@@ -14311,7 +13583,7 @@ module.exports = exports = new Page({
   }
 }).Class
 
-},{"../button":"/Users/renancarvalho/Documents/showtime/mtv-play/components/button/index.js","../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","./page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/animation/raf":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/faq.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/faq.js":[function(require,module,exports){
 var Element = require( 'old-vigour-js/app/ui/element' )
 var Icon = require( '../icon' )
 var Item = require( '../item' )
@@ -14342,7 +13614,7 @@ module.exports = new Page( {
   }
 } ).Class
 
-},{"../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","./page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/index.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/index.js":[function(require,module,exports){
 require('./style.less')
 var Element = require('old-vigour-js/app/ui/element')
 var util = require('old-vigour-js/util')
@@ -14918,7 +14190,7 @@ exports.topbar.holder.righticon.extend({
 
 module.exports = exports.Class
 
-},{"../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","./article":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/article.js","./auth":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/auth.js","./buy":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/buy.js","./comingSoon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/comingSoon.js","./devices":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/devices.js","./faq":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/faq.js","./intro":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/intro.js","./languages":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/languages.js","./mobile":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/mobile.js","./newsletter":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/newsletter.js","./operator":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/operator.js","./profile":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/profile.js","./roadblock":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/roadblock.js","./settings":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/settings.js","./share":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/share.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/style.less","./upgrade":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/upgrade.js","./wifi":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/wifi.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/app/ui/switcher":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/network/ajax":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/ajax.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/intro.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./article":"/Users/youzi/dev/mtv-play/components/popup/article.js","./auth":"/Users/youzi/dev/mtv-play/components/popup/auth.js","./buy":"/Users/youzi/dev/mtv-play/components/popup/buy.js","./comingSoon":"/Users/youzi/dev/mtv-play/components/popup/comingSoon.js","./devices":"/Users/youzi/dev/mtv-play/components/popup/devices.js","./faq":"/Users/youzi/dev/mtv-play/components/popup/faq.js","./intro":"/Users/youzi/dev/mtv-play/components/popup/intro.js","./languages":"/Users/youzi/dev/mtv-play/components/popup/languages.js","./mobile":"/Users/youzi/dev/mtv-play/components/popup/mobile.js","./newsletter":"/Users/youzi/dev/mtv-play/components/popup/newsletter.js","./operator":"/Users/youzi/dev/mtv-play/components/popup/operator.js","./profile":"/Users/youzi/dev/mtv-play/components/popup/profile.js","./roadblock":"/Users/youzi/dev/mtv-play/components/popup/roadblock.js","./settings":"/Users/youzi/dev/mtv-play/components/popup/settings.js","./share":"/Users/youzi/dev/mtv-play/components/popup/share.js","./style.less":"/Users/youzi/dev/mtv-play/components/popup/style.less","./upgrade":"/Users/youzi/dev/mtv-play/components/popup/upgrade.js","./wifi":"/Users/youzi/dev/mtv-play/components/popup/wifi.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/network/ajax":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/ajax.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/intro.js":[function(require,module,exports){
 var Element = require('old-vigour-js/app/ui/element')
 var Button = require('../button')
 var Img = require('../img')
@@ -15180,7 +14452,7 @@ function setPos (roll, newPos) {
   }
 }
 
-},{"../button":"/Users/renancarvalho/Documents/showtime/mtv-play/components/button/index.js","../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","./page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/languages.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../img":"/Users/youzi/dev/mtv-play/components/img/index.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/languages.js":[function(require,module,exports){
 var Element = require( 'old-vigour-js/app/ui/element' )
 var util = require( 'old-vigour-js/util' )
 var Icon = require( '../icon' )
@@ -15247,7 +14519,7 @@ module.exports = new Page( {
   }
 } ).Class
 
-},{"../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","./page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/page.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/animation/raf":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/mobile.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/mobile.js":[function(require,module,exports){
 //anim up op phone
 // anders scale en fade
 var Element = require( 'old-vigour-js/app/ui/element' )
@@ -15381,7 +14653,7 @@ exports.CountryCodes = new Element( {
     } )
   }
 } ).Class
-},{"../button":"/Users/renancarvalho/Documents/showtime/mtv-play/components/button/index.js","../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","../text/input":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/input.js","./page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/animation/raf":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/newsletter.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../text/input":"/Users/youzi/dev/mtv-play/components/text/input.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/newsletter.js":[function(require,module,exports){
 var Element = require( 'old-vigour-js/app/ui/element' )
 var Icon = require( '../icon' )
 var Item = require( '../item' )
@@ -15407,7 +14679,7 @@ module.exports = new Page( {
   } )
 } ).Class
 
-},{"../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","./page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/operator.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/operator.js":[function(require,module,exports){
 var Button = require('../button')
 var Input = require('../text/input')
 var Item = require('../item')
@@ -15626,7 +14898,7 @@ function removeESCAPED(string) {
   return arr[1] || arr[0]
 }
 
-},{"../button":"/Users/renancarvalho/Documents/showtime/mtv-play/components/button/index.js","../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","../text/input":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/input.js","./auth":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/auth.js","./page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/page.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../text/input":"/Users/youzi/dev/mtv-play/components/text/input.js","./auth":"/Users/youzi/dev/mtv-play/components/popup/auth.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/page.js":[function(require,module,exports){
 var Element = require( 'old-vigour-js/app/ui/element' )
 
 module.exports = new Element( {
@@ -15636,7 +14908,7 @@ module.exports = new Element( {
   scrollbar: 'y'
 } ).Class
 
-},{"old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/profile.js":[function(require,module,exports){
+},{"old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/profile.js":[function(require,module,exports){
 // anim up op phone
 // anders scale en fade
 var Element = require('old-vigour-js/app/ui/element')
@@ -15826,7 +15098,7 @@ module.exports = exports = new Element({
   items: new MenuItems()
 }).Class
 
-},{"../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/roadblock.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/roadblock.js":[function(require,module,exports){
 var Element = require('old-vigour-js/app/ui/element')
 var app = require('old-vigour-js/app')
 var util = require('old-vigour-js/util')
@@ -15974,7 +15246,8 @@ exports.Media = new Page({
   buy: new Button({
     display: {
       val: 'none',
-      $storeAvailable: 'block'
+      $storeAvailable: 'block',
+      '!$hasEpisodePass': 'none'
     },
     text: {
       dictionary: 'text.unlockPrice',
@@ -15988,7 +15261,8 @@ exports.Media = new Page({
   or: {
     display: {
       val: 'none',
-      $storeAvailable: 'block'
+      $storeAvailable: 'block',
+      '!$hasEpisodePass': 'none'
     },
     text: {
       val: '- ',
@@ -16022,7 +15296,7 @@ exports.Media = new Page({
   }) // is set later
 }).Class
 
-},{"../button":"/Users/renancarvalho/Documents/showtime/mtv-play/components/button/index.js","../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","../text/input":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/input.js","./article":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/article.js","./page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/page.js","old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/settings.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../text/input":"/Users/youzi/dev/mtv-play/components/text/input.js","./article":"/Users/youzi/dev/mtv-play/components/popup/article.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/settings.js":[function(require,module,exports){
 var Element = require( 'old-vigour-js/app/ui/element' )
 var util = require( 'old-vigour-js/util' )
 var Icon = require( '../icon' )
@@ -16160,7 +15434,7 @@ module.exports = new Element( {
   }
 } ).Class
 
-},{"../button":"/Users/renancarvalho/Documents/showtime/mtv-play/components/button/index.js","../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","../text/input":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/input.js","./page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/animation/raf":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/share.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../text/input":"/Users/youzi/dev/mtv-play/components/text/input.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/share.js":[function(require,module,exports){
 var Element = require( 'old-vigour-js/app/ui/element' )
 var util = require( 'old-vigour-js/util' )
 var Icon = require( '../icon' )
@@ -16208,9 +15482,9 @@ module.exports = exports = new Page( {
   } )
 } ).Class
 
-},{"../button":"/Users/renancarvalho/Documents/showtime/mtv-play/components/button/index.js","../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","../text/input":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/input.js","./page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/page.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
-},{"../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/upgrade.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","../text/input":"/Users/youzi/dev/mtv-play/components/text/input.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
+},{"../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/popup/upgrade.js":[function(require,module,exports){
 var app = require('old-vigour-js/app')
 var Button = require('../button')
 var Page = require('./page')
@@ -16303,7 +15577,7 @@ exports = module.exports = new Page({
   })
 }).Class
 
-},{"../button":"/Users/renancarvalho/Documents/showtime/mtv-play/components/button/index.js","./page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/page.js","old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/wifi.js":[function(require,module,exports){
+},{"../button":"/Users/youzi/dev/mtv-play/components/button/index.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js"}],"/Users/youzi/dev/mtv-play/components/popup/wifi.js":[function(require,module,exports){
 var Element = require( 'old-vigour-js/app/ui/element' )
 var Icon = require( '../icon' )
 var Item = require( '../item' )
@@ -16329,7 +15603,7 @@ module.exports = new Page( {
   } )
 } ).Class
 
-},{"../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../item":"/Users/renancarvalho/Documents/showtime/mtv-play/components/item/index.js","./page":"/Users/renancarvalho/Documents/showtime/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/rotate-message/index.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../item":"/Users/youzi/dev/mtv-play/components/item/index.js","./page":"/Users/youzi/dev/mtv-play/components/popup/page.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/rotate-message/index.js":[function(require,module,exports){
 require( './style.less' )
 
 var Element = require( 'old-vigour-js/app/ui/element' )
@@ -16349,9 +15623,9 @@ module.exports = new Element( {
   }
 } ).Class
 
-},{"../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/rotate-message/style.less","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/rotate-message/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/gaston/node_modules/browser-resolve/empty.js"][0].apply(exports,arguments)
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/bar/index.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/rotate-message/style.less","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/rotate-message/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/common.less"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/components/second/bar/index.js":[function(require,module,exports){
 require( './style.less' )
 
 var Element = require( 'old-vigour-js/app/ui/element' )
@@ -16380,9 +15654,9 @@ module.exports = new Element( {
   }
 } ).Class
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../../text":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/bar/style.less","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/bar/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/channel/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../text":"/Users/youzi/dev/mtv-play/components/text/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/bar/style.less","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/second/bar/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/second/channel/index.js":[function(require,module,exports){
 require('./style.less')
 
 var app = require('old-vigour-js/app/')
@@ -16459,9 +15733,9 @@ module.exports = new Element({
   cover: cover
 }).Class
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","../grid":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/grid/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/channel/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/channel/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/channels/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../grid":"/Users/youzi/dev/mtv-play/components/second/grid/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/channel/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/second/channel/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/second/channels/index.js":[function(require,module,exports){
 require('./style.less')
 
 var Grid = require('../grid')
@@ -16594,9 +15868,9 @@ Grid = new Grid({
 
 module.exports = Grid.Class
 
-},{"../../epg_temp":"/Users/renancarvalho/Documents/showtime/mtv-play/components/epg_temp.js","../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","../../player/seekbar":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/seekbar/index.js","../grid":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/grid/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/channels/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/channels/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/discover/index.js":[function(require,module,exports){
+},{"../../epg_temp":"/Users/youzi/dev/mtv-play/components/epg_temp.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../../player/seekbar":"/Users/youzi/dev/mtv-play/components/player/seekbar/index.js","../grid":"/Users/youzi/dev/mtv-play/components/second/grid/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/channels/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/second/channels/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/second/discover/index.js":[function(require,module,exports){
 require('./style.less')
 
 var app = require('old-vigour-js/app/')
@@ -16796,9 +16070,9 @@ module.exports = new discoverPage.Class({
   })
 }).Class
 
-},{"../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","../grid":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/grid/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/discover/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/discover/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/episode/index.js":[function(require,module,exports){
+},{"../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../grid":"/Users/youzi/dev/mtv-play/components/second/grid/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/discover/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/second/discover/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/second/episode/index.js":[function(require,module,exports){
 require('./style.less')
 
 var app = require('old-vigour-js/app/')
@@ -16918,9 +16192,9 @@ module.exports = new Element({
   cover: cover
 }).Class
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","../grid":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/grid/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/episode/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/episode/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/grid/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../grid":"/Users/youzi/dev/mtv-play/components/second/grid/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/episode/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/second/episode/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/second/grid/index.js":[function(require,module,exports){
 require( './style.less' )
 
 var app = require( 'old-vigour-js/app/' )
@@ -16979,9 +16253,9 @@ exports.colWidth = new Value( {
   divide: 3 / 4
 } )
 
-},{"../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/grid/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/grid/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/index.js":[function(require,module,exports){
+},{"../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/grid/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/components/second/grid/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/second/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -17002,7 +16276,7 @@ module.exports = new Element( {
   'phone.button.title.text.dictionary': 'text.returnTap'
 } ).Class
 
-},{"./bar":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/bar/index.js","./screensaver":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/screensaver/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/style.less","./switcher":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/switcher/index.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/screensaver/index.js":[function(require,module,exports){
+},{"./bar":"/Users/youzi/dev/mtv-play/components/second/bar/index.js","./screensaver":"/Users/youzi/dev/mtv-play/components/second/screensaver/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/style.less","./switcher":"/Users/youzi/dev/mtv-play/components/second/switcher/index.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/second/screensaver/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -17142,9 +16416,9 @@ module.exports = exports = new Switcher( {
   }
 } ).Class
 
-},{"../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/screensaver/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/app/ui/switcher":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/screensaver/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/show/index.js":[function(require,module,exports){
+},{"../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/screensaver/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/second/screensaver/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/second/show/index.js":[function(require,module,exports){
 require('./style.less')
 
 var app = require('old-vigour-js/app/')
@@ -17316,9 +16590,9 @@ module.exports = new Element({
   }
 }).Class
 
-},{"../../img":"/Users/renancarvalho/Documents/showtime/mtv-play/components/img/index.js","../grid":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/grid/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/show/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/show/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/shows/index.js":[function(require,module,exports){
+},{"../../img":"/Users/youzi/dev/mtv-play/components/img/index.js","../grid":"/Users/youzi/dev/mtv-play/components/second/grid/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/show/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/second/show/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/second/shows/index.js":[function(require,module,exports){
 require( './style.less' )
 
 var app = require( 'old-vigour-js/app/' )
@@ -17501,11 +16775,11 @@ function m( first, last, grid ) {
   }
 }
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../grid":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/grid/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/shows/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/element/properties/collection/display":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/collection/display.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/shows/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
-},{"../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/switcher/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../grid":"/Users/youzi/dev/mtv-play/components/second/grid/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/shows/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/element/properties/collection/display":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/collection/display.js"}],"/Users/youzi/dev/mtv-play/components/second/shows/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/second/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
+},{"../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/second/switcher/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -17724,9 +16998,9 @@ module.exports = exports = new Switcher({
   })
 }).Class
 
-},{"../../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","../channel":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/channel/index.js","../channels":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/channels/index.js","../discover":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/discover/index.js","../episode":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/episode/index.js","../show":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/show/index.js","../shows":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/shows/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/switcher/style.less","old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/app/ui/switcher":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/switcher/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
-},{"../../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/switcher/index.js":[function(require,module,exports){
+},{"../../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","../channel":"/Users/youzi/dev/mtv-play/components/second/channel/index.js","../channels":"/Users/youzi/dev/mtv-play/components/second/channels/index.js","../discover":"/Users/youzi/dev/mtv-play/components/second/discover/index.js","../episode":"/Users/youzi/dev/mtv-play/components/second/episode/index.js","../show":"/Users/youzi/dev/mtv-play/components/second/show/index.js","../shows":"/Users/youzi/dev/mtv-play/components/second/shows/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/second/switcher/style.less","old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/second/switcher/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/first/discover/style.less"][0].apply(exports,arguments)
+},{"../../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/switcher/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -17942,9 +17216,9 @@ module.exports = exports = new Switcher({
   }
 }).Class
 
-},{"../first":"/Users/renancarvalho/Documents/showtime/mtv-play/components/first/index.js","../player":"/Users/renancarvalho/Documents/showtime/mtv-play/components/player/index.js","../second":"/Users/renancarvalho/Documents/showtime/mtv-play/components/second/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/switcher/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/app/ui/switcher":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/switcher/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
-},{"../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/index.js":[function(require,module,exports){
+},{"../first":"/Users/youzi/dev/mtv-play/components/first/index.js","../player":"/Users/youzi/dev/mtv-play/components/player/index.js","../second":"/Users/youzi/dev/mtv-play/components/second/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/switcher/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/app/ui/switcher":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/components/switcher/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
+},{"../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/components/text/index.js":[function(require,module,exports){
 var Element = require('old-vigour-js/app/ui/element')
 var dictionary = require('old-vigour-js/app/dictionary')
 var seasonText = dictionary.get('text.season')
@@ -18022,7 +17296,7 @@ exports.highlight = function (string) {
   return '<span class="text-highlight">' + str + '</span>'
 }
 
-},{"old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/input.js":[function(require,module,exports){
+},{"old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/components/text/input.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('old-vigour-js/app/ui/element')
@@ -18317,7 +17591,7 @@ function verify (e) {
   }
 }
 
-},{"../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/index.js","old-vigour-js/browser/events/offset":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/offset.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/search.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/text/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/index.js","old-vigour-js/browser/events/offset":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/offset.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/components/text/search.js":[function(require,module,exports){
 require('./style.less')
 
 var Element = require('old-vigour-js/app/ui/element')
@@ -18498,9 +17772,9 @@ function exit(form, clear) {
   form._active = false
   app.blockResize = false
 }
-},{"../icon":"/Users/renancarvalho/Documents/showtime/mtv-play/components/icon/index.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/style.less","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/components/text/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
-},{"../../common.less":"/Users/renancarvalho/Documents/showtime/mtv-play/common.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/config.js":[function(require,module,exports){
+},{"../icon":"/Users/youzi/dev/mtv-play/components/icon/index.js","./style.less":"/Users/youzi/dev/mtv-play/components/text/style.less","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/app/dictionary":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js","old-vigour-js/app/ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/index.js"}],"/Users/youzi/dev/mtv-play/components/text/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/components/ad/style.less"][0].apply(exports,arguments)
+},{"../../common.less":"/Users/youzi/dev/mtv-play/common.less"}],"/Users/youzi/dev/mtv-play/config.js":[function(require,module,exports){
 window.name = 'mtvplay'
 
 // window.package = require('./package.json')
@@ -18522,7 +17796,7 @@ exports( function( result ) {
 }, false, window.package, true )
 
 
-},{"old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/util/config/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/ua.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/index.js":[function(require,module,exports){
+},{"old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/util/config/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/ua.js"}],"/Users/youzi/dev/mtv-play/index.js":[function(require,module,exports){
 window.package = require('package.json')
 
 // override for testing
@@ -18571,7 +17845,7 @@ if (!remote) {
   }
 }
 
-},{"./config":"/Users/renancarvalho/Documents/showtime/mtv-play/config.js","./platform/all.js":"/Users/renancarvalho/Documents/showtime/mtv-play/platform/all.js","./platform/cast.js":"/Users/renancarvalho/Documents/showtime/mtv-play/platform/cast.js","./platform/tv.js":"/Users/renancarvalho/Documents/showtime/mtv-play/platform/tv.js","old-vigour-js/app/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util/debug":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/debug/index.js","package.json":"package.json"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/after/index.js":[function(require,module,exports){
+},{"./config":"/Users/youzi/dev/mtv-play/config.js","./platform/all.js":"/Users/youzi/dev/mtv-play/platform/all.js","./platform/cast.js":"/Users/youzi/dev/mtv-play/platform/cast.js","./platform/tv.js":"/Users/youzi/dev/mtv-play/platform/tv.js","old-vigour-js/app/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/util/debug":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/debug/index.js","package.json":"package.json"}],"/Users/youzi/dev/mtv-play/node_modules/after/index.js":[function(require,module,exports){
 module.exports = after
 
 function after(count, callback, err_cb) {
@@ -18601,7 +17875,7 @@ function after(count, callback, err_cb) {
 
 function noop() {}
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/arraybuffer.slice/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/arraybuffer.slice/index.js":[function(require,module,exports){
 /**
  * An abstraction for slicing an arraybuffer even when
  * ArrayBuffer.prototype.slice is not supported
@@ -18632,7 +17906,7 @@ module.exports = function(arraybuffer, start, end) {
   return result.buffer;
 };
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/asap/asap.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/asap/asap.js":[function(require,module,exports){
 (function (process){
 
 // Use the fastest possible means to execute a task in a future turn
@@ -18749,7 +18023,7 @@ module.exports = asap;
 
 
 }).call(this,require('_process'))
-},{"_process":"/Users/renancarvalho/Documents/showtime/gaston/node_modules/process/browser.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/autolinker/dist/Autolinker.js":[function(require,module,exports){
+},{"_process":"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/process/browser.js"}],"/Users/youzi/dev/mtv-play/node_modules/autolinker/dist/Autolinker.js":[function(require,module,exports){
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module unless amdModuleId is set
@@ -21579,7 +20853,7 @@ return Autolinker;
 
 }));
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/backo2/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/backo2/index.js":[function(require,module,exports){
 
 /**
  * Expose `Backoff`.
@@ -21666,7 +20940,7 @@ Backoff.prototype.setJitter = function(jitter){
 };
 
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/base64-arraybuffer/lib/base64-arraybuffer.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/base64-arraybuffer/lib/base64-arraybuffer.js":[function(require,module,exports){
 /*
  * base64-arraybuffer
  * https://github.com/niklasvh/base64-arraybuffer
@@ -21727,7 +21001,7 @@ Backoff.prototype.setJitter = function(jitter){
   };
 })("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/blob/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/blob/index.js":[function(require,module,exports){
 (function (global){
 /**
  * Create a blob builder even when vendor prefixes exist
@@ -21827,7 +21101,7 @@ module.exports = (function() {
 })();
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/colors/colors.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/colors/colors.js":[function(require,module,exports){
 /*
 colors.js
 
@@ -22171,7 +21445,7 @@ addProperty('zalgo', function () {
   return zalgo(this);
 });
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/component-bind/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/component-bind/index.js":[function(require,module,exports){
 /**
  * Slice reference.
  */
@@ -22196,7 +21470,7 @@ module.exports = function(obj, fn){
   }
 };
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/component-emitter/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/component-emitter/index.js":[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -22362,7 +21636,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/component-inherit/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/component-inherit/index.js":[function(require,module,exports){
 
 module.exports = function(a, b){
   var fn = function(){};
@@ -22370,7 +21644,7 @@ module.exports = function(a, b){
   a.prototype = new fn;
   a.prototype.constructor = a;
 };
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/debug/browser.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/debug/browser.js":[function(require,module,exports){
 
 /**
  * This is the web browser implementation of `debug()`.
@@ -22540,7 +21814,7 @@ function localstorage(){
   } catch (e) {}
 }
 
-},{"./debug":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/debug/debug.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/debug/debug.js":[function(require,module,exports){
+},{"./debug":"/Users/youzi/dev/mtv-play/node_modules/debug/debug.js"}],"/Users/youzi/dev/mtv-play/node_modules/debug/debug.js":[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -22739,11 +22013,11 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/ms/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/index.js":[function(require,module,exports){
+},{"ms":"/Users/youzi/dev/mtv-play/node_modules/ms/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/index.js":[function(require,module,exports){
 
 module.exports =  require('./lib/');
 
-},{"./lib/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/index.js":[function(require,module,exports){
+},{"./lib/":"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/index.js":[function(require,module,exports){
 
 module.exports = require('./socket');
 
@@ -22755,7 +22029,7 @@ module.exports = require('./socket');
  */
 module.exports.parser = require('engine.io-parser');
 
-},{"./socket":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/socket.js","engine.io-parser":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-parser/lib/browser.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/socket.js":[function(require,module,exports){
+},{"./socket":"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/socket.js","engine.io-parser":"/Users/youzi/dev/mtv-play/node_modules/engine.io-parser/lib/browser.js"}],"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/socket.js":[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies.
@@ -23487,7 +22761,7 @@ Socket.prototype.filterUpgrades = function (upgrades) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./transport":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/transport.js","./transports":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/transports/index.js","component-emitter":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/component-emitter/index.js","debug":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/debug/browser.js","engine.io-parser":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-parser/lib/browser.js","indexof":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/indexof/index.js","parsejson":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/parsejson/index.js","parseqs":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/parseqs/index.js","parseuri":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/parseuri/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/transport.js":[function(require,module,exports){
+},{"./transport":"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/transport.js","./transports":"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/transports/index.js","component-emitter":"/Users/youzi/dev/mtv-play/node_modules/component-emitter/index.js","debug":"/Users/youzi/dev/mtv-play/node_modules/debug/browser.js","engine.io-parser":"/Users/youzi/dev/mtv-play/node_modules/engine.io-parser/lib/browser.js","indexof":"/Users/youzi/dev/mtv-play/node_modules/indexof/index.js","parsejson":"/Users/youzi/dev/mtv-play/node_modules/parsejson/index.js","parseqs":"/Users/youzi/dev/mtv-play/node_modules/parseqs/index.js","parseuri":"/Users/youzi/dev/mtv-play/node_modules/parseuri/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/transport.js":[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -23644,7 +22918,7 @@ Transport.prototype.onClose = function () {
   this.emit('close');
 };
 
-},{"component-emitter":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/component-emitter/index.js","engine.io-parser":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-parser/lib/browser.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/transports/index.js":[function(require,module,exports){
+},{"component-emitter":"/Users/youzi/dev/mtv-play/node_modules/component-emitter/index.js","engine.io-parser":"/Users/youzi/dev/mtv-play/node_modules/engine.io-parser/lib/browser.js"}],"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/transports/index.js":[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies
@@ -23701,7 +22975,7 @@ function polling(opts){
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./polling-jsonp":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/transports/polling-jsonp.js","./polling-xhr":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/transports/polling-xhr.js","./websocket":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/transports/websocket.js","xmlhttprequest-ssl":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/xmlhttprequest.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/transports/polling-jsonp.js":[function(require,module,exports){
+},{"./polling-jsonp":"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/transports/polling-jsonp.js","./polling-xhr":"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/transports/polling-xhr.js","./websocket":"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/transports/websocket.js","xmlhttprequest-ssl":"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/xmlhttprequest.js"}],"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/transports/polling-jsonp.js":[function(require,module,exports){
 (function (global){
 
 /**
@@ -23943,7 +23217,7 @@ JSONPPolling.prototype.doWrite = function (data, fn) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./polling":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/transports/polling.js","component-inherit":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/component-inherit/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/transports/polling-xhr.js":[function(require,module,exports){
+},{"./polling":"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/transports/polling.js","component-inherit":"/Users/youzi/dev/mtv-play/node_modules/component-inherit/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/transports/polling-xhr.js":[function(require,module,exports){
 (function (global){
 /**
  * Module requirements.
@@ -24359,7 +23633,7 @@ function unloadHandler() {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./polling":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/transports/polling.js","component-emitter":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/component-emitter/index.js","component-inherit":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/component-inherit/index.js","debug":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/debug/browser.js","xmlhttprequest-ssl":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/xmlhttprequest.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/transports/polling.js":[function(require,module,exports){
+},{"./polling":"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/transports/polling.js","component-emitter":"/Users/youzi/dev/mtv-play/node_modules/component-emitter/index.js","component-inherit":"/Users/youzi/dev/mtv-play/node_modules/component-inherit/index.js","debug":"/Users/youzi/dev/mtv-play/node_modules/debug/browser.js","xmlhttprequest-ssl":"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/xmlhttprequest.js"}],"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/transports/polling.js":[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -24608,7 +23882,7 @@ Polling.prototype.uri = function(){
   return schema + '://' + (ipv6 ? '[' + this.hostname + ']' : this.hostname) + port + this.path + query;
 };
 
-},{"../transport":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/transport.js","component-inherit":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/component-inherit/index.js","debug":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/debug/browser.js","engine.io-parser":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-parser/lib/browser.js","parseqs":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/parseqs/index.js","xmlhttprequest-ssl":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/xmlhttprequest.js","yeast":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/yeast/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/transports/websocket.js":[function(require,module,exports){
+},{"../transport":"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/transport.js","component-inherit":"/Users/youzi/dev/mtv-play/node_modules/component-inherit/index.js","debug":"/Users/youzi/dev/mtv-play/node_modules/debug/browser.js","engine.io-parser":"/Users/youzi/dev/mtv-play/node_modules/engine.io-parser/lib/browser.js","parseqs":"/Users/youzi/dev/mtv-play/node_modules/parseqs/index.js","xmlhttprequest-ssl":"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/xmlhttprequest.js","yeast":"/Users/youzi/dev/mtv-play/node_modules/yeast/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/transports/websocket.js":[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies.
@@ -24900,7 +24174,7 @@ WS.prototype.check = function(){
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../transport":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/transport.js","component-inherit":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/component-inherit/index.js","debug":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/debug/browser.js","engine.io-parser":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-parser/lib/browser.js","parseqs":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/parseqs/index.js","ws":"/Users/renancarvalho/Documents/showtime/gaston/node_modules/browser-resolve/empty.js","yeast":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/yeast/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/lib/xmlhttprequest.js":[function(require,module,exports){
+},{"../transport":"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/transport.js","component-inherit":"/Users/youzi/dev/mtv-play/node_modules/component-inherit/index.js","debug":"/Users/youzi/dev/mtv-play/node_modules/debug/browser.js","engine.io-parser":"/Users/youzi/dev/mtv-play/node_modules/engine.io-parser/lib/browser.js","parseqs":"/Users/youzi/dev/mtv-play/node_modules/parseqs/index.js","ws":"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/browser-resolve/empty.js","yeast":"/Users/youzi/dev/mtv-play/node_modules/yeast/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/lib/xmlhttprequest.js":[function(require,module,exports){
 // browser shim for xmlhttprequest module
 var hasCORS = require('has-cors');
 
@@ -24938,7 +24212,7 @@ module.exports = function(opts) {
   }
 }
 
-},{"has-cors":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/has-cors/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-parser/lib/browser.js":[function(require,module,exports){
+},{"has-cors":"/Users/youzi/dev/mtv-play/node_modules/has-cors/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/engine.io-parser/lib/browser.js":[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies.
@@ -25536,7 +24810,7 @@ exports.decodePayloadAsBinary = function (data, binaryType, callback) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./keys":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-parser/lib/keys.js","after":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/after/index.js","arraybuffer.slice":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/arraybuffer.slice/index.js","base64-arraybuffer":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/base64-arraybuffer/lib/base64-arraybuffer.js","blob":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/blob/index.js","has-binary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/has-binary/index.js","utf8":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/utf8/utf8.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-parser/lib/keys.js":[function(require,module,exports){
+},{"./keys":"/Users/youzi/dev/mtv-play/node_modules/engine.io-parser/lib/keys.js","after":"/Users/youzi/dev/mtv-play/node_modules/after/index.js","arraybuffer.slice":"/Users/youzi/dev/mtv-play/node_modules/arraybuffer.slice/index.js","base64-arraybuffer":"/Users/youzi/dev/mtv-play/node_modules/base64-arraybuffer/lib/base64-arraybuffer.js","blob":"/Users/youzi/dev/mtv-play/node_modules/blob/index.js","has-binary":"/Users/youzi/dev/mtv-play/node_modules/has-binary/index.js","utf8":"/Users/youzi/dev/mtv-play/node_modules/utf8/utf8.js"}],"/Users/youzi/dev/mtv-play/node_modules/engine.io-parser/lib/keys.js":[function(require,module,exports){
 
 /**
  * Gets the keys for an object.
@@ -25557,7 +24831,7 @@ module.exports = Object.keys || function keys (obj){
   return arr;
 };
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/has-binary/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/has-binary/index.js":[function(require,module,exports){
 (function (global){
 
 /*
@@ -25619,7 +24893,7 @@ function hasBinary(data) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"isarray":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/isarray/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/has-cors/index.js":[function(require,module,exports){
+},{"isarray":"/Users/youzi/dev/mtv-play/node_modules/isarray/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/has-cors/index.js":[function(require,module,exports){
 
 /**
  * Module exports.
@@ -25638,7 +24912,7 @@ try {
   module.exports = false;
 }
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/indexof/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/indexof/index.js":[function(require,module,exports){
 
 var indexOf = [].indexOf;
 
@@ -25649,12 +24923,12 @@ module.exports = function(arr, obj){
   }
   return -1;
 };
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/isarray/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/isarray/index.js":[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/jquery/dist/jquery.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/jquery/dist/jquery.js":[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.3
  * http://jquery.com/
@@ -35498,7 +34772,7 @@ if ( !noGlobal ) {
 return jQuery;
 }));
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/json3/lib/json3.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/json3/lib/json3.js":[function(require,module,exports){
 (function (global){
 /*! JSON v3.3.2 | http://bestiejs.github.io/json3 | Copyright 2012-2014, Kit Cambridge | http://kit.mit-license.org */
 ;(function () {
@@ -36404,7 +35678,7 @@ return jQuery;
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/monotonic-timestamp/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/monotonic-timestamp/index.js":[function(require,module,exports){
 // If `Date.now()` is invoked twice quickly, it's possible to get two
 // identical time stamps. To avoid generation duplications, subsequent
 // calls are manually ordered to force uniqueness.
@@ -36451,7 +35725,7 @@ function timestamp() {
   return adjusted
 }
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/ms/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/ms/index.js":[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -36578,7 +35852,7 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's';
 }
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/cloud.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/cloud.js":[function(require,module,exports){
 var Cloud = require('old-vigour-js/browser/network/cloud')
     .inject(
       require('old-vigour-js/browser/network/cloud/datacloud'),
@@ -36739,7 +36013,7 @@ exports.extend = util.extend( require('./values'), function (base) {
 })
 
 
-},{"./values":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/values.js","old-vigour-js/browser/animation/raf":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/network/cloud":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/cloud/index.js","old-vigour-js/browser/network/cloud/authenticate":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/cloud/authenticate.js","old-vigour-js/browser/network/cloud/datacloud":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/cloud/datacloud.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js","old-vigour-js/value/flags/process":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/content.js":[function(require,module,exports){
+},{"./values":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/values.js","old-vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/network/cloud":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/cloud/index.js","old-vigour-js/browser/network/cloud/authenticate":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/cloud/authenticate.js","old-vigour-js/browser/network/cloud/datacloud":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/cloud/datacloud.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js","old-vigour-js/value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/content.js":[function(require,module,exports){
 var Value = require('../value')
   , CloudData = require( '../browser/network/cloud/data' )
   , util = require('../util')
@@ -36799,7 +36073,7 @@ exports.extend = util.extend(
   }
 )
 
-},{"../browser/network/cloud/data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/cloud/data.js","../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js","./cloud":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/cloud.js","./values":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/values.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js":[function(require,module,exports){
+},{"../browser/network/cloud/data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/cloud/data.js","../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js","./cloud":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/cloud.js","./values":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/values.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/dictionary/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  */
@@ -36888,7 +36162,7 @@ app.dictionary.val =
 
 */
 
-},{"../../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js","../ui/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js":[function(require,module,exports){
+},{"../../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js","../ui/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  *
@@ -36901,112 +36175,104 @@ require('./style.less')
 require('../browser/animation/easing')
 
 var Element = require('../browser/element')
-var cases = require('../browser/cases')
-  // var animation = require('../browser/animation')
-var events = require('../browser/events/advanced')
-var ua = require('../browser/ua')
-  // var raf = require('../browser/animation/raf')
-  // var eventUtils = require('../browser/events/util')
-var app
-var _ios = ua.platform === 'ios'
-var _windows = ua.platform === 'windows'
-  // maybe make this configrable
-var arr = ['phone', 'tablet', 'tv', 'desktop', 'ios', 'android', 'windows', 'mac', 'touch', 'slow', 'chromecast']
-  // ui/cases --
-var i = arr.length - 1
+  , cases = require('../browser/cases')
+  , animation = require('../browser/animation')
+  , events = require('../browser/events/advanced')
+  , ua = require('../browser/ua')
+  , raf = require('../browser/animation/raf')
+  , eventUtils = require('../browser/events/util')
+  , app
+  , _ios = ua.platform==='ios'
+  , _windows = ua.platform === 'windows'
+  , arr = ['phone','tablet','tv','desktop','ios','android','windows','mac','touch','slow','chromecast'] //maybe make this configrable
+  //ui/cases --
+  , i = arr.length - 1
 
-// hier process in requiren en added 'appStart' ofzoiets dergelijks
-// add ook process aan base dingen dan word iets pas geadd na een bepaalde process update
-// ultra mofo powerfull
+//hier process in requiren en added 'appStart' ofzoiets dergelijks
+//add ook process aan base dingen dan word iets pas geadd na een bepaalde process update
+//ultra mofo powerfull
 
 cases.iosBrowser = _ios && ('standalone' in navigator && !navigator.standalone) && !window.cordova
 cases.iosFull = (!cases.iosBrowser && _ios) || ((_ios || _windows) && !!window.cordova) || false
 cases.retina = window.devicePixelRatio > 1
-cases.slow = (_windows && ua.device === 'phone') || (ua.noRaf && ua.hasTransition) || _ios && (window.screen.height === (960 / 2)) || ua.device === 'tv'
+cases.slow = (_windows && ua.device === 'phone') || (ua.noRaf&&ua.hasTransition) || _ios && (window.screen.height === (960 / 2)) || ua.device === 'tv'
 cases.native = window.cordova ? true : false
 cases.windowsMobile = ua.platform === 'windows' && ua.device === 'phone' && !!window.cordova
 cases.crawler = (!cases.tv && !cases.native)
 
-// packer case voor web // native
+//packer case voor web // native
 
 app = module.exports = new Element({
-  'x,y': {
-    val: 0,
-    clean: true,
-    translate: true
-  },
-  node: document.body,
-  w: window.innerWidth,
-  h: window.innerHeight,
-  css: 'app'
+  'x,y':{ val:0,clean:true,translate:true }
+, node: document.body
+, w: window.innerWidth
+, h: window.innerHeight
+, css: 'app'
 })
 
 app.cases = cases
 
-// if(cases.iosFull) {
-// app.y = {add:20}
-// app.h = {sub:20}
-// }
+//if(cases.iosFull) {
+  // app.y = {add:20}
+  // app.h = {sub:20}
+//}
 
 var listener = function() {
-  //   console.log('resize!!','w:',window.innerWidth,'h:',window.innerHeight,'block?:',app.blockResize)
-  if (!app.blockResize) {
+//   console.log('resize!!','w:',window.innerWidth,'h:',window.innerHeight,'block?:',app.blockResize)
+  if(!app.blockResize) {
     // animation.prevent = true
     app.w.val = window.innerWidth
     app.h.val = window.innerHeight
-      // animation.prevent = false
+    // animation.prevent = false
   } else {
     app.blockResize = false
   }
 }
 
-function defaultCase (str) {
-  if (cases[str] === void 0) {
-    cases[str] = (ua.device === str || ua.platform === str) ? true : false
+function defaultCase(str) {
+  if( cases[str] === void 0 ) {
+    cases[str] = ( ua.device === str || ua.platform === str ) ? true : false
   }
-  app.css = {
-    addClass: cases[str] ? str : 'not-' + str
-  }
+  app.css = { addClass: cases[str] ? str : 'not-'+str }
 }
 
 // listener = eventUtils.throttle(listener,60)
 // listener =
 // cases.noCalc = !util.hasCalc()
-// case too see if app is running in a browser on ios (limits video capabilities)
+//case too see if app is running in a browser on ios (limits video capabilities)
 
-if (cases.touch) {
-  events.document.addEvent('move', function (e) {
-    if (!events._maybescroll && !events._setscroll) e.preventDefault()
-  }, 'app')
-}
+if(cases.touch) events.document.addEvent('move',function(e) {
+  if(!events._maybescroll && !events._setscroll) e.preventDefault()
+},'app')
 
-if ('orientation' in window) window.addEventListener('orientationchange', listener)
-if (!_ios) window.addEventListener('resize', listener)
+if('orientation' in window) window.addEventListener('orientationchange',listener)
+if(!_ios) window.addEventListener('resize',listener)
 
 window.requestAnimationFrame(listener)
-  // adding #<case> in url forces case, multiple hashes ==> multiple cases
-  // this is for testing purposes , add development indentifier for compiler
+//adding #<case> in url forces case, multiple hashes ==> multiple cases
+//this is for testing purposes , add development indentifier for compiler
 
-// this has to go
-if (window.location.hash) {
+//this has to go
+if(window.location.hash) {
   var hashCases = window.location.hash.split('#')[1]
-  var x = hashCases.split(',')
+    , x = hashCases.split(',')
 
-  for (var j in x) {
+  for(var j in x) {
     var y = x[j].split('=')
     ua[y[0]] = y[1]
   }
+
 }
 
-if (ua.device === 'tv') {
+if(ua.device === 'tv') {
   cases.slow = true
 }
 
-for (; i >= 0;) defaultCase(arr[i--])
+for(;i >= 0;) defaultCase(arr[i--])
 
-},{"../browser/animation/easing":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/easing.js","../browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","../browser/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/index.js","../browser/events/advanced":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/advanced.js","../browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","./style.less":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/style.less"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/style.less":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/gaston/node_modules/browser-resolve/empty.js"][0].apply(exports,arguments)
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js":[function(require,module,exports){
+},{"../browser/animation":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/index.js","../browser/animation/easing":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/easing.js","../browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","../browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","../browser/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/index.js","../browser/events/advanced":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/advanced.js","../browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/util.js","../browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","./style.less":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/style.less"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/style.less":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/common.less"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -37031,7 +36297,7 @@ module.exports =
   )
 
 
-},{"../../../browser/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/index.js","../../../browser/element/properties":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/index.js","../../../browser/element/properties/collection":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/collection/index.js","../../../browser/element/properties/process":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/process.js","../../../browser/element/properties/scrollbar":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/scrollbar.js","../../../browser/events":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/index.js","../../../value/flags/parent":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/parent.js","../../../value/flags/process":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/process.js","../../../value/flags/self":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/self.js","../../../value/flags/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/util.js","../../../value/on":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/on.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/sprite/index.js":[function(require,module,exports){
+},{"../../../browser/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/index.js","../../../browser/element/properties":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/index.js","../../../browser/element/properties/collection":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/collection/index.js","../../../browser/element/properties/process":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/process.js","../../../browser/element/properties/scrollbar":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/scrollbar.js","../../../browser/events":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/index.js","../../../value/flags/parent":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/parent.js","../../../value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/process.js","../../../value/flags/self":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/self.js","../../../value/flags/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/util.js","../../../value/on":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/on.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/sprite/index.js":[function(require,module,exports){
 var Element = require('../element')
   , util = require('../../../browser/events/util') 
   , sprite = new Element({ 
@@ -37111,218 +36377,281 @@ module.exports = sprite.Class
 
 
 
-},{"../../../browser/events/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/util.js","../element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js":[function(require,module,exports){
+},{"../../../browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/util.js","../element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/element/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/switcher/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
  */
 
-// var Base = require('old-vigour-js/base')
-var Element = require('old-vigour-js/browser/element')
-var Value = require('old-vigour-js/value')
-var VObject = require('old-vigour-js/object')
-var switcher = new Element()
-var cases = require('old-vigour-js/browser/cases')
+var Base = require('old-vigour-js/base')
+  , Element = require('old-vigour-js/browser/element')
+  , Value = require('old-vigour-js/value')
+  , VObject = require('old-vigour-js/object')
+  , switcher = new Element()
+  , cases = require('old-vigour-js/browser/cases')
 
-// function extendFactory (field) {
-//   return {
-//     name: field,
-//     type: false,
-//     set: function (fn) {
-//       if (fn instanceof Function) {
-//         var set = {}
-//         set['_' + field] = fn
-//         this.define(set)
-//       } else {
-//         console.error('property ' + field + ' needs to be a function')
-//       }
-//     }
-//   }
-// }
+function extendFactory( field ){
+  return { name:field
+  , type:false
+  , set:function( fn ){
+      if(fn instanceof Function)
+      {
+        var set = {}
+        set['_'+field] = fn
+        this.define(set)
+      }
+      else
+      {
+        console.error('property ' + field + ' needs to be a function')
+      }
+    }
+  }
+}
 
 Value.flags.$params = {
-  set: function(val) {
+  set:function( val ) {
     this.params = val
   }
 }
 
 Value.flags.$options = {
-  set: function(val) {
+  set:function( val ) {
     this.options = val
   }
 }
 
-switcher.extend({
-  loader: {},
-  animation: {},
-  delay: {},
-  done: {},
-  force: {},
-  backFallback: {
-    cache: false
-  },
-  onTransition: {
-    cache: false
-  },
-  transition: {
-    cache: false,
-    set: function (val) {
-      var element = val.element && val.element._val
-      var params = val.params
-      var options = val.options || {}
-      var force = options && options.force
-      var children = this.children
-      var last = this._swElem || children[0]
-      var base = element && element.base
-      var childrenLength = children.length
-      var current, child, direction, _this = this
+switcher.extend
+( { loader:{}
+  , animation:{}
+  , delay:{}
+  , done:{}
+  , force:{}
+  , backFallback:
+    { cache:false
+    // , set:function(){}
+    }
+  , onTransition:
+    { cache:false
+    // , set:function(){}
+    }
+  , transition:
+    { cache:false
+    , set:function( val ){
+        var element = val.element && val.element._val
+          , params = val.params
+          , options = val.options || {}
+          , force = options && options.force
+          , children = this.children
+          , last = this._swElem || children[0]
+          , base = element && element.base
+          , childrenLength = children.length
+          , current
+          , child
+          , direction
+          , _this = this
 
-      // if there are still old pages, remove these
-      if (childrenLength > 1) {
-        for (var i = childrenLength - 1; i >= 0; i--) {
-          child = children[i]
-          if (child !== last) child.remove()
+        // if there are still old pages, remove these
+        if( childrenLength > 1 )
+        {
+          for ( i = childrenLength - 1; i >= 0; i-- ) 
+          {
+            child = children[i]
+            if( child !== last ) child.remove()
+          }
         }
-      }
-      // if there are old loading listeners remove these
-      if (this._loading) {
-        this._loading[1].removeListener(this._loading[0])
-        this._loading = void 0
-      }
 
-      // if( _this._timer ){
-      //   clearTimeout( _this._timer )
-      //   _this._timer = null
-      // }
+        //if there are old loading listeners remove these
+        if( this._loading )
+        {
+          this._loading[1].removeListener( this._loading[0] )
+          this._loading = void 0
+        }
 
-      // console.log('options?!'.green.inverse,options)
-      // is it the same , is it not the same whatup!
-      if (base && base instanceof Element || element === Element) {
-        if (!force && this._swElem && this._swElem instanceof element) {
-          this._swElem.set(params)
-        } else {
-          direction = this._direction = val.direction && val.direction._val
-          if (options && options.loader && !options.loader.$loaded) {
-            if (!this.loader) {
-              console.error('no loader defined!')
-              return
-            }
+        // if( _this._timer ){
+        //   clearTimeout( _this._timer )
+        //   _this._timer = null
+        // }
 
-            var loader = new this.loader._val.Class()
-            // TODO: this has gotten VERY dirty > clean this up!
-            if (options.loader instanceof VObject) {
-              options.done = function () {
-                if (!current) current = new element(params)
-                if (loader._remove) {
-                  options.done = void 0
-                  // dit is natuurlijk absurd
-                  options.delay = cases.tablet ? 400 : 200
+        // console.log('options?!'.green.inverse,options)
+        //is it the same , is it not the same whatup!
+        if( base && base instanceof Element || element === Element )
+        { 
+          if( !force && this._swElem && this._swElem instanceof element )
+          {
+            this._swElem.set( params )
+          }
+          else
+          {
+            direction = this._direction = val.direction && val.direction._val
+            if( options && options.loader && !options.loader.$loaded )
+            {
+              if( !this.loader )
+              {
+                console.error( 'no loader defined!' )
+                return
+              }
 
-                  if (_this._swElem instanceof element) {
-                    _this._swElem.set(params)
-                  } else {
-                    _this.onTransition._val.call(_this, current, _this._swElem, 0, options)
+              var loader = new this.loader._val.Class()
+
+              if( options.loader instanceof VObject ) //TODO: this has gotten VERY dirty > clean this up!
+              {
+                options.done = function(){
+                  if( !current ) current = new element( params )
+                  if( loader._remove )
+                  {
+                    options.done = void 0
+                    options.delay = cases.tablet ? 400 : 200 //dit is natuurlijk absurd
+                    
+                    if( _this._swElem instanceof element )
+                    {
+                      _this._swElem.set( params )
+                    }
+                    else
+                    {
+                      _this.onTransition._val.call( _this, current, _this._swElem , 0, options )
+                    }
+                    options.delay = void 0
                   }
+                }
+
+                var path = options.loader._path
+                this._loading = [ function() {
+                  // if( _this._timer ){
+                  //   clearTimeout( _this._timer )
+                  //   _this._timer = null
+                  // }
+                  loader._remove = true
+                  if( current && options.done ) options.done()
+
+                }, options.loader ]
+
+                // console.log('add the listener for',path)
+                this._loading[1].is('loaded', this._loading[0] )
+                // _this._timer = setTimeout( this._loading[0], 5000 )
+              }
+              else
+              {
+                options.done = function(){
+                  if( !current ) current = new element( params )
+
+                  options.done = void 0
+                  options.delay = 200
+
+                  if( _this._swElem instanceof element )
+                  {
+                    _this._swElem.set( params )
+                  }
+                  else
+                  {
+                    _this.onTransition._val.call( _this, current, _this._swElem , 0, options )
+                  }
+
                   options.delay = void 0
                 }
               }
 
-              var path = options.loader._path
-              this._loading = [function () {
-                // if( _this._timer ){
-                //   clearTimeout( _this._timer )
-                //   _this._timer = null
-                // }
-                loader._remove = true
-                if (current && options.done) options.done()
-              }, options.loader]
+              options.loader = void 0
 
-              // console.log('add the listener for',path)
-              this._loading[1].is('loaded', this._loading[0])
-                // _this._timer = setTimeout( this._loading[0], 5000 )
-            } else {
-              options.done = function () {
-                if (!current) current = new element(params)
-
-                options.done = void 0
-                options.delay = 200
-
-                if (_this._swElem instanceof element) {
-                  _this._swElem.set(params)
-                } else {
-                  _this.onTransition._val.call(_this, current, _this._swElem, 0, options)
-                }
-
-                options.delay = void 0
-              }
+              this.onTransition._val.call( this, loader, last, direction, options)
+            }
+            else
+            {
+              current = new element(params)
+              options.done = void 0
+              options.delay = void 0
+              options.loader = void 0
+              
+              this.onTransition._val.call( this, current, last , direction, options )
             }
 
-            options.loader = void 0
+            if( options.animation !== void 0 ) options.animation = void 0
+            if( options.delay ) options.delay = void 0
 
-            this.onTransition._val.call(this, loader, last, direction, options)
-          } else {
-            current = new element(params)
-            options.done = void 0
-            options.delay = void 0
-            options.loader = void 0
-
-            this.onTransition._val.call(this, current, last, direction, options)
           }
-
-          if (options.animation !== void 0) options.animation = void 0
-          if (options.delay) options.delay = void 0
         }
-      } else if (params) {
-        console.error('only params defined!', params)
-      } else if (params) {
-        console.error('no params and no element defined!')
+        else if(params)
+        {
+          console.error('only params defined!', params)
+        }
+        else if(params)
+        {
+          console.error('no params and no element defined!')
+        }
       }
     }
   }
-})
+)
 
-switcher.define({
-  // remove back logic from switcher (you can't isolate it! ie when you land on page, what is back?)
-  back: function () {
-    this.backFallback._val.call(this)
-  },
-  add: function (element, previous) {
-    this._swElem = element
+switcher.define
+({ back:function(){ //remove back logic from switcher (you can't isolate it! ie when you land on page, what is back?)
+      this.backFallback._val.call( this )
+		}
+  , add:function( element, previous ){
+      this._swElem = element
       // try
       // {
-    Element.prototype.add.apply(this, arguments)
+        Element.prototype.add.apply( this, arguments )
       // }
       // catch(err)
       // {
       //   console.error('error adding the new element',err,arguments)
       // }
-  }
-})
-
-switcher.extend({
-  name: 'on',
-  set: function (val) {
-  },
-  // create refs to original
-  remove: function () {
-    if (this._loading) {
-      this._loading[1].removeListener(this._loading[0])
-      this._loading = null
     }
+	}
+)
 
-    if (this._swTimer) clearTimeout(this._swTimer)
-    if (this._timer) clearTimeout(this._timer)
+switcher.extend
+( { name:'on'
+  , set:function( val ) {
+      // set history variable for all
+      // val.each(function(){
+      //   var from = this.$userOrigin.val
+      //   if(!from) return
+      //   if(!from._history) from.set('history',true)
+      //   if(!this.__checked)
+      //   {
+      //     this.on(function(){
+      //       var caller = this._parent._caller
+            
+      //       if(!caller._backStore)
+      //       { 
+      //         caller._backStore = [ this ]
+      //       }
+      //       else if(caller._direction === -1)
+      //       {
+      //         if(caller._backStore[1] !== void 0) caller._backStore.shift()
+      //         else caller._backStore = [ this ]
+      //       }
+      //       else if(caller._direction === 1)
+      //       {
+      //         caller._backStore.unshift( this )
+      //       }
+            
+      //     })
+      //     this.__checked = true
+      //   }
+      // })
+    }
+  , remove:function(){ // create refs to original
+      if( this._loading )
+      {
+        this._loading[1].removeListener(this._loading[0])
+        this._loading = null
+      }
+      
+      if( this._swTimer ) clearTimeout( this._swTimer )
+      if( this._timer ) clearTimeout( this._timer )
 
-    if (this.on.$remove) this.on.$remove.update()
-  },
-  new: function () {
-    if (this.on.$new) this.on.$new.update()
+      if( this.on.$remove ) this.on.$remove.update()
+    }
+  , new:function(){
+      if( this.on.$new ) this.on.$new.update()
+    }
   }
-})
+)
 
 module.exports = new switcher.Class().Class
-
-},{"old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/index.js","old-vigour-js/object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/switcher/transitions.js":[function(require,module,exports){
+},{"old-vigour-js/base":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/base/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/index.js","old-vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/switcher/transitions.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2015, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -37489,7 +36818,7 @@ function timer( _this, fn, time ){
     _this._swTimer = null
   }, time)
 }
-},{"old-vigour-js/app":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/tv/index.js":[function(require,module,exports){
+},{"old-vigour-js/app":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/tv/index.js":[function(require,module,exports){
 // require('./style.less')
 
 var Element = require('../../../browser/element')
@@ -37690,7 +37019,7 @@ Element.base.set(
 })
 
 
-},{"../../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/index.js","../../../browser/animation":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/index.js","../../../browser/animation/raf":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","../../../browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","../../../browser/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/index.js","../../../browser/events/advanced":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/advanced.js","../../../browser/network/url":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/url.js","../../../browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","../../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../../value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/id.js":[function(require,module,exports){
+},{"../../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/index.js","../../../browser/animation":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/index.js","../../../browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","../../../browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","../../../browser/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/index.js","../../../browser/events/advanced":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/advanced.js","../../../browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/url.js","../../../browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","../../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../../value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/id.js":[function(require,module,exports){
 var util = require('../../util')
 
 require('../../value/flags/process')
@@ -37760,7 +37089,7 @@ exports.extend = util.extend
 
 })
 
-},{"../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../value/flags/process":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/index.js":[function(require,module,exports){
+},{"../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/index.js":[function(require,module,exports){
 require('../../value/flags/self')
 require('../../value/flags/process')
 require('../../value/flags/util')
@@ -37852,7 +37181,7 @@ exports.extend = util.extend(
     appuser.cloud = base.cloud
   }
 )
-},{"../../base":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/base/index.js","../../data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js","../../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js","../../value/flags/process":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/process.js","../../value/flags/self":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/self.js","../../value/flags/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/util.js","../cloud":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/cloud.js","./id":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/id.js","./mockdata":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/mockdata.js","./origin":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/origin.js","./set":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/set.js","./type":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/type.js","monotonic-timestamp":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/monotonic-timestamp/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/mockdata.js":[function(require,module,exports){
+},{"../../base":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/base/index.js","../../data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js","../../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js","../../value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/process.js","../../value/flags/self":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/self.js","../../value/flags/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/util.js","../cloud":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/cloud.js","./id":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/id.js","./mockdata":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/mockdata.js","./origin":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/origin.js","./set":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/set.js","./type":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/type.js","monotonic-timestamp":"/Users/youzi/dev/mtv-play/node_modules/monotonic-timestamp/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/mockdata.js":[function(require,module,exports){
 var util = require('../../util')
   , Data = require('../../data')
 
@@ -37873,7 +37202,7 @@ util.define( exports,
 })
 
 
-},{"../../data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js","../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/multiscreen/cast/chrome/index.js":[function(require,module,exports){
+},{"../../data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/multiscreen/cast/chrome/index.js":[function(require,module,exports){
 // Q: how to read app config from vigour-js?
 
 var config = require('old-vigour-js/util/config').chromecast
@@ -38154,7 +37483,7 @@ exports.init = function (applicationID) {
     chrome.cast.initialize(
       apiConfig,
       function () {
-        // console.log("CHROMECAST chrome.cast.initialize cast:onInitSuccess")
+        // console.log("CHROMECAST chrome.cast.initialize cast:onInitSuccess") 
       },
       function (message) {
         console.error("CHROMECAST cast:onError: " + JSON.stringify(message))
@@ -38253,7 +37582,7 @@ function getEndpoint(obj) {
   return obj
 }
 
-},{"old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/multiscreen/cast/index.js":[function(require,module,exports){
+},{"old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/multiscreen/cast/index.js":[function(require,module,exports){
 /*
 * injectable 
 * adds and manages (through sub-modules)
@@ -38339,7 +37668,7 @@ function getEndpoint(obj){
   return obj
 }
 
-},{"./chrome":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/multiscreen/cast/chrome/index.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/multiscreen/index.js":[function(require,module,exports){
+},{"./chrome":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/multiscreen/cast/chrome/index.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/multiscreen/index.js":[function(require,module,exports){
 var util = require('old-vigour-js/util'),
   Value = require('old-vigour-js/value'),
   cases = require('old-vigour-js/browser/cases'),
@@ -39068,7 +38397,7 @@ function grabTV(user){
 //   )
 // }
 
-},{"../../content":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/content.js","old-vigour-js/browser/animation/raf":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/index.js","old-vigour-js/browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/data/selection":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/selection.js","old-vigour-js/object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/object/compound":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/compound.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js","old-vigour-js/value/flags/process":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/process.js","old-vigour-js/value/length":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/length.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/navigation.js":[function(require,module,exports){
+},{"../../content":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/content.js","old-vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/browser/events":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/index.js","old-vigour-js/browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","old-vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/data/selection":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/selection.js","old-vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/object/compound":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/compound.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js","old-vigour-js/value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/process.js","old-vigour-js/value/length":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/length.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/navigation.js":[function(require,module,exports){
 var util = require('old-vigour-js/util')
   , vObject = require('old-vigour-js/object')
   , MockData = require('./mockdata')
@@ -39260,7 +38589,7 @@ exports.extend = util.extend
 
 })
 
-},{"../content":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/content.js","./mockdata":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/mockdata.js","old-vigour-js/object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/value/flags/process":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/origin.js":[function(require,module,exports){
+},{"../content":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/content.js","./mockdata":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/mockdata.js","old-vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/origin.js":[function(require,module,exports){
 //userOrigin
 var util = require('../../util')
   , MockData = require('./mockdata')
@@ -39340,7 +38669,7 @@ exports.extend = util.extend( function( vObject ) {
     }
   })
 })
-},{"../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","./mockdata":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/mockdata.js","monotonic-timestamp":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/monotonic-timestamp/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/set.js":[function(require,module,exports){
+},{"../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","./mockdata":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/mockdata.js","monotonic-timestamp":"/Users/youzi/dev/mtv-play/node_modules/monotonic-timestamp/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/set.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -39432,7 +38761,7 @@ function( base ) {
   })
 
 })
-},{"../../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/token.js":[function(require,module,exports){
+},{"../../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/token.js":[function(require,module,exports){
 var util = require('../../util')
   , Value = require('../../value')
   , cases = require('../../browser/cases')
@@ -39709,7 +39038,7 @@ exports.extend = util.extend
 
 
 
-},{"../../browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js","../../value/flags/process":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/type.js":[function(require,module,exports){
+},{"../../browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js","../../value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/type.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -39800,122 +39129,156 @@ module.exports = {
     return prop
   }
 }
-},{"../../base":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/base/index.js","../../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/url.js":[function(require,module,exports){
+},{"../../base":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/base/index.js","../../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/url.js":[function(require,module,exports){
 var util = require('old-vigour-js/util')
 
 require('old-vigour-js/value/flags/process')
 
-// TODO: url error on start up (set from cloud)
-exports.extend = util.extend(function (base) {
-  // TODO: add remove setting
-  base.extend({
-    url: function (val) {
-      if (!val.urlset && val.__t === 4) {
+//TODO: url error on start up (set from cloud)
+exports.extend = util.extend
+( function( base ) {
+
+  //TODO: add remove setting
+  base.extend(
+  { url: function( val ) {
+      if( !val.urlset && val.__t === 4 )
+      {
         val.urlset = true
         var _this = this
 
-        _this.navigation.page.on(function (e) {
+        _this.navigation.page.on( function(e) {
           val.from.val = _this.navigation.page.val
         })
 
-        _this.navigation.show.on(function (e) {
-          val.from.val = _this.$parse(this).url
+        _this.navigation.show.on( function(e) {
+          val.from.val = _this.$parse( this ).url
         })
 
-        _this.navigation.media.on(function () {
-          val.from.val = _this.$parse(this).url
+        _this.navigation.media.on( function() {
+          val.from.val = _this.$parse( this ).url
         })
 
         val.from
-          .on(function () {
-            // urlMap ook reparse setup
+          .on( function( ) {
+            //urlMap ook reparse setup
             // console.log('update from url!'.gree.inverse)
             _this.$execUrl()
           })
+
       } else {
         // console.warn( 'ui.user: no url!' )
-        // console.log() use deze voor updates?
+        //console.log() use deze voor updates?
       }
     }
   })
 
   base.define({
-    $execUrl: function (defaultUrl) {
+    $execUrl: function( defaultUrl ) {
       var _this = this
-      var url = _this.url.from.string.val
-      var nav = _this.navigation
-      var data = _this.parent.content
-      var urlArray
-      var show
-      var season
-      var media
-      var channel
 
-      if (!url || url === '$tv') url = defaultUrl
+     var url = _this.url.from.string.val
+       , nav = _this.navigation
+       , data = _this.parent.content
+       , urlArray
+       , show
+       , season
+       , media
+       , channel
 
-      if (!~url.indexOf('/')) {
-        nav.page.$userOrigin = url
-      } else if (url.indexOf('shows') === 0) {
-        urlArray = url.split('/')
-        show = Number(urlArray[1].split('-')[0])
-        if (urlArray[2]) season = Number(urlArray[2])
-        if (urlArray[3]) media = Number(urlArray[3].split('-')[0])
-        if (show) {
-          show = data.from.get(['shows', show])
+      if(!url || url === '$tv') url = defaultUrl
+
+      if( !~url.indexOf( '/' ) )
+      {
+       nav.page.$userOrigin = url
+      }
+      else if( url.indexOf( 'shows' ) === 0 )
+      {
+
+       urlArray = url.split( '/' )
+       show = Number( urlArray[1].split( '-' )[0] )
+       if( urlArray[2] ) season = Number( urlArray[2] )
+       if( urlArray[3] ) media = Number( urlArray[3].split('-')[0] )
+
+       if( show ) {
+          show = data.from.get( [ 'shows', show ] )
           nav.show.$userOrigin = show
-        }
+       }
 
-        if (media) {
-          media = data.from.get(nav.show.from._path.slice(3).concat(['seasons', String(season - 1), 'episodes', String(media - 1)]))
-          nav.media.$userOrigin = media
-        }
-      } else if (url.indexOf('channels') === 0) {
-        urlArray = url.split('/')
-        channel = Number(urlArray[1].split('-')[0])
-          // console.error('channel')
-          // debugger
-        nav.page.$userOrigin = 'channels'
+      if( media ) {
+        media = data.from.get( nav.show.from._path.slice(3).concat( [ 'seasons', String( season-1 )  ,'episodes', String( media-1 ) ] ) )
+        nav.media.$userOrigin = media
+      }
+
+      }
+      else if( url.indexOf('channels') === 0 )
+      {
+      urlArray = url.split( '/' )
+      channel = Number( urlArray[1].split( '-' )[0] )
+      // console.error('channel')
+      // debugger
+      nav.page.$userOrigin = 'channels'
       }
     },
-    $parse: function (data) {
-      // var old = this.url.val
+    $parse: function( data ) {
 
-      var type = data.from._parent && data.from._parent._name
-      var parsed = {}
-      if (data.from) {
-        parsed.title = data.from.get('title', false).val
-        if (type === 'episodes') {
-          parsed.season = Number(data.from._parent._parent._name) + 1
-          parsed.media = Number(data.from._name) + 1
+      var old = this.url.val
+
+      var type =  data.from._parent && data.from._parent._name
+        , parsed = {}
+
+      if( data.from ) {
+        parsed.title = data.from.get( 'title', false).val
+        if( type === 'episodes' ) {
+          parsed.season = Number( data.from._parent._parent._name )+1
+          parsed.media = Number( data.from._name )+1
           parsed.show = data.from._parent._parent._parent._parent
         }
-        if (type && this.urlMap[type]) {
-          parsed.url = this.urlMap[type](data, parsed)
-        } else {}
+        if( type && this.urlMap[ type ] ) {
+          parsed.url = this.urlMap[ type ]( data, parsed )
+        } else {
+        }
       }
+
+      // if( old ) {
+      //   var x = old+'/'
+      //   if(x.replace(/-[a-z0-9+]+\//g, '/') === parsed.url+'/') {
+      //     parsed.url = old
+      //   }
+      // } else {
+      //   console.warn('block url update! DOUBLE CHECK THIS -- should not happen ( too fast url settings prop in shows)')
+      //   parsed.url = window.location.href
+      //               .replace(String(window.location.origin) + '/', '')
+      //               .replace(/^#\//, '')
+      // }
+
       return parsed
-    },
-    urlMap: {
+    }
+  , urlMap: {
       value: {
-        episodes: function (data, parsed) {
+        episodes: function( data, parsed ) {
           var title = parsed.title
-          var str = this.shows(parsed.show) + '/' + parsed.season + '/' + parsed.media
-          if (title) str += '-' + title
+            , str = this.shows( parsed.show )
+                  + '/'+parsed.season
+                  + '/'+parsed.media
+          if( title ) str += '-'+title
           return str && str.replace(/ /g, '+').replace('?', '')
-        },
-        shows: function (data, parsed) {
-          var title = parsed ? parsed.title : data.get('title', false).val
-          var id = data.from._name
-          var str = 'shows/' + id
-          if (title) str += '-' + title
+        }
+      , shows: function( data, parsed ) {
+          var title = parsed
+              ? parsed.title
+              : data.get('title', false).val
+          , id = data.from._name
+          , str = 'shows/'+id
+          if( title ) str += '-'+title
           return str && str.replace(/ /g, '+').replace('?', '')
         }
       }
     }
   })
+
 })
 
-},{"old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/value/flags/process":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/usage.js":[function(require,module,exports){
+},{"old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/usage.js":[function(require,module,exports){
 var util = require('old-vigour-js/util')
 
 var vObject = require('old-vigour-js/object')
@@ -40152,7 +39515,7 @@ function hasTransform( c, cv) {
   return 0
 }
   
-},{"../content":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/content.js","./mockdata":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/user/mockdata.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/data/selection":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/selection.js","old-vigour-js/object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/value/flags/process":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/values.js":[function(require,module,exports){
+},{"../content":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/content.js","./mockdata":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/user/mockdata.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","old-vigour-js/data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js","old-vigour-js/data/selection":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/selection.js","old-vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/values.js":[function(require,module,exports){
 var config = require('../util/config')
 var languages = config.languages
 var util = require('../util')
@@ -40309,7 +39672,7 @@ exports.extend = util.extend(function(app) {
 
 })
 
-},{"../browser/network/url":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/url.js","../browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","../value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js","../value/flags/process":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/base/index.js":[function(require,module,exports){
+},{"../browser/network/url":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/url.js","../browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","../value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js","../value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/base/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -40660,7 +40023,7 @@ util.define(base,
       return this._class;
     }
   });
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/index.js","../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../util/inject":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/inject.js","./settings":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/base/settings.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/base/settings.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../util/inject":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/inject.js","./settings":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/base/settings.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/base/settings.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -40914,7 +40277,7 @@ util.define(base,
  */
 exports.add(['new', 'remove'], base)
 
-},{"../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/base/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/easing.js":[function(require,module,exports){
+},{"../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/base/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/easing.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -40935,7 +40298,7 @@ exports.outBack = function(t, b, c, d, s) {
   var s = 1.70158;
   return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
 };
-},{"./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/frame.js":[function(require,module,exports){
+},{"./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/frame.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -40973,7 +40336,7 @@ util.define(frame,
 )
 
 module.exports = frame
-},{"../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/index.js":[function(require,module,exports){
+},{"../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -41208,7 +40571,7 @@ flags.animation = {
 
   }
 }
-},{"../../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../value/flags/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/util.js","../../value/operators":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/operators.js","../element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/index.js","../element/properties":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/index.js","./frame":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/frame.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js":[function(require,module,exports){
+},{"../../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../value/flags/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/util.js","../../value/operators":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/operators.js","../element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/index.js","../element/properties":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/index.js","./frame":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/frame.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -41268,7 +40631,7 @@ exports.repeat = function( fn, frames ){
 
 //check ios 6 paul irish says stuff goes wrong there...
 
-},{"../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/base.js":[function(require,module,exports){
+},{"../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/base.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -41408,7 +40771,7 @@ setFlags.cases = methods.reader(function caseReaderBase(name, val, dynamic, inve
   }
   return true;
 });
-},{"../../base":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/base/index.js","../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/index.js","../element/set":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/set.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js":[function(require,module,exports){
+},{"../../base":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/base/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/index.js","../element/set":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/set.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -41673,7 +41036,7 @@ exports.methods.reader = function(fn, dynamic, _static) {
 
 require('./object');
 require('./base');
-},{"../../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js","../../value/flags":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/index.js","../element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/index.js","./base":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/base.js","./object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/object.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/object.js":[function(require,module,exports){
+},{"../../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js","../../value/flags":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/index.js","../element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/index.js","./base":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/base.js","./object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/object.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/object.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -41790,7 +41153,7 @@ var flags = require('../../value/flags'),
   };
 
 flags.dynamic.cases = methods.reader(false, dynamic, _static);
-},{"../../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../value/flags":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/index.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/css.js":[function(require,module,exports){
+},{"../../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../value/flags":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/css.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -41840,7 +41203,7 @@ module.exports = function(slctr, field) {
     return cache;
   }
 };
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -42275,7 +41638,7 @@ util.define(exports,
 exports.base.addSetting('parent')
 exports.base.addSetting('render')
 require('./set')
-},{"../../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/index.js","../../base":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/base/index.js","../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../value/base":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/base.js","./set":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/set.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/collection/display.js":[function(require,module,exports){
+},{"../../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/index.js","../../base":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/base/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../value/base":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/base.js","./set":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/set.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/collection/display.js":[function(require,module,exports){
 var collection = require('./util')
 
 exports.prepare = function(el) {
@@ -42303,7 +41666,7 @@ exports.fragment = function(a,b,exclude,i) {
   if(exclude) exclude[i]=null
 }
 
-},{"./util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/collection/util.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/collection/index.js":[function(require,module,exports){
+},{"./util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/collection/util.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/collection/index.js":[function(require,module,exports){
 
 var collection = require('./util')
   , util = require('../../../../util')
@@ -42464,7 +41827,7 @@ exports.extend = util.extend(
       }
     })
 })
-},{"../../../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/data.js","./util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/collection/util.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/collection/util.js":[function(require,module,exports){
+},{"../../../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/data.js","./util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/collection/util.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/collection/util.js":[function(require,module,exports){
 var element = require('../')
   , Data = require('../../../../data').inject(require('../../../../data/selection'))
   , util = require('../../../../util')
@@ -42622,7 +41985,7 @@ exports.filter = function (val,t) {
    
 //   // t.h = t.node.scrollHeight
 // }
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/index.js","../../../../data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js","../../../../data/selection":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/selection.js","../../../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/data.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/index.js","../../../../data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js","../../../../data/selection":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/selection.js","../../../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/data.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -42673,7 +42036,7 @@ exports.extend = util.extend([ data, {
   }
 }])
 
-},{"../../../data/base":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/base.js","../../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../../value/flags":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/index.js":[function(require,module,exports){
+},{"../../../data/base":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/base.js","../../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../../value/flags":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -43095,7 +42458,7 @@ exports.extend = util.extend(function(base) {
     }
   });
 });
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/index.js","../../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../../util/hash":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/hash.js","../../../value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js","../../animation/raf":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","../../css":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/css.js","../../ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/process.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/index.js","../../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../../util/hash":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/hash.js","../../../value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js","../../animation/raf":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","../../css":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/css.js","../../ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/process.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -43135,7 +42498,7 @@ exports.extend = util.extend(function(base) {
 
 //process wordt mischien meer een operator?
 //soort field eigenlijk
-},{"../../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/scrollbar.js":[function(require,module,exports){
+},{"../../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/scrollbar.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -43314,7 +42677,7 @@ if(cases.touch){
 exports.extend = extend(function(base) {
   base.extend({ scrollbar:fn })
 })  
-},{"../../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","../../events":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/index.js","../../ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/util.js":[function(require,module,exports){
+},{"../../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","../../events":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/index.js","../../ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/util.js":[function(require,module,exports){
 var ua = require('../../ua')
   , _prefix = '-'+ua.prefix.toLowerCase()
   , _transform = _prefix + '-transform'
@@ -43337,7 +42700,7 @@ exports.getMatrix = function(node) {
 //     i--
 //   }
 // }
-},{"../../ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/set.js":[function(require,module,exports){
+},{"../../ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/set.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -43488,7 +42851,7 @@ util.define(element,
     }
     return setObj
   })
-},{"../../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/video/html5.js":[function(require,module,exports){
+},{"../../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/video/html5.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -43711,7 +43074,7 @@ module.exports =
 }
 
 if (!video.player) video.player = module.exports
-},{"../../../browser/events/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/util.js","../../ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/video/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/video/index.js":[function(require,module,exports){
+},{"../../../browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/util.js","../../ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/video/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/video/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -44020,7 +43383,7 @@ base.extend(
   }
 })
 
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/index.js","../../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../events":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/index.js","../properties":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/video/util.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/index.js","../../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../events":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/index.js","../properties":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/video/util.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -44035,7 +43398,7 @@ exports.time = function(time, decimals) {
   ret += "" + secs;
   return ret || 0;
 };
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/advanced.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/advanced.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Youri Daamen, youri@vigour.io
@@ -44216,7 +43579,7 @@ function grab (e, method, val, nested) {
 events.drag = { val: { down: drag } }
 events.grab = { val: { down: grab } }
 events.active = { val: { down: active } }
-},{"../../value/operators":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/operators.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/basic.js":[function(require,module,exports){
+},{"../../value/operators":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/operators.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/basic.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -44530,7 +43893,7 @@ events.out = {
   },
   remove:_outRemove
 };
-},{"../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","../ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/index.js":[function(require,module,exports){
+},{"../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","../ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -44795,7 +44158,7 @@ util.define(element
 
 require('./basic')
 
-},{"../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","../element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/index.js","./basic":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/basic.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/offset.js":[function(require,module,exports){
+},{"../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","../element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/index.js","./basic":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/basic.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/offset.js":[function(require,module,exports){
 var matrix = require('../element/properties/util').getMatrix
   , vigour = require('../../')
   , css = require('../css')
@@ -44855,7 +44218,7 @@ function offset ( object, arr, prop, propL, matrixIndex ) {
 
 
 
-},{"../../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/index.js","../css":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/css.js","../element/properties/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/properties/util.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/util.js":[function(require,module,exports){
+},{"../../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/index.js","../css":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/css.js","../element/properties/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/properties/util.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/util.js":[function(require,module,exports){
 var raf = require('../animation/raf')
   , util = require('../../util')
 
@@ -44920,7 +44283,7 @@ exports.interval = function(fn, frames, bind) {
   }
 }
 
-},{"../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../animation/raf":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/ajax.js":[function(require,module,exports){
+},{"../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../animation/raf":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/ajax.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -45212,7 +44575,7 @@ var enCode = ajax.encode = function(data, method, encode) {
   // console.log('encoded:', result)
   return result
 }
-},{"../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/cloud/authenticate.js":[function(require,module,exports){
+},{"../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/cloud/authenticate.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Marcus Besjes, marcus@vigour.io
@@ -45295,7 +44658,7 @@ function extend(Cloud) {
     }
   )
 }
-},{"../../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/cloud/data.js":[function(require,module,exports){
+},{"../../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/cloud/data.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Marcus Besjes, marcus@vigour.io
@@ -46068,7 +45431,7 @@ util.define
   }
 )
 
-},{"../../../data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js","../../../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../../../object/hashpath":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/hashpath.js","../../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/data/index.js","../data/element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/data/element.js","monotonic-timestamp":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/monotonic-timestamp/index.js","old-vigour-js/object/flags":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/flags.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/cloud/datacloud.js":[function(require,module,exports){
+},{"../../../data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js","../../../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../../../object/hashpath":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/hashpath.js","../../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/data/index.js","../data/element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/data/element.js","monotonic-timestamp":"/Users/youzi/dev/mtv-play/node_modules/monotonic-timestamp/index.js","old-vigour-js/object/flags":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/flags.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/cloud/datacloud.js":[function(require,module,exports){
 module.exports = DataCloud
 
 var timestamp = require('monotonic-timestamp'),
@@ -46638,9 +46001,9 @@ function removeIndex (arr, i) {
 //   return a[2] - b[2]
 // }
 
-},{"../../../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../../../util/hash":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/hash.js","../../../util/object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/object.js","./data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/cloud/data.js","monotonic-timestamp":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/monotonic-timestamp/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/cloud/emitter.js":[function(require,module,exports){
-arguments[4]["/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/component-emitter/index.js"][0].apply(exports,arguments)
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/cloud/index.js":[function(require,module,exports){
+},{"../../../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../../../util/hash":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/hash.js","../../../util/object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/object.js","./data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/cloud/data.js","monotonic-timestamp":"/Users/youzi/dev/mtv-play/node_modules/monotonic-timestamp/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/cloud/emitter.js":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/node_modules/component-emitter/index.js"][0].apply(exports,arguments)
+},{}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/cloud/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Marcus Besjes, marcus@vigour.io
@@ -46973,7 +46336,7 @@ function fixUrl (url, params) {
   }
   return url + '?' + urlEncode(params, 'GET', 'uri')
 }
-},{"../../../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../../util/global":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/global.js","../../../util/id":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/id.js","../../../util/inject":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/inject.js","../../../value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js","../ajax":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/ajax.js","./emitter":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/cloud/emitter.js","./socket.io.js":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/cloud/socket.io.js","socket.io-client":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-client/lib/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/cloud/socket.io.js":[function(require,module,exports){
+},{"../../../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../../util/global":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/global.js","../../../util/id":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/id.js","../../../util/inject":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/inject.js","../../../value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js","../ajax":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/ajax.js","./emitter":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/cloud/emitter.js","./socket.io.js":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/cloud/socket.io.js","socket.io-client":"/Users/youzi/dev/mtv-play/node_modules/socket.io-client/lib/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/cloud/socket.io.js":[function(require,module,exports){
 (function (global){
 !function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.io=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 
@@ -53169,7 +52532,7 @@ function toArray(list, index) {
 (1)
 });
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/data/element.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/data/element.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -53635,7 +52998,7 @@ util.define(element, 'getModel', function( val, from, ignorefield ) {
 
   return !util.empty( subscription ) ? subscription : null
 })
-},{"../../../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../../util/hash":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/hash.js","../../element":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/element/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/data/index.js":[function(require,module,exports){
+},{"../../../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../../util/hash":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/hash.js","../../element":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/element/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/data/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -53756,140 +53119,140 @@ util.define(data,
 
 
 
-},{"../../../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/index.js","../../../data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js","../../../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../../value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/url.js":[function(require,module,exports){
+},{"../../../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/index.js","../../../data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js","../../../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../../value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/url.js":[function(require,module,exports){
 var util = require('../../util')
-var  Value = require('../../value')
-var config = require('../../util/config')
-var process = require('../../value/flags/process')
-var raf = require('../../browser/animation/raf')
-var postpone = require('../../browser/events/util').postpone
-var ua = require('../../browser/ua')
-var cases = require('../../browser/cases')
+  , Value = require('../../value')
+  , config = require('../../util/config')
+  , process = require('../../value/flags/process')
+  , raf = require('../../browser/animation/raf')
+  , postpone = require('../../browser/events/util').postpone
+  , ua = require('../../browser/ua')
+  , cases = require('../../browser/cases')
 module.exports = exports = new Value()
-  //TODO: .params /w listeners!
+//TODO: .params /w listeners!
 
 // config.hashUrl = ua.device === 'tv' && ua.platform === 'lg' ? false :  config.hashUrl
 
 if (cases.crawler) {
   config.hashUrl = false
 }
-console.log('config.hashUrl', config.hashUrl)
-  // history.pushState({}, '','' )
-  // history.go(0)
-  // history.back()
+console.log('config.hashUrl',config.hashUrl)
+// history.pushState({}, '','' )
+// history.go(0)
+// history.back()
 var pstate = !config.hashUrl //= !window.DEBUG$ && window.history && window.history.pushState
-  ,
-  cnt = 0,
-  timedState, state = postpone(pstate ? function(val) {
-    window.history.pushState({}, '', '/' + val.replace(/ /g, '+').replace(/^#\//, '').toLowerCase())
-  } : function(val) {
-    exports.block = true
-    window.location.href = '#/' + val.replace(/ /g, '+').toLowerCase()
-    exports.block = false
-  }),
-  _set = Value.prototype._set,
-  parse = function() {
-    if (!pstate) {
-      var url = window.location.href.split('#')
-      var params = ''
-      if (url && url.length === 1) {
-        params = query(url[0])
-        url[0] = url[0].replace(params, '')
+  , cnt = 0
+  , timedState
+  , state = postpone ( pstate ? function(val) {
+      window.history.pushState( {}, '', '/'+val.replace(/ /g, '+').replace(/^#\//, '').toLowerCase() )
+    } : function(val) {
+      exports.block = true
+      window.location.href = '#/' + val.replace(/ /g, '+').toLowerCase()
+      exports.block = false
+    } )
+  , _set = Value.prototype._set
+  , parse = function() {
+      if (!pstate)
+      {
+        var url = window.location.href.split('#')
+        var params = ''
+        if( url && url.length === 1 ) {
+          params = query( url[0] )
+          url[0] = url[0].replace(params, '')
           // window.location = '#/'+params
           // return = 'x'
-      }
-      // console.log( url, ( url.length > 1 ? url[1].replace(/\+/g, ' ') : ' ' ).slice(1), params )
-      // +params
-      return (url.length > 1 ? url[1].replace(/\+/g, ' ') : ' ').slice(1) + params
-    } else {
+        }
+        // console.log( url, ( url.length > 1 ? url[1].replace(/\+/g, ' ') : ' ' ).slice(1), params )
+        // +params
+        return ( url.length > 1 ? url[1].replace(/\+/g, ' ') : ' ' ).slice(1)+params
+      } else
+      {
 
-      var url = window.location.href
-      if (url) {
-        params = query(url)
-        url = url.replace(params, '')
+        var url = window.location.href
+        if( url ) {
+          params = query( url )
+          url = url.replace(params, '')
           // window.location = '#/'+params
           // return = 'x'
-      }
+        }
 
-      return String(window.location.href)
-        .replace(String(window.location.origin) + '/', '')
-        .replace(/^#\//, '')
-        .replace(/\+/g, ' ') || ''
+        return String(window.location.href)
+               .replace(String(window.location.origin) + '/', '')
+               .replace(/^#\//, '')
+               .replace(/\+/g, ' ')
+               || ''
+      }
     }
-  },
-  query = function (str) {
-    if (!str) str = parse() || ''
-    var arr = str.split('?')
-    var len = arr.length
-    str = len > 1 && arr[arr.length - 1] ? '?' + arr[arr.length - 1] : ''
-    return str
-  }
+  , query = function( str ) {
+      if(!str) str = parse() || ''
+      var arr = str.split('?')
+        , len = arr.length
+      str = len > 1 && arr[ arr.length - 1 ] ? '?'+arr[ arr.length - 1 ] : ''
+      return str
+    }
 
 exports.parse = parse
 
-// TODO: back btn hijack (event hijack add random param)
-// TODO: use raf for updates
+//TODO: back btn hijack (event hijack add random param)
+//TODO: use raf for updates
 exports.val = {
-  string: function () {
+  string: function() {
     var str = parse()
-    var res = str.split('/', 1)
-    for (var i = 0; i < config.languages.length; i++) {
-      if (config.languages[i] === res) {
-        app.region.val = res
-        app.language.val = res
-      }
-    }
-    return str.replace(query(str), '')
+    return str.replace( query( str ), '' )
   },
   params: {
-    val: function() {
-      return query()
-    },
-    defer: function(update, args) {
+    val: function() { return query() },
+    defer:function( update, args ) {
 
       this.clearCache() //maybe not?
 
-      var val = this.val,
-        params, nestedparams, c
+      var val = this.val
+        , params
+        , nestedparams
+        , c
 
-      if (val && val !== this._last) {
+      if( val && val!==this._last ) {
         this._last = val
         params = val.slice(1).split('&')
         nestedparams = {}
-        for (var i in params) {
+        for( var i in params ) {
           c = params[i].split('=')
-          if (c.length > 1) {
+          if( c.length>1 )
+          {
             nestedparams[c[0]] = c[1]
-          } else {
+          }
+          else
+          {
             console.error('url: no [key]=[value] format -- not implemented yet')
           }
         }
         this.val = nestedparams
       }
-      raf(function() {
-        update()
-      })
+      raf(function() { update() })
     }
   },
-  transform: function(v, cv) {
+  transform: function( v, cv ) {
     return cv
   },
-  defer: function(update, args) {
-    if (args[1] && args[1][0] === 'u') {
+  defer: function( update, args ) {
+    if( args[1] && args[1][0] === 'u' )
+    {
       this.clearCache()
-      raf(function() {
+      raf( function() {
         update()
       })
-    } else {
+    } else
+    {
       this.clearCache()
-      var a = (typeof args[0] === 'string' ? args[0] : args[0] && args[0].val || this.val)
-      if (a) {
+      var a = ( typeof args[0] === 'string'  ? args[0] : args[0] && args[0].val || this.val )
+      if(a)
+      {
         exports.blocks = cnt
 
-        state(a + this.params.val)
+        state( a + this.params.val )
       }
-      return true
-        //TODO: update( true ) blocks all consecutive updates
+      return  true
+      //TODO: update( true ) blocks all consecutive updates
     }
   }
 }
@@ -53897,15 +53260,16 @@ exports.val = {
 function urlEvent(e) {
   var stamp
 
-  if (!config.hashUrl || exports.blocks !== cnt) {
+  if( !config.hashUrl || exports.blocks!==cnt )
+  {
     cnt++
-    stamp = 'u' + cnt
+    stamp = 'u'+cnt
     exports.clearCache()
     exports.string.clearCache() //maybe not clear on string?
-      // exports._update( parse(), 'url' )
-    exports.string._update(exports.string.val, stamp)
-    exports.params._update(exports.string.val, stamp)
-    exports._update(exports.string.val, stamp)
+    // exports._update( parse(), 'url' )
+    exports.string._update( exports.string.val , stamp )
+    exports.params._update( exports.string.val, stamp )
+    exports._update( exports.string.val, stamp )
     exports._lstamp = null
 
   } else {
@@ -53913,24 +53277,27 @@ function urlEvent(e) {
   }
 }
 
-util.define(exports, 'update', function() {
+util.define( exports, 'update', function() {
   urlEvent()
 })
 
-util.define(exports.string, 'raw', {
-  get: function() {
-    return this.val.replace(/ /g, '+')
+util.define( exports.string, 'raw', {
+  get:function() {
+    return this.val.replace( / /g, '+' )
   }
 })
 
-if (config.hashUrl) {
+if( config.hashUrl )
+{
   window.onhashchange = urlEvent
-} else {
+}
+else
+{
   window.onpopstate = urlEvent
 }
 //TODO: add popstate
 
-},{"../../browser/animation/raf":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","../../browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","../../browser/events/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/events/util.js","../../browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../util/config":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js","../../value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js","../../value/flags/process":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js":[function(require,module,exports){
+},{"../../browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","../../browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","../../browser/events/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/events/util.js","../../browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../util/config":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js","../../value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js","../../value/flags/process":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/process.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js":[function(require,module,exports){
 /*
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -54105,7 +53472,7 @@ if( !util.isNode )
 //  return str.replace(this.prefix,'-'+this.prefix+'-').toLowerCase();
 // }
 
-},{"../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/base.js":[function(require,module,exports){
+},{"../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/base.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -54631,7 +53998,7 @@ exports.extend = util.extend( function(base, extensions, modelblacklist) {
     }
   })
 })
-},{"../base":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/base/index.js","../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../value/flags/data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/data.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/conditions.js":[function(require,module,exports){
+},{"../base":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/base/index.js","../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../value/flags/data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/data.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/conditions.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Marcus Besjes, marcus@vigour.io
@@ -54951,7 +54318,7 @@ function getField(thing, field){
   thing = getValue(thing)
   return thing ? getValue(thing[field]) : void 0
 }
-},{"./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js":[function(require,module,exports){
+},{"./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -54974,7 +54341,7 @@ util.define(exports, '_hook', function(val, obj) {
 });
 
 
-},{"old-vigour-js":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/index.js","old-vigour-js/object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/selection.js":[function(require,module,exports){
+},{"old-vigour-js":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/index.js","old-vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/selection.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Marcus Besjes, marcus@vigour.io
@@ -55537,9 +54904,9 @@ function putSort(path) {
   return obj
 }
 
-},{"../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../util/hash":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/hash.js","./conditions":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/conditions.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/index.js":[function(require,module,exports){
+},{"../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../util/hash":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/hash.js","./conditions":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/conditions.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/index.js":[function(require,module,exports){
 //V only used as a reference now...
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/array.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/array.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -55662,7 +55029,7 @@ util.define(object,
   }
 )
 
-},{"../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/compound.js":[function(require,module,exports){
+},{"../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/compound.js":[function(require,module,exports){
 
 
 var VObject = require('old-vigour-js/object').inject(
@@ -55788,7 +55155,7 @@ SourceList.prototype.push = function pushSource(){
 
 
 
-},{"old-vigour-js/object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/id":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/id.js","old-vigour-js/value/length":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/length.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/flags.js":[function(require,module,exports){
+},{"old-vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/util/id":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/id.js","old-vigour-js/value/length":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/length.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/flags.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -56105,7 +55472,7 @@ exports.extend = util.extend(function(object, set) {
   object.flags = _proto.__flags__;
   util.define(object.flags, 'dynamic', {});
 })
-},{"../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/hashpath.js":[function(require,module,exports){
+},{"../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/hashpath.js":[function(require,module,exports){
 var util = require('../util')
   , hash = require('../util/hash')
 
@@ -56119,7 +55486,7 @@ exports.extend = util.extend(function(base) {
     }
   )
 })
-},{"../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../util/hash":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/hash.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js":[function(require,module,exports){
+},{"../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../util/hash":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/hash.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -56520,7 +55887,7 @@ util.define(object,
 exports.listen = require('./listen')
 require('./array')
 require('./util')
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/index.js","../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../util/inject":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/inject.js","./array":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/array.js","./listen":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/listen.js","./util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/util.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/listen.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../util/inject":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/inject.js","./array":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/array.js","./listen":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/listen.js","./util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/util.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/listen.js":[function(require,module,exports){
 var util = require('../util')
   , vObject = require('./')
   , V = require('../')
@@ -57068,7 +56435,7 @@ util.define(vObject,
 
     }
   });
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/index.js","../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/browser/animation/raf":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","promise":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/promise/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/util.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/browser/animation/raf":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/animation/raf.js","promise":"/Users/youzi/dev/mtv-play/node_modules/promise/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/util.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -57741,7 +57108,7 @@ util.define(VObject,
 //add find
 
 
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/index.js","../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/index.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/index.js":[function(require,module,exports){
 (function (__dirname){
 var util = require('../')
   , ajax
@@ -57846,7 +57213,7 @@ exports.parse = function( obj, pckg, options, params ) {
 }
 
 }).call(this,"/node_modules/old-vigour-js/util/config")
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../browser/network/ajax":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/ajax.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/config/ua.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../browser/network/ajax":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/ajax.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/config/ua.js":[function(require,module,exports){
 var ua = require('../../browser/ua')
   , util = require('../')
   , Data = require('../../data').inject(require('../../data/selection'))
@@ -57898,7 +57265,7 @@ exports.parse = function(obj, pckgval, merge, params) {
 }
 
 
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../browser/ua":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/ua.js","../../data":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/index.js","../../data/selection":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/data/selection.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/debug/index.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../browser/ua":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/ua.js","../../data":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/index.js","../../data/selection":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/data/selection.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/debug/index.js":[function(require,module,exports){
 (function (process){
 var debug = exports
 
@@ -58200,7 +57567,7 @@ debug.remoteResource = function(src, replace, strict) {
 }
 
 }).call(this,require('_process'))
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/index.js","../../browser/cases/":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","./log":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/debug/log.js","./performance":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/debug/performance.js","_process":"/Users/renancarvalho/Documents/showtime/gaston/node_modules/process/browser.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/debug/log.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/index.js","../../browser/cases/":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js","./log":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/debug/log.js","./performance":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/debug/performance.js","_process":"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/process/browser.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/debug/log.js":[function(require,module,exports){
 var debug = require('./') 
   , util = require('../') 
   , isNode = util.isNode //has to become part of util
@@ -58618,7 +57985,7 @@ util.define(debug,'localStorageKeysSize', {
 
 
 
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/index.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/debug/index.js","colors":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/colors/colors.js","repl":"/Users/renancarvalho/Documents/showtime/gaston/node_modules/browserify/lib/_empty.js","util":"/Users/renancarvalho/Documents/showtime/gaston/node_modules/util/util.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/debug/performance.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/debug/index.js","colors":"/Users/youzi/dev/mtv-play/node_modules/colors/colors.js","repl":"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/browserify/lib/_empty.js","util":"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/util/util.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/debug/performance.js":[function(require,module,exports){
 (function (process){
 var util = require('../') 
   , debug = require('./') 
@@ -58853,7 +58220,7 @@ exports.average = function (array) {
 }
 
 }).call(this,require('_process'))
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/debug/index.js","_process":"/Users/renancarvalho/Documents/showtime/gaston/node_modules/process/browser.js","os":"/Users/renancarvalho/Documents/showtime/gaston/node_modules/os-browserify/browser.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/encode64.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/debug/index.js","_process":"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/process/browser.js","os":"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/os-browserify/browser.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/encode64.js":[function(require,module,exports){
 /**
 *
 *  Base64 encode / decode
@@ -58997,7 +58364,7 @@ _utf8_decode : function (utftext) {
 }
 
 module.exports = exports = Base64
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/global.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/global.js":[function(require,module,exports){
 (function (process,global){
 var g = typeof window !== 'undefined'
         ? window
@@ -59038,7 +58405,7 @@ function getSet(thing, key, val, getter, setter){
   }
 }
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":"/Users/renancarvalho/Documents/showtime/gaston/node_modules/process/browser.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/hash.js":[function(require,module,exports){
+},{"_process":"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/process/browser.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/hash.js":[function(require,module,exports){
 //check this for more compression http://www.htmlgoodies.com/html5/client/optimizing-websockets-bandwidth.html#fbid=6QZx8napu20
 
 /*
@@ -59150,7 +58517,7 @@ exports.decode = function (a, b, c, d) {
 
 // exports.decode64
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/id.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/id.js":[function(require,module,exports){
 module.exports = function id(pre, level){
   var r = rnd()
   if(level) 
@@ -59163,7 +58530,7 @@ module.exports = function id(pre, level){
 function rnd(){
   return Number(String(Math.random()).slice(2)).toString(36)
 }
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -59239,7 +58606,7 @@ exports.empty = function (obj, list) {
 
 exports.inject = require('./inject')
 
-},{"./inject":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/inject.js","./object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/object.js","./prop":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/prop.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/inject.js":[function(require,module,exports){
+},{"./inject":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/inject.js","./object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/object.js","./prop":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/prop.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/inject.js":[function(require,module,exports){
 
 var V = require('../')
   , util = require('./')
@@ -59380,7 +58747,7 @@ veel dingen werken als extension niet als losse class --
 */
 
 
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/index.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/object.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/object.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -59851,7 +59218,7 @@ function getEndpoint(obj){
   return obj
 }
 
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/index.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/process.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/process.js":[function(require,module,exports){
 //processes
 var vObject = require('../object')
 
@@ -59859,7 +59226,7 @@ var vObject = require('../object')
 
 module.exports = {}
 
-},{"../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/prop.js":[function(require,module,exports){
+},{"../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/prop.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -60114,7 +59481,7 @@ exports.define = function (obj, name, val, set, get, id) {
     }
   }
 }
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/index.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/base.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/base.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -60325,7 +59692,7 @@ exports.type = {
     return prop
   }
 }
-},{"../base":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/base/index.js","../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/data.js":[function(require,module,exports){
+},{"../base":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/base/index.js","../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/data.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -60456,7 +59823,7 @@ flags.data = {
     },0)
   }
 };
-},{"../../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/index.js":[function(require,module,exports){
+},{"../../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -60468,7 +59835,7 @@ var value = require('../'),
     base.clonelist.push(['_flag', true]); //true clone!
     flags.extend(value);
     module.exports = value.flags;
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js","../../object/flags":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/flags.js","../base":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/base.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/parent.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js","../../object/flags":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/flags.js","../base":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/base.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/parent.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -60744,7 +60111,7 @@ flags.parent =
     }
   }
 }
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js","../../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/process.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js","../../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/process.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -61417,7 +60784,7 @@ exports.create( 'init',
 
 module.exports = exports
 
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js","../../browser/network/ajax":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/network/ajax.js","../../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","../../util/process":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/process.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/self.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js","../../browser/network/ajax":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/network/ajax.js","../../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","../../util/process":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/process.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/self.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -61444,7 +60811,7 @@ flags.self = {
   }
 };
 
-},{"./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/util.js":[function(require,module,exports){
+},{"./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/util.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -61495,7 +60862,7 @@ flags.listen = {
   }
 }
 
-},{"./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/flags/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js":[function(require,module,exports){
+},{"./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/flags/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -61827,7 +61194,7 @@ util.define(exports, 'operators', {
 
 
 
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/index.js","../object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","./operators":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/operators.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/length.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/index.js","../object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","./operators":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/operators.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/length.js":[function(require,module,exports){
 var Value = require('old-vigour-js/value'),
   util = require('old-vigour-js/util'),
   VObject = require('old-vigour-js/object')
@@ -61890,7 +61257,7 @@ function getLength (current) {
   }
 }
 
-},{"old-vigour-js/object":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/value":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/on.js":[function(require,module,exports){
+},{"old-vigour-js/object":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/object/index.js","old-vigour-js/util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","old-vigour-js/value":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/on.js":[function(require,module,exports){
 /*!
  * @license Copyright (c) 2012-2014, Vigour. All rights reserved.
  * @author: Jim de Beer, jim@vigour.io
@@ -61955,7 +61322,7 @@ exports.extend = util.extend
   }
 )
 
-},{"../base":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/base/index.js","../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/value/operators.js":[function(require,module,exports){
+},{"../base":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/base/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js","./":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/value/operators.js":[function(require,module,exports){
 /**
  * operators
  * operators can be set on V.Value.operators
@@ -62022,7 +61389,7 @@ exports.default = function( val, operator ) {
   return val
 }
 exports.default.order = 1000
-},{"../":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/index.js","../util":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/parsejson/index.js":[function(require,module,exports){
+},{"../":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/index.js","../util":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/util/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/parsejson/index.js":[function(require,module,exports){
 (function (global){
 /**
  * JSON parse.
@@ -62057,7 +61424,7 @@ module.exports = function parsejson(data) {
   }
 };
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/parseqs/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/parseqs/index.js":[function(require,module,exports){
 /**
  * Compiles a querystring
  * Returns string representation of the object
@@ -62096,7 +61463,7 @@ exports.decode = function(qs){
   return qry;
 };
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/parseuri/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/parseuri/index.js":[function(require,module,exports){
 /**
  * Parses an URI
  *
@@ -62137,14 +61504,14 @@ module.exports = function parseuri(str) {
     return uri;
 };
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/promise/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/promise/index.js":[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/core.js')
 require('./lib/done.js')
 require('./lib/es6-extensions.js')
 require('./lib/node-extensions.js')
-},{"./lib/core.js":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/promise/lib/core.js","./lib/done.js":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/promise/lib/done.js","./lib/es6-extensions.js":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/promise/lib/es6-extensions.js","./lib/node-extensions.js":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/promise/lib/node-extensions.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/promise/lib/core.js":[function(require,module,exports){
+},{"./lib/core.js":"/Users/youzi/dev/mtv-play/node_modules/promise/lib/core.js","./lib/done.js":"/Users/youzi/dev/mtv-play/node_modules/promise/lib/done.js","./lib/es6-extensions.js":"/Users/youzi/dev/mtv-play/node_modules/promise/lib/es6-extensions.js","./lib/node-extensions.js":"/Users/youzi/dev/mtv-play/node_modules/promise/lib/node-extensions.js"}],"/Users/youzi/dev/mtv-play/node_modules/promise/lib/core.js":[function(require,module,exports){
 'use strict';
 
 var asap = require('asap')
@@ -62251,7 +61618,7 @@ function doResolve(fn, onFulfilled, onRejected) {
   }
 }
 
-},{"asap":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/asap/asap.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/promise/lib/done.js":[function(require,module,exports){
+},{"asap":"/Users/youzi/dev/mtv-play/node_modules/asap/asap.js"}],"/Users/youzi/dev/mtv-play/node_modules/promise/lib/done.js":[function(require,module,exports){
 'use strict';
 
 var Promise = require('./core.js')
@@ -62266,7 +61633,7 @@ Promise.prototype.done = function (onFulfilled, onRejected) {
     })
   })
 }
-},{"./core.js":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/promise/lib/core.js","asap":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/asap/asap.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/promise/lib/es6-extensions.js":[function(require,module,exports){
+},{"./core.js":"/Users/youzi/dev/mtv-play/node_modules/promise/lib/core.js","asap":"/Users/youzi/dev/mtv-play/node_modules/asap/asap.js"}],"/Users/youzi/dev/mtv-play/node_modules/promise/lib/es6-extensions.js":[function(require,module,exports){
 'use strict';
 
 //This file contains the ES6 extensions to the core Promises/A+ API
@@ -62376,7 +61743,7 @@ Promise.prototype['catch'] = function (onRejected) {
   return this.then(null, onRejected);
 }
 
-},{"./core.js":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/promise/lib/core.js","asap":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/asap/asap.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/promise/lib/node-extensions.js":[function(require,module,exports){
+},{"./core.js":"/Users/youzi/dev/mtv-play/node_modules/promise/lib/core.js","asap":"/Users/youzi/dev/mtv-play/node_modules/asap/asap.js"}],"/Users/youzi/dev/mtv-play/node_modules/promise/lib/node-extensions.js":[function(require,module,exports){
 'use strict';
 
 //This file contains then/promise specific extensions that are only useful for node.js interop
@@ -62441,7 +61808,7 @@ Promise.prototype.nodeify = function (callback, ctx) {
   })
 }
 
-},{"./core.js":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/promise/lib/core.js","asap":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/asap/asap.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-client/lib/index.js":[function(require,module,exports){
+},{"./core.js":"/Users/youzi/dev/mtv-play/node_modules/promise/lib/core.js","asap":"/Users/youzi/dev/mtv-play/node_modules/asap/asap.js"}],"/Users/youzi/dev/mtv-play/node_modules/socket.io-client/lib/index.js":[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -62535,7 +61902,7 @@ exports.connect = lookup;
 exports.Manager = require('./manager');
 exports.Socket = require('./socket');
 
-},{"./manager":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-client/lib/manager.js","./socket":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-client/lib/socket.js","./url":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-client/lib/url.js","debug":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/debug/browser.js","socket.io-parser":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-parser/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-client/lib/manager.js":[function(require,module,exports){
+},{"./manager":"/Users/youzi/dev/mtv-play/node_modules/socket.io-client/lib/manager.js","./socket":"/Users/youzi/dev/mtv-play/node_modules/socket.io-client/lib/socket.js","./url":"/Users/youzi/dev/mtv-play/node_modules/socket.io-client/lib/url.js","debug":"/Users/youzi/dev/mtv-play/node_modules/debug/browser.js","socket.io-parser":"/Users/youzi/dev/mtv-play/node_modules/socket.io-parser/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/socket.io-client/lib/manager.js":[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -63094,7 +62461,7 @@ Manager.prototype.onreconnect = function(){
   this.emitAll('reconnect', attempt);
 };
 
-},{"./on":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-client/lib/on.js","./socket":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-client/lib/socket.js","backo2":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/backo2/index.js","component-bind":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/component-bind/index.js","component-emitter":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-client/node_modules/component-emitter/index.js","debug":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/debug/browser.js","engine.io-client":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/engine.io-client/index.js","indexof":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/indexof/index.js","socket.io-parser":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-parser/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-client/lib/on.js":[function(require,module,exports){
+},{"./on":"/Users/youzi/dev/mtv-play/node_modules/socket.io-client/lib/on.js","./socket":"/Users/youzi/dev/mtv-play/node_modules/socket.io-client/lib/socket.js","backo2":"/Users/youzi/dev/mtv-play/node_modules/backo2/index.js","component-bind":"/Users/youzi/dev/mtv-play/node_modules/component-bind/index.js","component-emitter":"/Users/youzi/dev/mtv-play/node_modules/socket.io-client/node_modules/component-emitter/index.js","debug":"/Users/youzi/dev/mtv-play/node_modules/debug/browser.js","engine.io-client":"/Users/youzi/dev/mtv-play/node_modules/engine.io-client/index.js","indexof":"/Users/youzi/dev/mtv-play/node_modules/indexof/index.js","socket.io-parser":"/Users/youzi/dev/mtv-play/node_modules/socket.io-parser/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/socket.io-client/lib/on.js":[function(require,module,exports){
 
 /**
  * Module exports.
@@ -63120,7 +62487,7 @@ function on(obj, ev, fn) {
   };
 }
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-client/lib/socket.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/socket.io-client/lib/socket.js":[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -63534,7 +62901,7 @@ Socket.prototype.compress = function(compress){
   return this;
 };
 
-},{"./on":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-client/lib/on.js","component-bind":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/component-bind/index.js","component-emitter":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-client/node_modules/component-emitter/index.js","debug":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/debug/browser.js","has-binary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-client/node_modules/has-binary/index.js","socket.io-parser":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-parser/index.js","to-array":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/to-array/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-client/lib/url.js":[function(require,module,exports){
+},{"./on":"/Users/youzi/dev/mtv-play/node_modules/socket.io-client/lib/on.js","component-bind":"/Users/youzi/dev/mtv-play/node_modules/component-bind/index.js","component-emitter":"/Users/youzi/dev/mtv-play/node_modules/socket.io-client/node_modules/component-emitter/index.js","debug":"/Users/youzi/dev/mtv-play/node_modules/debug/browser.js","has-binary":"/Users/youzi/dev/mtv-play/node_modules/socket.io-client/node_modules/has-binary/index.js","socket.io-parser":"/Users/youzi/dev/mtv-play/node_modules/socket.io-parser/index.js","to-array":"/Users/youzi/dev/mtv-play/node_modules/to-array/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/socket.io-client/lib/url.js":[function(require,module,exports){
 (function (global){
 
 /**
@@ -63614,7 +62981,7 @@ function url(uri, loc){
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"debug":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/debug/browser.js","parseuri":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/parseuri/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-client/node_modules/component-emitter/index.js":[function(require,module,exports){
+},{"debug":"/Users/youzi/dev/mtv-play/node_modules/debug/browser.js","parseuri":"/Users/youzi/dev/mtv-play/node_modules/parseuri/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/socket.io-client/node_modules/component-emitter/index.js":[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -63777,7 +63144,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-client/node_modules/has-binary/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/socket.io-client/node_modules/has-binary/index.js":[function(require,module,exports){
 (function (global){
 
 /*
@@ -63840,7 +63207,7 @@ function hasBinary(data) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"isarray":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/isarray/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-parser/binary.js":[function(require,module,exports){
+},{"isarray":"/Users/youzi/dev/mtv-play/node_modules/isarray/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/socket.io-parser/binary.js":[function(require,module,exports){
 (function (global){
 /*global Blob,File*/
 
@@ -63985,7 +63352,7 @@ exports.removeBlobs = function(data, callback) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./is-buffer":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-parser/is-buffer.js","isarray":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/isarray/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-parser/index.js":[function(require,module,exports){
+},{"./is-buffer":"/Users/youzi/dev/mtv-play/node_modules/socket.io-parser/is-buffer.js","isarray":"/Users/youzi/dev/mtv-play/node_modules/isarray/index.js"}],"/Users/youzi/dev/mtv-play/node_modules/socket.io-parser/index.js":[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -64387,7 +63754,7 @@ function error(data){
   };
 }
 
-},{"./binary":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-parser/binary.js","./is-buffer":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-parser/is-buffer.js","component-emitter":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/component-emitter/index.js","debug":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/debug/browser.js","isarray":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/isarray/index.js","json3":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/json3/lib/json3.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/socket.io-parser/is-buffer.js":[function(require,module,exports){
+},{"./binary":"/Users/youzi/dev/mtv-play/node_modules/socket.io-parser/binary.js","./is-buffer":"/Users/youzi/dev/mtv-play/node_modules/socket.io-parser/is-buffer.js","component-emitter":"/Users/youzi/dev/mtv-play/node_modules/component-emitter/index.js","debug":"/Users/youzi/dev/mtv-play/node_modules/debug/browser.js","isarray":"/Users/youzi/dev/mtv-play/node_modules/isarray/index.js","json3":"/Users/youzi/dev/mtv-play/node_modules/json3/lib/json3.js"}],"/Users/youzi/dev/mtv-play/node_modules/socket.io-parser/is-buffer.js":[function(require,module,exports){
 (function (global){
 
 module.exports = isBuf;
@@ -64404,7 +63771,7 @@ function isBuf(obj) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/to-array/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/to-array/index.js":[function(require,module,exports){
 module.exports = toArray
 
 function toArray(list, index) {
@@ -64419,7 +63786,7 @@ function toArray(list, index) {
     return array
 }
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/utf8/utf8.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/utf8/utf8.js":[function(require,module,exports){
 (function (global){
 /*! https://mths.be/utf8js v2.0.0 by @mathias */
 ;(function(root) {
@@ -64667,7 +64034,7 @@ function toArray(list, index) {
 }(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/yeast/index.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/node_modules/yeast/index.js":[function(require,module,exports){
 'use strict';
 
 var alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_'.split('')
@@ -64737,7 +64104,7 @@ yeast.encode = encode;
 yeast.decode = decode;
 module.exports = yeast;
 
-},{}],"/Users/renancarvalho/Documents/showtime/mtv-play/platform/all.js":[function(require,module,exports){
+},{}],"/Users/youzi/dev/mtv-play/platform/all.js":[function(require,module,exports){
 var app = require('../app')
 var Switcher = require('../components/switcher')
 var cases = require('old-vigour-js/browser/cases')
@@ -64805,7 +64172,7 @@ if (cases.phone && !cases.native) {
 
 app.initialised.val = true
 
-},{"../app":"/Users/renancarvalho/Documents/showtime/mtv-play/app/index.js","../components/cookiebar":"/Users/renancarvalho/Documents/showtime/mtv-play/components/cookiebar/index.js","../components/rotate-message":"/Users/renancarvalho/Documents/showtime/mtv-play/components/rotate-message/index.js","../components/switcher":"/Users/renancarvalho/Documents/showtime/mtv-play/components/switcher/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/platform/cast.js":[function(require,module,exports){
+},{"../app":"/Users/youzi/dev/mtv-play/app/index.js","../components/cookiebar":"/Users/youzi/dev/mtv-play/components/cookiebar/index.js","../components/rotate-message":"/Users/youzi/dev/mtv-play/components/rotate-message/index.js","../components/switcher":"/Users/youzi/dev/mtv-play/components/switcher/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/platform/cast.js":[function(require,module,exports){
 var app = require('../app')
 var Switcher = require('../components/switcher')
 var cases = require('old-vigour-js/browser/cases')
@@ -64847,7 +64214,7 @@ app.set({
 
 app.initialised.val = true
 
-},{"../app":"/Users/renancarvalho/Documents/showtime/mtv-play/app/index.js","../components/switcher":"/Users/renancarvalho/Documents/showtime/mtv-play/components/switcher/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/renancarvalho/Documents/showtime/mtv-play/platform/tv.js":[function(require,module,exports){
+},{"../app":"/Users/youzi/dev/mtv-play/app/index.js","../components/switcher":"/Users/youzi/dev/mtv-play/components/switcher/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/dev/mtv-play/platform/tv.js":[function(require,module,exports){
 var tv = require('old-vigour-js/app/ui/tv')
 var app = require('../app')
 var Switcher = require('../components/switcher')
@@ -64883,6 +64250,772 @@ app.set({
 
 app.initialised.val = true
 
-},{"../app":"/Users/renancarvalho/Documents/showtime/mtv-play/app/index.js","../components/switcher":"/Users/renancarvalho/Documents/showtime/mtv-play/components/switcher/index.js","old-vigour-js/app/ui/tv":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/app/ui/tv/index.js","old-vigour-js/browser/cases":"/Users/renancarvalho/Documents/showtime/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"package.json":[function(require,module,exports){
-module.exports={"name":"mtv-play","version":"1.2.88","description":"mtv's multiscreen adventure","main":"index.js","scripts":{"test":"test/test.js","build":"gaston build -x -s ./index.js -o . -i && cd xhr && gaston build -s ./index.js -o . && cp build.js bundle.js && rm build.css","bundle":"gaston bundle -s ./index.js -o . -i","ios":"npm run build && ./node_modules/.bin/wrapper build --native.selectedPlatforms ios","release":"cp build.css bundle.css && ./node_modules/.bin/ferry --release --mergeFiles '[\"./package.json\",\"./.package.json\"]'"},"repository":{"type":"git","url":"https://github.com/vigour-io/mtv-play","branch":"develop"},"keywords":["multiscreen","play","shows","smart","tv","js"],"dependencies":{"autolinker":"^0.18.1","jquery":"^2.2.0","lodash":"3.2.0","markdown":"^0.5.0","monotonic-timestamp":"0.0.9","old-vigour-js":"git+ssh://git@github.com:vigour-io/vigour-js.git#hotfix/iosBrowser","package-branch-config":"^1.2.2","promise":"6.1.0","through2":"^2.0.0","zepto-browserify":"x"},"devDependencies":{"vigour-wrapper":"^2.0.1","vigour-ferry":"^3.0.0"},"author":"Jim de Beer","license":"other","bugs":{"url":"https://github.com/vigour-io/mtv-play/issues"},"homepage":"https://github.com/vigour-io/mtv-play","vigour":{"ga":"UA-43955457-3","hashUrl":true,"defaultRegion":false,"regionOverride":"DE","availableRegions":["DE","NL","CH","PL","BE","NO","AT"],"geo":"https://wwwmtvplay-a.akamaihd.net/geo/","development":{"button":true},"cloud":"http://mtv-hub.dev.vigour.io:80","othercloud":"http://localhost:10001","languages":["en","de","nl","pl","it","fr","no"],"mtvmobile":["de","ch"],"roles":["free","premium","mtv","trial"],"countrycodes":{"de":49,"ch":41,"nl":31},"dictionary":"https://mtv-develop.vigour.io/translations/lang_$language.json","webtranslateit":{"files":{"de":374130,"en":374126,"nl":374128,"pl":374129,"fr":404562,"it":404563},"token":"-rN-CdCWmgh4IDxFRT-MEg"},"epg":"https://wwwmtvplay-a.akamaihd.net/xhr/index.html","img":"https://imgmtvplay-a.akamaihd.net","imgOrigin":"http://staging.riptide.mtvnn.com/","api":{"type":"staging","url":"https://utt-staging.mtvnn.com/","acceptHeader":"application/json","key":"4e99c9381b74354fbae9f468497912f0"},"player":{"debug":false,"web":"http://player.mtvnn.com/html5player/production/player.js?v=2","settings":{"homadURL":"/homad/config.json","ad_playpostrolls":true,"domain":"mtv","tld":"de","localization":{"language":"de","country":"DE"},"ads":{"autoSID":false,"context":null,"defaultAssetID":41349526,"defaults":{"interval":0},"enabled":true,"engine":"Freewheel","fallbackID":41349526,"midroll_intervals":{"longer_than_15":null,"longer_than_20":null,"longer_than_30":null},"networkID":174975,"profileID":"174975:MTVNE_live_HTML5","server":"http://2ab7f.v.fwmrm.net/ad/p/1","viralSID":"mtvplaytv/test"},"controls":false,"blankVideo":"http://player.mtvnn.com/codebase/blank.m4v","simulcastApiKey":"c153f28d950ae49a"}},"chromecast":{"id":"30C914C1","web":"https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"},"facebook":{"id":"720547754665171","web":"https://connect.facebook.net/de_DE/sdk.js"},"wrapper":{"assets":{"build.html":true,"build.js":true,"build.css":true,"bundle.css":true,"fonts.css":true,"fonts":"*","img":"*","assets":"*","translations":"*"}},"fburl":"http://play.mtvutt.com/","packer":{"language":"https://wwwmtvplay-a.akamaihd.net/translations/","url":"https://wwwmtvplay-a.akamaihd.net/","domain":"http://mtv-develop.vigour.io"},"ferry":{"assets":{"build.html":true,"build.js":true,"build.css":true,"bundle.css":true,"fonts.css":true,"fonts":"*","img":"*","assets":"*","translations":"*","cast":"*","cast.html":true,"xhr":"*","homad":"*","googleebecff275dd42f4a.html":true,"google2c4a46fac7686373.html":true,"sitemap.xml":true,"robots.txt":true,"meta":"*"},"transforms":{"build.js":["inform"],"bundle.css":["rebase"],"build.css":["rebase"],"build.html":["meta"]},"main":"build.js","web":"build.html","fbDefaults":{"title":"MTV Play","description":"Mtv's new app to view shows on all devices","image":"http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png"}},"store":{"ios":{"monthly":"$region_subscription_monthly","yearly":"$region_subscription_annual","single":"$region_single_purchase"},"android":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annually","single":"mtvplay_single_purchase"},"windows":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annual","single":"mtvplay_single_purchase"},"amazon":{"monthly":"com.mtvplay.app.sub.month","yearly":"com.mtvplay.app.sub.year","single":"com.mtvplay.app.episode"}}},"gaston":{"transforms":{"package-branch-config":{"section":"vigour"}},"less-options":{},"source-maps":false,"package":true,"index-path":"index.html","es5":true,"aliasify":{}},"sha":"1.2.88"}
-},{}]},{},["/Users/renancarvalho/Documents/showtime/mtv-play/index.js"]);
+},{"../app":"/Users/youzi/dev/mtv-play/app/index.js","../components/switcher":"/Users/youzi/dev/mtv-play/components/switcher/index.js","old-vigour-js/app/ui/tv":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/app/ui/tv/index.js","old-vigour-js/browser/cases":"/Users/youzi/dev/mtv-play/node_modules/old-vigour-js/browser/cases/index.js"}],"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/browser-resolve/empty.js":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/common.less"][0].apply(exports,arguments)
+},{}],"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/browserify/lib/_empty.js":[function(require,module,exports){
+arguments[4]["/Users/youzi/dev/mtv-play/common.less"][0].apply(exports,arguments)
+},{}],"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
+if (typeof Object.create === 'function') {
+  // implementation from standard node.js 'util' module
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    ctor.prototype = Object.create(superCtor.prototype, {
+      constructor: {
+        value: ctor,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+  };
+} else {
+  // old school shim for old browsers
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    var TempCtor = function () {}
+    TempCtor.prototype = superCtor.prototype
+    ctor.prototype = new TempCtor()
+    ctor.prototype.constructor = ctor
+  }
+}
+
+},{}],"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/os-browserify/browser.js":[function(require,module,exports){
+exports.endianness = function () { return 'LE' };
+
+exports.hostname = function () {
+    if (typeof location !== 'undefined') {
+        return location.hostname
+    }
+    else return '';
+};
+
+exports.loadavg = function () { return [] };
+
+exports.uptime = function () { return 0 };
+
+exports.freemem = function () {
+    return Number.MAX_VALUE;
+};
+
+exports.totalmem = function () {
+    return Number.MAX_VALUE;
+};
+
+exports.cpus = function () { return [] };
+
+exports.type = function () { return 'Browser' };
+
+exports.release = function () {
+    if (typeof navigator !== 'undefined') {
+        return navigator.appVersion;
+    }
+    return '';
+};
+
+exports.networkInterfaces
+= exports.getNetworkInterfaces
+= function () { return {} };
+
+exports.arch = function () { return 'javascript' };
+
+exports.platform = function () { return 'browser' };
+
+exports.tmpdir = exports.tmpDir = function () {
+    return '/tmp';
+};
+
+exports.EOL = '\n';
+
+},{}],"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/process/browser.js":[function(require,module,exports){
+// shim for using process in browser
+
+var process = module.exports = {};
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = setTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    clearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        setTimeout(drainQueue, 0);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+},{}],"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/util/support/isBufferBrowser.js":[function(require,module,exports){
+module.exports = function isBuffer(arg) {
+  return arg && typeof arg === 'object'
+    && typeof arg.copy === 'function'
+    && typeof arg.fill === 'function'
+    && typeof arg.readUInt8 === 'function';
+}
+},{}],"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/util/util.js":[function(require,module,exports){
+(function (process,global){
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+var formatRegExp = /%[sdj%]/g;
+exports.format = function(f) {
+  if (!isString(f)) {
+    var objects = [];
+    for (var i = 0; i < arguments.length; i++) {
+      objects.push(inspect(arguments[i]));
+    }
+    return objects.join(' ');
+  }
+
+  var i = 1;
+  var args = arguments;
+  var len = args.length;
+  var str = String(f).replace(formatRegExp, function(x) {
+    if (x === '%%') return '%';
+    if (i >= len) return x;
+    switch (x) {
+      case '%s': return String(args[i++]);
+      case '%d': return Number(args[i++]);
+      case '%j':
+        try {
+          return JSON.stringify(args[i++]);
+        } catch (_) {
+          return '[Circular]';
+        }
+      default:
+        return x;
+    }
+  });
+  for (var x = args[i]; i < len; x = args[++i]) {
+    if (isNull(x) || !isObject(x)) {
+      str += ' ' + x;
+    } else {
+      str += ' ' + inspect(x);
+    }
+  }
+  return str;
+};
+
+
+// Mark that a method should not be used.
+// Returns a modified function which warns once by default.
+// If --no-deprecation is set, then it is a no-op.
+exports.deprecate = function(fn, msg) {
+  // Allow for deprecating things in the process of starting up.
+  if (isUndefined(global.process)) {
+    return function() {
+      return exports.deprecate(fn, msg).apply(this, arguments);
+    };
+  }
+
+  if (process.noDeprecation === true) {
+    return fn;
+  }
+
+  var warned = false;
+  function deprecated() {
+    if (!warned) {
+      if (process.throwDeprecation) {
+        throw new Error(msg);
+      } else if (process.traceDeprecation) {
+        console.trace(msg);
+      } else {
+        console.error(msg);
+      }
+      warned = true;
+    }
+    return fn.apply(this, arguments);
+  }
+
+  return deprecated;
+};
+
+
+var debugs = {};
+var debugEnviron;
+exports.debuglog = function(set) {
+  if (isUndefined(debugEnviron))
+    debugEnviron = process.env.NODE_DEBUG || '';
+  set = set.toUpperCase();
+  if (!debugs[set]) {
+    if (new RegExp('\\b' + set + '\\b', 'i').test(debugEnviron)) {
+      var pid = process.pid;
+      debugs[set] = function() {
+        var msg = exports.format.apply(exports, arguments);
+        console.error('%s %d: %s', set, pid, msg);
+      };
+    } else {
+      debugs[set] = function() {};
+    }
+  }
+  return debugs[set];
+};
+
+
+/**
+ * Echos the value of a value. Trys to print the value out
+ * in the best way possible given the different types.
+ *
+ * @param {Object} obj The object to print out.
+ * @param {Object} opts Optional options object that alters the output.
+ */
+/* legacy: obj, showHidden, depth, colors*/
+function inspect(obj, opts) {
+  // default options
+  var ctx = {
+    seen: [],
+    stylize: stylizeNoColor
+  };
+  // legacy...
+  if (arguments.length >= 3) ctx.depth = arguments[2];
+  if (arguments.length >= 4) ctx.colors = arguments[3];
+  if (isBoolean(opts)) {
+    // legacy...
+    ctx.showHidden = opts;
+  } else if (opts) {
+    // got an "options" object
+    exports._extend(ctx, opts);
+  }
+  // set default options
+  if (isUndefined(ctx.showHidden)) ctx.showHidden = false;
+  if (isUndefined(ctx.depth)) ctx.depth = 2;
+  if (isUndefined(ctx.colors)) ctx.colors = false;
+  if (isUndefined(ctx.customInspect)) ctx.customInspect = true;
+  if (ctx.colors) ctx.stylize = stylizeWithColor;
+  return formatValue(ctx, obj, ctx.depth);
+}
+exports.inspect = inspect;
+
+
+// http://en.wikipedia.org/wiki/ANSI_escape_code#graphics
+inspect.colors = {
+  'bold' : [1, 22],
+  'italic' : [3, 23],
+  'underline' : [4, 24],
+  'inverse' : [7, 27],
+  'white' : [37, 39],
+  'grey' : [90, 39],
+  'black' : [30, 39],
+  'blue' : [34, 39],
+  'cyan' : [36, 39],
+  'green' : [32, 39],
+  'magenta' : [35, 39],
+  'red' : [31, 39],
+  'yellow' : [33, 39]
+};
+
+// Don't use 'blue' not visible on cmd.exe
+inspect.styles = {
+  'special': 'cyan',
+  'number': 'yellow',
+  'boolean': 'yellow',
+  'undefined': 'grey',
+  'null': 'bold',
+  'string': 'green',
+  'date': 'magenta',
+  // "name": intentionally not styling
+  'regexp': 'red'
+};
+
+
+function stylizeWithColor(str, styleType) {
+  var style = inspect.styles[styleType];
+
+  if (style) {
+    return '\u001b[' + inspect.colors[style][0] + 'm' + str +
+           '\u001b[' + inspect.colors[style][1] + 'm';
+  } else {
+    return str;
+  }
+}
+
+
+function stylizeNoColor(str, styleType) {
+  return str;
+}
+
+
+function arrayToHash(array) {
+  var hash = {};
+
+  array.forEach(function(val, idx) {
+    hash[val] = true;
+  });
+
+  return hash;
+}
+
+
+function formatValue(ctx, value, recurseTimes) {
+  // Provide a hook for user-specified inspect functions.
+  // Check that value is an object with an inspect function on it
+  if (ctx.customInspect &&
+      value &&
+      isFunction(value.inspect) &&
+      // Filter out the util module, it's inspect function is special
+      value.inspect !== exports.inspect &&
+      // Also filter out any prototype objects using the circular check.
+      !(value.constructor && value.constructor.prototype === value)) {
+    var ret = value.inspect(recurseTimes, ctx);
+    if (!isString(ret)) {
+      ret = formatValue(ctx, ret, recurseTimes);
+    }
+    return ret;
+  }
+
+  // Primitive types cannot have properties
+  var primitive = formatPrimitive(ctx, value);
+  if (primitive) {
+    return primitive;
+  }
+
+  // Look up the keys of the object.
+  var keys = Object.keys(value);
+  var visibleKeys = arrayToHash(keys);
+
+  if (ctx.showHidden) {
+    keys = Object.getOwnPropertyNames(value);
+  }
+
+  // IE doesn't make error fields non-enumerable
+  // http://msdn.microsoft.com/en-us/library/ie/dww52sbt(v=vs.94).aspx
+  if (isError(value)
+      && (keys.indexOf('message') >= 0 || keys.indexOf('description') >= 0)) {
+    return formatError(value);
+  }
+
+  // Some type of object without properties can be shortcutted.
+  if (keys.length === 0) {
+    if (isFunction(value)) {
+      var name = value.name ? ': ' + value.name : '';
+      return ctx.stylize('[Function' + name + ']', 'special');
+    }
+    if (isRegExp(value)) {
+      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
+    }
+    if (isDate(value)) {
+      return ctx.stylize(Date.prototype.toString.call(value), 'date');
+    }
+    if (isError(value)) {
+      return formatError(value);
+    }
+  }
+
+  var base = '', array = false, braces = ['{', '}'];
+
+  // Make Array say that they are Array
+  if (isArray(value)) {
+    array = true;
+    braces = ['[', ']'];
+  }
+
+  // Make functions say that they are functions
+  if (isFunction(value)) {
+    var n = value.name ? ': ' + value.name : '';
+    base = ' [Function' + n + ']';
+  }
+
+  // Make RegExps say that they are RegExps
+  if (isRegExp(value)) {
+    base = ' ' + RegExp.prototype.toString.call(value);
+  }
+
+  // Make dates with properties first say the date
+  if (isDate(value)) {
+    base = ' ' + Date.prototype.toUTCString.call(value);
+  }
+
+  // Make error with message first say the error
+  if (isError(value)) {
+    base = ' ' + formatError(value);
+  }
+
+  if (keys.length === 0 && (!array || value.length == 0)) {
+    return braces[0] + base + braces[1];
+  }
+
+  if (recurseTimes < 0) {
+    if (isRegExp(value)) {
+      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
+    } else {
+      return ctx.stylize('[Object]', 'special');
+    }
+  }
+
+  ctx.seen.push(value);
+
+  var output;
+  if (array) {
+    output = formatArray(ctx, value, recurseTimes, visibleKeys, keys);
+  } else {
+    output = keys.map(function(key) {
+      return formatProperty(ctx, value, recurseTimes, visibleKeys, key, array);
+    });
+  }
+
+  ctx.seen.pop();
+
+  return reduceToSingleString(output, base, braces);
+}
+
+
+function formatPrimitive(ctx, value) {
+  if (isUndefined(value))
+    return ctx.stylize('undefined', 'undefined');
+  if (isString(value)) {
+    var simple = '\'' + JSON.stringify(value).replace(/^"|"$/g, '')
+                                             .replace(/'/g, "\\'")
+                                             .replace(/\\"/g, '"') + '\'';
+    return ctx.stylize(simple, 'string');
+  }
+  if (isNumber(value))
+    return ctx.stylize('' + value, 'number');
+  if (isBoolean(value))
+    return ctx.stylize('' + value, 'boolean');
+  // For some reason typeof null is "object", so special case here.
+  if (isNull(value))
+    return ctx.stylize('null', 'null');
+}
+
+
+function formatError(value) {
+  return '[' + Error.prototype.toString.call(value) + ']';
+}
+
+
+function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
+  var output = [];
+  for (var i = 0, l = value.length; i < l; ++i) {
+    if (hasOwnProperty(value, String(i))) {
+      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
+          String(i), true));
+    } else {
+      output.push('');
+    }
+  }
+  keys.forEach(function(key) {
+    if (!key.match(/^\d+$/)) {
+      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
+          key, true));
+    }
+  });
+  return output;
+}
+
+
+function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
+  var name, str, desc;
+  desc = Object.getOwnPropertyDescriptor(value, key) || { value: value[key] };
+  if (desc.get) {
+    if (desc.set) {
+      str = ctx.stylize('[Getter/Setter]', 'special');
+    } else {
+      str = ctx.stylize('[Getter]', 'special');
+    }
+  } else {
+    if (desc.set) {
+      str = ctx.stylize('[Setter]', 'special');
+    }
+  }
+  if (!hasOwnProperty(visibleKeys, key)) {
+    name = '[' + key + ']';
+  }
+  if (!str) {
+    if (ctx.seen.indexOf(desc.value) < 0) {
+      if (isNull(recurseTimes)) {
+        str = formatValue(ctx, desc.value, null);
+      } else {
+        str = formatValue(ctx, desc.value, recurseTimes - 1);
+      }
+      if (str.indexOf('\n') > -1) {
+        if (array) {
+          str = str.split('\n').map(function(line) {
+            return '  ' + line;
+          }).join('\n').substr(2);
+        } else {
+          str = '\n' + str.split('\n').map(function(line) {
+            return '   ' + line;
+          }).join('\n');
+        }
+      }
+    } else {
+      str = ctx.stylize('[Circular]', 'special');
+    }
+  }
+  if (isUndefined(name)) {
+    if (array && key.match(/^\d+$/)) {
+      return str;
+    }
+    name = JSON.stringify('' + key);
+    if (name.match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/)) {
+      name = name.substr(1, name.length - 2);
+      name = ctx.stylize(name, 'name');
+    } else {
+      name = name.replace(/'/g, "\\'")
+                 .replace(/\\"/g, '"')
+                 .replace(/(^"|"$)/g, "'");
+      name = ctx.stylize(name, 'string');
+    }
+  }
+
+  return name + ': ' + str;
+}
+
+
+function reduceToSingleString(output, base, braces) {
+  var numLinesEst = 0;
+  var length = output.reduce(function(prev, cur) {
+    numLinesEst++;
+    if (cur.indexOf('\n') >= 0) numLinesEst++;
+    return prev + cur.replace(/\u001b\[\d\d?m/g, '').length + 1;
+  }, 0);
+
+  if (length > 60) {
+    return braces[0] +
+           (base === '' ? '' : base + '\n ') +
+           ' ' +
+           output.join(',\n  ') +
+           ' ' +
+           braces[1];
+  }
+
+  return braces[0] + base + ' ' + output.join(', ') + ' ' + braces[1];
+}
+
+
+// NOTE: These type checking functions intentionally don't use `instanceof`
+// because it is fragile and can be easily faked with `Object.create()`.
+function isArray(ar) {
+  return Array.isArray(ar);
+}
+exports.isArray = isArray;
+
+function isBoolean(arg) {
+  return typeof arg === 'boolean';
+}
+exports.isBoolean = isBoolean;
+
+function isNull(arg) {
+  return arg === null;
+}
+exports.isNull = isNull;
+
+function isNullOrUndefined(arg) {
+  return arg == null;
+}
+exports.isNullOrUndefined = isNullOrUndefined;
+
+function isNumber(arg) {
+  return typeof arg === 'number';
+}
+exports.isNumber = isNumber;
+
+function isString(arg) {
+  return typeof arg === 'string';
+}
+exports.isString = isString;
+
+function isSymbol(arg) {
+  return typeof arg === 'symbol';
+}
+exports.isSymbol = isSymbol;
+
+function isUndefined(arg) {
+  return arg === void 0;
+}
+exports.isUndefined = isUndefined;
+
+function isRegExp(re) {
+  return isObject(re) && objectToString(re) === '[object RegExp]';
+}
+exports.isRegExp = isRegExp;
+
+function isObject(arg) {
+  return typeof arg === 'object' && arg !== null;
+}
+exports.isObject = isObject;
+
+function isDate(d) {
+  return isObject(d) && objectToString(d) === '[object Date]';
+}
+exports.isDate = isDate;
+
+function isError(e) {
+  return isObject(e) &&
+      (objectToString(e) === '[object Error]' || e instanceof Error);
+}
+exports.isError = isError;
+
+function isFunction(arg) {
+  return typeof arg === 'function';
+}
+exports.isFunction = isFunction;
+
+function isPrimitive(arg) {
+  return arg === null ||
+         typeof arg === 'boolean' ||
+         typeof arg === 'number' ||
+         typeof arg === 'string' ||
+         typeof arg === 'symbol' ||  // ES6 symbol
+         typeof arg === 'undefined';
+}
+exports.isPrimitive = isPrimitive;
+
+exports.isBuffer = require('./support/isBuffer');
+
+function objectToString(o) {
+  return Object.prototype.toString.call(o);
+}
+
+
+function pad(n) {
+  return n < 10 ? '0' + n.toString(10) : n.toString(10);
+}
+
+
+var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
+              'Oct', 'Nov', 'Dec'];
+
+// 26 Feb 16:19:34
+function timestamp() {
+  var d = new Date();
+  var time = [pad(d.getHours()),
+              pad(d.getMinutes()),
+              pad(d.getSeconds())].join(':');
+  return [d.getDate(), months[d.getMonth()], time].join(' ');
+}
+
+
+// log is just a thin wrapper to console.log that prepends a timestamp
+exports.log = function() {
+  console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
+};
+
+
+/**
+ * Inherit the prototype methods from one constructor into another.
+ *
+ * The Function.prototype.inherits from lang.js rewritten as a standalone
+ * function (not on Function.prototype). NOTE: If this file is to be loaded
+ * during bootstrapping this function needs to be rewritten using some native
+ * functions as prototype setup using normal JavaScript does not work as
+ * expected during bootstrapping (see mirror.js in r114903).
+ *
+ * @param {function} ctor Constructor function which needs to inherit the
+ *     prototype.
+ * @param {function} superCtor Constructor function to inherit prototype from.
+ */
+exports.inherits = require('inherits');
+
+exports._extend = function(origin, add) {
+  // Don't do anything if add isn't an object
+  if (!add || !isObject(add)) return origin;
+
+  var keys = Object.keys(add);
+  var i = keys.length;
+  while (i--) {
+    origin[keys[i]] = add[keys[i]];
+  }
+  return origin;
+};
+
+function hasOwnProperty(obj, prop) {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}
+
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./support/isBuffer":"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/util/support/isBufferBrowser.js","_process":"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/process/browser.js","inherits":"/Users/youzi/npm-global/lib/node_modules/gaston/node_modules/inherits/inherits_browser.js"}],"package.json":[function(require,module,exports){
+module.exports={"name":"mtv-play","version":"1.2.88","description":"mtv's multiscreen adventure","main":"index.js","scripts":{"test":"test/test.js","build":"gaston build -x -s ./index.js -o . -i && cd xhr && gaston build -s ./index.js -o . && cp build.js bundle.js && rm build.css","bundle":"gaston bundle -s ./index.js -o . -i","ios":"npm run build && ./node_modules/.bin/wrapper build --native.selectedPlatforms ios","release":"cp build.css bundle.css && ./node_modules/.bin/ferry --release --mergeFiles '[\"./package.json\",\"./.package.json\"]'"},"repository":{"type":"git","url":"https://github.com/vigour-io/mtv-play","branch":"develop"},"keywords":["multiscreen","play","shows","smart","tv","js"],"dependencies":{"autolinker":"^0.18.1","jquery":"^2.2.0","lodash":"3.2.0","markdown":"^0.5.0","monotonic-timestamp":"0.0.9","old-vigour-js":"git+ssh://git@github.com:vigour-io/vigour-js.git#hotfix/iosBrowser","package-branch-config":"^1.2.2","promise":"6.1.0","through2":"^2.0.0","zepto-browserify":"x"},"devDependencies":{"vigour-wrapper":"^2.0.1","vigour-ferry":"^3.0.0"},"author":"Jim de Beer","license":"other","bugs":{"url":"https://github.com/vigour-io/mtv-play/issues"},"homepage":"https://github.com/vigour-io/mtv-play","vigour":{"ga":"UA-43955457-3","hashUrl":true,"defaultRegion":false,"regionOverride":"DE","availableRegions":["DE","NL","CH","PL","BE","NO","AT","DK"],"geo":"https://wwwmtvplay-a.akamaihd.net/geo/","development":{"button":true},"cloud":"http://mtv-hub.dev.vigour.io:80","othercloud":"http://localhost:10001","languages":["en","de","nl","pl","it","fr","no","dk"],"mtvmobile":["de","ch"],"roles":["free","premium","mtv","trial"],"countrycodes":{"de":49,"ch":41,"nl":31},"dictionary":"https://mtv-develop.vigour.io/translations/lang_$language.json","epg":"https://wwwmtvplay-a.akamaihd.net/xhr/index.html","img":"https://imgmtvplay-a.akamaihd.net","imgOrigin":"http://staging.riptide.mtvnn.com/","api":{"type":"staging","url":"https://utt-staging.mtvnn.com/","acceptHeader":"application/json","key":"4e99c9381b74354fbae9f468497912f0"},"player":{"debug":false,"web":"http://player.mtvnn.com/html5player/production/player.js?v=2","settings":{"homadURL":"/homad/config.json","ad_playpostrolls":true,"domain":"mtv","tld":"de","localization":{"language":"de","country":"DE"},"ads":{"autoSID":false,"context":null,"defaultAssetID":41349526,"defaults":{"interval":0},"enabled":true,"engine":"Freewheel","fallbackID":41349526,"midroll_intervals":{"longer_than_15":null,"longer_than_20":null,"longer_than_30":null},"networkID":174975,"profileID":"174975:MTVNE_live_HTML5","server":"http://2ab7f.v.fwmrm.net/ad/p/1","viralSID":"mtvplaytv/test"},"controls":false,"blankVideo":"http://player.mtvnn.com/codebase/blank.m4v","simulcastApiKey":"c153f28d950ae49a"}},"chromecast":{"id":"30C914C1","web":"https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"},"facebook":{"id":"720547754665171","web":"https://connect.facebook.net/de_DE/sdk.js"},"wrapper":{"assets":{"build.html":true,"build.js":true,"build.css":true,"bundle.css":true,"fonts.css":true,"fonts":"*","img":"*","assets":"*","translations":"*"}},"fburl":"http://play.mtvutt.com/","packer":{"language":"https://wwwmtvplay-a.akamaihd.net/translations/","url":"https://wwwmtvplay-a.akamaihd.net/","domain":"http://mtv-develop.vigour.io"},"ferry":{"assets":{"build.html":true,"build.js":true,"build.css":true,"bundle.css":true,"fonts.css":true,"fonts":"*","img":"*","assets":"*","translations":"*","cast":"*","cast.html":true,"xhr":"*","homad":"*","googleebecff275dd42f4a.html":true,"google2c4a46fac7686373.html":true,"sitemap.xml":true,"robots.txt":true,"meta":"*"},"transforms":{"build.js":["inform"],"bundle.css":["rebase"],"build.css":["rebase"],"build.html":["meta"]},"main":"build.js","web":"build.html","fbDefaults":{"title":"MTV Play","description":"Mtv's new app to view shows on all devices","image":"http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png"}},"store":{"customAvailablility":{"DK":{"monthly":true,"yearly":true,"single":false}},"ios":{"monthly":"$region_subscription_monthly","yearly":"$region_subscription_annual","single":"$region_single_purchase"},"android":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annually","single":"mtvplay_single_purchase"},"windows":{"monthly":"mtvplay_subscription_monthly","yearly":"mtvplay_subscription_annual","single":"mtvplay_single_purchase"},"amazon":{"monthly":"com.mtvplay.app.sub.month","yearly":"com.mtvplay.app.sub.year","single":"com.mtvplay.app.episode"}}},"gaston":{"transforms":{"package-branch-config":{"section":"vigour"}},"less-options":{},"source-maps":false,"package":true,"index-path":"index.html","es5":true,"aliasify":{}},"sha":"1.2.88"}
+},{}]},{},["/Users/youzi/dev/mtv-play/index.js"]);

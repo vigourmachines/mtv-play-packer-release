@@ -56,7 +56,8 @@
       "PL",
       "BE",
       "NO",
-      "AT"
+      "AT",
+      "DK"
     ],
     "geo": "https://wwwmtvplay-a.akamaihd.net/geo/",
     "development": {
@@ -71,7 +72,8 @@
       "pl",
       "it",
       "fr",
-      "no"
+      "no",
+      "dk"
     ],
     "mtvmobile": [
       "de",
@@ -89,17 +91,6 @@
       "nl": 31
     },
     "dictionary": "https://mtv-develop.vigour.io/translations/lang_$language.json",
-    "webtranslateit": {
-      "files": {
-        "de": 374130,
-        "en": 374126,
-        "nl": 374128,
-        "pl": 374129,
-        "fr": 404562,
-        "it": 404563
-      },
-      "token": "-rN-CdCWmgh4IDxFRT-MEg"
-    },
     "epg": "https://wwwmtvplay-a.akamaihd.net/xhr/index.html",
     "img": "https://imgmtvplay-a.akamaihd.net",
     "imgOrigin": "http://images.mtvnn.com/",
@@ -217,6 +208,13 @@
       }
     },
     "store": {
+      "customAvailablility":{
+        "DK":{
+          "monthly": true,
+          "yearly": true,
+          "single": false
+        }
+      },
       "ios": {
         "monthly": "$region_subscription_monthly",
         "yearly": "$region_subscription_annual",
@@ -245,6 +243,12 @@
           "url": "https://utt-staging.mtvnn.com/"
         },
         "cloud": "http://localhost:10001"
+      },
+      "dk": {
+        "api": {
+          "type": "staging",
+          "url": "https://utt-staging.mtvnn.com/"
+        }
       },
       "demo": {
         "api": {

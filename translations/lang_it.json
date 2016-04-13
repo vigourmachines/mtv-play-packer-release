@@ -31,14 +31,14 @@
       "buyMonth": "Premium (mensile) a",
       "buyYear": "Premium (annuale) a",
       "description": {
-        "fire": null,
-        "tv": null
+        "fire": "Accedi a tutti gli episodi dei nostri show e ai nostri canali TV. Non ti preoccupare, se vuoi prima fare una prova: sui dispositivi Amazon, il primo mese è completamente gratuito.",
+        "tv": "Accedi a tutti gli episodi dei nostri show e ai nostri canali TV."
       },
       "monthlyPass": {
         "body": "Se premi Continua, procederai all'acquisto di un abbonamento mensile per",
         "title": "Premium (mensile)"
       },
-      "operator": "Free with your Operator",
+      "operator": "Gratis con il tuo operatore",
       "singlePass": {
         "body": "Premendo continua si affitta questo episodio per",
         "title": "Sbloccare episodio"
@@ -125,7 +125,7 @@
         "twitter": "Registrati con Twitter",
         "email": "Registrati con l'e-mail",
         "already": "Purtroppo questa e-mail è già in uso!",
-        "operator": "Operator registration"
+        "operator": "Gratis con il tuo operatore"
       },
       "invalid": {
         "email": "Inserisci un'e-mail valida.",
@@ -236,24 +236,24 @@
     "backlink": "Torna a MTV",
     "buyPremium": "Acquista il Premium Pass",
     "cellphone": "Telefono",
-    "comingSoon": null,
+    "comingSoon": "Non disponibile",
     "Connection": "Assicurati di essere connesso a Internet.",
     "connect": {
       "tv": {
-        "code": null,
-        "description": null,
-        "title": null
+        "code": "Codice a 4 cifre",
+        "description": "Per effettuare la connessione alla TV, immetti il codice a quattro cifre sul tuo televisore. Se non vedi il codice, naviga all'icona del profilo nella parte inferiore del menu.",
+        "title": "Connettiti alla tua TV"
       }
     },
     "continue": "Continua",
     "cookieBar": {
-      "close": "Close",
-      "link": "More information",
+      "close": "Chiudi",
+      "link": "Ulteriori informazioni",
       "nl": {
         "text": "We maken een onderscheid tussen functionele cookies en cookies voor het beheer van webstatistieken, advertenties en social media. MTV maakt gebruik van functionele en analytische cookies om inzicht te krijgen in de werking en effectiviteit van haar websites. De daarmee verzamelde gegevens worden niet gebruikt om activiteiten van individuele gebruikers te volgen. De advertentie en social media cookies van derden verzamelen mogelijk gegevens ook buiten de website(s) van MTV. Door hiernaast op akkoord te klikken of door gebruik te blijven maken van deze website, geef je toestemming voor het plaatsen van cookies bij bezoek aan de website(s) van MTV. Meer weten over deze cookies? Klik dan hiernaast op “meer informatie tonen”.",
         "title": "MTV maakt gebruik van cookies."
       },
-      "text": "This website uses cookies to enhance your user experience. By using our website, you consent to our use of cookies in accordance with the terms of the cookie policy."
+      "text": "Il sito Web utilizza cookie per migliorare l'esperienza utente. Usando il nostro sito Web, accetti l'utilizzo di cookie secondo i termini della politica sui cookie."
     },
     "countdown": "Il video apparirà dopo l'annuncio.",
     "desktopText": "Computer",
@@ -300,7 +300,21 @@
           "premium": "Gratis"
         }
       },
-      "marquee": null,
+      "dk": {
+        "row1": {
+          "free": "Nuove uscite",
+          "premium": "Nuove uscite"
+        },
+        "row2": {
+          "free": "Featured",
+          "premium": "Featured"
+        },
+        "row3": {
+          "free": "Top Clips",
+          "premium": "Top Clips"
+        }
+      },
+      "marquee": "Spotlight",
       "nl": {
         "row1": {
           "free": "Nuove uscite",
@@ -317,8 +331,8 @@
       },
       "no": {
         "row1": {
-          "free": "New Episodes",
-          "premium": "New Episodes"
+          "free": "Nuove uscite",
+          "premium": "Nuove uscite"
         },
         "row2": {
           "free": "Featured",
@@ -331,16 +345,16 @@
       },
       "pl": {
         "row1": {
-          "free": "For Free",
+          "free": "Warsaw Shore",
           "premium": "Warsaw Shore"
         },
         "row2": {
-          "free": "Premiers",
-          "premium": "Premiers"
+          "free": "Gratis",
+          "premium": "Premieres"
         },
         "row3": {
-          "free": "Recommended",
-          "premium": "Recommended"
+          "free": "Consigliati",
+          "premium": "Consigliati"
         }
       }
     },
@@ -364,22 +378,22 @@
     },
     "menu": {
       "discover": {
-        "description": null
+        "description": "Scopri le ultime novità!"
       },
       "register": {
-        "description": null,
-        "loggedin": null,
-        "title": null
+        "description": "Per registrarti o accedere, visita [location of the login page] e immetti il codice a quattro cifre mostrato qui sotto.",
+        "loggedin": "Accesso effettuato come",
+        "title": "Registra/Accedi"
       },
       "shows": {
-        "description": null
+        "description": "Sfoglia tutti gli show."
       },
       "tv": {
-        "description": null
+        "description": "Guarda canali TV in diretta."
       }
     },
     "mobileUpgrade": "Usa la nostra app per fare l'upgrade!",
-    "mobileUpgradeInfo": "Purtroppo non puoi acquistare il Premium Pass nel nostro sito web, ma non ti preoccupare, perché è a questo che serve la nostra app per dispositivi mobili. Scegli la versione (iOS, Android o Windows Phone) e scarica MTV Play dallo store. ",
+    "mobileUpgradeInfo": "Purtroppo non puoi acquistare il Premium Pass nel nostro sito web, ma non ti preoccupare, perché è a questo che serve la nostra app per dispositivi mobili. Scegli la versione (iOS o Android) e scarica MTV Play dallo store. ",
     "newAccount": "Ciao! Effettua pure l'accesso. ",
     "newPasswordConfirm": "Conferma la password",
     "newsletterSubtitle": "Non riceverai mai dello spam!",
@@ -388,22 +402,22 @@
     "noDescription": "Nessuna descrizione.",
     "noEPG": "Nessuna guida disponibile",
     "notAvailable": {
-      "text": null,
-      "title": null
+      "text": "Purtroppo MTV Play non è ancora disponibile nel tuo paese. Se credi si tratti di un errore contattaci all'indirizzo:",
+      "title": "Grazie per l'interesse."
     },
     "operator": {
-      "authenticate": "Please authenticate...",
-      "choose": "Choose Operator",
+      "authenticate": "Immetti le credenziali dell'operatore per ottenere l'accesso premium",
+      "choose": "Scegli operatore",
       "credentials": {
-        "used": null,
-        "wrong": null
+        "used": "Queste credenziali sono già utilizzate da troppi account MTV Play.",
+        "wrong": "Le tue credenziali non sono valide o sono già utilizzate da troppi account MTV Play."
       },
-      "deals": "Available Operators",
-      "future": "Upgrading with this operator is possible from ",
-      "help": null,
-      "register": "Please register...",
-      "registerPlay": "Please register an MTV Play account",
-      "select": "Please select your operator"
+      "deals": "Scegli operatore",
+      "future": "L'aggiornamento con questo operatore sarà disponibile dal ",
+      "help": "Se le tue credenziali non funzionano, contatta ",
+      "register": "Registra prima un account di MTV Play",
+      "registerPlay": "Registra prima un account di MTV Play",
+      "select": "Scegli il tuo operatore"
     },
     "or": "o",
     "phoneUpgradeTitle": "Fai l'upgrade con la nostra app!",
@@ -437,13 +451,13 @@
     "tvLogin": "Scarica la nostra app per dispositivi mobili sul telefono o il tablet per accedere o fare l'upgrade. ",
     "tv": {
       "register": {
-        "description": null
+        "description": "Registra un account o accedi con le tue credenziali MTV Play, se ne possiedi già uno."
       }
     },
     "unlockPrice": "Sblocca per ",
     "untitled": "Senza titolo",
     "upgradeFromPhone": "Prendi il telefono!",
-    "username": "Username",
+    "username": "Nome utente",
     "verifyEmail": {
       "subtitle": "Ti abbiamo inviato un messaggio.",
       "title": "Verifica l'account"

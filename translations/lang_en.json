@@ -300,6 +300,20 @@
           "premium": "Free"
         }
       },
+      "dk": {
+        "row1": {
+          "free": "New Episodes",
+          "premium": "New Episodes"
+        },
+        "row2": {
+          "free": "Featured",
+          "premium": "Featured"
+        },
+        "row3": {
+          "free": "Top Clips",
+          "premium": "Top Clips"
+        }
+      },
       "marquee": "Spotlight",
       "nl": {
         "row1": {
@@ -331,12 +345,12 @@
       },
       "pl": {
         "row1": {
-          "free": "For Free",
+          "free": "Warsaw Shore",
           "premium": "Warsaw Shore"
         },
         "row2": {
-          "free": "Premiers",
-          "premium": "Premiers"
+          "free": "For Free",
+          "premium": "Premieres"
         },
         "row3": {
           "free": "Recommended",
