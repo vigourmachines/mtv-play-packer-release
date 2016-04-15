@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "test/test.js",
-    "build": "gaston build -x -s ./index.js -o . -i && cd xhr && gaston build -s ./index.js -o . && cp build.js bundle.js && rm build.css",
+    "build": "gaston build -s ./index.js -o . -i && cd xhr && gaston build -s ./index.js -o . && cp build.js bundle.js",
     "bundle": "gaston bundle -s ./index.js -o . -i",
     "ios": "npm run build && ./node_modules/.bin/wrapper build --native.selectedPlatforms ios",
     "release": "cp build.css bundle.css && ./node_modules/.bin/ferry --release --mergeFiles '[\"./package.json\",\"./.package.json\"]'"
@@ -276,7 +276,7 @@
       },
       "production": {
         "dictionary": "https://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
-        "cloud": "production",
+        "cloud": "-hubs.mtvplay.tv",
         "omniture": "viaviamtvplay",
         "player": {
           "debug": false,
@@ -294,8 +294,7 @@
       },
       "develop": {
         "imgOrigin": "http://staging.riptide.mtvnn.com/",
-        "cloud": "http://mtv-hub.dev.vigour.io:80",
-        "regionOverride": "DE",
+        "cloud": "-develop-mtv-hubs.dev.vigour.io",
         "facebook": {
           "id": "720547754665171"
         },
@@ -332,7 +331,7 @@
           "type": "staging",
           "url": "https://utt-staging.mtvnn.com/"
         },
-        "cloud": "http://mtv-hub-staging.dev.vigour.io:80",
+        "cloud": "-staging-mtv-hubs.dev.vigour.io",
         "omniture": "vianorthtestweb",
         "development": {
           "button": false
@@ -346,7 +345,7 @@
           "settings": {
             "ads": {
               "enabled": true,
-              "viralSID": "production"
+              "viralSID": "mtvplaytv/test"
             }
           }
         }
