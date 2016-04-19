@@ -31,14 +31,14 @@
       "buyMonth": "Premium (mensuel) pour",
       "buyYear": "Premium (annuel) pour",
       "description": {
-        "fire": null,
-        "tv": null
+        "fire": "Accédez à tous les épisodes de tous nos programmes en plus de nos chaînes TV. Et si vous voulez juste essayer d'abord, pas de souci, votre premier mois est entièrement gratuit sur les appareils Amazon.",
+        "tv": "Accédez à tous les épisodes de tous nos programmes en plus de nos chaînes TV."
       },
       "monthlyPass": {
         "body": "En appuyant sur Continuer, vous achèterez un abonnement mensuel pour",
         "title": "Premium (mensuel)"
       },
-      "operator": "Free with your Operator",
+      "operator": "Gratuit avec votre opérateur",
       "singlePass": {
         "body": "En cliquant 'Continuer' vous louez cette épisode pour",
         "title": "Débloquer une épisode"
@@ -125,7 +125,7 @@
         "twitter": "Inscription avec Twitter",
         "email": "Inscription avec adresse e-mail",
         "already": "Désolé, cette adresse est déjà utilisée !",
-        "operator": "Operator registration"
+        "operator": "Gratuit avec votre opérateur"
       },
       "invalid": {
         "email": "Veuillez entrer une adresse e-mail valide.",
@@ -231,29 +231,29 @@
     "alreadyPurchased": "Vous avez déjà acheté ceci.",
     "workInProgress": "EN CONSTRUCTION !",
     "workingOnIt": "Nous travaillons très dur pour vous amener vos chaînes MTV favorites, où que vous soyez.",
-    "advertisement": "Publicité",
+    "advertisement": "En savoir plus",
     "age": "Âge",
     "backlink": "Retour à MTV",
     "buyPremium": "Acheter un Pass Premium",
     "cellphone": "Téléphone",
-    "comingSoon": null,
+    "comingSoon": "Non disponible",
     "Connection": "Veuillez vérifier votre connexion internet.",
     "connect": {
       "tv": {
-        "code": null,
-        "description": null,
-        "title": null
+        "code": "Code à 4 chiffres",
+        "description": "Pour connecter votre compte à votre TV, merci d'entrer le code à quatre chiffres sur l'écran de votre TV. Si vous ne voyez pas le code, veuillez naviguer jusqu'à l'icône de profil en bas du menu.",
+        "title": "Connectez-vous à votre TV"
       }
     },
     "continue": "Continuer",
     "cookieBar": {
-      "close": "Deze melding verbergen",
-      "link": "Meer info",
+      "close": "Fermer",
+      "link": "Plus d'informations",
       "nl": {
         "text": "We maken een onderscheid tussen functionele cookies en cookies voor het beheer van webstatistieken, advertenties en social media. MTV maakt gebruik van functionele en analytische cookies om inzicht te krijgen in de werking en effectiviteit van haar websites. De daarmee verzamelde gegevens worden niet gebruikt om activiteiten van individuele gebruikers te volgen. De advertentie en social media cookies van derden verzamelen mogelijk gegevens ook buiten de website(s) van MTV. Door hiernaast op akkoord te klikken of door gebruik te blijven maken van deze website, geef je toestemming voor het plaatsen van cookies bij bezoek aan de website(s) van MTV. Meer weten over deze cookies? Klik dan hiernaast op “meer informatie tonen”.",
         "title": "MTV maakt gebruik van cookies."
       },
-      "text": "MTV Play maakt gebruik van cookies"
+      "text": "Ce site Internet utilise des cookies pour améliorer l'expérience utilisateur. En utilisant notre site, vous consentez à utiliser les cookies conformément aux termes de nos conditions d'utilisation sur les cookies."
     },
     "countdown": "Lancement de votre vidéo après cette publicité.",
     "desktopText": "Ordinateur",
@@ -300,7 +300,21 @@
           "premium": "Gratuit"
         }
       },
-      "marquee": null,
+      "dk": {
+        "row1": {
+          "free": "New Episodes",
+          "premium": "New Episodes"
+        },
+        "row2": {
+          "free": "Featured",
+          "premium": "Featured"
+        },
+        "row3": {
+          "free": "Top Clips",
+          "premium": "Top Clips"
+        }
+      },
+      "marquee": "À la une",
       "nl": {
         "row1": {
           "free": "Nouveautés",
@@ -321,8 +335,8 @@
           "premium": "New Episodes"
         },
         "row2": {
-          "free": "Recommandé",
-          "premium": "Recommandé"
+          "free": "Featured",
+          "premium": "Featured"
         },
         "row3": {
           "free": "Top Clips",
@@ -331,12 +345,12 @@
       },
       "pl": {
         "row1": {
-          "free": "For Free",
+          "free": "Warsaw Shore",
           "premium": "Warsaw Shore"
         },
         "row2": {
-          "free": "Premiers",
-          "premium": "Premiers"
+          "free": "For Free",
+          "premium": "Premieres"
         },
         "row3": {
           "free": "Recommended",
@@ -364,22 +378,22 @@
     },
     "menu": {
       "discover": {
-        "description": null
+        "description": "Découvrez les nouveautés !"
       },
       "register": {
-        "description": null,
-        "loggedin": null,
-        "title": null
+        "description": "Pour vous inscrire ou pour vous connecter, merci de visiter [location of the login page] et de saisir le code à quatre chiffres ci-dessous.",
+        "loggedin": "Connecté en tant que",
+        "title": "Inscription / Connexion"
       },
       "shows": {
-        "description": null
+        "description": "Naviguer dans tous nos programmes."
       },
       "tv": {
-        "description": null
+        "description": "Regardez nos chaînes TV en direct."
       }
     },
     "mobileUpgrade": "Utilisez l'appli mobile pour mettre à niveau votre compte !",
-    "mobileUpgradeInfo": "Vous ne pouvez malheureusement pas acheter de Pass Premium sur notre site Internet. Mais pas de panique : nos applis mobiles sont là pour ça. Prenez votre appareil iOS, Android ou Windows Phone, et téléchargez MTV Play depuis la boutique appropriée. ",
+    "mobileUpgradeInfo": "Vous ne pouvez malheureusement pas acheter de Pass Premium sur notre site Internet. Mais pas de panique : nos applis mobiles sont là pour ça. Prenez votre appareil iOS ou Android, et téléchargez MTV Play depuis la boutique appropriée. ",
     "newAccount": "Bienvenue ! Vous pouvez maintenant vous connecter. ",
     "newPasswordConfirm": "Confirmer mot de passe",
     "newsletterSubtitle": "Nous n'enverrons jamais de spam !",
@@ -388,22 +402,22 @@
     "noDescription": "Aucune description disponible.",
     "noEPG": "Aucun guide disponible",
     "notAvailable": {
-      "text": null,
-      "title": null
+      "text": "Malheureusement, PTV Play n'est pas encore disponible dans votre pays. Si vous pensez qu'une erreur a été commise, n'hésitez pas à nous contacter à :",
+      "title": "Merci pour l'intérêt que vous nous portez."
     },
     "operator": {
-      "authenticate": "Please authenticate...",
-      "choose": "Choose Operator",
+      "authenticate": "Merci d'entrer vos identifiants d'opérateur pour une mise à niveau vers l'accès premium.",
+      "choose": "Choisir opérateur",
       "credentials": {
-        "used": null,
-        "wrong": null
+        "used": "Ces identifiants sont déjà utilisés par un trop grand nombre de comptes MTV Play.",
+        "wrong": "Vos identifiants sont invalides ou déjà utilisés par un trop grand nombre de comptes MTV Play."
       },
-      "deals": "Available Operators",
-      "future": "Upgrading with this operator is possible from ",
-      "help": null,
-      "register": "Please register...",
-      "registerPlay": "Please register an MTV Play account",
-      "select": "Please select your operator"
+      "deals": "Choisir opérateur",
+      "future": "La mise à niveau avec cet opérateur est possible via ",
+      "help": "Si vos identifiants ne fonctionnent pas, merci de contacter ",
+      "register": "Merci de créer d'abord un compte MTV Play",
+      "registerPlay": "Merci de créer d'abord un compte MTV Play",
+      "select": "Merci de sélectionner votre opérateur"
     },
     "or": "ou",
     "phoneUpgradeTitle": "Utilisez notre appli mobile pour mettre à niveau votre compte !",
@@ -437,13 +451,13 @@
     "tvLogin": "Téléchargez notre appli mobile sur votre téléphone ou tablette pour vous connecter ou améliorer votre compte. ",
     "tv": {
       "register": {
-        "description": null
+        "description": "Merci de créer un compte ou de vous connecter avec vos identifiants MTV Play si vous avez déjà un compte."
       }
     },
     "unlockPrice": "Débloquer pour ",
     "untitled": "Sans titre",
     "upgradeFromPhone": "Prenez votre téléphone !",
-    "username": "Username",
+    "username": "Nom d'utilisateur",
     "verifyEmail": {
       "subtitle": "Nous vous avons envoyé un e-mail.",
       "title": "Validez votre compte"

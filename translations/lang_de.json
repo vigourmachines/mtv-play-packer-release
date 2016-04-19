@@ -300,6 +300,20 @@
           "premium": "Gratis"
         }
       },
+      "dk": {
+        "row1": {
+          "free": "Neue Folgen",
+          "premium": "Neue Folgen"
+        },
+        "row2": {
+          "free": "Featured",
+          "premium": "Featured"
+        },
+        "row3": {
+          "free": "Top Clips",
+          "premium": "Top Clips"
+        }
+      },
       "marquee": "Highlights",
       "nl": {
         "row1": {
@@ -331,11 +345,11 @@
       },
       "pl": {
         "row1": {
-          "free": "Gratis",
+          "free": "Warsaw Shore",
           "premium": "Warsaw Shore"
         },
         "row2": {
-          "free": "Premieren",
+          "free": "Gratis",
           "premium": "Premieren"
         },
         "row3": {

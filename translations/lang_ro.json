@@ -300,6 +300,20 @@
           "premium": "Gratuit (Premium)"
         }
       },
+      "dk": {
+        "row1": {
+          "free": null,
+          "premium": null
+        },
+        "row2": {
+          "free": null,
+          "premium": null
+        },
+        "row3": {
+          "free": null,
+          "premium": null
+        }
+      },
       "marquee": null,
       "nl": {
         "row1": {

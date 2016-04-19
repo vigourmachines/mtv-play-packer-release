@@ -1,0 +1,592 @@
+{
+  "text": {
+    "all": "Alle",
+    "error": "Ups! Noget gik galt.",
+    "cancel": "Annuller",
+    "about": "Om",
+    "available": "Tilgængelige enheder",
+    "done": "OK",
+    "email": "E-mail",
+    "every": "Hver",
+    "imprint": "Kontakt",
+    "learnMore": "Læs mere",
+    "free": "Gratis",
+    "verifytaken": "Dette nummer er allerede i brug på en anden konto.",
+    "mtvMobile": "MTV Mobile",
+    "min": "Min.",
+    "visit": "Besøg",
+    "episode": "Afsnit",
+    "episodes": "Afsnit",
+    "success": "Det lykkedes!",
+    "oops": "ups",
+    "warning": "Advarsel!",
+    "purchase": {
+      "allPremiumFeatures": "Få adgang til alt det, som MTV Play har at tilbyde!",
+      "didYouKnow": "Kender du alle de andre fordele ved at være kunde hos MTV Mobile? Læs dem!",
+      "freeWithMTV": "Gratis med MTV Mobile",
+      "goPremium": "Få premium",
+      "perMonth": "pr. måned",
+      "perYear": "pr. år",
+      "getMore": "Få adgang til alle de afsnit og tv-kanaler, som MTV Play har at tilbyde!",
+      "buyMonth": "Premium (månedlig) i",
+      "buyYear": "Premium (årlig) i",
+      "description": {
+        "fire": "Få adgang til samtlige afsnit af dine yndlingsprogrammer og vores tv-kanaler. Og hvis du gerne vil prøve det først, er det helt i orden. På Amazon-enheder er den første måned helt gratis.",
+        "tv": "Få adgang til samtlige afsnit af dine yndlingsprogrammer og vores tv-kanaler. Og hvis du gerne vil prøve det først, er det helt i orden. På Amazon-enheder er den første måned helt gratis."
+      },
+      "monthlyPass": {
+        "body": "Hvis du trykker fortsæt, køber du et månedsabonnement for",
+        "title": "Premium (måned)"
+      },
+      "operator": "Gratis med din teleudbyder",
+      "singlePass": {
+        "body": "Hvis du trykker fortsæt, lejer du dette afsnit i",
+        "title": "Lås op for afsnit"
+      },
+      "yearlyPass": {
+        "body": "Hvis du trykker fortsæt, køber du et årsabonnement for",
+        "title": "Premium (år)"
+      }
+    },
+    "hoorayMobileTitle": "Opgraderingen lykkedes!",
+    "hoorayUpgradedText": "Velkommen til MTV Play Premium. Vi er glade for, at du er her. Hvis du har spørgsmål til appen, kan du besøge vores FAQ. Hvis det ikke hjælper dig, har vores supporthelte på helpme@mtvplay.tv et svar på næsten alt.",
+    "upgrade": "Opgradér",
+    "upgradedMessage": "Du er nu opgraderet. ",
+    "upgrading": "Opgraderer",
+    "upgradePremium": "Opgradér til Premium",
+    "hoorayPremium": "Premium siden",
+    "mobilePurchased": "Premium med MTV Mobile",
+    "episodePurchased": "Købt afsnit",
+    "premium": "Premium",
+    "purchaseHistory": "Købshistorik",
+    "rental": "Lej i 48 timer. ",
+    "enterYourNumber": "Hvis du er kunde hos MTV Mobile, kan du nemt få adgang til alle afsnit og tv-kanaler. Kom i gang ved at vælge dit land og indtaste dit telefonnummer.",
+    "verify": "Bekræft",
+    "verifyMobile": "Hvis du er kunde hos MTV Mobile, kan du nemt få adgang til alle afsnit og tv-kanaler. Kom i gang ved at vælge dit land og indtaste dit telefonnummer.",
+    "verifying": "Bekræfter",
+    "verifyfail": "Det er ikke et gyldigt MTV Mobile-nummer. ",
+    "verifysuccess": "Vi har sendt dig en sms.",
+    "nav": {
+      "discover": "Gå på opdagelse",
+      "allShows": "Alle programmer",
+      "channels": "Kanaler",
+      "shows": "Programmer",
+      "television": "Tv",
+      "settings": "Indstillinger"
+    },
+    "privacy": "Fortrolighedspolitik",
+    "profile": "Profil",
+    "mtvPlay": "MTV Play",
+    "onTv": "I tv",
+    "needToRegister": "Tilmeld dig, eller log ind. ",
+    "easyRegister": "Bare rolig, det er nemt at tilmelde sig. Vi giver dig endda 48 timers premium-adgang til alle programmer. Og vi gør ikke noget skummelt med dine data. På spejderære! ",
+    "new": "Nyt",
+    "newEpisodes": "Alle nye afsnit",
+    "newPassword": "Indtast ny adgangskode",
+    "newReleases": "Nye udgivelser",
+    "favoriteAdded": "Føjet til favoritter",
+    "favoriteRemoved": "Fjernet fra favoritter",
+    "favorites": "Favoritter",
+    "noFavos": "Se dine yndlingsprogrammer hurtigt og nemt.",
+    "nowOnTv": "I tv nu",
+    "now": "Nu",
+    "pause": "Pause",
+    "play": "Afspil",
+    "progress": "Status",
+    "pullBack": "Hent video",
+    "recommended": "Anbefalet",
+    "showsYouWatch": "Fortsæt afspilning",
+    "search": "Søg",
+    "season": "Sæson",
+    "seasons": "Sæsoner",
+    "topShows": "Populære programmer",
+    "screenAvailable": "Mulighed for fuld skærm!",
+    "devices": "Enheder",
+    "watchBigger": "Se på den store skærm!",
+    "watchBig": "Installér blot appen på en anden enhed, eller log ind med samme konto på mtvplay.tv. Enheden vil komme til syne her, og de bliver automatisk forbundet. Nu kan du betjene den forbundne enhed og se dine videoer på en stor skærm.",
+    "noDevicesTitle": "Ingen enheder? Ingen problemer!",
+    "noDevices": "Der er to måder at forbinde enheder på. Du kan enten åbne MTV Play på en anden enhed eller besøge mtvplay.tv og logge ind med samme konto. Du kan også starte din Chromecast eller dit Apple TV på samme netværk.",
+    "playingOn": "Afspiller på",
+    "account": {
+      "signin": {
+        "title": "Log på",
+        "facebook": "Log på med Facebook",
+        "twitter": "Log på med Twitter",
+        "email": "Log på med e-mail",
+        "wrong": "Tjek dine login-oplysninger!",
+        "success": "Velkommen tilbage!",
+        "facebookError": "Kunne ikke logge på Facebook."
+      },
+      "logout": "Log ud",
+      "signup": {
+        "title": "Tilmeld",
+        "confirm": "Bekræft din konto",
+        "facebook": "Tilmeldelse med Facebook",
+        "twitter": "Tilmeldelse med Twitter",
+        "email": "Tilmeldelse med e-mail",
+        "already": "Beklager, denne e-mail er allerede i brug!",
+        "operator": "Gratis med din teleudbyder"
+      },
+      "invalid": {
+        "email": "Indtast en gyldig e-mailadresse.",
+        "password": "Din adgangskode skal indeholde mindst seks tegn.",
+        "cellphone": "Tjek, at dit telefonnummer er korrekt, og at du har valgt det rigtige land."
+      },
+      "forgot": {
+        "title": "Har du glemt din adgangskode?",
+        "wrong": "Ugyldig e-mailadresse.",
+        "success": "Vi har sendt dig en e-mail med et link til nulstilling. "
+      },
+      "change": {
+        "email": "Skift e-mail",
+        "password": "Skift adgangskode",
+        "success": "Din adgangskode blev ændret!"
+      },
+      "passwordReset": "Bekræft ny adgangskode",
+      "passwordResetError": "Indtast en gyldig adgangskode",
+      "purchaseError": "Opgraderingen mislykkedes. Prøv igen.",
+      "verifyEmailError": "Vi kunne ikke bekræfte din konto",
+      "verifyEmailSuccess": {
+        "subtitle": "Du er nu logget på.",
+        "title": "Konto bekræftet!"
+      }
+    },
+    "enterName": "Indtast dit navn.",
+    "password": "Adgangskode",
+    "noMatchPassword": "Dine adgangskoder var ikke ens.",
+    "noPassword": "Indtast en adgangskode.",
+    "noRepeatPassword": "Gentag din adgangskode.",
+    "chooseTelCode": "Vælg dit land",
+    "settings": {
+      "languages": {
+        "title": "Sprog",
+        "subtitle": "Skift sprog."
+      }
+    },
+    "name": "Navn",
+    "phonenumber": "Telefonnummer",
+    "repeatPassword": "Gentag ny adgangskode",
+    "terms": "Vilkår og betingelser",
+    "termsOfService": "Ved tilmelding accepterer du vores:",
+    "shareFacebook": "Del på Facebook",
+    "shareTwitter": "Del på Twitter",
+    "shareEmail": "Del via e-mail",
+    "share": "Del",
+    "shareEpisode": "Del afsnit",
+    "tellMe": "Flere oplysninger",
+    "countries": {
+      "be": {
+        "tel": "+32",
+        "title": "Belgien"
+      },
+      "de": {
+        "tel": "+49",
+        "title": "Tyskland"
+      },
+      "nl": {
+        "tel": "+31",
+        "title": "Holland"
+      },
+      "pl": {
+        "tel": "+48",
+        "title": "Polen"
+      },
+      "ro": {
+        "tel": "+40",
+        "title": "Rumænien"
+      },
+      "ch": {
+        "tel": "+41",
+        "title": "Schweiz"
+      }
+    },
+    "language": "Sprog",
+    "languages": {
+      "nl": {
+        "title": "Nederlands"
+      },
+      "de": {
+        "title": "Deutsch"
+      },
+      "en": {
+        "title": "English"
+      },
+      "pl": {
+        "title": "Polski"
+      },
+      "it": {
+        "title": "Italiano"
+      },
+      "fr": {
+        "title": "Français"
+      },
+      "ro": {
+        "title": "Romana"
+      },
+      "no": {
+        "title": "Norsk"
+      }
+    },
+    "connectWith": "Forbind med",
+    "alreadyPurchased": "Det har du allerede købt.",
+    "workInProgress": "Under udarbejdelse!",
+    "workingOnIt": "Vi arbejder hårdt på at give dig dine foretrukne MTV-kanaler, uanset hvor du befinder dig.",
+    "advertisement": "Læs mere",
+    "age": "Vælg alder",
+    "backlink": "Tilbage til MTV",
+    "buyPremium": "Køb Premium Pass",
+    "cellphone": "Telefon",
+    "comingSoon": "Ikke tilgængelig",
+    "Connection": "Tjek din internetforbindelse.",
+    "connect": {
+      "tv": {
+        "code": "Firecifret kode",
+        "description": "Du kan oprette forbindelse til dit tv ved at indtaste den firecifrede kode på tv-skærmen. Hvis du ikke kan se koden, bedes du navigere hen til profil-ikonet nederst i menuen.",
+        "title": "Opret forbindelse til dit tv"
+      }
+    },
+    "continue": "Fortsæt",
+    "cookieBar": {
+      "close": "Luk",
+      "link": "Flere oplysninger",
+      "nl": {
+        "text": "We maken een onderscheid tussen functionele cookies en cookies voor het beheer van webstatistieken, advertenties en social media. MTV maakt gebruik van functionele en analytische cookies om inzicht te krijgen in de werking en effectiviteit van haar websites. De daarmee verzamelde gegevens worden niet gebruikt om activiteiten van individuele gebruikers te volgen. De advertentie en social media cookies van derden verzamelen mogelijk gegevens ook buiten de website(s) van MTV. Door hiernaast op akkoord te klikken of door gebruik te blijven maken van deze website, geef je toestemming voor het plaatsen van cookies bij bezoek aan de website(s) van MTV. Meer weten over deze cookies? Klik dan hiernaast op “meer informatie tonen”.",
+        "title": "MTV maakt gebruik van cookies."
+      },
+      "text": "Denne hjemmeside bruger cookies til at forbedre din brugeroplevelse. Ved at bruge vores hjemmeside, accepterer du vores brug af cookies i overensstemmelse med vilkårene i vores cookie-politik."
+    },
+    "countdown": "Din video afspilles efter denne reklame.",
+    "desktopText": "Computer",
+    "discover": {
+      "be": {
+        "row1": {
+          "free": "Nyt",
+          "premium": "Nyt"
+        },
+        "row2": {
+          "free": "Anbefalet",
+          "premium": "Anbefalet"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "ch": {
+        "row1": {
+          "free": "Nyt",
+          "premium": "Nyt"
+        },
+        "row2": {
+          "free": "Anbefalet",
+          "premium": "Anbefalet"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "de": {
+        "row1": {
+          "free": "Nyt",
+          "premium": "Nyt"
+        },
+        "row2": {
+          "free": "Anbefalet",
+          "premium": "Anbefalet"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "dk": {
+        "row1": {
+          "free": "Nye afsnit",
+          "premium": "Nye afsnit"
+        },
+        "row2": {
+          "free": "Udvalgt",
+          "premium": "Udvalgt"
+        },
+        "row3": {
+          "free": "Populære klip",
+          "premium": "Populære klip"
+        }
+      },
+      "marquee": "Spotlight",
+      "nl": {
+        "row1": {
+          "free": "Nyt",
+          "premium": "Nyt"
+        },
+        "row2": {
+          "free": "Anbefalet",
+          "premium": "Anbefalet"
+        },
+        "row3": {
+          "free": "Gratis",
+          "premium": "Gratis"
+        }
+      },
+      "no": {
+        "row1": {
+          "free": "Nye afsnit",
+          "premium": "Nye afsnit"
+        },
+        "row2": {
+          "free": "Udvalgt",
+          "premium": "Udvalgt"
+        },
+        "row3": {
+          "free": "Populære klip",
+          "premium": "Populære klip"
+        }
+      },
+      "pl": {
+        "row1": {
+          "free": "Warsaw Shore",
+          "premium": "Warsaw Shore"
+        },
+        "row2": {
+          "free": "Gratis",
+          "premium": "Premierer"
+        },
+        "row3": {
+          "free": "Anbefalet",
+          "premium": "Anbefalet"
+        }
+      }
+    },
+    "extras": "Ekstra",
+    "gender": "Angiv dit køn",
+    "invalidEntry": "Ugyldig indtastning, prøv igen.",
+    "legalContainer": "Vores brugsbetingelser er bindende. Hvis du fortsætter, accepterer du hermed, at du ikke kan annullere dit indkøb, så snart leveringen er påbegyndt.",
+    "lockedEpisode": "Lej afsnit (48 timer)",
+    "lockedEpisodeDescription": "Lej dette afsnit i 48 timer.",
+    "login": {
+      "tvSubtitle": "Du skal hente vores mobile app for at se låst indhold. I appen kan du tilmelde dig, logge på og opgradere til en premium-konto. Det vil gøre dig i stand til at oprette forbindelse til dette tv og betjene det.",
+      "tvTitle": "Log ind med din telefon"
+    },
+    "mailHelp": {
+      "body": "Du vil få den bedste support, hvis du oplyser den e-mail, som du er logget ind med; det land, som du befinder dig i; navnet på din enhed samt versionen af den app, som du har problemer med. ",
+      "title": "Der er noget, som du bør vide om MTV Play."
+    },
+    "mailShare": {
+      "body": "Har du ikke set det endnu? Se det på MTV Play!",
+      "title": "Der er noget, som du skal se på MTV Play."
+    },
+    "menu": {
+      "discover": {
+        "description": "Se vores nyheder!"
+      },
+      "register": {
+        "description": "Du kan tilmelde dig eller logge ind ved at besøge [location of the login page] og indtaste den firecifrede kode nedenfor.",
+        "loggedin": "Logget på som",
+        "title": "Tilmeld dig/log på"
+      },
+      "shows": {
+        "description": "Gennemse alle vores programmer."
+      },
+      "tv": {
+        "description": "Se vores tv-kanaler live."
+      }
+    },
+    "mobileUpgrade": "Du kan opgradere i den mobile app!",
+    "mobileUpgradeInfo": "Du kan desværre ikke købe et Premium Pass på vores webside. Men bare rolig – det kan du nemlig klare på vores mobile apps. Snup din iOS- eller Android-enhed, og hent MTV Play i appbiksen. ",
+    "newAccount": "Velkommen! Nu kan du logge på. ",
+    "newPasswordConfirm": "Bekræft adgangskode",
+    "newsletterSubtitle": "Vi kunne aldrig finde på at sende dig spam!",
+    "newsletterTitle": "Nyhedsbrev",
+    "next": "næste",
+    "noDescription": "Ingen tilgængelig beskrivelse.",
+    "noEPG": "Ingen tilgængelig guide",
+    "notAvailable": {
+      "text": "MTV Play er desværre endnu ikke tilgængeligt i dit land. Hvis du har mistanke om, at der er sket en fejl, bedes du kontakte os på:",
+      "title": "Tak for din interesse."
+    },
+    "operator": {
+      "authenticate": "Indtast oplysninger om din teleudbyder, så du bliver opgraderet til premium-adgang.",
+      "choose": "Vælg teleudbyder",
+      "credentials": {
+        "used": "Disse login-oplysninger bliver i forvejen brugt af for mange MTV Play-konti.",
+        "wrong": "Dine login-oplysninger er enten ugyldige eller bliver i forvejen brugt af for mange MTV Play-konti."
+      },
+      "deals": "Vælg teleudbyder",
+      "future": "Opgradering med denne teleudbyder tilbydes fra ",
+      "help": "Hvis dine login-oplysninger ikke fungerer, bedes du kontakte ",
+      "register": "Opret først en MTV Play-konto",
+      "registerPlay": "Opret først en MTV Play-konto",
+      "select": "Vælg venligst din teleudbyder"
+    },
+    "or": "eller",
+    "phoneUpgradeTitle": "Opgradér med vores mobile app!",
+    "ppv": "Lej enkelt afsnit",
+    "premiumUser": "Premium-bruger",
+    "promotion": "Reklame",
+    "purchaseHistoryText": "Nedenfor ses en oversigt over dine tidligere køb.",
+    "recieveMainScreen": "Tryk på denne knap på din forbundne enhed for at afspille videoen her. ",
+    "recieveSecondScreen": "Hvis du vil se din video her, skal du vælg denne enhed på din liste over enheder. ",
+    "register": {
+      "redirectSubtitle": "Du er nu tilmeldt, og din konto er opgraderet til premium i 48 timer! Vend tilbage til din mobile app, og slå dig løs. ",
+      "redirectTeleport": "TIlbage til appen!",
+      "redirectTitle": "Konto bekræftet!"
+    },
+    "returnTap": "Tryk for at fortsætte",
+    "roadblock": "Opgradér",
+    "rotateDevice": "Rotér enheden",
+    "seconds": "sekunder",
+    "sender": {
+      "remotePlaybackSubtitle": "Denne video afspilles nu på den forbundne skærm.",
+      "remotePlaybackTitle": "Fjernafspilning"
+    },
+    "signInTOS": "Ved login accepterer du vores:",
+    "specials": "Specialtilbud",
+    "spotlight": "Spotlight",
+    "swipeup": "Skub op",
+    "tabletText": "Tablet",
+    "thisDevice": "Denne enhed",
+    "trial": "48 timers premium-prøveperiode",
+    "trialActive": "48 timers premium-prøveperiode aktiv",
+    "tvLogin": "Hent vores mobile app på din telefon eller tablet, så du kan logge ind eller opgradere. ",
+    "tv": {
+      "register": {
+        "description": "Bliv oprettet som bruger, eller log på MTV Play, hvis du allerede har en konto."
+      }
+    },
+    "unlockPrice": "48 timers leje for ",
+    "untitled": "Uden titel",
+    "upgradeFromPhone": "Grib din telefon!",
+    "username": "Brugernavn",
+    "verifyEmail": {
+      "subtitle": "Vi har sendt dig en e-mail.",
+      "title": "Bekræft din konto"
+    },
+    "versionAvailable": "Tilgængelig opdatering"
+  },
+  "settings": {
+    "connectivity": "Forbindelse",
+    "connectivitySub": "Administrér 3G/4G-streaming",
+    "connectivityDescription": "MTV Play streamer som standard videoer via wi-fi og mobilnettet (3G/4G). Hvis du streamer via mobilnettet, opkræver din teleudbyder muligvis ekstra afgifter.",
+    "verifyMobile": "Opgradér med MTV Mobile",
+    "verifyMobileSub": "Bekræft dit telefonnummer for at få premium-adgang.",
+    "about": "Om MTV Mobile",
+    "aboutSub": "Læs mere om MTV Mobile!",
+    "help": "FAQ",
+    "helpSub": "Ofte stillede spørgsmål",
+    "feedback": "Hjælp mig!",
+    "feedbackSub": "Kontakt vores supportafdeling.",
+    "disableCellular": {
+      "subtitle": "Du kan godt se videoer med 3G/4G",
+      "title": "3G/4G er slået til"
+    },
+    "disableNewsletter": {
+      "subtitle": "Du vil ikke modtage flere nyhedsbreve.",
+      "title": "Afmeld nyhedsbrev"
+    },
+    "enableCellular": {
+      "subtitle": "Du kan ikke se videoer med 3G/4G",
+      "title": "3G/4G er slået fra"
+    },
+    "enableNewsletter": {
+      "subtitle": "Modtag vores nyhedsbrev.",
+      "title": "Nyhedsbrev"
+    },
+    "intro": "Afspil introduktionen igen",
+    "introSub": "Se vores intro én gang til",
+    "newsletter": {
+      "body": "Vi deler ikke dine oplysninger med tredjeparter. "
+    }
+  },
+  "intro": {
+    "welcome": {
+      "title": "Velkommen",
+      "body": "Med MTV Play kan du nemt se alle dine MTV-yndlingsprogrammer, uanset hvor du befinder dig. "
+    },
+    "devices": {
+      "title": "MTV Play er overalt!",
+      "body": "Vi har apps til telefoner, tablets, smart-tv og din browser, så du kan se dine programmer hvor som helst."
+    },
+    "connect": {
+      "title": "Forbind skærme!",
+      "body": "Log ind på to eller flere enheder, så du får en bedre oplevelse med flere skærme. "
+    },
+    "free": {
+      "body": "Tilmeld dig, eller log ind for at komme i gang!",
+      "button": "Kom i gang"
+    },
+    "mobile": {
+      "body": "Kunder hos MTV Mobile får ubegrænset premium-adgang til alt indhold!",
+      "button": "Ja, jeg har MTV Mobile",
+      "title": "Men kan du først oplyse, om du har MTV Mobile?"
+    },
+    "register": {
+      "title": "Tilmeld dig, eller log på, så du kan komme i gang!"
+    }
+  },
+  "button": {
+    "exitfullscreen": "Forlad fuld skærm",
+    "skip": "Spring over"
+  },
+  "cancel": "Afbryd",
+  "connect": {
+    "active": "Du er forbundet til",
+    "lost": "Prøver at genoprette forbindelse ...",
+    "waiting": "Afventer enhed ..."
+  },
+  "install": "Installér",
+  "modal": {
+    "connectedText": {
+      "body": "Skub videoer til denne enhed!",
+      "misc": "Du er forbundet",
+      "title": "Forbundet til"
+    },
+    "videoUnavailable": {
+      "subtitle": "Programmet kan ikke ses i dette land. ",
+      "title": "Ikke tilgængelig i øjeblikket"
+    },
+    "warning": {
+      "cellular": {
+        "subtitle": "Slå 3G/4G-streaming til under indstillingerne.",
+        "title": "3G/4G-afspilning er slået fra."
+      },
+      "invalid": "Dette link er ugyldigt!",
+      "unabletoverify": "Kunne ikke bekræfte mobilnummeret."
+    }
+  },
+  "notnow": "Ikke nu",
+  "ok": "Okay",
+  "options": {
+    "age": {
+      "0": {
+        "text": "Under 18"
+      },
+      "1": {
+        "text": "18 til 21"
+      },
+      "2": {
+        "text": "Over 21"
+      }
+    },
+    "gender": {
+      "0": {
+        "text": "Hunkøn"
+      },
+      "1": {
+        "text": "Hankøn"
+      },
+      "2": {
+        "text": "Andet"
+      }
+    }
+  },
+  "share": {
+    "failed": "Deling mislykkedes. ",
+    "success": "Deling lykkedes!"
+  },
+  "singleEpisodePurchased": "Leje gennemført",
+  "tex": {
+    "buyPremiumPhoneButton": "Køb Premium Pass"
+  },
+  "verifyemail": "Bekræft e-mail"
+}
