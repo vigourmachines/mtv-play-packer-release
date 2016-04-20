@@ -31,14 +31,14 @@
       "buyMonth": "Konto premium (miesięcznie) za",
       "buyYear": "Konto premium (rocznie) za",
       "description": {
-        "fire": null,
-        "tv": null
+        "fire": "Zdobądź dostęp do każdego odcinka wszystkich naszych programów oraz kanałów telewizyjnych. Nie ma problemu, jeżeli na początku chcesz tylko wypróbować usługę. Na urządzeniach Amazon pierwszy miesiąc jest całkowicie darmowy.",
+        "tv": "Zdobądź dostęp do każdego odcinka wszystkich naszych programów oraz kanałów telewizyjnych."
       },
       "monthlyPass": {
         "body": "Klikając przycisk kontynuuj, wykupisz miesięczny abonament za",
         "title": "Konto premium (miesięczne)"
       },
-      "operator": "Free with your Operator",
+      "operator": "Gratis w przypadku twojego operatora",
       "singlePass": {
         "body": "Klikając przycisk dalej wypożyczysz ten odcinek za",
         "title": "Odblokuj odcinek"
@@ -125,7 +125,7 @@
         "twitter": "Utwórz konto przez Twitter",
         "email": "Utwórz konto przez e-mail",
         "already": "Niestety podany adres e-mail jest już zajęty!",
-        "operator": "Operator registration"
+        "operator": "Gratis w przypadku twojego operatora"
       },
       "invalid": {
         "email": "Podaj poprawny adres e-mail.",
@@ -236,18 +236,18 @@
     "backlink": "Wróć do MTV",
     "buyPremium": "Kup konto premium",
     "cellphone": "Telefon",
-    "comingSoon": null,
+    "comingSoon": "Niedostępne",
     "Connection": "Wystąpił problem z połączeniem. Spróbuj ponownie później lub sprawdź swój dostęp do sieci.",
     "connect": {
       "tv": {
-        "code": null,
-        "description": null,
-        "title": null
+        "code": "Czterocyfrowy kod",
+        "description": "Aby połączyć konto z telewizorem, wprowadź na ekranie czterocyfrowy kod. Jeżeli nie widzisz kodu, użyj ikony profilu na dole menu.",
+        "title": "Połącz z telewizorem"
       }
     },
     "continue": "Kontynuuj",
     "cookieBar": {
-      "close": "Close",
+      "close": "Zamknij",
       "link": "Tutaj",
       "nl": {
         "text": "We maken een onderscheid tussen functionele cookies en cookies voor het beheer van webstatistieken, advertenties en social media. MTV maakt gebruik van functionele en analytische cookies om inzicht te krijgen in de werking en effectiviteit van haar websites. De daarmee verzamelde gegevens worden niet gebruikt om activiteiten van individuele gebruikers te volgen. De advertentie en social media cookies van derden verzamelen mogelijk gegevens ook buiten de website(s) van MTV. Door hiernaast op akkoord te klikken of door gebruik te blijven maken van deze website, geef je toestemming voor het plaatsen van cookies bij bezoek aan de website(s) van MTV. Meer weten over deze cookies? Klik dan hiernaast op “meer informatie tonen”.",
@@ -260,59 +260,73 @@
     "discover": {
       "be": {
         "row1": {
-          "free": "Premiery",
-          "premium": "Premiery"
+          "free": "New",
+          "premium": "New"
         },
         "row2": {
-          "free": "Polecane",
-          "premium": "Polecane"
+          "free": "Recommended",
+          "premium": "Recommended"
         },
         "row3": {
-          "free": "Darmowe",
-          "premium": "Darmowe"
+          "free": "Free",
+          "premium": "Free"
         }
       },
       "ch": {
         "row1": {
-          "free": "Premiery",
-          "premium": "Premiery"
+          "free": "New",
+          "premium": "New"
         },
         "row2": {
-          "free": "Polecane",
-          "premium": "Polecane"
+          "free": "Recommended",
+          "premium": "Recommended"
         },
         "row3": {
-          "free": "Darmowe",
-          "premium": "Darmowe"
+          "free": "Free",
+          "premium": "Free"
         }
       },
       "de": {
         "row1": {
-          "free": "Premiery",
-          "premium": "Premiery"
+          "free": "New",
+          "premium": "New"
         },
         "row2": {
-          "free": "Polecane",
-          "premium": "Polecane"
+          "free": "Recommended",
+          "premium": "Recommended"
         },
         "row3": {
-          "free": "Darmowe",
-          "premium": "Darmowe"
+          "free": "Free",
+          "premium": "Free"
         }
       },
-      "marquee": null,
-      "nl": {
+      "dk": {
         "row1": {
-          "free": "Premiery",
-          "premium": "Premiery"
+          "free": "New Episodes",
+          "premium": "New Episodes"
         },
         "row2": {
-          "free": "Polecane",
-          "premium": "Polecane"
+          "free": "Featured",
+          "premium": "Featured"
         },
         "row3": {
-          "free": "Darmowe",
-          "premium": "Darmowe"
+          "free": "Top Clips",
+          "premium": "Top Clips"
+        }
+      },
+      "marquee": "Spotlight",
+      "nl": {
+        "row1": {
+          "free": "New",
+          "premium": "New"
+        },
+        "row2": {
+          "free": "Recommended",
+          "premium": "Recommended"
+        },
+        "row3": {
+          "free": "Free",
+          "premium": "Free"
         }
       },
       "no": {
@@ -331,11 +345,11 @@
       },
       "pl": {
         "row1": {
-          "free": "Darmowe",
+          "free": "Warsaw Shore",
           "premium": "Warsaw Shore"
         },
         "row2": {
-          "free": "Premiery",
+          "free": "Darmowe",
           "premium": "Premiery"
         },
         "row3": {
@@ -364,18 +378,18 @@
     },
     "menu": {
       "discover": {
-        "description": null
+        "description": "Sprawdź nowości!"
       },
       "register": {
-        "description": null,
-        "loggedin": null,
-        "title": null
+        "description": "Aby zarejestrować się albo zalogować, odwiedź stronę [location of the login page], a następnie podaj poniższy czterocyfrowy kod.",
+        "loggedin": "Zalogowany jako",
+        "title": "Rejestracja/Logowanie"
       },
       "shows": {
-        "description": null
+        "description": "Przeglądaj wszystkie nasze programy."
       },
       "tv": {
-        "description": null
+        "description": "Oglądaj nasze kanały telewizyjne."
       }
     },
     "mobileUpgrade": "Ulepsz konto za pomocą aplikacji mobilnej!",
@@ -388,22 +402,22 @@
     "noDescription": "Brak opisu",
     "noEPG": "Brak przewodnika",
     "notAvailable": {
-      "text": null,
-      "title": null
+      "text": "Niestety usługa MTV Play jest niedostępna w twoim kraju. Jeżeli uważasz, że wystąpił błąd, prosimy o kontakt pod adresem:",
+      "title": "Dziękujemy za zainteresowanie."
     },
     "operator": {
-      "authenticate": "Please authenticate...",
-      "choose": "Choose Operator",
+      "authenticate": "Aby uzyskać status premium, podaj dane operatora.",
+      "choose": "Wybierz operatora",
       "credentials": {
-        "used": null,
-        "wrong": null
+        "used": "Te dane są wykorzystywane przez zbyt dużą liczbę kont MTV Play.",
+        "wrong": "Twoje dane są nieprawidłowe lub korzysta z nich zbyt duża liczba kont MTV Play."
       },
-      "deals": "Available Operators",
-      "future": "Upgrading with this operator is possible from ",
-      "help": null,
-      "register": "Please register...",
-      "registerPlay": "Please register an MTV Play account",
-      "select": "Please select your operator"
+      "deals": "Wybierz operatora",
+      "future": "Rozszerzenie powiązane z tym operatorem jest możliwe z ",
+      "help": "Jeżeli twoje dane nie są akceptowane, prosimy o kontakt  ",
+      "register": "Najpierw zarejestruj konto MTV Play",
+      "registerPlay": "Najpierw zarejestruj konto MTV Play",
+      "select": "Zaznacz swojego operatora"
     },
     "or": "lub",
     "phoneUpgradeTitle": "Ulepsz konto za pomocą naszej aplikacji mobilnej!",
@@ -437,13 +451,13 @@
     "tvLogin": "Pobierz naszą aplikację mobilną na telefon lub tablet i zaloguj się lub ulepsz konto. ",
     "tv": {
       "register": {
-        "description": null
+        "description": "Zarejestruj konto MTV Play albo zaloguj się, jeżeli już je posiadasz."
       }
     },
     "unlockPrice": "Odblokuj na 48 godzin ",
     "untitled": "Bez nazwy",
     "upgradeFromPhone": "Sięgnij po telefon!",
-    "username": "Username",
+    "username": "Nazwa użytkownika",
     "verifyEmail": {
       "subtitle": "Wysłaliśmy Ci wiadomość e-mail z linkiem potwierdzającym",
       "title": "Proszę potwierdzić konto"

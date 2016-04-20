@@ -31,8 +31,8 @@
       "buyMonth": "Premium (måned) for",
       "buyYear": "Premium (år) for",
       "description": {
-        "fire": null,
-        "tv": null
+        "fire": "Få tilgang på alle episodene av seriene våre pluss TV-kanalene våre. Om du er usikker, men har lyst til å prøve det ut først, vær obs på at på alle Amazon-enheter får du den første måneden helt gratis.",
+        "tv": "Få tilgang på alle episodene av seriene våre pluss TV-kanalene våre."
       },
       "monthlyPass": {
         "body": "Ved å trykke på fortsett kjøper du et månedsabonnement for",
@@ -231,23 +231,23 @@
     "alreadyPurchased": "Du har allerede kjøpt dette.",
     "workInProgress": "UNDER BEARBEIDELSE!",
     "workingOnIt": "Vi jobber veldig hardt for å gi deg favorittkanalene dine fra MTV – uansett hvor du er.",
-    "advertisement": "Learn More",
+    "advertisement": "Mer informasjon",
     "age": "Velg alder",
     "backlink": "Tilbake til MTV",
     "buyPremium": "Kjøp premiumpass",
     "cellphone": "Telefon",
-    "comingSoon": null,
+    "comingSoon": "Ikke tilgjengelig",
     "Connection": "Kontroller Internett-tilkoblingen din.",
     "connect": {
       "tv": {
-        "code": null,
-        "description": null,
-        "title": null
+        "code": "Firesifret kode",
+        "description": "For å koble til din TV, må du oppgi den firesifrede koden på TV-skjermen din. Om du ikke ser koden, gå til profil-ikonet på bunnen av menyen.",
+        "title": "Koble til din TV"
       }
     },
     "continue": "Fortsett",
     "cookieBar": {
-      "close": "Close",
+      "close": "Lukk",
       "link": "Mer informasjon",
       "nl": {
         "text": "We maken een onderscheid tussen functionele cookies en cookies voor het beheer van webstatistieken, advertenties en social media. MTV maakt gebruik van functionele en analytische cookies om inzicht te krijgen in de werking en effectiviteit van haar websites. De daarmee verzamelde gegevens worden niet gebruikt om activiteiten van individuele gebruikers te volgen. De advertentie en social media cookies van derden verzamelen mogelijk gegevens ook buiten de website(s) van MTV. Door hiernaast op akkoord te klikken of door gebruik te blijven maken van deze website, geef je toestemming voor het plaatsen van cookies bij bezoek aan de website(s) van MTV. Meer weten over deze cookies? Klik dan hiernaast op “meer informatie tonen”.",
@@ -300,7 +300,21 @@
           "premium": "Gratis"
         }
       },
-      "marquee": null,
+      "dk": {
+        "row1": {
+          "free": "Nyeste episoder",
+          "premium": "Nyeste episoder"
+        },
+        "row2": {
+          "free": "Featured",
+          "premium": "Featured"
+        },
+        "row3": {
+          "free": "Top Clips",
+          "premium": "Top Clips"
+        }
+      },
+      "marquee": "Spotlight",
       "nl": {
         "row1": {
           "free": "Nye utgivelser",
@@ -331,11 +345,11 @@
       },
       "pl": {
         "row1": {
-          "free": "Gratis",
+          "free": "Warsaw Shore",
           "premium": "Warsaw Shore"
         },
         "row2": {
-          "free": "Nye utgivelser",
+          "free": "Gratis",
           "premium": "Nye utgivelser"
         },
         "row3": {
@@ -364,22 +378,22 @@
     },
     "menu": {
       "discover": {
-        "description": null
+        "description": "Finn ut hva som er nytt!"
       },
       "register": {
-        "description": null,
-        "loggedin": null,
-        "title": null
+        "description": "For å registrere deg eller logge inn, besøk [location of login page] og oppgi den firesifrede koden nedenfor.",
+        "loggedin": "Logget inn som",
+        "title": "Registrer deg/Logg inn"
       },
       "shows": {
-        "description": null
+        "description": "Bla gjennom alle seriene våre."
       },
       "tv": {
-        "description": null
+        "description": "Se på våre direktesendte TV-kanaler."
       }
     },
     "mobileUpgrade": "Bruk mobilappen for å oppgradere!",
-    "mobileUpgradeInfo": "Dessverre kan du ikke kjøpe Premium Pass på nettsiden vår. Men ta det med ro – det er derfor vi har mobilapper. Det er bare å finne frem iOS-, Android- eller Windows Phone-enheten din og laste ned MTV Play fra butikken. ",
+    "mobileUpgradeInfo": "Dessverre kan du ikke kjøpe Premium Pass på nettsiden vår. Men ta det med ro – det er derfor vi har mobilapper. Det er bare å finne frem iOS- eller Android-enheten din og laste ned MTV Play fra butikken. ",
     "newAccount": "Velkommen! Du kan nå logge på. ",
     "newPasswordConfirm": "Bekreft passordet",
     "newsletterSubtitle": "Vi kommer aldri til å sende deg søppelpost!",
@@ -388,19 +402,19 @@
     "noDescription": "Ingen beskrivelse tilgjengelig.",
     "noEPG": "Ingen veiledning tilgjengelig",
     "notAvailable": {
-      "text": null,
-      "title": null
+      "text": "Dessverre er ikke MTV Play tilgjengelig i ditt land ennå. Om du tror dette er en feil, ta kontakt med oss på:",
+      "title": "Vi takker for din interesse."
     },
     "operator": {
       "authenticate": "Vennligst tast inn din distributørs brukernavn og passord for å oppgradere til premium",
       "choose": "Velg distributør",
       "credentials": {
-        "used": "These credentials are used by too many MTV Play accounts already.",
-        "wrong": "Your credentials are invalid or used by too many MTV Play accounts already."
+        "used": "Denne informasjonen er allerede knyttet til for mange «MTV Play»-kontoer.",
+        "wrong": "Informasjonen din er ugyldig eller brukes allerede av for mange «MTV Play»-kontoer."
       },
       "deals": "Velg distributør",
       "future": "Oppgradering med denne distributøren vil være tilgjengelig fra ",
-      "help": "If your credential don't work, please contact ",
+      "help": "Om informasjonen din ikke fungerer, ta kontakt med ",
       "register": "Vennligst registrer en MTV Play konto først",
       "registerPlay": "Vennligst registrer en MTV Play konto først",
       "select": "Vennligst velg din distributør"
@@ -437,7 +451,7 @@
     "tvLogin": "Last ned mobilappen til telefonen eller nettbrettet for å logge på eller oppgradere. ",
     "tv": {
       "register": {
-        "description": null
+        "description": "Registrer en konto eller logg inn med din «MTV Play»-bruker, om du allerede har en konto."
       }
     },
     "unlockPrice": "48 leie for ",

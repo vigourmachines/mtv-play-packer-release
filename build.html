@@ -33,6 +33,24 @@
     var googletag = googletag || {};
     googletag.cmd = googletag.cmd || [];
   </script>
+  <script type="text/javascript">
+
+    // Predefine empty prediction variable, depending on the clients varname (i.e. nuggprof, nuggdfp ...)
+    var n_pbt="";
+    var nuggtg=encodeURIComponent("");
+    var nuggn=187535816;
+    var nuggsid=1864594024;
+
+    var nugghost = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'mtv.nuggad.net';
+    document.write('<scr' + 'ipt type="text/javascript" src="'+nugghost+'/javascripts/nuggad-ls.js"></scr' + 'ipt>');
+    </script>
+
+    <script type="text/javascript">
+    nuggad.init({"rptn-url": nugghost}, function(api) {
+        	api.rc({"nuggn": nuggn, "nuggsid": nuggsid, "nuggtg": nuggtg });
+    });
+    </script>
+
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1, user-scalable=no">
   <meta name="apple-mobile-web-app-title" content="Vigour Video">
 </head>

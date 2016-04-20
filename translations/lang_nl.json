@@ -31,14 +31,14 @@
       "buyMonth": "Premium (maand) voor",
       "buyYear": "Premium (jaar) voor",
       "description": {
-        "fire": null,
-        "tv": null
+        "fire": "Krijg toegang tot alle afleveringen van al onze shows plus onze tv-kanalen. En natuurlijk kun je het eerst uitproberen. Op Amazon-apparaten is je eerste maand helemaal gratis.",
+        "tv": "Krijg toegang tot alle afleveringen van al onze shows plus onze tv-kanalen."
       },
       "monthlyPass": {
         "body": "Door op Doorgaan te drukken, koop je een maandabonnement voor",
         "title": "Premium (maand)"
       },
-      "operator": "Free with your Operator",
+      "operator": "Gratis via jouw provider",
       "singlePass": {
         "body": "Door op volgende te drukken koop je deze aflevering voor",
         "title": "Koop aflevering"
@@ -125,7 +125,7 @@
         "twitter": "Registreren met Twitter",
         "email": "Registreren met e-mail",
         "already": "Helaas, dit e-mailadres wordt al gebruikt!",
-        "operator": "Operator registration"
+        "operator": "Gratis via jouw provider"
       },
       "invalid": {
         "email": "Vul een geldig e-mail adres in.",
@@ -236,13 +236,13 @@
     "backlink": "Terug naar MTV",
     "buyPremium": "Premium Pass kopen",
     "cellphone": "Telefoon",
-    "comingSoon": null,
+    "comingSoon": "Niet beschikbaar",
     "Connection": "Controleer je internetverbinding.",
     "connect": {
       "tv": {
-        "code": null,
-        "description": null,
-        "title": null
+        "code": "4-cijferige code",
+        "description": "Om je account te verbinden met je tv voer je de viercijferige code op je tv-scherm in. Als je de code niet ziet, ga dan naar het profielpictogram onderin het menu.",
+        "title": "Verbinden met je tv."
       }
     },
     "continue": "Doorgaan",
@@ -253,7 +253,7 @@
         "text": "We maken een onderscheid tussen functionele cookies en cookies voor het beheer van webstatistieken, advertenties en social media. MTV maakt gebruik van functionele en analytische cookies om inzicht te krijgen in de werking en effectiviteit van haar websites. De daarmee verzamelde gegevens worden niet gebruikt om activiteiten van individuele gebruikers te volgen. De advertentie en social media cookies van derden verzamelen mogelijk gegevens ook buiten de website(s) van MTV. Door hiernaast op akkoord te klikken of door gebruik te blijven maken van deze website, geef je toestemming voor het plaatsen van cookies bij bezoek aan de website(s) van MTV. Meer weten over deze cookies? Klik dan hiernaast op “meer informatie tonen”.",
         "title": "MTV maakt gebruik van cookies."
       },
-      "text": "MTV Play maakt gebruik van cookies"
+      "text": "De website maakt gebruik van cookies om jouw gebruikersnaam te verbeteren. Door onze website te gebruiken, stem je in met het gebruik van cookies, in overeenstemming met de bepalingen in ons cookiebeleid."
     },
     "countdown": "Je video begint na de reclame.",
     "desktopText": "Computer",
@@ -300,7 +300,21 @@
           "premium": "Gratis"
         }
       },
-      "marquee": null,
+      "dk": {
+        "row1": {
+          "free": "Nieuwe releases",
+          "premium": "Nieuwe releases"
+        },
+        "row2": {
+          "free": "Featured",
+          "premium": "Featured"
+        },
+        "row3": {
+          "free": "Top Clips",
+          "premium": "Top Clips"
+        }
+      },
+      "marquee": "Spotlight",
       "nl": {
         "row1": {
           "free": "Nieuwe releases",
@@ -331,16 +345,16 @@
       },
       "pl": {
         "row1": {
-          "free": "For Free",
+          "free": "Warsaw Shore",
           "premium": "Warsaw Shore"
         },
         "row2": {
-          "free": "Premiers",
-          "premium": "Premiers"
+          "free": "Gratis",
+          "premium": "Premieres"
         },
         "row3": {
-          "free": "Recommended",
-          "premium": "Recommended"
+          "free": "Aanbevolen",
+          "premium": "Aanbevolen"
         }
       }
     },
@@ -364,22 +378,22 @@
     },
     "menu": {
       "discover": {
-        "description": null
+        "description": "Ontdek wat er nieuw is!"
       },
       "register": {
-        "description": null,
-        "loggedin": null,
-        "title": null
+        "description": "Om je te registreren of je aan te melden ga je naar [location of the login page] en voer je de viercijferige code hieronder in.",
+        "loggedin": "Ingelogd als",
+        "title": "Registeren/aanmelden"
       },
       "shows": {
-        "description": null
+        "description": "Blader door al onze shows."
       },
       "tv": {
-        "description": null
+        "description": "Bekijk onze live tv-kanalen."
       }
     },
     "mobileUpgrade": "Gebruik mobiele app om te upgraden!",
-    "mobileUpgradeInfo": "Helaas kun je op onze website geen Premium Pass kopen. Maar maak je geen zorgen, daar hebben we onze mobiele apps voor. Pak je iOS-, Android- of Windows Phone-apparaat en haal MTV Play op in de store. ",
+    "mobileUpgradeInfo": "Helaas kun je op onze website geen Premium Pass kopen. Maar maak je geen zorgen, daar hebben we onze mobiele apps voor. Pak je iOS- of Android-apparaat en haal MTV Play op in de store. ",
     "newAccount": "Welkom! Je kunt je nu aanmelden. ",
     "newPasswordConfirm": "Wachtwoord bevestigen",
     "newsletterSubtitle": "We zullen je nooit spam sturen!",
@@ -388,22 +402,22 @@
     "noDescription": "Geen omschrijving beschikbaar",
     "noEPG": "Geen gids beschikbaar",
     "notAvailable": {
-      "text": null,
-      "title": null
+      "text": "MTV Play is helaas nog niet beschikbaar in jouw land.Als je vermoedt dat dit een fout is, neem dan contact met ons op via:",
+      "title": "Bedankt voor je belangstelling."
     },
     "operator": {
-      "authenticate": "Please authenticate...",
-      "choose": "Choose Operator",
+      "authenticate": "Vul de gegevens van je provider in om te upgraden naar premium toegang",
+      "choose": "Kies provider",
       "credentials": {
-        "used": "These credentials are used by too many MTV Play accounts already.",
-        "wrong": "Your credentials are invalid or used by too many MTV Play accounts already."
+        "used": "Deze gegevens worden al door teveel MTV Play-accounts gebruikt.",
+        "wrong": "Jouw gegevens zijn ongeldig of worden al door teveel MTV Play-accounts gebruikt."
       },
-      "deals": "Available Operators",
+      "deals": "Kies provider",
       "future": "Upgrading with this operator is possible from ",
-      "help": "If your credential don't work, please contact ",
-      "register": "Please register...",
-      "registerPlay": "Please register an MTV Play account",
-      "select": "Please select your operator"
+      "help": "Als je gegevens niet werken, neem dan contact op met ",
+      "register": "Registreer eerst een MTV Play-account",
+      "registerPlay": "Registreer eerst een MTV Play-account",
+      "select": "Selecteer je provider"
     },
     "or": "of",
     "phoneUpgradeTitle": "Gebruik onze mobiele app om te upgraden!",
@@ -437,13 +451,13 @@
     "tvLogin": "Download onze mobiele app op je telefoon of tablet om je aan te melden of te upgraden. ",
     "tv": {
       "register": {
-        "description": null
+        "description": "Registreer een account of meld je aan met je gegevens van MTV Play als je al een account hebt."
       }
     },
     "unlockPrice": "Ontgrendelen voor ",
     "untitled": "Naamloos",
     "upgradeFromPhone": "Pak je telefoon!",
-    "username": "Username",
+    "username": "Gebruikersnaam",
     "verifyEmail": {
       "subtitle": "We hebben je een e-mail gestuurd.",
       "title": "Bevestig je account"
