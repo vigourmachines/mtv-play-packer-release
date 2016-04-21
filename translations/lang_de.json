@@ -223,6 +223,9 @@
       "ro": {
         "title": "Romana"
       },
+      "dk": {
+        "title": "Dansk"
+      },
       "no": {
         "title": "Norsk"
       }
