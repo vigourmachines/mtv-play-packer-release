@@ -7,6 +7,5 @@
   ],
   "alias": "tvmtvplay2ab7fvfwmrmnet",
   "adpath": "",
-  "config": "http://homad-global-configs-eu-fra.schneevonmorgen.com.s3.amazonaws.com/www.mtvplay.tv/config.json",
-  "tolerateadblocker": false
+  "config": "http://homad-global-configs-eu-fra.schneevonmorgen.com.s3.amazonaws.com/www.mtvplay.tv/config.json"
 }

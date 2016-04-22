@@ -105,6 +105,7 @@
       "web": "http://player.mtvnn.com/html5player/production/player.js",
       "settings": {
         "homadURL": "/homad/config.json",
+        "tolerateadblocker": false,
         "ad_playpostrolls": true,
         "domain": "mtv",
         "tld": "de",
