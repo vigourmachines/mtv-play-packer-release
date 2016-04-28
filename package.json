@@ -96,7 +96,7 @@
     "imgOrigin": "http://images.mtvnn.com/",
     "api": {
       "type": "production",
-      "url": "http://utt-staging.mtvnn.com/",
+      "url": "http://utt.mtvnn.com/",
       "acceptHeader": "application/json",
       "key": "4e99c9381b74354fbae9f468497912f0"
     },
@@ -279,6 +279,10 @@
         "dictionary": "https://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "-hubs.mtvplay.tv",
         "omniture": "viaviamtvplay",
+        "api": {
+          "type": "production",
+          "url": "http://utt.mtvnn.com/"
+        },
         "player": {
           "debug": false,
           "web": "http://player.mtvnn.com/html5player/production/player.js?2",
@@ -291,7 +295,16 @@
         },
         "development": {
           "button": false
-        }
+        },
+        "availableRegions": [
+          "DE",
+          "NL",
+          "CH",
+          "PL",
+          "BE",
+          "NO",
+          "AT"
+        ]
       },
       "develop": {
         "imgOrigin": "http://staging.riptide.mtvnn.com/",
