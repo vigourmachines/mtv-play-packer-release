@@ -56,7 +56,8 @@
       "PL",
       "BE",
       "NO",
-      "AT"
+      "AT",
+      "DK"
     ],
     "geo": "https://wwwmtvplay-a.akamaihd.net/geo/",
     "development": {
@@ -71,7 +72,8 @@
       "pl",
       "it",
       "fr",
-      "no"
+      "no",
+      "dk"
     ],
     "mtvmobile": [
       "de",
@@ -103,6 +105,7 @@
       "web": "http://player.mtvnn.com/html5player/production/player.js",
       "settings": {
         "homadURL": "/homad/config.json",
+        "tolerateadblocker": false,
         "ad_playpostrolls": true,
         "domain": "mtv",
         "tld": "de",
