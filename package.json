@@ -184,6 +184,7 @@
         "google2c4a46fac7686373.html": true,
         "sitemap.xml": true,
         "robots.txt": true,
+        "crossdomain.xml": true,
         "meta": "*"
       },
       "transforms": {
