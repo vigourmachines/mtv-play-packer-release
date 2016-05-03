@@ -72,7 +72,8 @@
       "pl",
       "it",
       "fr",
-      "no"
+      "no",
+      "dk"
     ],
     "mtvmobile": [
       "de",
@@ -182,6 +183,7 @@
         "googleebecff275dd42f4a.html": true,
         "google2c4a46fac7686373.html": true,
         "sitemap.xml": true,
+        "crossdomain.xml": true,
         "robots.txt": true,
         "meta": "*"
       },
