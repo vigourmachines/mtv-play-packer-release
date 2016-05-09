@@ -79,7 +79,7 @@
     "mtvPlay": "MTV Play",
     "onTv": "Im TV",
     "needToRegister": "Bitte melde melde dich an. ",
-    "easyRegister": "Keine Sorge, die Registrierung ist ganz einfach. Wir schenken dir sogar 48 Stunden Premium-Zugang! Und deine Daten sind bei uns in bester Hand. Versprochen! ",
+    "easyRegister": "Keine Sorge, die Registrierung ist ganz einfach. Und deine Daten sind bei uns in bester Hand. Versprochen! ",
     "new": "Neu",
     "newEpisodes": "Alle neuen Folgen",
     "newPassword": "Neues Passwort eingeben",
@@ -410,6 +410,7 @@
     },
     "operator": {
       "authenticate": "Gib deine Zugangsdaten ein",
+      "boxer": null,
       "choose": "Wähle deinen Anbieter",
       "credentials": {
         "used": "Diese Daten werden bereits von zu vielen MTV Play Konten benutzt.",
@@ -417,9 +418,11 @@
       },
       "deals": "Verfügbare Partner",
       "future": "Ein Upgrade mit diesem Partner ist verfügbar ab dem ",
+      "get": null,
       "help": "Falls dein Account nicht funktioniert, wende dich bitte direkt an ",
       "register": "Bitte registriere dich",
       "registerPlay": "Bitte registriere ein MTV Play Konto",
+      "rikstv": null,
       "select": "Bitte wähle deinen Anbieter"
     },
     "or": "oder",
@@ -431,7 +434,7 @@
     "recieveMainScreen": "Drücke diesen Knopf auf dem verbundenen Gerät, um das Video hier anzusehen. ",
     "recieveSecondScreen": "Wähle dieses Gerät aus deiner Geräteliste, um dein Video hier anzusehen. ",
     "register": {
-      "redirectSubtitle": "Dein Konto wurde registriert und für die ersten 48 Stunden auf Premium geupgraded. Springe direkt zurück zur App und hab' viel Spaß! ",
+      "redirectSubtitle": "Dein Konto wurde registriert. Springe direkt zurück zur App und hab' viel Spaß! ",
       "redirectTeleport": "Zurück zur App.",
       "redirectTitle": "Konto bestätigt!"
     },

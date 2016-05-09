@@ -410,6 +410,7 @@
     },
     "operator": {
       "authenticate": null,
+      "boxer": null,
       "choose": null,
       "credentials": {
         "used": null,
@@ -417,9 +418,11 @@
       },
       "deals": null,
       "future": null,
+      "get": null,
       "help": null,
       "register": null,
       "registerPlay": null,
+      "rikstv": null,
       "select": null
     },
     "or": "sau",
