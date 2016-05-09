@@ -410,7 +410,6 @@
     },
     "operator": {
       "authenticate": "Aby uzyskać status premium, podaj dane operatora.",
-      "boxer": null,
       "choose": "Wybierz operatora",
       "credentials": {
         "used": "Te dane są wykorzystywane przez zbyt dużą liczbę kont MTV Play.",
@@ -418,11 +417,9 @@
       },
       "deals": "Wybierz operatora",
       "future": "Rozszerzenie powiązane z tym operatorem jest możliwe z ",
-      "get": null,
       "help": "Jeżeli twoje dane nie są akceptowane, prosimy o kontakt  ",
       "register": "Najpierw zarejestruj konto MTV Play",
       "registerPlay": "Najpierw zarejestruj konto MTV Play",
-      "rikstv": null,
       "select": "Zaznacz swojego operatora"
     },
     "or": "lub",

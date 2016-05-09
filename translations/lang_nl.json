@@ -79,7 +79,7 @@
     "mtvPlay": "MTV Play",
     "onTv": "Op tv",
     "needToRegister": "Registreer je of meld je aan. ",
-    "easyRegister": "Maak je geen zorgen, registreren is eenvoudig. En we doen niets oneerlijks met je gegevens. Erewoord! ",
+    "easyRegister": "Maak je geen zorgen, registreren is eenvoudig. We doen er zelfs 48 uur Premiumtoegang bij! En we doen niets oneerlijks met je gegevens. Erewoord! ",
     "new": "Nieuw",
     "newEpisodes": "Alle nieuwe afleveringen",
     "newPassword": "Vul nieuw wachtwoord in",
@@ -410,7 +410,6 @@
     },
     "operator": {
       "authenticate": "Vul de gegevens van je provider in om te upgraden naar premium toegang",
-      "boxer": null,
       "choose": "Kies provider",
       "credentials": {
         "used": "Deze gegevens worden al door teveel MTV Play-accounts gebruikt.",
@@ -418,11 +417,9 @@
       },
       "deals": "Kies provider",
       "future": "Upgrading with this operator is possible from ",
-      "get": null,
       "help": "Als je gegevens niet werken, neem dan contact op met ",
       "register": "Registreer eerst een MTV Play-account",
       "registerPlay": "Registreer eerst een MTV Play-account",
-      "rikstv": null,
       "select": "Selecteer je provider"
     },
     "or": "of",
@@ -434,7 +431,7 @@
     "recieveMainScreen": "Druk op deze knop op je verbonden apparaat om je video hier te bekijken. ",
     "recieveSecondScreen": "Selecteer dit apparaat in je apparatenoverzicht om je video hier te kunnen bekijken. ",
     "register": {
-      "redirectSubtitle": "We hebben je account geregistreerd. Ga terug naar je mobiele app en veel plezier! ",
+      "redirectSubtitle": "We hebben je account geregistreerd en je voor 48 uur naar Premium geüpgraded! Ga terug naar je mobiele app en veel plezier! ",
       "redirectTeleport": "Terug naar de app!",
       "redirectTitle": "Account geverifieerd."
     },

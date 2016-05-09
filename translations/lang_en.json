@@ -79,7 +79,7 @@
     "mtvPlay": "MTV Play",
     "onTv": "On TV",
     "needToRegister": "Please register or sign in. ",
-    "easyRegister": "Don’t worry, registering is easy. And we won't do anything dishonest with your data. Scout's honor! ",
+    "easyRegister": "Don’t worry, registering is easy. We'll even throw in 48h of Premium access for all shows! And we won't do anything dishonest with your data. Scout's honor! ",
     "new": "New",
     "newEpisodes": "All new episodes",
     "newPassword": "Enter new password",
@@ -410,7 +410,6 @@
     },
     "operator": {
       "authenticate": "Please enter your Operator credentials to upgrade to premium access.",
-      "boxer": "If you are an MTV subscriber for Boxer, please enter your credentials to upgrade to Premium. ",
       "choose": "Choose Operator",
       "credentials": {
         "used": "These credentials are used by too many MTV Play accounts already.",
@@ -418,11 +417,9 @@
       },
       "deals": "Choose Operator",
       "future": "Upgrading with this operator is possible from ",
-      "get": "Please enter your get credentials to upgrade to Premium.",
       "help": "If your credential don't work, please contact ",
       "register": "Please register an MTV Play account first",
       "registerPlay": "Please register an MTV Play account first",
-      "rikstv": "Please enter your RiksTV credentials to upgrade to Premium.",
       "select": "Please select your operator"
     },
     "or": "or",
@@ -434,7 +431,7 @@
     "recieveMainScreen": "Press this button on your connected device to watch your video here. ",
     "recieveSecondScreen": "Select this device in your device list to be able to watch your video here. ",
     "register": {
-      "redirectSubtitle": "We registered your account! Please return to your mobile app and have fun. ",
+      "redirectSubtitle": "We registered your account and upgraded you to premium for 48 hours! Please return to your mobile app and have fun. ",
       "redirectTeleport": "Back to the app!",
       "redirectTitle": "Account verified!"
     },
