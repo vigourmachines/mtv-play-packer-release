@@ -185,6 +185,7 @@
         "sitemap.xml": true,
         "crossdomain.xml": true,
         "robots.txt": true,
+        "crossdomain.xml": true,
         "meta": "*"
       },
       "transforms": {

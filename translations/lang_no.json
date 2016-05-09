@@ -410,6 +410,7 @@
     },
     "operator": {
       "authenticate": "Vennligst tast inn din distributørs brukernavn og passord for å oppgradere til premium",
+      "boxer": null,
       "choose": "Velg distributør",
       "credentials": {
         "used": "Denne informasjonen er allerede knyttet til for mange «MTV Play»-kontoer.",
@@ -417,9 +418,11 @@
       },
       "deals": "Velg distributør",
       "future": "Oppgradering med denne distributøren vil være tilgjengelig fra ",
+      "get": null,
       "help": "Om informasjonen din ikke fungerer, ta kontakt med ",
       "register": "Vennligst registrer en MTV Play konto først",
       "registerPlay": "Vennligst registrer en MTV Play konto først",
+      "rikstv": null,
       "select": "Vennligst velg din distributør"
     },
     "or": "eller",
