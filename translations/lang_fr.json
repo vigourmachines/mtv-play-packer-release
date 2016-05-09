@@ -410,6 +410,7 @@
     },
     "operator": {
       "authenticate": "Merci d'entrer vos identifiants d'opérateur pour une mise à niveau vers l'accès premium.",
+      "boxer": null,
       "choose": "Choisir opérateur",
       "credentials": {
         "used": "Ces identifiants sont déjà utilisés par un trop grand nombre de comptes MTV Play.",
@@ -417,9 +418,11 @@
       },
       "deals": "Choisir opérateur",
       "future": "La mise à niveau avec cet opérateur est possible via ",
+      "get": null,
       "help": "Si vos identifiants ne fonctionnent pas, merci de contacter ",
       "register": "Merci de créer d'abord un compte MTV Play",
       "registerPlay": "Merci de créer d'abord un compte MTV Play",
+      "rikstv": null,
       "select": "Merci de sélectionner votre opérateur"
     },
     "or": "ou",
@@ -431,7 +434,7 @@
     "recieveMainScreen": "Appuyez sur ce bouton sur votre appareil connecté pour regarder la vidéo ici. ",
     "recieveSecondScreen": "Sélectionnez cet appareil dans votre liste des périphériques pour pouvoir regarder cette vidéo ici. ",
     "register": {
-      "redirectSubtitle": "Votre compte a été validé et bénéficiera du statut Premium pendant 48 heures ! Profitez-en depuis votre appli mobile ! ",
+      "redirectSubtitle": "Votre compte a été validé ! Profitez-en depuis votre appli mobile ! ",
       "redirectTeleport": "Retour à l'appli !",
       "redirectTitle": "Compte validé !"
     },
