@@ -90,7 +90,7 @@
       "ch": 41,
       "nl": 31
     },
-    "dictionary": "https://mtv-develop.vigour.io/translations/lang_$language.json",
+    "dictionary": "https://mtv-staging.vigour.io/translations/lang_$language.json",
     "epg": "https://wwwmtvplay-a.akamaihd.net/xhr/index.html",
     "img": "https://imgmtvplay-a.akamaihd.net",
     "imgOrigin": "http://images.mtvnn.com/",
