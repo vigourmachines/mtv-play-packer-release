@@ -191,10 +191,6 @@
         "tel": "+48",
         "title": "Polen"
       },
-      "ro": {
-        "tel": "+40",
-        "title": "Rumänien"
-      },
       "ch": {
         "tel": "+41",
         "title": "Schweiz"
@@ -219,9 +215,6 @@
       },
       "fr": {
         "title": "Französisch"
-      },
-      "ro": {
-        "title": "Romana"
       },
       "dk": {
         "title": "Dansk"
@@ -410,7 +403,6 @@
     },
     "operator": {
       "authenticate": "Gib deine Zugangsdaten ein",
-      "boxer": null,
       "choose": "Wähle deinen Anbieter",
       "credentials": {
         "used": "Diese Daten werden bereits von zu vielen MTV Play Konten benutzt.",
@@ -418,11 +410,9 @@
       },
       "deals": "Verfügbare Partner",
       "future": "Ein Upgrade mit diesem Partner ist verfügbar ab dem ",
-      "get": null,
       "help": "Falls dein Account nicht funktioniert, wende dich bitte direkt an ",
       "register": "Bitte registriere dich",
       "registerPlay": "Bitte registriere ein MTV Play Konto",
-      "rikstv": null,
       "select": "Bitte wähle deinen Anbieter"
     },
     "or": "oder",

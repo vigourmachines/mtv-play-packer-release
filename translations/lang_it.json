@@ -220,9 +220,6 @@
       "fr": {
         "title": "Français"
       },
-      "ro": {
-        "title": "Romana"
-      },
       "dk": {
         "title": "Dansk"
       },
@@ -410,7 +407,6 @@
     },
     "operator": {
       "authenticate": "Immetti le credenziali dell'operatore per ottenere l'accesso premium",
-      "boxer": null,
       "choose": "Scegli operatore",
       "credentials": {
         "used": "Queste credenziali sono già utilizzate da troppi account MTV Play.",

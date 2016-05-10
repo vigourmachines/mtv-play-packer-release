@@ -191,10 +191,6 @@
         "tel": "+48",
         "title": "Polen"
       },
-      "ro": {
-        "tel": "+40",
-        "title": "Roemenië"
-      },
       "ch": {
         "tel": "+41",
         "title": "Zwitserland"
@@ -219,9 +215,6 @@
       },
       "fr": {
         "title": "Français"
-      },
-      "ro": {
-        "title": "Romana"
       },
       "dk": {
         "title": "Dansk"
@@ -410,7 +403,6 @@
     },
     "operator": {
       "authenticate": "Vul de gegevens van je provider in om te upgraden naar premium toegang",
-      "boxer": null,
       "choose": "Kies provider",
       "credentials": {
         "used": "Deze gegevens worden al door teveel MTV Play-accounts gebruikt.",
@@ -418,11 +410,9 @@
       },
       "deals": "Kies provider",
       "future": "Upgrading with this operator is possible from ",
-      "get": null,
       "help": "Als je gegevens niet werken, neem dan contact op met ",
       "register": "Registreer eerst een MTV Play-account",
       "registerPlay": "Registreer eerst een MTV Play-account",
-      "rikstv": null,
       "select": "Selecteer je provider"
     },
     "or": "of",

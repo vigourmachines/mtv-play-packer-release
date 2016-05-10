@@ -191,10 +191,6 @@
         "tel": "+48",
         "title": "Pologne"
       },
-      "ro": {
-        "tel": "+40",
-        "title": "Roumanie"
-      },
       "ch": {
         "tel": "+41",
         "title": "Suisse"
@@ -219,9 +215,6 @@
       },
       "fr": {
         "title": "Français"
-      },
-      "ro": {
-        "title": "Romana"
       },
       "dk": {
         "title": "Dansk"
@@ -410,7 +403,6 @@
     },
     "operator": {
       "authenticate": "Merci d'entrer vos identifiants d'opérateur pour une mise à niveau vers l'accès premium.",
-      "boxer": null,
       "choose": "Choisir opérateur",
       "credentials": {
         "used": "Ces identifiants sont déjà utilisés par un trop grand nombre de comptes MTV Play.",
