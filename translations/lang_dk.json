@@ -410,7 +410,6 @@
     },
     "operator": {
       "authenticate": "Indtast dit brugernavn og password fra din TV udbyder, så du bliver opgraderet til premium-adgang gratis hvis du har MTV i din TV pakke.",
-      "boxer": null,
       "choose": "Vælg TV udbyder",
       "credentials": {
         "used": "Disse login-oplysninger bliver i forvejen brugt af for mange MTV Play-konti.",
@@ -418,11 +417,9 @@
       },
       "deals": "Vælg TV udbyder",
       "future": "Opgradering med denne TV udbyder tilbydes fra ",
-      "get": null,
       "help": "Hvis dine login-oplysninger ikke fungerer, bedes du kontakte ",
       "register": "Opret først en MTV Play-konto",
       "registerPlay": "Opret først en MTV Play-konto",
-      "rikstv": null,
       "select": "Vælg venligst din TV udbyder"
     },
     "or": "eller",

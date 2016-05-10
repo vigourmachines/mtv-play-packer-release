@@ -410,7 +410,6 @@
     },
     "operator": {
       "authenticate": "Immetti le credenziali dell'operatore per ottenere l'accesso premium",
-      "boxer": null,
       "choose": "Scegli operatore",
       "credentials": {
         "used": "Queste credenziali sono già utilizzate da troppi account MTV Play.",
@@ -418,11 +417,9 @@
       },
       "deals": "Scegli operatore",
       "future": "L'aggiornamento con questo operatore sarà disponibile dal ",
-      "get": null,
       "help": "Se le tue credenziali non funzionano, contatta ",
       "register": "Registra prima un account di MTV Play",
       "registerPlay": "Registra prima un account di MTV Play",
-      "rikstv": null,
       "select": "Scegli il tuo operatore"
     },
     "or": "o",
