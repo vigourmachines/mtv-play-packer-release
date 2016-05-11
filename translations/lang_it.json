@@ -79,7 +79,7 @@
     "mtvPlay": "MTV Play",
     "onTv": "In TV",
     "needToRegister": "Registrati o accedi. ",
-    "easyRegister": "Non preoccuparti, registrarsi è facile. Ti regaliamo anche 48 ore di accesso Premium! E non faremo niente di disonesto con i tuoi dati, parola di scout! ",
+    "easyRegister": "Non preoccuparti, registrarsi è facile. E non faremo niente di disonesto con i tuoi dati, parola di scout! ",
     "new": "Novità",
     "newEpisodes": "Tutti i nuovi episodi",
     "newPassword": "Inserisci nuova password",
@@ -431,7 +431,7 @@
     "recieveMainScreen": "Premi questo pulsante sul dispositivo collegato per guardare qui il video. ",
     "recieveSecondScreen": "Seleziona questo dispositivo nella lista dei dispositivi per poter guardare qui il video. ",
     "register": {
-      "redirectSubtitle": "L'account è stato registrato e trasformato in premium per 48 ore! Torna all'app e divertiti. ",
+      "redirectSubtitle": "L'account è stato registrato! Torna all'app e divertiti. ",
       "redirectTeleport": "Torna all'app!",
       "redirectTitle": "Account verificato!"
     },

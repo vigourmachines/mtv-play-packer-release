@@ -27,7 +27,7 @@
       "goPremium": "Få premium",
       "perMonth": "pr. måned",
       "perYear": "pr. år",
-      "getMore": "Få adgang til alle de afsnit og tv-kanaler, som MTV Play har at tilbyde!",
+      "getMore": "Få adgang til alle de afsnit og musik tv-kanaler, som MTV Play har at tilbyde!",
       "buyMonth": "Premium (månedlig) i",
       "buyYear": "Premium (årlig) i",
       "description": {
@@ -38,7 +38,7 @@
         "body": "Hvis du trykker fortsæt, køber du et månedsabonnement for",
         "title": "Premium (måned)"
       },
-      "operator": "Gratis med din teleudbyder",
+      "operator": "Gratis med din TV udbyder",
       "singlePass": {
         "body": "Hvis du trykker fortsæt, lejer du dette afsnit i",
         "title": "Lås op for afsnit"
@@ -50,10 +50,10 @@
     },
     "hoorayMobileTitle": "Opgraderingen lykkedes!",
     "hoorayUpgradedText": "Velkommen til MTV Play Premium. Vi er glade for, at du er her. Hvis du har spørgsmål til appen, kan du besøge vores FAQ. Hvis det ikke hjælper dig, har vores supporthelte på helpme@mtvplay.tv et svar på næsten alt.",
-    "upgrade": "Opgradér",
+    "upgrade": "Opgrader",
     "upgradedMessage": "Du er nu opgraderet. ",
     "upgrading": "Opgraderer",
-    "upgradePremium": "Opgradér til Premium",
+    "upgradePremium": "Opgrader til Premium",
     "hoorayPremium": "Premium siden",
     "mobilePurchased": "Premium med MTV Mobile",
     "episodePurchased": "Købt afsnit",
@@ -69,7 +69,7 @@
     "nav": {
       "discover": "Gå på opdagelse",
       "allShows": "Alle programmer",
-      "channels": "Kanaler",
+      "channels": "Musikkanaler",
       "shows": "Programmer",
       "television": "Tv",
       "settings": "Indstillinger"
@@ -77,18 +77,18 @@
     "privacy": "Fortrolighedspolitik",
     "profile": "Profil",
     "mtvPlay": "MTV Play",
-    "onTv": "I tv",
+    "onTv": "Musik",
     "needToRegister": "Tilmeld dig, eller log ind. ",
-    "easyRegister": "Bare rolig, det er nemt at tilmelde sig. Vi giver dig endda 48 timers premium-adgang til alle programmer. Og vi gør ikke noget skummelt med dine data. På spejderære! ",
+    "easyRegister": "Bare rolig, det er nemt at tilmelde sig. Og vi gør ikke noget skummelt med dine data. På spejderære! ",
     "new": "Nyt",
     "newEpisodes": "Alle nye afsnit",
     "newPassword": "Indtast ny adgangskode",
-    "newReleases": "Nye udgivelser",
+    "newReleases": "Nye afsnit",
     "favoriteAdded": "Føjet til favoritter",
     "favoriteRemoved": "Fjernet fra favoritter",
     "favorites": "Favoritter",
     "noFavos": "Se dine yndlingsprogrammer hurtigt og nemt.",
-    "nowOnTv": "I tv nu",
+    "nowOnTv": "Musik-tv lige nu",
     "now": "Nu",
     "pause": "Pause",
     "play": "Afspil",
@@ -103,7 +103,7 @@
     "screenAvailable": "Mulighed for fuld skærm!",
     "devices": "Enheder",
     "watchBigger": "Se på den store skærm!",
-    "watchBig": "Installér blot appen på en anden enhed, eller log ind med samme konto på mtvplay.tv. Enheden vil komme til syne her, og de bliver automatisk forbundet. Nu kan du betjene den forbundne enhed og se dine videoer på en stor skærm.",
+    "watchBig": "Installér blot appen på en anden enhed, eller log ind med samme konto på mtvplay.tv. Enheden vil komme til syne her, og du bliver automatisk forbundet. Nu kan du betjene den forbundne enhed og se dine videoer på en stor skærm.",
     "noDevicesTitle": "Ingen enheder? Ingen problemer!",
     "noDevices": "Der er to måder at forbinde enheder på. Du kan enten åbne MTV Play på en anden enhed eller besøge mtvplay.tv og logge ind med samme konto. Du kan også starte din Chromecast eller dit Apple TV på samme netværk.",
     "playingOn": "Afspiller på",
@@ -125,7 +125,7 @@
         "twitter": "Tilmeldelse med Twitter",
         "email": "Tilmeldelse med e-mail",
         "already": "Beklager, denne e-mail er allerede i brug!",
-        "operator": "Gratis med din teleudbyder"
+        "operator": "Gratis med din TV udbyder"
       },
       "invalid": {
         "email": "Indtast en gyldig e-mailadresse.",
@@ -338,8 +338,8 @@
           "premium": "Nye afsnit"
         },
         "row2": {
-          "free": "Udvalgt",
-          "premium": "Udvalgt"
+          "free": "Udvalgte afsnit",
+          "premium": "Udvalgte afsnit"
         },
         "row3": {
           "free": "Populære klip",
@@ -392,14 +392,14 @@
         "description": "Gennemse alle vores programmer."
       },
       "tv": {
-        "description": "Se vores tv-kanaler live."
+        "description": "Se vores musik tv-kanaler live."
       }
     },
     "mobileUpgrade": "Du kan opgradere i den mobile app!",
-    "mobileUpgradeInfo": "Du kan desværre ikke købe et Premium Pass på vores webside. Men bare rolig – det kan du nemlig klare på vores mobile apps. Snup din iOS- eller Android-enhed, og hent MTV Play i appbiksen. ",
+    "mobileUpgradeInfo": "Du kan desværre ikke købe et Premium Pass på vores webside. Men bare rolig – det kan du nemlig klare på vores mobile apps. Snup din iOS- eller Android-enhed, og hent MTV Play i app store ",
     "newAccount": "Velkommen! Nu kan du logge på. ",
     "newPasswordConfirm": "Bekræft adgangskode",
-    "newsletterSubtitle": "Vi kunne aldrig finde på at sende dig spam!",
+    "newsletterSubtitle": "Vi sender dig ikke spam!",
     "newsletterTitle": "Nyhedsbrev",
     "next": "næste",
     "noDescription": "Ingen tilgængelig beskrivelse.",
@@ -409,18 +409,18 @@
       "title": "Tak for din interesse."
     },
     "operator": {
-      "authenticate": "Indtast oplysninger om din teleudbyder, så du bliver opgraderet til premium-adgang.",
-      "choose": "Vælg teleudbyder",
+      "authenticate": "Indtast dit brugernavn og password fra din TV udbyder, så du bliver opgraderet til premium-adgang gratis hvis du har MTV i din TV pakke.",
+      "choose": "Vælg TV udbyder",
       "credentials": {
         "used": "Disse login-oplysninger bliver i forvejen brugt af for mange MTV Play-konti.",
         "wrong": "Dine login-oplysninger er enten ugyldige eller bliver i forvejen brugt af for mange MTV Play-konti."
       },
-      "deals": "Vælg teleudbyder",
-      "future": "Opgradering med denne teleudbyder tilbydes fra ",
+      "deals": "Vælg TV udbyder",
+      "future": "Opgradering med denne TV udbyder tilbydes fra ",
       "help": "Hvis dine login-oplysninger ikke fungerer, bedes du kontakte ",
       "register": "Opret først en MTV Play-konto",
       "registerPlay": "Opret først en MTV Play-konto",
-      "select": "Vælg venligst din teleudbyder"
+      "select": "Vælg venligst din TV udbyder"
     },
     "or": "eller",
     "phoneUpgradeTitle": "Opgradér med vores mobile app!",
@@ -431,7 +431,7 @@
     "recieveMainScreen": "Tryk på denne knap på din forbundne enhed for at afspille videoen her. ",
     "recieveSecondScreen": "Hvis du vil se din video her, skal du vælg denne enhed på din liste over enheder. ",
     "register": {
-      "redirectSubtitle": "Du er nu tilmeldt, og din konto er opgraderet til premium i 48 timer! Vend tilbage til din mobile app, og slå dig løs. ",
+      "redirectSubtitle": "Du er nu tilmeldt! Vend tilbage til din mobile app, og slå dig løs. ",
       "redirectTeleport": "TIlbage til appen!",
       "redirectTitle": "Konto bekræftet!"
     },
@@ -508,7 +508,7 @@
     },
     "devices": {
       "title": "MTV Play er overalt!",
-      "body": "Vi har apps til telefoner, tablets, smart-tv og din browser, så du kan se dine programmer hvor som helst."
+      "body": "Vi har apps til telefoner, tablets og din browser, så du kan se dine programmer hvor som helst."
     },
     "connect": {
       "title": "Forbind skærme!",

@@ -431,7 +431,7 @@
     "recieveMainScreen": "Appuyez sur ce bouton sur votre appareil connecté pour regarder la vidéo ici. ",
     "recieveSecondScreen": "Sélectionnez cet appareil dans votre liste des périphériques pour pouvoir regarder cette vidéo ici. ",
     "register": {
-      "redirectSubtitle": "Votre compte a été validé et bénéficiera du statut Premium pendant 48 heures ! Profitez-en depuis votre appli mobile ! ",
+      "redirectSubtitle": "Votre compte a été validé ! Profitez-en depuis votre appli mobile ! ",
       "redirectTeleport": "Retour à l'appli !",
       "redirectTitle": "Compte validé !"
     },
