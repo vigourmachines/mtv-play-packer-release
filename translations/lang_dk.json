@@ -15,8 +15,8 @@
     "mtvMobile": "MTV Mobile",
     "min": "Min.",
     "visit": "Besøg",
-    "episode": "Afsnit",
-    "episodes": "Afsnit",
+    "episode": "Episode",
+    "episodes": "Episoder",
     "success": "Det lykkedes!",
     "oops": "ups",
     "warning": "Advarsel!",
@@ -27,12 +27,12 @@
       "goPremium": "Få premium",
       "perMonth": "pr. måned",
       "perYear": "pr. år",
-      "getMore": "Få adgang til alle de afsnit og musik tv-kanaler, som MTV Play har at tilbyde!",
+      "getMore": "Få adgang til alle de episoder og musik tv-kanaler, som MTV Play har at tilbyde!",
       "buyMonth": "Premium (månedlig) i",
       "buyYear": "Premium (årlig) i",
       "description": {
-        "fire": "Få adgang til samtlige afsnit af dine yndlingsprogrammer og vores tv-kanaler. Og hvis du gerne vil prøve det først, er det helt i orden. På Amazon-enheder er den første måned helt gratis.",
-        "tv": "Få adgang til samtlige afsnit af dine yndlingsprogrammer og vores tv-kanaler. Og hvis du gerne vil prøve det først, er det helt i orden. På Amazon-enheder er den første måned helt gratis."
+        "fire": "Få adgang til samtlige episoder af dine yndlingsprogrammer og vores tv-kanaler. Og hvis du gerne vil prøve det først, er det helt i orden. På Amazon-enheder er den første måned helt gratis.",
+        "tv": "Få adgang til samtlige episoder af dine yndlingsprogrammer og vores tv-kanaler. Og hvis du gerne vil prøve det først, er det helt i orden. På Amazon-enheder er den første måned helt gratis."
       },
       "monthlyPass": {
         "body": "Hvis du trykker fortsæt, køber du et månedsabonnement for",
@@ -40,8 +40,8 @@
       },
       "operator": "Gratis med din TV udbyder",
       "singlePass": {
-        "body": "Hvis du trykker fortsæt, lejer du dette afsnit i",
-        "title": "Lås op for afsnit"
+        "body": "Hvis du trykker fortsæt, lejer du denne episode i",
+        "title": "Lås op for episode"
       },
       "yearlyPass": {
         "body": "Hvis du trykker fortsæt, køber du et årsabonnement for",
@@ -56,13 +56,13 @@
     "upgradePremium": "Opgrader til Premium",
     "hoorayPremium": "Premium siden",
     "mobilePurchased": "Premium med MTV Mobile",
-    "episodePurchased": "Købt afsnit",
+    "episodePurchased": "Købt episode",
     "premium": "Premium",
     "purchaseHistory": "Købshistorik",
     "rental": "Lej i 48 timer. ",
-    "enterYourNumber": "Hvis du er kunde hos MTV Mobile, kan du nemt få adgang til alle afsnit og tv-kanaler. Kom i gang ved at vælge dit land og indtaste dit telefonnummer.",
+    "enterYourNumber": "Hvis du er kunde hos MTV Mobile, kan du nemt få adgang til alle episoder og tv-kanaler. Kom i gang ved at vælge dit land og indtaste dit telefonnummer.",
     "verify": "Bekræft",
-    "verifyMobile": "Hvis du er kunde hos MTV Mobile, kan du nemt få adgang til alle afsnit og tv-kanaler. Kom i gang ved at vælge dit land og indtaste dit telefonnummer.",
+    "verifyMobile": "Hvis du er kunde hos MTV Mobile, kan du nemt få adgang til alle episoder og tv-kanaler. Kom i gang ved at vælge dit land og indtaste dit telefonnummer.",
     "verifying": "Bekræfter",
     "verifyfail": "Det er ikke et gyldigt MTV Mobile-nummer. ",
     "verifysuccess": "Vi har sendt dig en sms.",
@@ -70,20 +70,20 @@
       "discover": "Gå på opdagelse",
       "allShows": "Alle programmer",
       "channels": "Musikkanaler",
-      "shows": "Programmer",
-      "television": "Tv",
+      "shows": "IS THIS WORKING???",
+      "television": "MUSIK TV",
       "settings": "Indstillinger"
     },
     "privacy": "Fortrolighedspolitik",
     "profile": "Profil",
     "mtvPlay": "MTV Play",
     "onTv": "Musik",
-    "needToRegister": "Tilmeld dig, eller log ind. ",
-    "easyRegister": "Bare rolig, det er nemt at tilmelde sig. Og vi gør ikke noget skummelt med dine data. På spejderære! ",
+    "needToRegister": "Opret dig, eller log ind. ",
+    "easyRegister": "Bare rolig, det er nemt at oprette sig. Og vi gør ikke noget skummelt med dine data. På spejderære! ",
     "new": "Nyt",
-    "newEpisodes": "Alle nye afsnit",
+    "newEpisodes": "Alle nye episoder",
     "newPassword": "Indtast ny adgangskode",
-    "newReleases": "Nye afsnit",
+    "newReleases": "Nye episoder",
     "favoriteAdded": "Føjet til favoritter",
     "favoriteRemoved": "Fjernet fra favoritter",
     "favorites": "Favoritter",
@@ -109,21 +109,21 @@
     "playingOn": "Afspiller på",
     "account": {
       "signin": {
-        "title": "Log på",
-        "facebook": "Log på med Facebook",
-        "twitter": "Log på med Twitter",
-        "email": "Log på med e-mail",
+        "title": "Log ind",
+        "facebook": "Log ind med Facebook",
+        "twitter": "Log ind med Twitter",
+        "email": "Log ind med e-mail",
         "wrong": "Tjek dine login-oplysninger!",
         "success": "Velkommen tilbage!",
         "facebookError": "Kunne ikke logge på Facebook."
       },
       "logout": "Log ud",
       "signup": {
-        "title": "Tilmeld",
+        "title": "Opret",
         "confirm": "Bekræft din konto",
-        "facebook": "Tilmeldelse med Facebook",
-        "twitter": "Tilmeldelse med Twitter",
-        "email": "Tilmeldelse med e-mail",
+        "facebook": "Opret med Facebook",
+        "twitter": "Opret med Twitter",
+        "email": "Opret med e-mail",
         "already": "Beklager, denne e-mail er allerede i brug!",
         "operator": "Gratis med din TV udbyder"
       },
@@ -147,7 +147,7 @@
       "purchaseError": "Opgraderingen mislykkedes. Prøv igen.",
       "verifyEmailError": "Vi kunne ikke bekræfte din konto",
       "verifyEmailSuccess": {
-        "subtitle": "Du er nu logget på.",
+        "subtitle": "Du er nu logget ind.",
         "title": "Konto bekræftet!"
       }
     },
@@ -167,12 +167,12 @@
     "phonenumber": "Telefonnummer",
     "repeatPassword": "Gentag ny adgangskode",
     "terms": "Vilkår og betingelser",
-    "termsOfService": "Ved tilmelding accepterer du vores:",
+    "termsOfService": "Ved oprettelse accepterer du vores:",
     "shareFacebook": "Del på Facebook",
     "shareTwitter": "Del på Twitter",
     "shareEmail": "Del via e-mail",
     "share": "Del",
-    "shareEpisode": "Del afsnit",
+    "shareEpisode": "Del episode",
     "tellMe": "Flere oplysninger",
     "countries": {
       "be": {
@@ -305,16 +305,16 @@
       },
       "dk": {
         "row1": {
-          "free": "Nye afsnit",
-          "premium": "Nye afsnit"
+          "free": "Nye episoder",
+          "premium": "Nye episoder"
         },
         "row2": {
-          "free": "Udvalgt",
-          "premium": "Udvalgt"
+          "free": "Udvalgte epsioder",
+          "premium": "Udvalgte episoder"
         },
         "row3": {
-          "free": "Populære klip",
-          "premium": "Populære klip"
+          "free": "Populære episoder",
+          "premium": "Populære episoder"
         }
       },
       "marquee": "Spotlight",
@@ -334,16 +334,16 @@
       },
       "no": {
         "row1": {
-          "free": "Nye afsnit",
-          "premium": "Nye afsnit"
+          "free": "Nye episoder",
+          "premium": "Nye episoder"
         },
         "row2": {
-          "free": "Udvalgte afsnit",
-          "premium": "Udvalgte afsnit"
+          "free": "Udvalgte episoder",
+          "premium": "Udvalgte episoder"
         },
         "row3": {
-          "free": "Populære klip",
-          "premium": "Populære klip"
+          "free": "Populære episoder",
+          "premium": "Populære episoder"
         }
       },
       "pl": {
@@ -365,10 +365,10 @@
     "gender": "Angiv dit køn",
     "invalidEntry": "Ugyldig indtastning, prøv igen.",
     "legalContainer": "Vores brugsbetingelser er bindende. Hvis du fortsætter, accepterer du hermed, at du ikke kan annullere dit indkøb, så snart leveringen er påbegyndt.",
-    "lockedEpisode": "Lej afsnit (48 timer)",
-    "lockedEpisodeDescription": "Lej dette afsnit i 48 timer.",
+    "lockedEpisode": "Lej episode (48 timer)",
+    "lockedEpisodeDescription": "Lej denne episode i 48 timer.",
     "login": {
-      "tvSubtitle": "Du skal hente vores mobile app for at se låst indhold. I appen kan du tilmelde dig, logge på og opgradere til en premium-konto. Det vil gøre dig i stand til at oprette forbindelse til dette tv og betjene det.",
+      "tvSubtitle": "Du skal hente vores mobile app for at se låst indhold. I appen kan du oprette dig, logge på og opgradere til en premium-konto som en gratis med nogle TV udbydere. Det vil gøre dig i stand til at oprette forbindelse til dette tv og betjene det.",
       "tvTitle": "Log ind med din telefon"
     },
     "mailHelp": {
@@ -384,9 +384,9 @@
         "description": "Se vores nyheder!"
       },
       "register": {
-        "description": "Du kan tilmelde dig eller logge ind ved at besøge [location of the login page] og indtaste den firecifrede kode nedenfor.",
-        "loggedin": "Logget på som",
-        "title": "Tilmeld dig/log på"
+        "description": "Du kan oprette dig eller logge ind ved at besøge [location of the login page] og indtaste den firecifrede kode nedenfor.",
+        "loggedin": "Logget ind som",
+        "title": "Opret dig/log ind"
       },
       "shows": {
         "description": "Gennemse alle vores programmer."
@@ -397,7 +397,7 @@
     },
     "mobileUpgrade": "Du kan opgradere i den mobile app!",
     "mobileUpgradeInfo": "Du kan desværre ikke købe et Premium Pass på vores webside. Men bare rolig – det kan du nemlig klare på vores mobile apps. Snup din iOS- eller Android-enhed, og hent MTV Play i app store ",
-    "newAccount": "Velkommen! Nu kan du logge på. ",
+    "newAccount": "Velkommen! Nu kan du logge ind. ",
     "newPasswordConfirm": "Bekræft adgangskode",
     "newsletterSubtitle": "Vi sender dig ikke spam!",
     "newsletterTitle": "Nyhedsbrev",
@@ -424,14 +424,14 @@
     },
     "or": "eller",
     "phoneUpgradeTitle": "Opgradér med vores mobile app!",
-    "ppv": "Lej enkelt afsnit",
+    "ppv": "Lej enkelt episode",
     "premiumUser": "Premium-bruger",
     "promotion": "Reklame",
     "purchaseHistoryText": "Nedenfor ses en oversigt over dine tidligere køb.",
     "recieveMainScreen": "Tryk på denne knap på din forbundne enhed for at afspille videoen her. ",
     "recieveSecondScreen": "Hvis du vil se din video her, skal du vælg denne enhed på din liste over enheder. ",
     "register": {
-      "redirectSubtitle": "Du er nu tilmeldt! Vend tilbage til din mobile app, og slå dig løs. ",
+      "redirectSubtitle": "Du er nu oprettet! Vend tilbage til din mobile app, og slå dig løs. ",
       "redirectTeleport": "TIlbage til appen!",
       "redirectTitle": "Konto bekræftet!"
     },
@@ -444,7 +444,7 @@
       "remotePlaybackTitle": "Fjernafspilning"
     },
     "signInTOS": "Ved login accepterer du vores:",
-    "specials": "Specialtilbud",
+    "specials": "Ekstra",
     "spotlight": "Spotlight",
     "swipeup": "Skub op",
     "tabletText": "Tablet",
@@ -454,7 +454,7 @@
     "tvLogin": "Hent vores mobile app på din telefon eller tablet, så du kan logge ind eller opgradere. ",
     "tv": {
       "register": {
-        "description": "Bliv oprettet som bruger, eller log på MTV Play, hvis du allerede har en konto."
+        "description": "Bliv oprettet som bruger, eller log ind MTV Play, hvis du allerede har en konto."
       }
     },
     "unlockPrice": "48 timers leje for ",
@@ -508,14 +508,14 @@
     },
     "devices": {
       "title": "MTV Play er overalt!",
-      "body": "Vi har apps til telefoner, tablets og din browser, så du kan se dine programmer hvor som helst."
+      "body": "MTV Play kan ses på mobilen, tablets og på web, så du kan se dine programmer hvor som helst. Med nogle TV udbydere kan du opgradere til premium gratis!"
     },
     "connect": {
       "title": "Forbind skærme!",
       "body": "Log ind på to eller flere enheder, så du får en bedre oplevelse med flere skærme. "
     },
     "free": {
-      "body": "Tilmeld dig, eller log ind for at komme i gang!",
+      "body": "Opret dig, eller log ind for at komme i gang!",
       "button": "Kom i gang"
     },
     "mobile": {
@@ -524,7 +524,7 @@
       "title": "Men kan du først oplyse, om du har MTV Mobile?"
     },
     "register": {
-      "title": "Tilmeld dig, eller log på, så du kan komme i gang!"
+      "title": "Opret dig, eller log på, så du kan komme i gang!"
     }
   },
   "button": {
