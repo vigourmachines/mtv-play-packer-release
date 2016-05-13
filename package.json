@@ -223,7 +223,7 @@
         "single": "$region_single_purchase"
       },
       "android": {
-        "monthly": "mtvplay_subscription_0516_monthly)",
+        "monthly": "mtvplay_subscription_0516_monthly",
         "yearly": "mtvplay_subscription_0516_annually",
         "single": "mtvplay_single_purchase"
       },
