@@ -191,6 +191,10 @@
         "tel": "+48",
         "title": "Polen"
       },
+      "ro": {
+        "tel": "+40",
+        "title": "Roemenië"
+      },
       "ch": {
         "tel": "+41",
         "title": "Zwitserland"
@@ -215,6 +219,9 @@
       },
       "fr": {
         "title": "Français"
+      },
+      "ro": {
+        "title": "Romana"
       },
       "dk": {
         "title": "Dansk"
@@ -413,6 +420,7 @@
       "help": "Als je gegevens niet werken, neem dan contact op met ",
       "register": "Registreer eerst een MTV Play-account",
       "registerPlay": "Registreer eerst een MTV Play-account",
+      "rikstv": null,
       "select": "Selecteer je provider"
     },
     "or": "of",

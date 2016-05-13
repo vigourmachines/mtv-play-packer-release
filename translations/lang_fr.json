@@ -191,6 +191,10 @@
         "tel": "+48",
         "title": "Pologne"
       },
+      "ro": {
+        "tel": "+40",
+        "title": "Roumanie"
+      },
       "ch": {
         "tel": "+41",
         "title": "Suisse"
@@ -215,6 +219,9 @@
       },
       "fr": {
         "title": "Français"
+      },
+      "ro": {
+        "title": "Romana"
       },
       "dk": {
         "title": "Dansk"
@@ -410,11 +417,9 @@
       },
       "deals": "Choisir opérateur",
       "future": "La mise à niveau avec cet opérateur est possible via ",
-      "get": null,
       "help": "Si vos identifiants ne fonctionnent pas, merci de contacter ",
       "register": "Merci de créer d'abord un compte MTV Play",
       "registerPlay": "Merci de créer d'abord un compte MTV Play",
-      "rikstv": null,
       "select": "Merci de sélectionner votre opérateur"
     },
     "or": "ou",

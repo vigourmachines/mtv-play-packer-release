@@ -191,6 +191,10 @@
         "tel": "+48",
         "title": "Polska"
       },
+      "ro": {
+        "tel": "+40",
+        "title": "Rumunia"
+      },
       "ch": {
         "tel": "+41",
         "title": "Szwajcaria"
@@ -215,6 +219,9 @@
       },
       "fr": {
         "title": "Français"
+      },
+      "ro": {
+        "title": "Romana"
       },
       "dk": {
         "title": "Dansk"

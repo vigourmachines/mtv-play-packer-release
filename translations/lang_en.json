@@ -191,6 +191,10 @@
         "tel": "+48",
         "title": "Poland"
       },
+      "ro": {
+        "tel": "+40",
+        "title": "Romania"
+      },
       "ch": {
         "tel": "+41",
         "title": "Switzerland"
@@ -215,6 +219,9 @@
       },
       "fr": {
         "title": "Français"
+      },
+      "ro": {
+        "title": "Romana"
       },
       "dk": {
         "title": "Dansk"
@@ -406,6 +413,7 @@
       "boxer": "If you are an MTV subscriber for Boxer, please enter your credentials to upgrade to Premium. ",
       "choose": "Choose Operator",
       "credentials": {
+        "account": "This account exists already. Please log in via E-mail/Facebook.",
         "used": "These credentials are used by too many MTV Play accounts already.",
         "wrong": "Your credentials are invalid or used by too many MTV Play accounts already."
       },

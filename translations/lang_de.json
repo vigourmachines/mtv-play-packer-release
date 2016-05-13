@@ -191,6 +191,10 @@
         "tel": "+48",
         "title": "Polen"
       },
+      "ro": {
+        "tel": "+40",
+        "title": "Rumänien"
+      },
       "ch": {
         "tel": "+41",
         "title": "Schweiz"
@@ -215,6 +219,9 @@
       },
       "fr": {
         "title": "Französisch"
+      },
+      "ro": {
+        "title": "Romana"
       },
       "dk": {
         "title": "Dansk"
@@ -405,6 +412,7 @@
       "authenticate": "Gib deine Zugangsdaten ein",
       "choose": "Wähle deinen Anbieter",
       "credentials": {
+        "account": "Dieses Konto gibt's schon. Bitte versuche dich per E-Mail/Facebook einzuloggen.",
         "used": "Diese Daten werden bereits von zu vielen MTV Play Konten benutzt.",
         "wrong": "Diese Daten existieren nicht oder werden bereits von zu vielen MTV Play Konten benutzt."
       },

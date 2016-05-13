@@ -220,6 +220,9 @@
       "fr": {
         "title": "Français"
       },
+      "ro": {
+        "title": "Romana"
+      },
       "dk": {
         "title": "Dansk"
       },
@@ -414,11 +417,9 @@
       },
       "deals": "Scegli operatore",
       "future": "L'aggiornamento con questo operatore sarà disponibile dal ",
-      "get": null,
       "help": "Se le tue credenziali non funzionano, contatta ",
       "register": "Registra prima un account di MTV Play",
       "registerPlay": "Registra prima un account di MTV Play",
-      "rikstv": null,
       "select": "Scegli il tuo operatore"
     },
     "or": "o",
