@@ -38,7 +38,7 @@
         "body": "Hvis du trykker fortsæt, køber du et månedsabonnement for",
         "title": "Premium (måned)"
       },
-      "operator": "Gratis med din TV udbyder",
+      "operator": "Gratis Premium med din TV udbyder",
       "singlePass": {
         "body": "Hvis du trykker fortsæt, lejer du denne episode i",
         "title": "Lås op for episode"
@@ -50,7 +50,7 @@
     },
     "hoorayMobileTitle": "Opgraderingen lykkedes!",
     "hoorayUpgradedText": "Velkommen til MTV Play Premium. Vi er glade for, at du er her. Hvis du har spørgsmål til appen, kan du besøge vores FAQ. Hvis det ikke hjælper dig, har vores supporthelte på helpme@mtvplay.tv et svar på næsten alt.",
-    "upgrade": "Opgrader",
+    "upgrade": "Opgrader til Premium",
     "upgradedMessage": "Du er nu opgraderet. ",
     "upgrading": "Opgraderer",
     "upgradePremium": "Opgrader til Premium",
@@ -70,7 +70,7 @@
       "discover": "Gå på opdagelse",
       "allShows": "Alle programmer",
       "channels": "Musikkanaler",
-      "shows": "IS THIS WORKING???",
+      "shows": "Programmer",
       "television": "MUSIK TV",
       "settings": "Indstillinger"
     },
@@ -78,8 +78,8 @@
     "profile": "Profil",
     "mtvPlay": "MTV Play",
     "onTv": "Musik",
-    "needToRegister": "Opret dig, eller log ind. ",
-    "easyRegister": "Bare rolig, det er nemt at oprette sig. Og vi gør ikke noget skummelt med dine data. På spejderære! ",
+    "needToRegister": "Opret dig, log ind eller få premium. ",
+    "easyRegister": "Opret dig gratis for at udnytte alle funktioner. Opgrader til premium og få adgang til alt indhold! ",
     "new": "Nyt",
     "newEpisodes": "Alle nye episoder",
     "newPassword": "Indtast ny adgangskode",
@@ -125,7 +125,7 @@
         "twitter": "Opret med Twitter",
         "email": "Opret med e-mail",
         "already": "Beklager, denne e-mail er allerede i brug!",
-        "operator": "Gratis med din TV udbyder"
+        "operator": "Gratis Premium med din TV udbyder"
       },
       "invalid": {
         "email": "Indtast en gyldig e-mailadresse.",
@@ -133,7 +133,7 @@
         "cellphone": "Tjek, at dit telefonnummer er korrekt, og at du har valgt det rigtige land."
       },
       "forgot": {
-        "title": "Har du glemt din adgangskode?",
+        "title": "Har du glemt din adgangskode? Indtast e-mail og tryk på ok",
         "wrong": "Ugyldig e-mailadresse.",
         "success": "Vi har sendt dig en e-mail med et link til nulstilling. "
       },
@@ -409,7 +409,8 @@
       "title": "Tak for din interesse."
     },
     "operator": {
-      "authenticate": "Indtast dit brugernavn og password fra din TV udbyder, så du bliver opgraderet til premium-adgang gratis hvis du har MTV i din TV pakke.",
+      "authenticate": "Indtast dit brugernavn og password fra din TV udbyder, så bliver du opgraderet til Premium gratis hvis du har MTV i din TV pakke.",
+      "boxer": "Indtast dit Boxer Play login. Gratis adgang til Premium forudsætter, at du har MTV i dit Boxer abonnemment, og at du har aktiveret Boxer Play ",
       "choose": "Vælg TV udbyder",
       "credentials": {
         "used": "Disse login-oplysninger bliver i forvejen brugt af for mange MTV Play-konti.",
@@ -432,7 +433,7 @@
     "recieveSecondScreen": "Hvis du vil se din video her, skal du vælg denne enhed på din liste over enheder. ",
     "register": {
       "redirectSubtitle": "Du er nu oprettet! Vend tilbage til din mobile app, og slå dig løs. ",
-      "redirectTeleport": "TIlbage til appen!",
+      "redirectTeleport": "Tilbage til appen!",
       "redirectTitle": "Konto bekræftet!"
     },
     "returnTap": "Tryk for at fortsætte",
@@ -508,7 +509,7 @@
     },
     "devices": {
       "title": "MTV Play er overalt!",
-      "body": "MTV Play kan ses på mobilen, tablets og på web, så du kan se dine programmer hvor som helst. Med nogle TV udbydere kan du opgradere til premium gratis!"
+      "body": "MTV Play kan ses på mobilen, tablets og på web. Opgrader til Premium og få adgang til alt indhold - det er gratis med din TV udbyder!"
     },
     "connect": {
       "title": "Forbind skærme!",
