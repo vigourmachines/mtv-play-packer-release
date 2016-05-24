@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.90",
+  "version": "1.2.91",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
@@ -223,8 +223,8 @@
         "single": "$region_single_purchase"
       },
       "android": {
-        "monthly": "mtvplay_subscription_monthly",
-        "yearly": "mtvplay_subscription_annually",
+        "monthly": "mtvplay_subscription_0616_monthly",
+        "yearly": "mtvplay_subscription_0616_annually",
         "single": "mtvplay_single_purchase"
       },
       "windows": {
