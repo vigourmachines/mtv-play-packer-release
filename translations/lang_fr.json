@@ -79,7 +79,7 @@
     "mtvPlay": "MTV Play",
     "onTv": "En direct",
     "needToRegister": "Veuillez vous inscrire ou vous identifier. ",
-    "easyRegister": "L'inscription est très facile. Vous bénéficierez même gratuitement d'un accès Premium de 48h ! Et nous ne ferons rien de malhonnête avec vos données, parole de scout ! ",
+    "easyRegister": "L'inscription est très facile. Et nous ne ferons rien de malhonnête avec vos données, parole de scout ! ",
     "new": "Nouveau",
     "newEpisodes": "Tous les nouveaux épisodes",
     "newPassword": "Entrer nouveau mot de passe",
@@ -115,7 +115,8 @@
         "email": "Connexion avec adresse e-mail",
         "wrong": "Zut ! E-mail ou mot de passe incorrect !",
         "success": "Bienvenue !",
-        "facebookError": "Connexion à Facebook impossible."
+        "facebookError": "Connexion à Facebook impossible.",
+        "operator": "Log in with your operator"
       },
       "logout": "Déconnexion",
       "signup": {
@@ -410,16 +411,20 @@
     },
     "operator": {
       "authenticate": "Merci d'entrer vos identifiants d'opérateur pour une mise à niveau vers l'accès premium.",
+      "boxer": "If you are an MTV subscriber for Boxer, please enter your credentials to upgrade to Premium. ",
       "choose": "Choisir opérateur",
       "credentials": {
+        "account": "This account exists already. Please log in via E-mail/Facebook.",
         "used": "Ces identifiants sont déjà utilisés par un trop grand nombre de comptes MTV Play.",
         "wrong": "Vos identifiants sont invalides ou déjà utilisés par un trop grand nombre de comptes MTV Play."
       },
       "deals": "Choisir opérateur",
       "future": "La mise à niveau avec cet opérateur est possible via ",
+      "getno": "Please enter your get credentials to upgrade to Premium.",
       "help": "Si vos identifiants ne fonctionnent pas, merci de contacter ",
       "register": "Merci de créer d'abord un compte MTV Play",
       "registerPlay": "Merci de créer d'abord un compte MTV Play",
+      "rikstv": "Please enter your RiksTV credentials to upgrade to Premium.",
       "select": "Merci de sélectionner votre opérateur"
     },
     "or": "ou",

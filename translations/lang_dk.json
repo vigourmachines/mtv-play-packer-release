@@ -115,7 +115,8 @@
         "email": "Log ind med e-mail",
         "wrong": "Tjek dine login-oplysninger!",
         "success": "Velkommen tilbage!",
-        "facebookError": "Kunne ikke logge på Facebook."
+        "facebookError": "Kunne ikke logge på Facebook.",
+        "operator": "Log ind med din TV udbyder"
       },
       "logout": "Log ud",
       "signup": {
@@ -410,17 +411,20 @@
     },
     "operator": {
       "authenticate": "Indtast dit brugernavn og password fra din TV udbyder, så bliver du opgraderet til Premium gratis hvis du har MTV i din TV pakke.",
-      "boxer": "Indtast dit Boxer Play login. Gratis adgang til Premium forudsætter, at du har MTV i dit Boxer abonnemment, og at du har aktiveret Boxer Play ",
+      "boxer": "Indtast dit Boxer Play login. Fri adgang til MTV Play Premium forudsætter, at du har MTV i dit Boxer tv-abonnement, og at du har aktiveret Boxer Play. ",
       "choose": "Vælg TV udbyder",
       "credentials": {
+        "account": "Denne konto er allerede i brug. Prøv at logge ind via e-mail eller Facebook.",
         "used": "Disse login-oplysninger bliver i forvejen brugt af for mange MTV Play-konti.",
         "wrong": "Dine login-oplysninger er enten ugyldige eller bliver i forvejen brugt af for mange MTV Play-konti."
       },
       "deals": "Vælg TV udbyder",
       "future": "Opgradering med denne TV udbyder tilbydes fra ",
+      "getno": "Please enter your get credentials to upgrade to Premium.",
       "help": "Hvis dine login-oplysninger ikke fungerer, bedes du kontakte ",
       "register": "Opret først en MTV Play-konto",
       "registerPlay": "Opret først en MTV Play-konto",
+      "rikstv": "Please enter your RiksTV credentials to upgrade to Premium.",
       "select": "Vælg venligst din TV udbyder"
     },
     "or": "eller",
