@@ -115,7 +115,8 @@
         "email": "Sign In with e-mail",
         "wrong": "Please check your credentials!",
         "success": "Welcome back!",
-        "facebookError": "Unable to login to facebook."
+        "facebookError": "Unable to login to facebook.",
+        "operator": "Log in with your operator"
       },
       "logout": "Log Out",
       "signup": {
@@ -415,11 +416,11 @@
       "credentials": {
         "account": "This account exists already. Please log in via E-mail/Facebook.",
         "used": "These credentials are used by too many MTV Play accounts already.",
-        "wrong": "Your credentials are invalid or used by too many MTV Play accounts already."
+        "wrong": "Your credentials are invalid or you mistyped them."
       },
       "deals": "Choose Operator",
       "future": "Upgrading with this operator is possible from ",
-      "get": "Please enter your get credentials to upgrade to Premium.",
+      "getno": "Please enter your get credentials to upgrade to Premium.",
       "help": "If your credential don't work, please contact ",
       "register": "Please register an MTV Play account first",
       "registerPlay": "Please register an MTV Play account first",

@@ -115,7 +115,8 @@
         "email": "Logg på med e-post",
         "wrong": "Sjekk informasjonen din!",
         "success": "Velkommen tilbake!",
-        "facebookError": "Kunne ikke logge på Facebook."
+        "facebookError": "Kunne ikke logge på Facebook.",
+        "operator": "Logg inn med din TV-distributør"
       },
       "logout": "Logg av",
       "signup": {
@@ -410,16 +411,20 @@
     },
     "operator": {
       "authenticate": "Vennligst tast inn din distributørs brukernavn og passord for å oppgradere til premium",
+      "boxer": "For å oppgradere til premium vennligst skriv inn ditt Boxer brukernavn og passord. ",
       "choose": "Velg distributør",
       "credentials": {
+        "account": "Denne kontoen er allerede registrert. Vennligst logg inn via e-mail eller Facebook.",
         "used": "Denne informasjonen er allerede knyttet til for mange «MTV Play»-kontoer.",
-        "wrong": "Informasjonen din er ugyldig eller brukes allerede av for mange «MTV Play»-kontoer."
+        "wrong": "Informasjonen din er ugyldig."
       },
       "deals": "Velg distributør",
       "future": "Oppgradering med denne distributøren vil være tilgjengelig fra ",
+      "getno": "For å oppgradere til premium vennligst skriv inn ditt get brukernavn og passord.",
       "help": "Om informasjonen din ikke fungerer, ta kontakt med ",
       "register": "Vennligst registrer en MTV Play konto først",
       "registerPlay": "Vennligst registrer en MTV Play konto først",
+      "rikstv": "For å oppgradere til premium vennligst skriv inn ditt RiksTV brukernavn og passord.",
       "select": "Vennligst velg din distributør"
     },
     "or": "eller",

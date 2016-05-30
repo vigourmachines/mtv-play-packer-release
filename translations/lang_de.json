@@ -115,7 +115,8 @@
         "email": "Mit E-Mail-Adresse anmelden",
         "wrong": "Oh, oh! Falsche E-Mail oder falsches Passwort!",
         "success": "Willkommen zurück!",
-        "facebookError": "Login mit Facebook nicht möglich."
+        "facebookError": "Login mit Facebook nicht möglich.",
+        "operator": "Mit Partnerkonto anmelden"
       },
       "logout": "Abmelden",
       "signup": {
@@ -410,17 +411,20 @@
     },
     "operator": {
       "authenticate": "Gib deine Zugangsdaten ein",
+      "boxer": "Wenn du ein MTV subscriber für Boxer bist, melde dich bitte mit deinen Zugangsdaten an. ",
       "choose": "Wähle deinen Anbieter",
       "credentials": {
-        "account": "Dieses Konto gibt's schon. Bitte versuche dich per E-Mail/Facebook einzuloggen.",
+        "account": "Dieses Konto gibt's schon. Bitte melde dich per E-Mail/Facebook an.",
         "used": "Diese Daten werden bereits von zu vielen MTV Play Konten benutzt.",
-        "wrong": "Diese Daten existieren nicht oder werden bereits von zu vielen MTV Play Konten benutzt."
+        "wrong": "Deine Daten existieren nicht oder wurden falsch eingegeben."
       },
       "deals": "Verfügbare Partner",
       "future": "Ein Upgrade mit diesem Partner ist verfügbar ab dem ",
+      "getno": "Bitte gib deine get Zugangsdaten ein, um vollen Zugriff zu erhalten.",
       "help": "Falls dein Account nicht funktioniert, wende dich bitte direkt an ",
       "register": "Bitte registriere dich",
       "registerPlay": "Bitte registriere ein MTV Play Konto",
+      "rikstv": "Bitte gib deine RiksTV Zugangsdaten ein, um vollen Zugriff zu erhalten.",
       "select": "Bitte wähle deinen Anbieter"
     },
     "or": "oder",
@@ -452,7 +456,7 @@
     "thisDevice": "Dieses Gerät",
     "trial": "48 Stunden Premium Trial",
     "trialActive": "48 Stunden Testphase aktiv",
-    "tvLogin": "Lade unsere App auf dein Smartphone oder Tablet um dich einzuloggen und dein Konto zu upgraden.",
+    "tvLogin": "Lade unsere App auf dein Smartphone oder Tablet, um dich einzuloggen und dein Konto zu upgraden. ",
     "tv": {
       "register": {
         "description": "Bitte registriere dich oder logge dich mit deinem MTV Play Konto ein, wenn du schon eins hast."
@@ -513,7 +517,7 @@
     },
     "connect": {
       "title": "Verbinde deine Geräte!",
-      "body": "Logge dich auf mehr als einem Gerät ein und erlebe eine völlig neue Multiscreen-Experience. "
+      "body": "Melde dich auf mehr als einem Gerät an und erlebe eine völlig neue Multiscreen-Experience. "
     },
     "free": {
       "body": "Bitte registriere dich oder melde dich an.",

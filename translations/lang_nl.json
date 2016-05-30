@@ -115,7 +115,8 @@
         "email": "Aanmelden met e-mail",
         "wrong": "Controleer je gegevens!",
         "success": "Welkom terug!",
-        "facebookError": "Facebook inloggen mislukt"
+        "facebookError": "Facebook inloggen mislukt",
+        "operator": "Log in met je provider"
       },
       "logout": "Afmelden",
       "signup": {
@@ -410,16 +411,20 @@
     },
     "operator": {
       "authenticate": "Vul de gegevens van je provider in om te upgraden naar premium toegang",
+      "boxer": "Vul je Boxer gegevens in om te upgraden naar Premium. ",
       "choose": "Kies provider",
       "credentials": {
+        "account": "Dit account bestaat al. Log in via e-mail/Facebook.",
         "used": "Deze gegevens worden al door teveel MTV Play-accounts gebruikt.",
-        "wrong": "Jouw gegevens zijn ongeldig of worden al door teveel MTV Play-accounts gebruikt."
+        "wrong": "Jouw gegevens zijn ongeldig."
       },
       "deals": "Kies provider",
       "future": "Upgrading with this operator is possible from ",
+      "getno": "Vul je get gegevens in om te upgraden naar Premium.",
       "help": "Als je gegevens niet werken, neem dan contact op met ",
       "register": "Registreer eerst een MTV Play-account",
       "registerPlay": "Registreer eerst een MTV Play-account",
+      "rikstv": "Vul je RiksTV gegevens in om te upgraden naar Premium.",
       "select": "Selecteer je provider"
     },
     "or": "of",

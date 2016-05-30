@@ -115,7 +115,8 @@
         "email": "Logowanie przez e-mail",
         "wrong": "Ups! Niepoprawny adres e-mail lub hasło!",
         "success": "Witaj ponownie!",
-        "facebookError": "Nie można zalogować się do serwisu Facebook."
+        "facebookError": "Nie można zalogować się do serwisu Facebook.",
+        "operator": "Log in with your operator"
       },
       "logout": "Wyloguj się",
       "signup": {
@@ -410,16 +411,20 @@
     },
     "operator": {
       "authenticate": "Aby uzyskać status premium, podaj dane operatora.",
+      "boxer": "If you are an MTV subscriber for Boxer, please enter your credentials to upgrade to Premium. ",
       "choose": "Wybierz operatora",
       "credentials": {
+        "account": "This account exists already. Please log in via E-mail/Facebook.",
         "used": "Te dane są wykorzystywane przez zbyt dużą liczbę kont MTV Play.",
         "wrong": "Twoje dane są nieprawidłowe lub korzysta z nich zbyt duża liczba kont MTV Play."
       },
       "deals": "Wybierz operatora",
       "future": "Rozszerzenie powiązane z tym operatorem jest możliwe z ",
+      "getno": "Please enter your get credentials to upgrade to Premium.",
       "help": "Jeżeli twoje dane nie są akceptowane, prosimy o kontakt  ",
       "register": "Najpierw zarejestruj konto MTV Play",
       "registerPlay": "Najpierw zarejestruj konto MTV Play",
+      "rikstv": "Please enter your RiksTV credentials to upgrade to Premium.",
       "select": "Zaznacz swojego operatora"
     },
     "or": "lub",
