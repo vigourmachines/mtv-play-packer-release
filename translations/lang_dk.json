@@ -416,7 +416,7 @@
       "credentials": {
         "account": "Denne konto er allerede i brug. Prøv at logge ind via e-mail eller Facebook.",
         "used": "Disse login-oplysninger bliver i forvejen brugt af for mange MTV Play-konti.",
-        "wrong": "Dine login-oplysninger er enten ugyldige eller bliver i forvejen brugt af for mange MTV Play-konti."
+        "wrong": "Dine brugeroplysninger er ugyldige eller du har tastet forkert."
       },
       "deals": "Vælg TV udbyder",
       "future": "Opgradering med denne TV udbyder tilbydes fra ",

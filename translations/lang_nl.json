@@ -416,7 +416,7 @@
       "credentials": {
         "account": "Dit account bestaat al. Log in via e-mail/Facebook.",
         "used": "Deze gegevens worden al door teveel MTV Play-accounts gebruikt.",
-        "wrong": "Jouw gegevens zijn ongeldig of worden al door teveel MTV Play-accounts gebruikt."
+        "wrong": "Jouw gegevens zijn ongeldig."
       },
       "deals": "Kies provider",
       "future": "Upgrading with this operator is possible from ",

@@ -416,7 +416,7 @@
       "credentials": {
         "account": "Dieses Konto gibt's schon. Bitte melde dich per E-Mail/Facebook an.",
         "used": "Diese Daten werden bereits von zu vielen MTV Play Konten benutzt.",
-        "wrong": "Diese Daten existieren nicht oder werden bereits von zu vielen MTV Play Konten benutzt."
+        "wrong": "Deine Daten existieren nicht oder wurden falsch eingegeben."
       },
       "deals": "Verfügbare Partner",
       "future": "Ein Upgrade mit diesem Partner ist verfügbar ab dem ",

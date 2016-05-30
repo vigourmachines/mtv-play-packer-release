@@ -416,7 +416,7 @@
       "credentials": {
         "account": "Denne kontoen er allerede registrert. Vennligst logg inn via e-mail eller Facebook.",
         "used": "Denne informasjonen er allerede knyttet til for mange «MTV Play»-kontoer.",
-        "wrong": "Informasjonen din er ugyldig eller brukes allerede av for mange «MTV Play»-kontoer."
+        "wrong": "Informasjonen din er ugyldig."
       },
       "deals": "Velg distributør",
       "future": "Oppgradering med denne distributøren vil være tilgjengelig fra ",

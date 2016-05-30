@@ -416,7 +416,7 @@
       "credentials": {
         "account": "This account exists already. Please log in via E-mail/Facebook.",
         "used": "These credentials are used by too many MTV Play accounts already.",
-        "wrong": "Your credentials are invalid or used by too many MTV Play accounts already."
+        "wrong": "Your credentials are invalid or you mistyped them."
       },
       "deals": "Choose Operator",
       "future": "Upgrading with this operator is possible from ",
