@@ -267,7 +267,7 @@
         "regionOverride": "DE",
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/production/player.js",
+          "web": "http://origin-player.mtvnn.com/html5player/staging/mediaplayer-bundle.2.4.0.beta1.js",
           "settings": {
             "ads": {
               "enabled": false
