@@ -199,8 +199,7 @@
           "rebase"
         ],
         "build.html": [
-          "meta",
-          "langs"
+          "meta"
         ]
       },
       "main": "build.js",
