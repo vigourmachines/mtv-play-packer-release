@@ -187,7 +187,8 @@
         "crossdomain.xml": true,
         "robots.txt": true,
         "crossdomain.xml": true,
-        "meta": "*"
+        "meta": "*",
+        "/node_modules/mediaplayer/dist/g2player.swf": true
       },
       "transforms": {
         "build.js": [
@@ -361,7 +362,6 @@
         "player": {
           "debug": false,
           "settings": {
-            "assetPaths": { "g2player.swf":"/node_modules/mediaplayer/dist/g2player.swf" },
             "ads": {
               "enabled": true,
               "viralSID": "mtvplaytv/test"
