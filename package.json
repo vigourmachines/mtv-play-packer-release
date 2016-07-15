@@ -362,6 +362,7 @@
         "player": {
           "debug": false,
           "settings": {
+            "assetPaths": { "g2player.swf":"/node_modules/mediaplayer/dist/g2player.swf" },
             "ads": {
               "enabled": true,
               "viralSID": "mtvplaytv/test"
