@@ -27,7 +27,7 @@
     "jquery": "^2.2.0",
     "lodash": "3.2.0",
     "markdown": "^0.5.0",
-    "mediaplayer": "git+ssh://git@github.com/vimn-north/mediaplayer.git#v2.3.2",
+    "mediaplayer": "https://github.com/vimn-north/mediaplayer.git#v2.3.6",
     "monotonic-timestamp": "0.0.9",
     "old-vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#hotfix/iosBrowser",
     "package-branch-config": "^1.2.2",
@@ -187,8 +187,7 @@
         "crossdomain.xml": true,
         "robots.txt": true,
         "crossdomain.xml": true,
-        "meta": "*",
-        "/node_modules/mediaplayer/dist/g2player.swf": true
+        "meta": "*"
       },
       "transforms": {
         "build.js": [
