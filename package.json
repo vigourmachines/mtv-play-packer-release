@@ -27,6 +27,7 @@
     "jquery": "^2.2.0",
     "lodash": "3.2.0",
     "markdown": "^0.5.0",
+    "mediaplayer": "git+ssh://git@github.com/vimn-north/mediaplayer.git#v2.3.6",
     "monotonic-timestamp": "0.0.9",
     "old-vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#hotfix/iosBrowser",
     "package-branch-config": "^1.2.2",
@@ -186,6 +187,7 @@
         "crossdomain.xml": true,
         "robots.txt": true,
         "crossdomain.xml": true,
+        "node_modules/mediaplayer/dist/g2player.swf": true,
         "meta": "*"
       },
       "transforms": {
@@ -199,7 +201,8 @@
           "rebase"
         ],
         "build.html": [
-          "meta"
+          "meta",
+          "langs"
         ]
       },
       "main": "build.js",
@@ -266,7 +269,7 @@
         "regionOverride": "DE",
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/production/player.js",
+          "web": "http://origin-player.mtvnn.com/html5player/staging/mediaplayer-bundle.2.4.0.beta1.js",
           "settings": {
             "ads": {
               "enabled": false
@@ -358,8 +361,8 @@
         },
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/staging/player.js?v=2",
           "settings": {
+            "assetPaths": { "g2player.swf":"/node_modules/mediaplayer/dist/g2player.swf" },
             "ads": {
               "enabled": true,
               "viralSID": "mtvplaytv/test"
