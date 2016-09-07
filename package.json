@@ -1,6 +1,6 @@
 {
   "name": "mtv-play",
-  "version": "1.2.94",
+  "version": "1.2.95",
   "description": "mtv's multiscreen adventure",
   "main": "index.js",
   "scripts": {
