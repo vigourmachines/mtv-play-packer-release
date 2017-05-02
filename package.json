@@ -27,7 +27,7 @@
     "jquery": "^2.2.0",
     "lodash": "3.2.0",
     "markdown": "^0.5.0",
-    "mediaplayer": "git+ssh://git@github.com/vimn-north/mediaplayer.git#v2.4.0",
+    "mediaplayer": "git+ssh://git@github.com/vimn-north/mediaplayer.git#v2.3.6",
     "monotonic-timestamp": "0.0.9",
     "old-vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#hotfix/iosBrowser",
     "package-branch-config": "^1.2.2",
