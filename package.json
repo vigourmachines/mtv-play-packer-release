@@ -5,31 +5,28 @@
   "main": "index.js",
   "scripts": {
     "test": "test/test.js",
-    "build": "gaston build -s ./index.js -o . -i && cd xhr && gaston build -s ./index.js -o . && cp build.js bundle.js",
+    "build":
+      "gaston build -s ./index.js -o . -i && cd xhr && gaston build -s ./index.js -o . && cp build.js bundle.js",
     "bundle": "gaston bundle -s ./index.js -o . -i",
-    "ios": "npm run build && ./node_modules/.bin/wrapper build --native.selectedPlatforms ios",
-    "release": "cp build.css bundle.css && ./node_modules/.bin/ferry --release --mergeFiles '[\"./package.json\",\"./.package.json\"]'"
+    "ios":
+      "npm run build && ./node_modules/.bin/wrapper build --native.selectedPlatforms ios",
+    "release":
+      "cp build.css bundle.css && ./node_modules/.bin/ferry --release --mergeFiles '[\"./package.json\",\"./.package.json\"]'"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/vigour-io/mtv-play"
   },
-  "keywords": [
-    "multiscreen",
-    "play",
-    "shows",
-    "smart",
-    "tv",
-    "js"
-  ],
+  "keywords": ["multiscreen", "play", "shows", "smart", "tv", "js"],
   "dependencies": {
     "autolinker": "^0.18.1",
     "jquery": "^2.2.0",
     "lodash": "3.2.0",
     "markdown": "^0.5.0",
-    "mediaplayer": "git+ssh://git@github.com/vimn-north/mediaplayer.git#v2.4.2",
+    "mediaplayer": "git+ssh://git@github.com/vimn-north/mediaplayer.git#v2.6.1",
     "monotonic-timestamp": "0.0.9",
-    "old-vigour-js": "git+ssh://git@github.com:vigour-io/vigour-js.git#hotfix/iosBrowser",
+    "old-vigour-js":
+      "git+ssh://git@github.com:vigour-io/vigour-js.git#hotfix/iosBrowser",
     "package-branch-config": "^1.2.2",
     "promise": "6.1.0",
     "through2": "^2.0.0",
@@ -50,48 +47,23 @@
     "hashUrl": true,
     "defaultRegion": false,
     "regionOverride": false,
-    "availableRegions": [
-      "DE",
-      "NL",
-      "CH",
-      "PL",
-      "BE",
-      "NO",
-      "AT",
-      "DK"
-    ],
+    "availableRegions": ["DE", "NL", "CH", "PL", "BE", "NO", "AT", "DK"],
     "geo": "https://wwwmtvplay-a.akamaihd.net/geo/",
     "development": {
       "button": true
     },
     "cloud": "http://mtv-hub.dev.vigour.io:80",
     "othercloud": "http://localhost:10001",
-    "languages": [
-      "en",
-      "de",
-      "nl",
-      "pl",
-      "it",
-      "fr",
-      "no",
-      "dk"
-    ],
-    "mtvmobile": [
-      "de",
-      "ch"
-    ],
-    "roles": [
-      "free",
-      "premium",
-      "mtv",
-      "trial"
-    ],
+    "languages": ["en", "de", "nl", "pl", "it", "fr", "no", "dk"],
+    "mtvmobile": ["de", "ch"],
+    "roles": ["free", "premium", "mtv", "trial"],
     "countrycodes": {
       "de": 49,
       "ch": 41,
       "nl": 31
     },
-    "dictionary": "https://mtv-staging.vigour.io/translations/lang_$language.json",
+    "dictionary":
+      "https://mtv-staging.vigour.io/translations/lang_$language.json",
     "epg": "https://wwwmtvplay-a.akamaihd.net/xhr/index.html",
     "img": "https://imgmtvplay-a.akamaihd.net",
     "imgOrigin": "http://images.mtvnn.com/",
@@ -191,26 +163,18 @@
         "meta": "*"
       },
       "transforms": {
-        "build.js": [
-          "inform"
-        ],
-        "bundle.css": [
-          "rebase"
-        ],
-        "build.css": [
-          "rebase"
-        ],
-        "build.html": [
-          "meta",
-          "langs"
-        ]
+        "build.js": ["inform"],
+        "bundle.css": ["rebase"],
+        "build.css": ["rebase"],
+        "build.html": ["meta", "langs"]
       },
       "main": "build.js",
       "web": "build.html",
       "fbDefaults": {
         "title": "MTV Play",
         "description": "Mtv's new app to view shows on all devices",
-        "image": "http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png"
+        "image":
+          "http://img.mtvutt.com/image/180/180?url=http://play.mtvutt.com/apple-touch-icon-180x180.png"
       }
     },
     "store": {
@@ -261,7 +225,8 @@
           "type": "production",
           "url": "https://utt.mtvnn.com/"
         },
-        "dictionary": "https://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
+        "dictionary":
+          "https://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "development": {
           "button": false
         },
@@ -269,7 +234,8 @@
         "regionOverride": "DE",
         "player": {
           "debug": false,
-          "web": "http://origin-player.mtvnn.com/html5player/staging/mediaplayer-bundle.2.4.0.beta1.js",
+          "web":
+            "http://origin-player.mtvnn.com/html5player/staging/mediaplayer-bundle.2.4.0.beta1.js",
           "settings": {
             "ads": {
               "enabled": false
@@ -281,7 +247,8 @@
         }
       },
       "production": {
-        "dictionary": "https://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
+        "dictionary":
+          "https://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "-hubs.mtvplay.tv",
         "omniture": "viaviamtvplay",
         "api": {
@@ -290,9 +257,11 @@
         },
         "player": {
           "debug": false,
-          "web": "http://player.mtvnn.com/html5player/production/player.js?2",
+          "web": "http://player.mtvnn.com/html5player/production/player.js?v=2",
           "settings": {
-            "assetPaths": { "g2player.swf":"/node_modules/mediaplayer/dist/g2player.swf" },
+            "assetPaths": {
+              "g2player.swf": "/node_modules/mediaplayer/dist/g2player.swf"
+            },
             "ads": {
               "enabled": true,
               "viralSID": "production"
@@ -302,16 +271,7 @@
         "development": {
           "button": false
         },
-        "availableRegions": [
-          "DE",
-          "NL",
-          "CH",
-          "PL",
-          "BE",
-          "NO",
-          "AT",
-          "DK"
-        ]
+        "availableRegions": ["DE", "NL", "CH", "PL", "BE", "NO", "AT", "DK"]
       },
       "develop": {
         "imgOrigin": "http://staging.riptide.mtvnn.com/",
@@ -363,7 +323,9 @@
         "player": {
           "debug": false,
           "settings": {
-            "assetPaths": { "g2player.swf":"/node_modules/mediaplayer/dist/g2player.swf" },
+            "assetPaths": {
+              "g2player.swf": "/node_modules/mediaplayer/dist/g2player.swf"
+            },
             "ads": {
               "enabled": true,
               "viralSID": "mtvplaytv/test"
@@ -372,7 +334,8 @@
         }
       },
       "master": {
-        "dictionary": "https://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
+        "dictionary":
+          "https://wwwmtvplay-a.akamaihd.net/translations/lang_$language.json",
         "cloud": "production",
         "omniture": "viaviamtvplay",
         "development": {
