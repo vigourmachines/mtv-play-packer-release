@@ -259,6 +259,7 @@
           "debug": false,
           "web": "http://player.mtvnn.com/html5player/production/player.js?v=2",
           "settings": {
+            "forceh5p": true,
             "assetPaths": {
               "g2player.swf": "/node_modules/mediaplayer/dist/g2player.swf"
             },
