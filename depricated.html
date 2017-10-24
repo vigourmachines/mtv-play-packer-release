@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src=https://cdnjs.cloudflare.com/ajax/libs/url-search-params/0.10.0/url-search-params.js></script>
+    <title></title>
+      <link href="fonts.css" rel="stylesheet" type="text/css">
+      <style type="text/css">
+
+      @-webkit-keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          -webkit-transform: translate3d(0, -60px, 0);
+        }
+        80% {
+          opacity: 0.8;
+          -webkit-transform: translate3d(0, 0, 0);
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @-moz-keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          -moz-transform: translate3d(0, -60px, 0);
+        }
+        80% {
+          opacity: 0.8;
+          -moz-transform: translate3d(0, 0, 0);
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @-o-keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          -o-transform: translate3d(0, -60px, 0);
+        }
+        80% {
+          opacity: 0.8;
+          -o-transform: translate3d(0, 0, 0);
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          transform: translate3d(0, -60px, 0);
+        }
+        80% {
+          opacity: 0.8;
+          transform: translate3d(0, 0, 0);
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      html {
+        height: 100%;
+      }
+
+      body {
+        background: -webkit-radial-gradient(circle, #3A1A58, #231331);
+        background: -moz-radial-gradient(circle, #3A1A58, #231331);
+        background: -ms-radial-gradient(circle, #3A1A58, #231331);
+        margin: 0;
+        padding: 0;
+        font-family: OpenSansRegular;
+        font-weight: normal;
+        font-style: normal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+
+      #middle {
+        text-align: center;
+      }
+
+      #loaderIcon {
+        height: 120px;
+        width: 120px;
+        -webkit-animation: fadeInDown 0.4s 1 ease-out;
+        /* Safari 4+ */
+        -moz-animation: fadeInDown 0.4s 1 ease-out;
+        /* Fx 5+ */
+        -o-animation: fadeInDown 0.4s 1 ease-out;
+        /* Opera 12+ */
+        animation: fadeInDown 0.4s 1 ease-out;
+        /* IE 10+, Fx 29+ */
+      }
+      .title {
+        font-family: OpenSansBold;
+        font-size: 22px;
+        color: #ffeb00;
+      }
+      .message {
+        font-size: 15px;
+        color: #ac99b9;
+      }
+
+      .links {
+        color: #ffffff;
+        padding-top: 15px;
+        cursor: pointer;
+      }
+      </style>
+  </head>
+  <body>
+    <div id="middle">
+      <img id="loaderIcon" src="img/branding/logo.png" title="MTV Play" alt="MTV Play" />
+    </div>
+  </body>
+  <script type="text/javascript">
+  var map = {
+  nl: {
+    title: 'Bedankt voor het gebruik van MTV Play',
+    body:
+      'Deze versie van MTV Play wordt niet langer ondersteund. Download hieronder nu gratis de nieuwe MTV Play app, om je favoriete shows te blijven kijken!',
+    install: 'Installeer de nieuwe MTV Play!'
+  },
+  fr: {
+    title: 'Merci d’utiliser MTV Play',
+    body:
+      'Cette version d’MTV Play sera bientôt supprimée. Téléchargez, ci-dessous, la nouvelle application MTV Play pour continuer à regarder vos épisodes préférés !',
+    install: 'Installer la nouvelle version d’MTV Play!'
+  },
+  en: {
+    title: 'Thank you for using MTV Play',
+    body:
+      'This version of MTV Play will soon be retired.  Check out the new MTV Play app below to continue watching your favorite shows!',
+    install: 'Install the new MTV Play!'
+  },
+  dk: {
+    title: 'Tak fordi du bruger MTV Play',
+    body:
+      'Denne version af MTV Play udgår snart. Prøv den nye MTV Play app nedenfor, så du kan fortsætte med at se dine yndlingsprogrammer!',
+    install: 'Installer den nye MTV Play!'
+  },
+  no: {
+    title: 'Takk for at du bruker MTV Play',
+    body:
+      'Denne versjonen av MTV Play utgår snart. Sjekk ut den nye MTV Play appen nedenfor for å fortsette å se på dine favorittprogram!',
+    install: 'Installer den nye MTV Play!'
+  },
+  de: {
+    title: 'Vielen Dank dafür, dass du MTV Play nutzt',
+    body:
+      ' Diese Version von MTV Play wird bald in den verdienten Ruhestand geschickt. Damit du weiterhin deine MTV Lieblingsshows schauen kannst haben wir für dich die komplett neue MTV Play App am start:',
+    install: 'Installiere die neue MTV Play App!'
+  },
+  pl: {
+    title: 'Wsparcie techniczne MTV Play',
+    body:
+      'Ta wersja MTV Play wkrótce wygaśnie. Sprawdź nową apkę MTV Play w nieco zmienionej formule (link poniżej) i oglądaj swoje ulubione programy MTV za darmo!',
+    install: 'Zainstaluj nową grę MTV Play'
+  }
+}
+var urlParams = new URLSearchParams(window.location.search)
+const ua = urlParams.get('UA')
+const lang = urlParams.get('lang')
+var text = map[lang] || map['en']
+var container = document.getElementById('middle')
+
+var title = document.createElement('div')
+var body = document.createElement('div')
+var links = document.createElement('div')
+
+title.className = 'title'
+title.innerHTML = text.title
+
+body.className = 'message'
+body.innerHTML = text.body.split('.')[1]
+
+links.innerHTML = !ua ? 'iOS' : ua.charAt(0).toUpperCase() + ua.slice(1)
+links.className = 'links'
+links.onclick = function() {
+  window.open(
+    'https://cdnjs.cloudflare.com/ajax/libs/url-search-params/0.10.0/url-search-params.js',
+    '_system'
+  )
+}
+
+container.appendChild(title)
+container.appendChild(body)
+container.appendChild(links)
+</script>
+</html>

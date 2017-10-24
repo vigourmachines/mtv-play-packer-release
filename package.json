@@ -145,6 +145,7 @@
         "build.css": true,
         "bundle.css": true,
         "fonts.css": true,
+        "depricated.html": true,
         "fonts": "*",
         "img": "*",
         "assets": "*",
