@@ -186,10 +186,7 @@ body.innerHTML = text.body.split('.')[1]
 links.innerHTML = !ua ? 'iOS' : ua.charAt(0).toUpperCase() + ua.slice(1)
 links.className = 'links'
 links.onclick = function() {
-  window.open(
-    'https://play.google.com/store/apps/details?id=com.vmn.playplex',
-    '_system'
-  )
+  window.open('market://details?id=id=com.vmn.playplex', '_system')
 }
 
 container.appendChild(title)
