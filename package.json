@@ -69,7 +69,7 @@
     "imgOrigin": "http://images.mtvnn.com/",
     "api": {
       "type": "production",
-      "url": "http://utt.mtvnn.com/",
+      "url": "https://utt.mtvnn.com/",
       "acceptHeader": "application/json",
       "key": "4e99c9381b74354fbae9f468497912f0"
     },
@@ -208,13 +208,6 @@
       }
     },
     "branches": {
-      "sitemaps": {
-        "api": {
-          "type": "staging",
-          "url": "https://utt-staging.mtvnn.com/"
-        },
-        "cloud": "http://localhost:10001"
-      },
       "dk": {
         "api": {
           "type": "staging",
@@ -254,7 +247,7 @@
         "omniture": "viaviamtvplay",
         "api": {
           "type": "production",
-          "url": "http://utt.mtvnn.com/"
+          "url": "https://utt.mtvnn.com/"
         },
         "player": {
           "debug": false,
